@@ -1,8 +1,10 @@
+import traceback
+from script_descarga import download_nltk_components
 from retriever import PostgresDbManager
 from adobe_extract import AdobeExtract
 from splitter import process_multiple_zip
 from flask import Flask, request, jsonify
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 
 
@@ -24,24 +26,71 @@ def create_app():
     model_embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/gtr-t5-xxl")
     app.db_manager = PostgresDbManager(model_embedding)
     app.adobe_extract = AdobeExtract()
-    print("App creada correctamente")
+    download_nltk_components()
     return app
 
+
 app = create_app()
+
+
 
 
 @app.route('/add_documents', methods=['POST'])
 def add_documents():
     data = request.get_json()
     inputs_pdf = data.get("docs")
+    response = {
+        "processed_documents": [],
+        "unprocessed_documents": [],
+        "chunked_documents": [],
+        "unchunked_documents": [],
+        "errors": []
+    }
+
     try:
-        zip_paths = app.adobe_extract.get_multiple_pdf_path(inputs_pdf)
-        chunks = process_multiple_zip(zip_paths)
-        app.db_manager.add_documents(chunks)
-        return jsonify({"message": "Document added successfully"}), 201
+        correctly_processed, unprocessed = app.adobe_extract.get_multiple_pdf_path(inputs_pdf)
+
+        # Documentos que no pudieron ser procesados por get_multiple_pdf_path
+        for doc, error in unprocessed:
+            response["unprocessed_documents"].append({
+                "document": doc,
+                "error": error
+            })
+
+        correctly_chunked, unchunked = process_multiple_zip(correctly_processed)
+
+        # Documentos que fueron procesados correctamente
+        for doc, processed_pdf_path in correctly_processed:
+            response["processed_documents"].append({
+                "document": doc,
+                "processed_path": processed_pdf_path
+            })
+
+        # Documentos que no pudieron ser procesados en chunks
+        for doc, error in unchunked:
+            response["unchunked_documents"].append({
+                "document": doc,
+                "error": error
+            })
+
+        # Documentos que fueron chunked correctamente y añadidos a la base de datos
+        for doc, chunks in correctly_chunked:
+            app.db_manager.add_documents(chunks)
+            response["chunked_documents"].append({
+                "document": doc,
+                "chunks": len(chunks)
+            })
+
+        return jsonify(response), 201
+
     except Exception as e:
-        print(e)
-        return jsonify({"error": str(e)}), 500
+        exception_text = traceback.format_exc()
+        response["errors"].append({
+            "message": str(e),
+            "traceback": exception_text
+        })
+        return jsonify(response), 500
+
     
 @app.route('/clear_database', methods=['POST'])
 def clear_database():

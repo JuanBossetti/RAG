@@ -1,6 +1,7 @@
 import os
-import logging
+import traceback
 import shutil
+from routes import Routes
 from adobe.pdfservices.operation.auth.credentials import Credentials
 from adobe.pdfservices.operation.exception.exceptions import ServiceApiException, ServiceUsageException, SdkException
 from adobe.pdfservices.operation.execution_context import ExecutionContext
@@ -15,27 +16,30 @@ class AdobeExtract:
 
     def __init__(self):
         self.execution_context = ExecutionContext.create(self._build_credentials())
-        # self.zip_folder_path = Routes.get_zip_path()
-        # self.pdf_folder_path = Routes.get_pdf_path()
-        self.zip_folder_path = "/mnt/datos/desarrollo/documentos/prueba1/zip_path"
-        self.pdf_folder_path = "/mnt/datos/desarrollo/documentos/prueba1/pdf_path"
-        # self.temp_folder_path = "D:\\Documentos\\Programación\\gitProjects\\s\\emp"
+        self.zip_folder_path = Routes.get_zipRoute()
+        self.pdf_folder_path = Routes.get_pdfRoute()
+
 
         self._ensure_directory_exists(self.zip_folder_path)
     
     def get_multiple_pdf_path(self, inputs_pdf):
-        outputs_zip = []
+        correctly_processed = []
+        unprocessed = []
         for ip in inputs_pdf:
-            outputs_zip.append(self.get_processed_pdf_path(ip))
-        return outputs_zip
+            try:
+                processed_pdf_path = self._get_processed_pdf_path(ip)
+                correctly_processed.append((ip, processed_pdf_path))
+            except Exception as e:
+                exception_text = traceback.format_exc()
+                unprocessed.append((ip, exception_text))
 
-    def get_processed_pdf_path(self, input_pdf):
+        return correctly_processed, unprocessed
+
+    def _get_processed_pdf_path(self, input_pdf):
         zip_path = self._get_zip_path(input_pdf)
         if os.path.isfile(zip_path):
-            print("retornando conocido")
             return zip_path
         else:
-            print("A api adobe")
             self._process_pdf(input_pdf, zip_path)
             return zip_path
 
@@ -60,15 +64,12 @@ class AdobeExtract:
             .build()
 
     def _process_pdf(self, input_pdf, output_zip):
-        """Procesa un solo archivo PDF."""
-        try:
-            full_pdf_path = self._get_full_path(input_pdf)
-            extract_pdf_operation = self._setup_extract_operation(full_pdf_path)
-            result = extract_pdf_operation.execute(self.execution_context)
-            self._save_result(result, output_zip)
-        except (ServiceApiException, ServiceUsageException, SdkException):
-            logging.exception(f"Excepción encontrada al procesar el archivo: {input_pdf}")
-
+        #Procesa un solo archivo PDF.
+        full_pdf_path = self._get_full_path(input_pdf)
+        extract_pdf_operation = self._setup_extract_operation(full_pdf_path)
+        result = extract_pdf_operation.execute(self.execution_context)
+        self._save_result(result, output_zip)
+    
     def _ensure_directory_exists(self, directory):
         print(directory)
         if not os.path.exists(directory):
@@ -83,6 +84,7 @@ class AdobeExtract:
             .with_elements_to_extract([ExtractElementType.TEXT, ExtractElementType.TABLES]) \
             .with_elements_to_extract_renditions([ExtractRenditionsElementType.TABLES, ExtractRenditionsElementType.FIGURES]) \
             .build()
+        # Es posible extrar imagenes agregando un ExtractElementType
                 
         extract_pdf_operation.set_options(extract_pdf_options)
         

@@ -1,5 +1,6 @@
 
 import os
+import traceback
 import shutil
 import zipfile
 import re
@@ -9,12 +10,18 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import NLTKTextSplitter
 
 
-def process_multiple_zip(input_zips):
-    multiple_chunks = []
-    for iz in input_zips:
-        chunks = process_zip(iz)
-        multiple_chunks.extend(chunks)
-    return chunks
+def process_multiple_zip(correctly_processed):
+    correctly_chunked = []
+    unchunked = []
+    for cp in correctly_processed:
+        try:
+            chunks = process_zip(cp[1])
+            correctly_chunked.append((cp[0], chunks))
+        except Exception as e:
+            exception_text = traceback.format_exc()
+            unchunked.append((cp[0], exception_text))
+    return correctly_chunked, unchunked
+
 
 
 
@@ -37,55 +44,90 @@ def process_zip(input_zip):
     parsed_file = open(file_name, "a", encoding="utf-8")
 
     for element in elements:
-        if "//Document/H1" in element["Path"]:
-            hdr_txt = element["Text"]
-            if FIRST_TIME_HEADER:
-                FIRST_TIME_HEADER = False
-                parsed_file.write(hdr_txt + "\n ")
+            if "//Document/H1" in element["Path"]:
+                # Se extrae el texto del elemento y se almacena en la variable hdr_txt.
+                hdr_txt = element["Text"]
+                if FIRST_TIME_HEADER:
+                    FIRST_TIME_HEADER = False
+                    # Si es la primera vez que se encuentra la cabecera, se escribe en el archivo.
+                    parsed_file.write(hdr_txt)
+                    parsed_file.write("\n")
+                    parsed_file.write(" ")
+                else:
+                    # Se cierra el archivo actual.
+                    parsed_file.close()
+                    file_split = file_split + 1
+                    # Se crea el nombre del próximo archivo.
+                    file_name = os.path.join(chunked_dir, f"file_{file_split}".format(file_split=file_split))
+                    # Se abre el próximo archivo en modo de adición.
+                    parsed_file = open(file_name, "a", encoding="utf-8")
+                    # Se escribe la cabecera en el nuevo archivo.
+                    parsed_file.write(hdr_txt)
+                    parsed_file.write("\n")
+                    parsed_file.write(" ")
             else:
-                parsed_file.close()
-                file_split += 1
-                file_name = os.path.join(chunked_dir, f"file_{file_split}")
-                parsed_file = open(file_name, "a", encoding="utf-8")
-                parsed_file.write(hdr_txt + "\n ")
-        elif "//Document/H2" in element["Path"]:
-            hdr_txt = element["Text"]
-            if FIRST_TIME_HEADER2:
-                FIRST_TIME_HEADER2 = False
-                parsed_file.write(hdr_txt + "\n ")
-            else:
-                parsed_file.close()
-                file_split += 1
-                file_name = os.path.join(chunked_dir, f"file_{file_split}")
-                parsed_file = open(file_name, "a", encoding="utf-8")
-                parsed_file.write(hdr_txt + "\n ")
-        elif "//Document/H3" in element["Path"]:
-            hdr_txt = element["Text"]
-            if FIRST_TIME_HEADER3:
-                FIRST_TIME_HEADER3 = False
-                parsed_file.write(hdr_txt + "\n ")
-            else:
-                parsed_file.close()
-                file_split += 1
-                file_name = os.path.join(chunked_dir, f"file_{file_split}")
-                parsed_file = open(file_name, "a", encoding="utf-8")
-                parsed_file.write(hdr_txt + "\n ")
-        elif "Document/Table" in element["Path"]:
-            match = re.search(r'^//Document/Table(?:\[\d+\])?\.(xls|xlsx)$', element["Path"][0])
-            if match:
-                xlsx_file_name = element["filePaths"][0]
-                print("TABLE")
-                print(xlsx_file_name)
-                xlsx_file = os.path.join(unzip_dir, "", xlsx_file_name)
-                df = pd.DataFrame(pd.read_excel(xlsx_file))
-                table_content = df.to_markdown().replace("_x000D_", "      ")
-                parsed_file.write(table_content + "\n ")
-        else:
-            try:
-                text_content = element["Text"]
-                parsed_file.write(text_content + "\n ")
-            except KeyError:
-                pass
+                if "//Document/H2" in element["Path"]:
+                    # Se extrae el texto del elemento y se almacena en la variable hdr_txt.
+                    hdr_txt = element["Text"]
+                    if FIRST_TIME_HEADER2:
+                        FIRST_TIME_HEADER2 = False
+                        # Si es la primera vez que se encuentra la cabecera, se escribe en el archivo.
+                        parsed_file.write(hdr_txt)
+                        parsed_file.write("\n")
+                        parsed_file.write(" ")
+                    else:
+                        # Se cierra el archivo actual.
+                        parsed_file.close()
+                        file_split = file_split + 1
+                        # Se crea el nombre del próximo archivo.
+                        file_name = os.path.join(chunked_dir, f"file_{file_split}".format(file_split=file_split))
+                        # Se abre el próximo archivo en modo de adición.
+                        parsed_file = open(file_name, "a", encoding="utf-8")
+                        # Se escribe la cabecera en el nuevo archivo.
+                        parsed_file.write(hdr_txt)
+                        parsed_file.write("\n")
+                        parsed_file.write(" ")
+                else:
+                    if "//Document/H3" in element["Path"]:
+                        # Se extrae el texto del elemento y se almacena en la variable hdr_txt.
+                        hdr_txt = element["Text"]
+                        if FIRST_TIME_HEADER3:
+                            FIRST_TIME_HEADER3 = False
+                            # Si es la primera vez que se encuentra la cabecera, se escribe en el archivo.
+                            parsed_file.write(hdr_txt)
+                            parsed_file.write("\n")
+                            parsed_file.write(" ")
+                        else:            
+                            # Se cierra el archivo actual.
+                            parsed_file.close()
+                            file_split = file_split + 1
+                            # Se crea el nombre del próximo archivo.
+                            file_name = os.path.join(chunked_dir, f"file_{file_split}".format(file_split=file_split))
+                            # Se abre el próximo archivo en modo de adición.
+                            parsed_file = open(file_name, "a", encoding="utf-8")
+                            # Se escribe la cabecera en el nuevo archivo.
+                            parsed_file.write(hdr_txt)
+                            parsed_file.write("\n")
+                            parsed_file.write(" ")
+                    else:
+                        if "Document/Table" in element["Path"]:
+                            match = re.search(r'^//Document/Table(?:\[\d+\])?$', element["Path"])
+                            if match:
+                                xlsx_file_name = element["filePaths"][0]
+                                xlsx_file = os.path.join(unzip_dir, "", xlsx_file_name)
+                                df = pd.DataFrame(pd.read_excel(xlsx_file))
+                                table_content = df.to_markdown().replace("_x000D_", "      ")
+                                parsed_file.write(table_content)
+                                parsed_file.write("\n")
+                                parsed_file.write(" ")
+                        else:    
+                            try:
+                                text_content = element["Text"]
+                                parsed_file.write(text_content)
+                                parsed_file.write("\n")
+                                parsed_file.write(" ")
+                            except KeyError as ke:
+                                pass
 
     parsed_file.close()
 
@@ -93,6 +135,7 @@ def process_zip(input_zip):
     print("La cantidad de chunks generados a partir de las etiquetas del parseo del Json fueron: " + str(len(files)))
     
     list_of_all_docs = [_load_docs(file)[0] for file in files]
+
     chunks = _NLTK_splitter(list_of_all_docs)
     return chunks
 
