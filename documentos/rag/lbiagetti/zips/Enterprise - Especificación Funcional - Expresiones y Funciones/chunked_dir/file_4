@@ -1,0 +1,39 @@
+En Cliente Buscar Email Cuando Teléfono COMIENZA CON “5” 
+ • 
+ Resaltado de errores. En el caso de que la Expresión introducida tenga algún error, se resaltará el texto que lo haya producido y se indicará con un tooltip el detalle del mismo. En la siguiente imagen se muestra (a título informativo) un ejemplo de esta funcionalidad, donde adicionalmente al detalle del error se presentan acciones correctivas: 
+ • 
+ Asistencia de contenidos: Sugiere, en base al contexto, el contenido que le puede ser de utilidad al usuario para “autocompletar” el texto que está introduciendo. Esta funcionalidad usa la búsqueda incremental (y no predictiva) descripta en el documento de estándares. Algunos casos de uso: 
+ o 
+ Si se empieza a escribir una palabra, se van sugiriendo nombres de Entidades, Funciones, Operadores, etc. los cuales se pueden utilizar en base al resto de la Expresión y los caracteres ya introducidos. Por ejemplo, si se está escribiendo un parámetro de una Función que espera una Entidad, solo se muestran Entidades. Si se escribió “En Cliente” se sugieren otras instrucciones que se pueden usar a continuación, por ejemplo: Buscar, Primer, Cuando, Ordenar, etc. 
+ o 
+ Si se introduce un punto luego del nombre de una Entidad, se mostrará el listado de todos sus Atributos y Acumuladores. 
+ o 
+ Si se introduce un punto luego de un Atributo que no sea de categoría simple, se mostrará el listado de Atributos subordinados disponibles. 
+ o 
+ En el caso de que luego de un atributo se introduzca un operador lógico o de comparación, el sistema ira proponiendo valores de dichos atributos a partir de las instancias existentes. Por ejemplo, si el usuario escribe “Ciudad.Nombre =” en el listado se mostrará el listado de ciudades existentes en dicha Entidad. En el caso de que la operación soporte que se le pase más de un valor, por ejemplo Cliente.Nombre EN (…….), se le permitirá al usuario que seleccione más de una instancia y se completará la Expresión con todas las instancias seleccionadas separadas por el separador de listas del usuario. 
+ El panel inferior cuenta con las siguientes herramientas: 
+ • 
+ Elementos. Se visualizan todos los atributos y acumuladores que se pueden utilizar en la Expresión. Este listado se va desplazando dinámicamente en base a lo que se está escribiendo en el área de texto de la Expresión, por ejemplo, si se ingresó un nombre de una Entidad en el área de texto, automáticamente el árbol se ubicara en dicha entidad mostrándola expandida de forma de visualizar sus atributos. Adicionalmente esta solapa mostrará un área de texto donde se visualizará el detalle del Elemento visualizado, este detalle se obtendrá de la descripción y documentación del mismo. 
+ • 
+ Funciones. Se muestran las Funciones disponibles (agrupadas por la categoría a la cual pertenecen), y la descripción y documentación del uso de la Función. Las Funciones están clasificadas y se muestran en primer lugar las específicas y luego las genéricas. 
+ o 
+ Funciones genéricas: Son las que pueden ser utilizadas en cualquier expresión sin importar en qué elemento del modelo se utilizan. Por ejemplo, funciones aritméticas y las de cadena de texto. 
+ o 
+ Funciones específicas: Las mismas son particulares para ciertos elementos del modelo. Son ejemplos de estos tipos las Funciones de información del sistema como las que se 
+ usan para obtener el valor de la tolerancia o el saldo por diferencia de conversión desde una regla de cancelación. 
+ • 
+ Operadores. Se muestran los Operadores disponibles y la descripción y documentación de cada uno de ellos a modo de ayuda. 
+ • 
+ Contexto inicial. Muestra el contexto inicial de la expresión 
+ • 
+ Tipo de atributo de retorno. Tipo de atributo del resultado de la expresión. 
+ Hablemos ahora de las Funciones. En FastPrg podemos emplearlas para llevar a cabo diferentes tareas, por llamarlas de algún modo. Por un lado, nos permiten realizar cálculos dependiendo de otros valores. Y en las funciones tenemos el plus de que podemos utilizar parámetros. Si bien más adelante entraremos en detalle, mencionaremos un caso práctico: podríamos usarla para aplicar determinado descuento, solo si el cliente es de cierto tipo, por ejemplo, mayorista. 
+ Por otro lado, nos posibilitan centralizar una expresión, de manera que podamos estandarizarla. En caso de que necesitemos la misma expresión en varios lugares distintos, podemos crear una función que la contenga y solo reutilizarla en esos otros lugares. Es por esto que, si posteriormente queremos cambiar la expresión, solo bastará con modificarla en la función. Como consecuencia, de modo automático, este cambio se verá reflejado en cada lugar que la hayamos empleado, otorgando, así, una mejor adaptabilidad al cambio y quitándonos la responsabilidad de recordar cada lugar en que se utilizó. 
+ Además, las funciones nos permiten solicitar al usuario el ingreso de valores en forma interactiva. Por ejemplo, podríamos realizar un filtro en un GDI, en el cual el usuario deba seleccionar una fecha de inicio y una de fin, y a partir de eso, se filtre el contenido del GDI, según el plazo establecido. Asimismo, al momento de exportar instancias podemos definir que la función nos pida un período contable y que, al ejecutarla, exporte las instancias correspondientes a ese lapso de tiempo. 
+ Sigamos con más casos prácticos. También, podemos valernos de funciones a través de las cuales consumir servicios web. Por ejemplo, una que solicite el código CAE a la AFIP y lo inserte en la factura electrónica; o que consuman dispositivos, como una lectora de códigos, la cual nos devuelva el precio y la descripción del producto identificado. 
+ Incluso, podemos utilizarlas para obtener información del sistema, tales como las funciones 
+ HOY() 
+ que nos indica la fecha actual, o 
+ USUARIO() 
+ la cual nos devuelve el usuario que ha iniciado la sesión. 
+ 

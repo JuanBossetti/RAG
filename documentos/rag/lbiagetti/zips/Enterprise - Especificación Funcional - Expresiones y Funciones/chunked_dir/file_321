@@ -1,0 +1,3 @@
+Explorador() 
+ Devuelve una referencia a la instancia de Browser que se generó cuando el usuario autenticado inició sesión. Contiene toda la información posible del browser a través del cual se está utilizando la aplicación. La entidad Log de Seguridad (cuyas instancias se crean cada vez que un usuario inicia sesión) tiene una referencia a la entidad Browser que contiene la información del browser donde inicia sesión. 
+ 

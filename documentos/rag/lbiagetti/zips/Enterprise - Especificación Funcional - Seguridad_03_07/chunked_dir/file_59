@@ -1,0 +1,70 @@
+10 Romper herencia 
+ Se podrá romper la herencia de la seguridad definida en otros niveles. Esto significará que sólo se evaluará la seguridad definida en el elemento que estoy posicionado. 
+ Por ejemplo: 
+ 1. 
+ Existe un grupo de usuarios con permisos de ejecutar todas las reglas de negocios del modelo, pero se requiere que una regla particular no la puedan ejecutar. En ese caso se accederá a esta regla particular, se indicará con el checkbox que rompe herencia (ya no heredará los permisos definidos a nivel de modelo) y se definirá la seguridad para esa regla particular. 
+ 2. 
+ Existe un atributo particular en una entidad qué sólo debe ser visto por el administrador del modelo. Sin embargo, el resto de los atributos pueden ser vistos y editados por todos los editores. En ese caso se accederá a este atributo particular, se indicará con el checkbox que rompe herencia y se definirá la seguridad para ese atributo particular. 
+ Es importante aclarar, en este caso, que la herencia de la instancia al atributo se rompió. Esto significa que nadie verá ese atributo a no ser que especifique lo contrario. 
+ Se podrá romper herencia en los todos los elementos del modelo (aunque sea en una primera instancia), por ejemplo: 
+ - 
+ Actividad 
+ - 
+ Actor 
+ - 
+ Ambiente 
+ - 
+ Conexión 
+ - 
+ Dispositivo 
+ - 
+ Entidad 
+ - 
+ Función 
+ - 
+ GDI 
+ - 
+ Hallazgo 
+ - 
+ Indicador 
+ - 
+ Mapa estratégico 
+ - 
+ Modelo 
+ - 
+ Objetivo 
+ - 
+ Organigrama 
+ - 
+ Perspectiva 
+ - 
+ Plan de integración 
+ - 
+ Planificación 
+ - 
+ Proceso de negocio 
+ - 
+ Regla de negocio 
+ - 
+ Reporte por bandas 
+ - 
+ Tarea de integración 
+ - 
+ Tarea programada 
+ - 
+ Tipo de atributo 
+ - 
+ Unidad de desarrollo 
+ - 
+ Versión 
+ - 
+ Web services 
+ - 
+ Atributo 
+ - 
+ Instancia 
+ - 
+ Empresa 
+ - 
+ Sitio 
+ 

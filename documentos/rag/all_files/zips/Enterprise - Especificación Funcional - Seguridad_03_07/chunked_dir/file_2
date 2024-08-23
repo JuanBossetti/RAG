@@ -1,0 +1,60 @@
+2.1 Definición de dominio de seguridad, modelo y ambiente. 
+ Un dominio de seguridad es una unidad única de administración de seguridad, y está compuesto por objetos, los cuales pueden ser unidades organizacionales, unidades organizacionales de sitios, grupos de sitios, sitios, grupos de usuarios, usuarios y dispositivos, y sus permisos, denegaciones y políticas. Un dominio tendrá al menos un usuario administrador de dominio. 
+ Un modelo es un conjunto de definiciones que permitirán generar un sistema final (ERP, CRM, etc.) mediante el modelador y estará asociado a un único dominio de seguridad. Un modelo se podrá replicar para generar otro modelo idéntico dentro de un dominio de seguridad diferente del original. Además, un dominio podrá contener uno o varios modelos. Siempre existirá al menos un modelo en un dominio. 
+ Un ambiente es el contexto en donde se ejecutarán los diferentes estados intermedios del sistema generado. Ejemplo: desarrollo, prueba, producción, etc. Se podrán generar vacíos, con datos de prueba o con acceso a los datos reales. Ejemplo: un ambiente de prueba con datos reales de producción. Existirá sólo una versión en producción del sistema y una o varias versiones en los demás ambientes. 
+ Un sistema generado o final es una instancia de un modelo junto con su dominio de seguridad para un cliente en particular. 
+ Se podrán definir permisos sobre los elementos del modelo, el sistema final, y los ambientes, a partir de los usuarios y grupos de usuarios de un dominio de seguridad. 
+ El editor del dominio de seguridad tendrá la siguiente interfaz: 
+ Las propiedades de un dominio estarán divididas en cinco solapas: 
+ ✓ 
+ General: muestra información sobre el dominio: 
+ • 
+ Nombre (no internacionalizable y no permite espacios porque se usa en la url). 
+ • 
+ Descripción 
+ • 
+ Logo: se tendrá la posibilidad de configurar en el Dominio el Logo de la empresa de manera que cada empresa y ISV tenga la posibilidad de personalizar su propio logo.  
+ Además, podrá visualizarse el mismo como fondo al ingresar al sistema antes de abrir cualquier actividad. 
+ • 
+ Identificador web del dominio: esta propiedad se usa dentro de la url de acceso a un dominio. Es un texto no internacionalizable que no podrá contener caracteres especiales ni espacios. Será de valor único entre los dominios de Fastprg (no se puede repetir). Si un usuario cambia esta propiedad, se aplicará a partir del próximo login de los usuarios, es decir, si hay algún usuario autenticado, no se actualizará la url hasta su próximo login. 
+ • 
+ Calendario asignado. Inicialmente, el calendario asignado será el predeterminado, pudiendo asignar otro calendario al dominio o editar el 
+ Editor de Calendarios
+ calendario predeterminado desde el , accediendo desde el menú contextual sobre el nombre de dicho calendario. 
+ • 
+ Dispositivos predeterminados (para imprimir, para numerar, para escanear, etc.) 
+ • 
+ idiomas disponibles: para todos los modelos en el dominio 
+ • 
+ idioma predeterminado 
+ • 
+ idiomas preferidos de datos y de UI para autenticación de usuarios 
+ • 
+ políticas de seguridad definidas. 
+ ✓ 
+ Configuración regional: en esta solapa se podrá definir la configuración regional por idioma. 
+ ✓ 
+ Vínculos: muestra los vínculos de seguridad y sus propiedades. 
+ ✓ 
+ Licencias: muestra información sobre la cantidad de licencias disponibles, asignadas y en uso, por cada tipo de licencia. 
+ ✓ 
+ Estándares de 
+ interfaz de usuario
+ Historial de Versiones: se podrá mantener un historial de versiones de la definición de la seguridad del dominio, de acuerdo a lo definido en el documento . 
+ ✓ 
+ Seguridad: muestra una lista de los permisos y denegaciones de cada usuario y grupos de usuarios. 
+ ✓ 
+ Documentación: contiene la documentación específica del dominio, de acuerdo a lo especificado en el documento de Estándares de Interfaz de Usuario. 
+ Los Idiomas disponibles permitirán definir qué idiomas y qué dialectos de cada idioma se utilizarán en todos los modelos (incluyendo en qué idioma se usa el Administrador de Modelos y el Dominio). Será obligatorio indicar al menos un idioma. Es la lista de idiomas de interfaz de usuario en la que se podrán ver los editores, las aplicaciones finales e ingresar las instancias. Todos los modelos de dicho dominio van a estar en los idiomas elegidos. Para definir esta propiedad se utilizará una grilla. Para seleccionar cada idioma, se listarán todos los idiomas que se soporta NeuralSoft y para cada idioma se visualizarán todos los dialectos disponibles. 
+ Luego de definir la lista de idiomas, se deberá elegir un Idioma predeterminado dentro de una lista desplegable de selección única donde se listarán los idiomas y dialectos seleccionados en la lista doble anterior y se deberá indicar cuál de ellos es el predeterminado. En caso de que el idioma presente algún dialecto, sólo se podrá indicar como predeterminado, a uno de los dialectos de dicho idioma. Por el contrario, si un idioma no presenta ningún dialecto, podrá seleccionarse al idioma como predeterminado. Este idioma servirá como base para las traducciones en los demás idiomas cuando se agrega un idioma. 
+ A diferencia del idioma predeterminado, en el dominio también se deberá definir los idiomas preferidos para autenticación: 
+ • 
+ Idioma de interfaz de usuario preferido para autenticación: lista desplegable de selección única para seleccionar en qué idioma de UI se autenticarán los usuarios, es decir, el idioma en el que se podrán ver los editores e ingresar las instancias del modelo (reglas de negocio, entidades, etc.). Las OU y usuarios heredan esta configuración. En esta lista sólo se mostrarán los idiomas disponibles seleccionados en la lista doble. 
+ • 
+ Idioma de datos preferido para autenticación: lista desplegable de selección única para seleccionar en qué idioma de datos se autenticarán los usuarios, es decir, el idioma en el que se podrán ver e ingresar las instancias de usuario (cliente, factura, etc.). Las OU 
+ y usuarios heredan esta configuración. En esta lista se mostrarán todos los idiomas de datos brindados por Neuralsoft. 
+ Siempre se validará que el idioma predeterminado y los idiomas preferidos para autenticación sean uno de los que se encuentran seleccionados en la lista de idiomas disponibles. 
+ Tanto la lista de los idiomas disponibles, como la configuración regional de cada idioma serán definidas por Neuralsoft.Es importante aclarar que puedo comprar un modelo en un idioma que no esté dentro de los idiomas de mi dominio. En este caso, se traduce al vuelo el idioma predeterminado del modelo comprado a todos los idiomas de mi dominio. Por ejemplo, mi dominio tiene español e italiano, puedo comprar un modelo que sólo esté en ruso (predeterminado) y alemán y se va a traducir el modelo desde el ruso al español y al italiano. El modelo en ruso y alemán no se copian! 
+ Se define que en los modelos vinculados, el dominio hijo tiene que tener al menos todos los idiomas que tiene el dominio padre. Por ejemplo, si el padre tiene español e inglés, el hijo tiene que tener si o si, español, inglés, y puede tener otros. 
+ Si luego en el otro dominio se agrega el idioma español, se copia todo el modelo en español desde el padre y pisa todas mis traducciones y personalizaciones. 
+ 

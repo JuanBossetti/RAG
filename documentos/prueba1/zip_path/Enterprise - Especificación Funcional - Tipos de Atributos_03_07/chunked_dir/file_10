@@ -1,0 +1,139 @@
+3.1.8 Tipo de atributo Secuencia 
+ En ocasiones surge la necesidad de identificar unívocamente a determinados elementos de negocio mediante valores cuyo incremento se produce de manera automática, como por ejemplo los números de comprobante, códigos de cliente correlativos, patentes de vehículos, etc. De la misma manera, se requiere identificar unívoca y automáticamente a elementos internos del Sistema, tales como entidades, atributos, etc. 
+ Se hace necesario, por lo tanto, que el Sistema provea una funcionalidad que permita satisfacer la necesidad descripta anteriormente. Dicha funcionalidad inicialmente recibió el nombre de “numeradores”; sin embargo, y dado que abarcará más que sólo identificadores numéricos, se propone el nombre de “secuencias”, el cual resulta más genérico y menos restrictivo. 
+ Un tipo Secuencia podrá subdividirse en particiones, de manera tal de facilitar su definición. Por ejemplo, para definir una secuencia que permita generar patentes de automotores, podrá definirse una partición alfabética y otra numérica. 
+ Un tipo secuencia podrá heredar sus propiedades de otro tipo secuencia, el cual entonces se convertirá en su tipo padre. 
+ Una partición podrá ser numérica o alfanumérica. 
+ 3.1.8.1 Criterios de secuencia 
+ Un tipo Secuencia podrá contar con uno o más Criterios de secuencia, los cuales permitirán definir comportamientos condicionales para dicho Tipo Secuencia. Por ejemplo, un Tipo Secuencia utilizado para generar números de comprobante podría variar su comportamiento dependiendo del país para el cual se esté emitiendo cada comprobante. 
+ Un Criterio de secuencia contará con un nombre (único para un mismo Tipo Secuencia), una condición de criterio, y un origen de generación. Dependiendo del origen de generación, se presentarán diferentes propiedades adicionales. 
+ El origen de generación podrá ser interno o externo. 
+ Las secuencias de origen interno podrán, a su vez, generar sus valores tanto de manera automática con valores correlativos (es decir, sin permitir saltos en la secuencia) como de manera automática con valores discontinuos (es decir, permitiendo saltos en la secuencia). Adicionalmente, se podrán refinar algunas de las propiedades del Tipo Secuencia. 
+ Para las particiones numéricas se podrán modificar (acotando sus valores) las siguientes propiedades: 
+ • 
+ Su tamaño en dígitos 
+ • 
+ Su valor mínimo y máximo 
+ • 
+ Si los valores de los atributos que se definan en base al tipo secuencia podrán ser modificados por el usuario. 
+ Por otra parte, para las particiones alfanuméricas se podrán modificar (acotando sus valores) las siguientes propiedades: 
+ • 
+ Su tamaño en caracteres 
+ • 
+ Su valor mínimo y máximo 
+ • 
+ Los caracteres no permitidos (si los hay) 
+ • 
+ Si los valores de los atributos que se definan en base al tipo secuencia podrán ser modificados por el usuario 
+ Las secuencias de origen externo deberán contar con un dispositivo que genere sus valores. Dicho dispositivo podrá seleccionarse ya sea tomando en cuenta al dispositivo predeterminado para el puesto de trabajo actual, para el usuario actual, para el sitio actual o para el dominio actual, o bien mediante una expresión de usuario que permita selecciones más complejas. 
+ 3.1.8.2 Generación de valores 
+ A fin de evitar duplicaciones y colisiones, la generación de valores de una secuencia siempre se efectuará de manera tal que al momento de llevarse a cabo, se impida la generación de un nuevo valor hasta tanto no se haya terminado la generación del valor en curso. De aquí en más se hará referencia a este mecanismo como “bloqueo del generador de valores”. 
+ A este respecto, deberán diferenciarse dos casos: 
+ 1. 
+ Aquellos en los que el orden de generación de valores de la secuencia sea correlativo 
+ 2. 
+ Aquellos casos en los que el orden de generación de valores de la secuencia no sea necesariamente correlativo 
+ Para el caso 1, el valor de la secuencia deberá generarse en el preciso instante de emisión del comprobante (es decir, al momento de persistirlo). Sin embargo, puede ser necesario contar con un valor provisorio, es decir que al momento del ingreso de datos se genere un valor determinado (utilizando datos en edición), y que al momento de la grabación efectiva de la instancia deba recalcularse dicho valor para verificar que esté acorde al criterio de generación (siguiendo con el ejemplo, deberá verificarse que el número de comprobante sea el último disponible). El proceso, entonces, resultaría de la siguiente manera: 
+ 1. 
+ Se carga un formulario entre cuyos atributos se encuentra uno de tipo Secuencia. 
+ 2. 
+ Se genera un valor provisorio para el atributo, basado en la secuencia, una vez que se hayan ingresado todos los atributos necesarios para poder calcular dicha secuencia. Este valor provisorio se suscribe a multicast para recibir cualquier actualización multiusuario que haya ocurrido 
+ 3. 
+ Dado que la instancia no ha sido confirmada, el valor se almacena en los datos en edición. 
+ Al momento de confirmar (persistir) la instancia, y dentro de la transacción, se incrementa la secuencia y se obtiene el valor de la misma. Si el valor es diferente al almacenado en edición se debe actualizar el mismo antes de pasarlo a definitiva. 
+ Por ejemplo: si 5 usuarios se encuentran cargando Facturas y el número de Factura es un atributo de tipo Secuencia, al ingresar al formulario correspondiente, se presenta un valor N para el Número de Factura en todas las instancias de formulario. Cuando alguno de los usuarios confirma la carga de su Factura, una vez persistida la instancia correspondiente, a cada uno de los usuarios restantes se les actualizará el valor del atributo Número de Factura en base al nuevo valor disponible de la Secuencia. 
+ Cuando sea la primera vez que se abra un numerador para una Secuencia, se debe permitir que el usuario edite el Atributo correspondiente para indicar el valor con el que se desea iniciar la numeración. En este caso no se debe evaluar seguridad. Una vez que el usuario defina el valor inicial y se dispare la unidad de cambio correspondiente, se va a generar la instancia de Estado de secuenciador en el almacén definitivo y el Atributo no podrá volver a editarse. 
+ 3.1.8.3 Secuencias con valores generados por software (origen interno) 
+ Esta funcionalidad permitirá que la generación de valores de la secuencia se efectúe mediante un componente de software, el cual deberá implementarse de manera tal que esté disponible tanto en modalidad online como offline, sin que esto afecte el normal funcionamiento del sistema al conmutar de una modalidad a otra. 
+ En cuanto a la modalidad offline, el generador de valores de la secuencia (secuenciador) estará replicado en modalidad-maestro-esclavo tanto en: 
+ • 
+ la terminal desde la que se haya efectuado la conexión. 
+ • 
+ el servidor al que se haya efectuado la conexión. Ante una caída de conectividad entre las terminales y el servidor, un usuario (con los permisos necesarios) puede elegir la terminal como nodo maestro para permitir seguir trabajando offline, pero se le debería advertir puede tener conflictos con las secuencias. 
+ • 
+ el host central (es decir, la nube) al que se haya conectado el usuario. Si el nodo maestro es host central, el mecanismo es similar a la modalidad online, pero la diferencia es que en la modalidad offline, se tiene una réplica de los contadores de las secuencias en el servidor y en la terminal del usuario (si están disponibles). Esto permitiría que ante una caída de conectividad, un usuario (con los permisos necesarios) haga el cambio del nodo maestro para permitir seguir trabajando offline, pero se le debería advertir que si algún usuario sigue online puede tener conflictos con las secuencias. Dichos conflictos se resolverán como los demás conflictos de modalidad offline. 
+ En la configuración del secuenciador se selecciona cuál de dichas ubicaciones servirá como nodo maestro, mientras que las restantes actuarán como nodos esclavos. La ubicación que haya sido seleccionada como nodo maestro será la que generará los nuevos valores de la secuencia, mientras que los nodos restantes se sincronizarán con el primero. 
+ sección 6.2
+ El cambio de nodo maestro se realizará en el Editor de Secuenciadores, que se detalla en la . 
+ 3.1.8.4 Secuencias con valores generados por hardware (origen externo) 
+ Esta funcionalidad permitirá que los valores de la secuencia sean generados por un dispositivo externo. La funcionalidad de generación de valores desde dispositivos externos deberá permitir seleccionar múltiples dispositivos, incluyendo: 
+ • 
+ El dispositivo predeterminado para el usuario 
+ • 
+ El dispositivo predeterminado para el sitio 
+ • 
+ El dispositivo predeterminado para el puesto de trabajo actual 
+ • 
+ El dispositivo predeterminado para el dominio. 
+ Deberá tenerse en cuenta el siguiente caso: 
+ Dado un sistema que utiliza un dispositivo externo para generar los valores de cierta secuencia, en determinado momento y debido a problemas técnicos, se hace necesario reiniciar el contador de dicho dispositivo. Al ocurrir esto, comenzarán a generarse valores que posiblemente hayan sido generados anteriormente, por lo que deberá contemplarse la posibilidad de existencia de valores duplicados. 
+ Este caso particular podrá solucionarse desactivando la propiedad “Atributo de valor único” del atributo correspondiente a la secuencia. De no hacerse esto, al generarse un valor de secuencia duplicado, se producirá un error y la instancia no podrá ser persistida. 
+ Además, no se podrá asignar más de un tipo de atributo Secuencia de origen externo en la misma entidad, es decir, ninguna instancia podrá tener 2 valores generados por dispositivos. 
+ Es importante tener en cuenta que, en el alta de una instancia, mientras se esté editando y la secuencia tenga origen externo, no se visualizará el valor de la secuencia. 
+ Además, todo lo que dependa del valor de secuencia externo (atributos calculados, validaciones en el atributo, RN de validación, etc.) no se calcula ni valida mientras la instancia está “en edición sin confirmar”, o cuando pasa a “en edición confirmada”. Recién cuando se pasa la instancia de “edición confirmada” a “definitiva” es cuando se realizan los cálculos (y si falla alguna validación, sólo se deja registrado en el Log de Aplicación). 
+ En general, al ejecutar una operación (alta, modificación, eliminación, etc.) en una instancia que tenga un atributo de categoría secuencia de origen externo, primero se verificará si el dispositivo soporta la acción, y de ser así, si tiene configurado el comando y los parámetros necesarios para dicha acción. 
+ A partir de esto, se agregarán los siguientes estados a las instancias: “eliminada confirmada” y “modificada confirmada”. Este estado de las instancias se encontrarán a la espera de dispositivo. Luego de realizados los comandos definidos para la operación, pasarán al estado correspondiente, y si alguna validación falla, sólo se registrarán en los logs correspondientes pero la operación se confirmará definitivamente. 
+ Por ejemplo, se desea eliminar una factura que tiene un atributo “número de factura” que usa un dispositivo externo. Primero se verificará que el dispositivo soporte la eliminación y luego se buscará qué comandos ejecutar ante una eliminación. Entonces, la factura primero queda “eliminada confirmada”, mientras se ejecuta lo definido en el dispositivo para la operación “eliminar”, luego se aplican a la instancia los valores que devuelve el dispositivo, y por último, la instancia pasa al estado “definitiva” con acción -1. Si alguna validación no se cumple, igual se pasará la instancia a “definitiva”, registrando las validaciones incumplidas en los logs correspondientes. 
+ Para el caso en que el dispositivo realice un “transporte” (una instancia se imprime en varias hojas, y cada hoja se encuentra numerada con una secuencia diferente), el dispositivo sólo devuelve un valor de la secuencia (el primero o el último) y este valor es el que queda asociado a la instancia, aunque haya varios valores impresos. 
+ 3.1.8.5 Secuencias con valores compartidos entre entidades 
+ Esta funcionalidad permitirá que los valores de una secuencia dada puedan asignarse alternativamente a atributos de diferentes entidades a medida que son generados. 
+ El secuenciador será único para el conjunto de entidades, y cada una de las entidades permitirá valores discontinuos de manera obligatoria. 
+ Por ejemplo, si se especifica que las entidades “Nota de Crédito” como “Nota de Débito” compartirán los valores de la secuencia “Número de Comprobante”, el atributo “Número”, presente en ambas entidades, tendrá los siguientes valores: 
+ 3.1.8.6 Criterios de generación 
+ 3.1.8.6.1 Simple 
+ Este criterio generará valores de la secuencia de manera incondicional, permitiendo operar en modalidad offline, de acuerdo a lo mencionado en la sección (<>)3.1.8.3. 
+ 3.1.8.6.2 Agrupador 
+ Este criterio permitirá que los valores se generen agrupados en base a una expresión (es decir, por comprensión) o en base a un conjunto de condiciones (es decir, por extensión). Ambas modalidades se detallarán a continuación. 
+ 3.1.8.6.2.1 Agrupador por expresión 
+ En esta modalidad, la agrupación se realizará para cada uno de los valores resultantes de la evaluación de una expresión definida por el usuario; es decir que los valores de la secuencia serán únicos para cada uno de los resultados de dicha expresión. 
+ Para ilustrar esto, se presenta el siguiente ejemplo: 
+ Se tiene un sistema de facturación perteneciente a una empresa con diferentes sucursales dentro del Reino Unido, y se define que el código de cliente será único para cada una de las sucursales. 
+ Suponiendo que las sucursales sean Cardiff, Dublín, Edimburgo y Londres, para el ejemplo presentado los códigos de cliente resultarán de la siguiente manera: 
+ • 
+ Cardiff: 1, 2, 3, …, ∞ 
+ • 
+ Dublín: 1, 2, 3, …, ∞ 
+ • 
+ Edimburgo: 1, 2, 3, …, ∞ 
+ • 
+ Londres: 1, 2, 3, …, ∞ 
+ En caso de agregarse nuevas sucursales, los valores de la secuencia para dicha sucursal comenzarán a generarse sin que deba mediar intervención del usuario. 
+ 3.1.8.6.2.2 Agrupador por condiciones 
+ En esta modalidad, la agrupación se realizará para un conjunto de condiciones definido por el usuario; es decir que los valores de la secuencia serán únicos para cada una de dichas condiciones. 
+ En esta modalidad se podrá definir, para cada una de las condiciones, si los valores a generar para la misma podrán estar disponibles en modalidad offline, de acuerdo a lo mencionado en la sección (<>)3.1.8.3. 
+ Para ilustrar esto, se presenta el siguiente ejemplo: 
+ Se tiene un sistema de facturación perteneciente a una empresa con diferentes sucursales dentro del Reino Unido, y se define que aquellos clientes pertenecientes a las sucursales de Cardiff, Dublín y Edimburgo tendrán un código único para dichas sucursales en conjunto, mientras que aquellos clientes asociados a la sucursal de Londres tendrán un código único para dicha sucursal. Para el ejemplo presentado los códigos de cliente resultarán de la siguiente manera: 
+ • 
+ Cardiff, Dublín y Edimburgo: 1, 2, 3, …, ∞ 
+ • 
+ Londres: 1, 2, 3, …, ∞ 
+ En caso de agregarse nuevas sucursales, si las mismas no entran dentro de una de las condiciones ya existentes, el usuario deberá definir o modificar las condiciones necesarias para que dichas sucursales sean tenidas en cuenta al momento de generar valores de la secuencia. 
+ 3.1.8.6.3 No numerado 
+ Dado que cada secuenciador debe cumplir al menos un criterio de secuencia, este criterio permitirá evitar que se genere un error en el caso en el que no se deba generar un valor de secuencia para una instancia o ítem. Es decir, cumplido este criterio, no se genera numeración. 
+ 3.1.8.6.4 Secuencia en colecciones 
+ 3.1.8.6.4.1 Tipo de contexto Colección 
+ 3.1.8.6.4.2 Agrupador 
+ 3.1.8.7 Reserva de bloques 
+ Esta modalidad permitirá pre-asignar bloques de valores de una secuencia en base a un conjunto de condiciones. Dichos bloques se definirán en base a sus valores límite (límite inferior y límite superior), y una misma condición podrá tener más de un bloque asignado. 
+ No podrá comenzarse un nuevo bloque hasta tanto no se haya alcanzado el límite del bloque actualmente en uso. 
+ En esta modalidad se podrá definir, para cada una de las condiciones, si los valores a generar para la misma podrán estar disponibles en modalidad offline, de acuerdo a lo mencionado en la sección (<>)3.1.8.3. 
+ Para ilustrar esto, se presentan los siguientes ejemplos: 
+ 1. 
+ Se tiene un sistema de facturación perteneciente a una empresa con diferentes sucursales dentro del Reino Unido, y se define que aquellos clientes pertenecientes a las sucursales de Dublín, Edimburgo y Cardiff tendrán un código único para dichas sucursales en conjunto, el cual estará comprendido en el rango de 1 a 20000, mientras que aquellos clientes asociados a la sucursal de Londres tendrán un código único para dicha sucursal, el cual estará comprendido en el rango de 10000000 a 99999999. 
+ 2. 
+ Para agilizar la generación de IDs del sistema, se reservarán automáticamente bloques de valores para cada una de las JVMs involucradas; es decir que cada JVM contará con un conjunto de valores, y a medida que cada bloque alcance su valor máximo, la JVM podrá solicitar bloques adicionales. 
+ Para el ejemplo 1, el usuario deberá poder definir una reserva de bloques tal que las sucursales de Dublín, Edimburgo y Cardiff utilizarán números de factura del 00000001 al 20000, mientras que la sucursal de Londres hará lo propio con los números de factura del 20001 al 99999999. 
+ Por otra parte, para el ejemplo 2, el sistema podrá efectuar la reserva automática de bloques, asignando el tamaño de los mismos de manera dinámica, de forma tal que determinadas JVMs cuenten con un determinado tamaño de bloque, mientras que las JVMs de mayor demanda cuenten con un tamaño de bloque mayor. 
+ Los bloques podrán presentar valores correlativos o no, dependiendo de lo especificado por el usuario. 
+ 3.1.8.8 Secuenciadores 
+ Se llamará “Secuenciador” a la utilización efectiva de una secuencia para generar valores, es decir, una vez que un Tipo Secuencia ha sido asignado a un atributo. 
+ Dado un secuenciador en particular, si la secuencia que lo originó contiene criterios de secuencia con origen interno, los mismos podrán refinarse (es decir, especializarse para acotarlos aún más), pudiendo definirse una condición asociada al secuenciador y un criterio de generación a utilizar en caso de que la condición se cumpla. 
+ El Atributo "Incluir dentro de modelos hijos" indica si un Secuenciador se incluirá en modelos hijos. Esta propiedad permite, por ejemplo, realizar pruebas en un modelo sin afectar a los modelos hijos. 
+ El Atributo "Activo" indica si el Secuenciador se encuentra efectivamente Activo. Por lo tanto si el usuario desactiva esta propiedad el sistema no tendrá en cuenta el Secuenciador. Si en un modelo hijo el usuario desactiva un Secuenciador, ante una nueva Actualización, el sistema no modificará el estado del Atributo. 
+ Una Entidad se debe poder incluir en más de un Secuenciador. Al momento de buscar el numerador, se deberá buscar en cada Secuenciador en que se incluyó el Atributo que se está intentando numerar. Existen dos casos en que se debe presentar un error al usuario: 
+ - 
+ En caso de que encuentre más de una forma de numerar 
+ - 
+ En caso de que no encuentre ninguna condición por la cual numerar 
+ Dentro de un modelo hijo, se deben poder agregar entidades a un Secuenciador. 
+ 

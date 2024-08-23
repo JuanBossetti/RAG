@@ -1,0 +1,27 @@
+Ejemplos: 
+ Fecha media: 
+ Fecha completa: 
+ ✓ 
+ Idioma: Portugués (Brasil). 
+ |    | Primer día de la semana                                        | Domingo                                   |
+|---:|:----------------------------------------------------------------|:-------------------------------------------|
+|  0 | Primera semana del año                                         | Primera semana del año                    |
+|  1 | Separador decimal                                              | Coma                                      |
+|  2 | Separador de lista                                             | Punto y coma                              |
+|  3 | Separador de miles (Separador de agrupación de dígitos)        | Punto                                     |
+|  4 | Formato de Fecha – Por defecto                                 | Medio                                     |
+|  5 | Formato de Fecha – Corto                                       | dd/MM/yy                                  |
+|  6 | Formato de Fecha – Medio                                       | dd/MM/yyyy                                |
+|  7 | Formato de Fecha – Largo                                       | D´de ´MMMM´de ´yyyy                       |
+|  8 | Formato de Fecha – Completo                                    | Dddd, d´de ´MMMM´de ´yyyy                 |
+|  9 | Formato de Hora - Por defecto                                  | Corto                                     |
+| 10 | Formato de Hora - Corto                                        | HH:mm                                     |
+| 11 | Formato de Hora - Medio                                        | HH:mm:ss                                  |
+| 12 | Formato de Hora – Largo                                        | HH:mm:ss                                  |
+| 13 | Formato de Hora - Completo                                     | HH:mm:ss                                  |
+| 14 | Formato Fecha y Hora - Por defecto                             | Corto                                     |
+| 15 | Formato Fecha y Hora - Corto                                   | dd/MM/yy HH:mm                            |
+| 16 | Formato Fecha y Hora - Medio                                   | dd/MM/yyyy HH:mm:ss                       |
+| 17 | Formato Fecha y Hora - Largo                                   | D´de ´MMMM´de ´yyyy HH:mm:ss              |
+| 18 | Formato Fecha y Hora - Completo                                | Dddd, d´de ´MMMM´de ´yyyy HH:mm:ss        |
+ 

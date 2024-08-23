@@ -1,0 +1,4 @@
+Consultar(Entidad, Atributo, Colección) 
+ Permite indicar implícitamente al algoritmo que no deber realizar producto cartesiano, sino que intenta completar el atributo de la instancia en curso. 
+ Hay que pasar una entidad, un atributo de esa entidad, y una colección. Los ítems de esa colección tienen que tener el mismo tipo (o compatible) que el atributo. Retorna una colección de referencias a la entidad. 
+ 

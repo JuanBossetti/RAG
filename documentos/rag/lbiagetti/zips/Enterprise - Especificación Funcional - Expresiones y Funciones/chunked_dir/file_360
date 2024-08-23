@@ -1,0 +1,5 @@
+Token alfanumérico() 
+ Devuelve el token para contraseña de usuario nuevo, o recuperación de contraseña de usuario existente. 
+ Ejemplos: 
+ Token alfanumérico(1;10) 
+ 

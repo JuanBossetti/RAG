@@ -1,0 +1,5 @@
+Ejemplos: 
+ Siguiendo los ejemplos vistos en la función anterior. 
+ Disponibilidad fecha(Fecha inicio, Fecha fin, Calendario de trabajo) 
+ Esta función devuelve la duración calculada sumando dos fechas. 
+ 

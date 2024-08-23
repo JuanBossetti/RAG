@@ -1,0 +1,12 @@
+Acceso a definición de acumuladores para usuarios finales. 
+ Se debe tener en cuenta que no solo accederá a estas solapas un usuario modelador, sino que, en caso de tener permiso de consulta de acumuladores, esta solapa se comportará del siguiente modo: 
+ Dependiendo de los permisos asignados a cada usuario, el comportamiento de esta solapa deberá ser el siguiente: 
+ • 
+ Solapa General. En caso de que un usuario tenga permiso de consultar acumuladores, podrá acceder a la información en modo de solo lectura. De lo contrario no podrá acceder a esta solapa. 
+ • 
+ Solapa dimensiones. En caso de que un usuario tenga permiso de consultar acumuladores, podrá acceder a la información en modo de solo lectura. De lo contrario no podrá acceder a esta solapa. 
+ • 
+ Solapa Atributos. En caso de que un usuario tenga permiso de consultar acumuladores, podrá acceder a la información en modo de solo lectura. De lo contrario no podrá acceder a esta solapa. 
+ • 
+ Solapa Seguridad. En caso de que un usuario tenga permisos de administrar seguridad de acumuladores, podrá acceder a esta solapa. 
+ 

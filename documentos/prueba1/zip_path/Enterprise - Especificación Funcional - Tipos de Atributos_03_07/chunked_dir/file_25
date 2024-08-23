@@ -1,0 +1,53 @@
+4.1.7 Categoría de tipo de atributo Enumerado 
+ A continuación se muestra un tipo enumerado: 
+ Pantalla 10 
+ . 
+ Cuando se herede de otro tipo enumerado, se podrán inactivar elementos heredados del padre, pero no agregar nuevos ni modificar los existentes. 
+ La pantalla mencionada presentará las solapas “General”, “Historial de versiones”, “Seguridad”, y “Documentación”. 
+ Aclaración: si un tipo de atributo enumerado FormaPago1 contiene los valores: Efectivo, Tarjeta de crédito y Tarjeta de Débito posee un tipo de atributo hijo FormaPago2 contiene los valores Efectivo y Tarjeta de Débito (Tarjeta de crédito está inactivo); si se define un valor inicial en el tipo padre: “Tarjeta de crédito”, el tipo hijo heredará dicho valor inicial y como resultado, cuando haya un atributo del tipo hijo FormaPago2 no se completará el valor inicial del atributo en tiempo de ejecución. 
+ 4.1.7.1 Solapa “General” 
+ Al seleccionarse el tipo de categoría “Enumerado” para un tipo de atributo, se presentará la solapa “General” se incluyen campos, los cuales tienen las mismas funcionalidades que las que se describió para categoría simple. 
+ • 
+ Nombre 
+ • 
+ Descripción 
+ • 
+ Categoría 
+ • 
+ Tipo padre 
+ • 
+ Formato 
+ • 
+ Condición de visibilidad y edición 
+ • 
+ Valor inicial 
+ • 
+ Validaciones 
+ En esta solapa, además de las propiedades comunes, los tipos enumerados contarán con las siguientes propiedades particulares, tal como se presentó en la (<>)Pantalla 10: 
+ • 
+ Tipo padre: si bien esta propiedad ha sido mencionada anteriormente, un tipo enumerado opcionalmente podrá tener un tipo padre. De este tipo padre tomará las características de tipo para determinar el tipo a ingresar en los valores posibles de la enumeración y toda su semántica 
+ • 
+ Permite selección múltiple: indica si cuando se usa este tipo de atributo, se podrá seleccionar un valor o varios. Inicialmente no permitirá selección múltiple. Un enumerado de selección múltiple sólo permitirá configurar 64 valores. 
+ • 
+ Valores del tipo enumerado: en esta grilla se podrán definir los elementos que conformarán el tipo enumerado. Dichos elementos estarán conformados por: 
+ o 
+ un código (obligatorio): texto de valor único. Se usa en las expresiones. 
+ o 
+ descripción (obligatoria): texto internacionalizable de valor único. Se usa en los combos para seleccionar el valor del enumerado en el idioma correspondiente. 
+ o 
+ una imagen. 
+ Será requerido ingresar una descripción o una imagen. 
+ o 
+ una propiedad “valor activo”: si un valor está inactivo no se puede usar en nuevas instancias, de manera predeterminada están todos los valores activos. 
+ o 
+ una condición de visualización (opcional) que indicará en qué momentos se muestra el elemento y en qué momentos no. En esta condición se puede poner una expresión que al cumplirse, muestra el ítem del enumerado y de no cumplirse, se oculta el ítem. De no completarse, el ítem se mostrará siempre. 
+ • 
+ Valor inicial: permitirá definir, mediante una expresión, cuál de los elementos se mostrará al crear un atributo cuyo tipo sea el enumerado que se está definiendo. Si permite selección múltiple, se podrá definir como valor inicial más de un elemento. 
+ No se podrán eliminar valores de enumerados luego de haberlos confirmado. En el caso de que no querer utilizar más un valor, se podrá inactivar. 
+ Tampoco se podrá volver a una versión anterior de un enumerado si entre la versión actual y la versión que se quiere restablecer se agregaron valores. Ejemplo: 
+ 1- Tipo: Enum1 – v1 – valores: A, B, C. 
+ 2- Tipo: Enum1 – v2 – valores: A, B, C, D, E. 
+ 3- Tipo: Enum1 – se intenta restablecer la v1 pero no es válido porque en la v2 se agregaron valores y si se vuelve a la v1 se quitarían los mismos. AI no permite este cambio. 
+ Nota de arquitectura 
+ En los atributos de tipo enumerado, se visualizarán los valores heredados del tipo, pudiendo inhabilitarse algún valor habilitado (no viceversa) o cambiar la condición de visualización. Tampoco se podrán agregar nuevos ni modificar los existentes. 
+ 

@@ -1,0 +1,3 @@
+Número a palabra (Número) 
+ Conversión de número a texto escrito internacionalizable. Devuelve texto internacionalizable, es decir, el texto en todos los idiomas de los datos de la aplicación. Tener presente que, en caso de enviar un valor negativo, se debe agregar la palabra “Menos” (en cada idioma correspondiente) indicando que el valor es negativo. En caso de no desear este valor, un modelador debe utilizar la función valor absoluto, enviando un valor positivo a la función y así no retorna esta palabra “Menos” 
+ 

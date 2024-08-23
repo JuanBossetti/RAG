@@ -1,0 +1,17 @@
+Caso 1: Crear muchas instancias de la entidad destino, una por cada ítem de la colección de entrada 
+ Se tiene un Remito y se desea generar un movimiento en el Kardex, para cada producto del Remito. 
+ El modelo contiene a la entidad “Remito” y a la entidad “Kardex”. Esta última contiene un atributo Referencia a la colección “Ítems de Remito” de la entidad “Remito”. 
+ Para el caso presentado, se hace necesario generar una nueva instancia de la entidad “Kardex” por cada uno de los productos existentes en la colección “Ítems de Remito” de la entidad “Remito”. 
+ Generalizando, este caso presenta una Entidad Destino la cual posee un atributo de Categoría Simple, Compuesto o Referencia, al cual se le asigna en el desencadenante una colección que contiene elementos de su mismo tipo de atributo. Por lo que el sistema deberá detectar esta situación y generar tantas instancias de la entidad destino como elementos posea la colección. 
+ Si en lugar de las expresiones 
+ - 
+ Ítems de remito.Producto  
+ - 
+ Ítems de remito.Cantidad 
+ Se hubiesen colocado expresiones como: 
+ • 
+ EN Remito.Ítems de remito BUSCAR Producto CUANDO Esta instancia = super.Esta instancia 
+ • 
+ EN Remito.Ítems de remito BUSCAR Cantidad CUANDO Esta instancia = super.Esta instancia 
+ El resultado sería el mismo. Esto sucede porque lo escrito entre EN y BUSCAR , y lo escrito después del CUANDO de ambas expresiones coinciden. 
+ 

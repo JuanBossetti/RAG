@@ -1,0 +1,19 @@
+3.7.6 Seguridad 
+ Los permisos que se pueden definir en una Version de API de WS en los 3 ambientes son: 
+ • 
+ consultar 
+ • 
+ modificar 
+ • 
+ eliminar 
+ • 
+ restaurar 
+ • 
+ traducir 
+ • 
+ administrar seguridad 
+ o 
+ consultar 
+ o 
+ modificar 
+ 

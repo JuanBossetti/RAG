@@ -1,0 +1,105 @@
+Nota de arquitectura 
+ ▪ 
+ Fórmula de Conversión al crear una instancia: permite editar la fórmula asociada a la conversión del Atributo imputable al insertar una nueva instancia en la entidad. La misma debe ser válida dentro del contexto de evaluación definido para la imputación. 
+ ▪ 
+ Fórmula de Conversión al imputar una instancia: permite editar la fórmula asociada a la conversión del Atributo imputable al realizar la imputación entre instancias de la entidad. Esta caja de texto se activará una vez que el usuario ingrese una fórmula de conversión al crear una instancia. Además, presentará como valor inicial, la misma expresión que la fórmula mencionada anteriormente. La misma debe ser válida dentro del contexto definido para la imputación. 
+ ▪ 
+ Atributo indicativo de la unidad de conversión: Se permite seleccionarlo solo en los casos en los cuales se define una fórmula de conversión, ya sea única o doble. Indica el atributo del contexto que se asocia a la unidad de conversión. 
+ ▪ 
+ Valor inicial de unidad de conversión: Se agrega además un campo para definir una expresión de Valor inicial de unidad de conversión, el cual solo estará visible si se definen Fórmulas de conversión, dicha expresión de valor inicial, al igual que las fórmulas de conversión al crear y al imputar tendrá como contexto el contexto definido en la imputación y retornará un valor numérico. 
+ Además, si se agrega un valor inicial en la actividad de imputación (imputación, única instancia con imputación) se agregará una nueva columna (transient field) con el retorno de dicho valor, dando la posibilidad al usuario de modificar el valor retornado en caso de ser necesario. 
+ ▪ 
+ Función Valor de conversión(): permite obtener el valor ingresado en el campo Valor de conversión de la actividad de imputación, de esta manera, se tendrá la posibilidad de utilizar dicha función para la definición de fórmulas de conversión al crear y al imputar las instancias. Ejemplo, ingresar como Fórmula de conversión al imputar la expresión: 
+ Detalle de comprobante.Importe * Valor de conversión() 
+ ▪ 
+ Validaciones: cuando se encuentra configurado un valor inicial se unidad de conversión, se agrega además la posibilidad de definir una colección de validaciones sobre el campo de Valor de conversión, al igual que las validaciones en el resto de los lugares del sistema la definición se realizará a través de tres campos: 
+ ✓ 
+ Nombre: texto que permite identificar la validación. 
+ ✓ 
+ Expresión: fórmula a validar, dicha expresión tendrá como contexto el acumulador del pendiente de imputar del log de imputación. 
+ ✓ 
+ Mensaje: notificación que se mostrará al usuario en la pantalla cuando se incumpla la validación. 
+ Es importante aclarar que, de manera similar a las validaciones que se agregan a nivel atributo dentro de una entidad, estas validaciones se evaluarán sobre el campo Valor de conversión. En este caso las validaciones se ejecutarán por unidad de cambio y no al confirmar. Por ejemplo, se podrá configurar como expresión de validación: 
+ Valor de conversión() > 0 
+ La siguiente imagen representa la pantalla anterior en caso de elegir la opción “Doble” para el tipo de Atributo imputable. En este caso, se define un atributo imputable para las Entradas/Activos/Débitos y otro para las Salidas/Pasivos/Créditos y, además, se presenta para cada uno de estos atributos imputables una fórmula de conversión al crear la instancia, otra fórmula de conversión al imputarla y el combo para seleccionar el atributo descriptivo. 
+ A continuación, se presenta un ejemplo de la interfaz descripta al elegir la opción de orden “Ordenado por Atributo”: 
+ La segunda solapa se denominará “Correspondencia de Instancias Imputables”. En la misma se definen un conjunto de atributos del contexto definido, no se permiten atributos a los que se llegue por referencia, cuyos valores deben ser iguales entre las diferentes instancias para que la imputación pueda realizarse. Esta solapa presentará un Cartel Aclaratorio de Funcionalidad (ver Estándar de Interfaz de Usuario) y una Lista Doble (Patrón Lista Doble), en cuya primera grilla se listan todos los atributos del contexto definido, mientras que en la segunda se listan aquellos atributos que deben ser iguales entre las instancias. 
+ Esta solapa también cuenta con una sección con el texto “Expresión de filtro para separar instancias en dos grillas”. Debajo del mismo se presenta un área de texto, destinada a editar la expresión correspondiente para distinguir entre “Entrada/Activo/Débito” y “Salida/Pasivo/Crédito” de las instancias de la entidad. En caso de que no se ingrese ninguna expresión, se presenta -en la interfaz de instancias pendientes de imputar- una única grilla con una lista de todas aquellas instancias que no hayan sido imputadas. En cambio, si se define la expresión, esta se evaluará en el contexto definido y al imputar se presentarán dos listas (grillas), donde una lista las instancias que cumplan con la expresión ingresada, y la otra lista las instancias que no cumplan con la expresión y representan el “Salida/Pasivo/Crédito”. 
+ Es decir, lo que se visualiza en cada grilla solo depende de si cumple la expresión de filtro o no, pero no depende de si es positivo o negativo. Cuando se realiza la imputación, la lógica permite imputar lo positivo contra lo negativo sin importar en que grilla estaba. Para el caso de atributo doble, se puede 
+ imputar lo que tiene valor en el Debe contra lo que tiene valor en el Haber. Y también Debe contra Debe, o Haber contra Haber si tienen diferentes signos los valores a imputar. 
+ La tercera solapa se denominará “Criterios de Imputación” y permite definir la forma en que se imputarán las instancias/ítems que cumplan con las definiciones realizadas en la solapa anterior. Esta definición de criterios de imputación determina cuáles instancias/ítems se imputarán entre sí. La presente solapa contiene inicialmente un conjunto de criterios de imputación, los cuales se presentan dentro de un cuadro de definición. Cada uno de estos cuadros estará compuesto por los siguientes elementos: 
+ ▪ 
+ Una barra de título, la cual contiene el botón para agregar un cuadro de definición. 
+ ▪ 
+ Cuadros de definición de nombre “Criterio” con el botón eliminar correspondiente a la sección de definición. 
+ ▪ 
+ En cada cuadro de definición, se muestran las configuraciones posibles dentro de un criterio. Las configuraciones son las siguientes: 
+ • 
+ Nombre. Permite indicar la denominación del criterio. 
+ • 
+ Detalle. Permite ingresar información más detallada del criterio de imputación. 
+ • 
+ Documentación. Permite ingresar la documentación asociada al criterio de imputación. 
+ • 
+ Condición. Permite indicar la condición que debe cumplirse para que pueda aplicarse el criterio. El contexto de esta condición es el contexto origen de la imputación. 
+ • 
+ Imputación automática. Esta opción solo aparecerá en caso de que el tipo de imputación sea automática según criterio e indicará que si la imputación aplica este criterio, debe realizarse de forma automática. 
+ • 
+ Igual valor de “Atributo”: Se utiliza para aquellos casos en que uno o más atributos de las instancias deben ser iguales para que puedan imputarse entre sí. Los valores posibles son los atributos dentro del contexto definido para la imputación, no se permiten atributos a los que se llegue por referencia. Por ejemplo, que los importes de cada instancia sean iguales. 
+ • 
+ Distinto valor de “Atributo”: Se utiliza para aquellos casos en que uno o más atributos de las instancias deben ser distintos para que puedan imputarse entre sí. Los valores posibles son los atributos dentro del contexto definido para la imputación, no se permiten atributos a los que se llegue por referencia. Por ejemplo, en una conciliación bancaria el origen de cada instancia debe ser distinto (una proveniente del Banco y la otra proveniente de la empresa). 
+ • 
+ Expresión de usuario donde el resultado debe ser igual para realizar la imputación: Se utiliza en los casos donde queremos que la expresión se evalúe para cada instancia pendiente de imputar, y se tome para imputar juntas aquellas que tengan el mismo resultado evaluando la expresión. Por ejemplo, se necesita poder imputar cheques, que coincidan los 3 últimos dígitos del número de cheque y no todo el valor del atributo. 
+ Inicialmente se encuentra vacía la expresión. 
+ En el caso de que el criterio seleccionado sea “Expresión de usuario”, se podrá invocar al editor de expresiones. 
+ Las demás opciones (“Igual valor de Atributo” y “Distinto valor de Atributo”) presentarán una interfaz, donde seleccionarán los atributos que deben cumplir dicho criterio. 
+ El usuario puede definir nuevos grupos de criterios de cancelación desde el botón “+” que se encuentra en el título de la sección. 
+ Aquella configuración que se encuentre dentro del mismo cuadro de definición deberán cumplirse simultáneamente para poder efectuar la imputación. En cambio, los distintos criterios que se encuentran en diferentes cuadros de definición deberán aplicarse al conjunto de instancias que no hayan sido imputadas por el criterio anterior. 
+ La definición de criterios es opcional, el usuario puede no configurar esta solapa. Si no se completa ningún criterio se podrán imputar entre sí todas las instancias pendientes que cumplan la correspondencia de atributos. 
+ Si se definen criterios, y alguna de las instancias seleccionadas no cumplen ningún criterio, quedan pendientes de imputar. 
+ La cuarta solapa se denomina “Reglas de Cancelación” y permite definir una condición y una entidad a generar en caso de cumplirse dicha condición. 
+ En primer lugar se visualiza la sección condiciones permitiendo ingresar una nueva condición. 
+ A continuación se presenta un menú descolgable para indicar el tipo de cancelación, inicialmente con seis opciones, (tolerancia positiva, negativa, o indistinta y saldo de conversión positivo, negativo, o indistinto). Si la imputación está definida sin tolerancia, no aparece las tres opciones de tolerancia. Si la imputación no tiene definidas fórmulas de conversión, no aparecerán las opciones de saldo de conversión. 
+ En la misma línea del tipo de cancelación, a través del menú contextual se puede eliminar una condición existente. 
+ Si la cancelación es por conversión a continuación se visualiza un combo para indicar el criterio de cancelación por conversión que puede configurar el usuario. Esto es porque puede ocurrir que queden saldos por conversión para distintos grupos de criterios de cancelación configurados, las opciones son: 
+ • 
+ Cancelar Total: todos los saldos de conversión que resultan de un criterio de imputación se cancelan a una única instancia de la entidad destino seleccionada. Por ejemplo, si resultan de la conversión saldos en distintas Facturas y elijo cómo entidad destino Nota de Crédito, con esta opción se corresponde una única instancia de Nota de Crédito con el total de las facturas a cancelar. 
+ En el caso que los saldos resultantes sean valores positivos y negativos, se generan dos instancias en el destino, una para los valores positivos y otra para los negativos. Por ejemplo se están imputando saldos, y los valores positivos se cancelan a una Nota de débito y los valores negativos a una Nota de crédito. 
+ • 
+ Cancelar en ítems: todos los saldos de conversión que resultan de un criterio de imputación quedan detallados en la colección de ítems de la entidad destino selecciona. Esto aplica sólo si la entidad destino tiene definida una colección de ítems. Por ejemplo, si resultan de la conversión saldos en distintas Facturas y elijo cómo entidad destino Nota de Crédito que tiene a su vez una colección de ítems, con esta opción se corresponde una Factura por cada ítem de la colección de ítems de la Nota de Crédito. 
+ • 
+ Cancelar en instancias: por cada saldo de conversión que resulta de un criterio de imputación se genera una instancia de la entidad destino seleccionada. Por ejemplo, si resultan de la conversión saldos en distintas Facturas y elijo cómo entidad destino Nota de Crédito, con esta opción se genera por cada Factura una instancia de Nota de Crédito. 
+ Si la cancelación es por tolerancia siempre genera una única instancia por cada grupo de correspondencia y criterio de imputación configurado. 
+ Debajo del cuadro de ingreso de la condición, se visualiza el campo Condición donde se puede ingresar una expresión para refinar aún más los criterios para la instancia a generar. 
+ A continuación se presenta un descolgable, a partir del cual el usuario podrá seleccionar la entidad a generar en caso de que se cumple la condición. Este descolgable contendrá únicamente aquellas entidades que presentan un desencadenante sobre la entidad en edición. 
+ Por debajo del mismo, se presenta una grilla de dos columnas. En la primera de ellas se listan todos los atributos de la entidad seleccionada. En la segunda columna se permite ingresar una expresión que defina el valor que debe tomar el atributo correspondiente al momento de generarse la instancia de la entidad. Para el selector de funciones deberá mostrarse las funciones para este contexto, a priori, monto tolerancia, porcentaje de tolerancia, saldo de conversión. 
+ Al momento de crear la regla de cancelación el sistema deberá inferir aquellos atributos que sean iguales, tal como se especificó anteriormente en el punto “Valor inicial automático en grilla de definición de valores”. 
+ Expresiones y Funciones
+ Además, si la imputación contiene el atributo imputable en la colección, se puede usar la función AImputar(atributo) que tiene en cuenta no todos los valores del atributo en la instancia a imputar, sino sólo el de los ítems que se han seleccionado para imputar. Esta se explica en detalle en el documento de . 
+ Por ejemplo, en una partida tengo una colección de asientos, que contiene el atributo imputable importe. Sólo en algunos ítems quedan saldos de conversión, entonces utilizamos la expresión Aimputar(asientos.descripción), donde “descripción” es un atributo de la colección de asientos, para generar valores de la Entidad destino. 
+ Lo mismo si la colección es de productos, se puede utilizar la expresión Aimputar(Items.producto) para utilizar sólo los ítems de productos que se imputaron. 
+ Cada una de las reglas de cancelación definidas por el usuario se evalúa para cada imputación entre instancias que se realice. Esto aplica tanto para las reglas de cancelación por tolerancia como para las reglas de cancelación por saldo de conversión. 
+ Además, si se puso como condición “Saldo de conversión”, siempre que haya un saldo de conversión se ejecutan las reglas de cancelación en el destino configurado para esa condición, sin importar si el usuario había cargado ya un comprobante para imputar este saldo. 
+ Por ejemplo, se elije para imputar: 
+ • 
+ Factura U$D 100 -> $1500 
+ • 
+ Recibo U$D 100 -> $1600 (el dólar estaba 16 acá) 
+ • 
+ Nota de crédito: $100 
+ Entonces se imputará la factura y el recibo, y se genera una nota de crédito por cancelación, no se tiene en cuenta la otra nota de crédito ingresada por el usuario que puede correspondiera al saldo sobrante por conversión o a otra instancia de nota de crédito. 
+ Se ejecutan siempre todas aquellas condiciones que sean verdaderas, creando las instancias correspondientes en la Entidad indicada. 
+ Se permite indicar condiciones con igual valor en la expresión pero que generen instancias en distintas entidades. Esto es porque puede ocurrir casos en que el destino de cancelación es más de uno. Por ejemplo: Hay casos que la tolerancia positiva se trata de diferente generando distintos comprobantes si el cliente es del exterior o local. 
+ Las imputaciones soportarán ejecuciones parciales. Es decir, se permitirán realizar imputaciones sobre un valor inferior al total del atributo imputable, mientras que el resto quedará pendiente para una futura imputación. Por ejemplo, se tiene una factura de $100 y un Recibo de $60 que generaron dos instancias en Cuenta Corriente y se indica que se realizará la imputación entre ambas instancias, considerando a “Cuenta Corriente.Importe” como atributo imputable. Ante esta situación, se imputará el total de la instancia generada por el Recibo a una parte de la instancia generada por la Factura. Por lo tanto, si el usuario desea visualizar instancias pendientes de imputar, observará que la instancia generada por la Factura presentará un pendiente de $40. 
+ Todas las instancias de una entidad podrán imputarse manualmente. Es decir, que el usuario deberá seleccionar un conjunto de instancias que desee imputar, las cuales deberán cumplir con las condiciones de correspondencia definidas, y el sistema deberá aplicar los criterios de imputación de manera tal de decidir cuáles instancias se imputarán entre sí. Además, algunas imputaciones podrán realizarse automáticamente. Por lo tanto, al generar una nueva instancia de la entidad, el sistema deberá evaluar si existe alguna otra instancia en la misma entidad que cumpla con las condiciones de correspondencia e imputarla aplicando los criterios de imputación definidos. En caso de que no pueda imputarse dicha instancia, la misma quedará pendiente de imputación y luego el usuario deberá imputarla manualmente. 
+ Como cualquier otra operación en el sistema, las imputaciones podrán ser anuladas. En caso de anulación de una imputación, el sistema deberá realizar la misma secuencia de operaciones que en cualquier anulación, es decir, generar un nuevo registro con los valores de la instancia anulada multiplicados por -1 y registrar dicha anulación en el log auxiliar de imputaciones. 
+ Además, aclaramos que una entidad imputable (Ej. Cuenta Corriente) también puede recibir altas de instancias como todas las entidades, por ejemplo manualmente a través de un formulario. 
+ Tener en cuenta que si para una imputación total (donde las instancias tienen que dar 0 para imputar) se define correspondencia por algún atributo (por ejemplo, cliente) y criterios de 
+ imputación (por ejemplo, primer criterio: distinto tipo de comprobante, segundo criterio: mismo monto). Primero se busca imputar todas las instancias del mismo grupo con el primer criterio. Si no da 0, no se imputa nada y se prueba el mismo grupo pendiente de imputar con el segundo criterio. Y así sucesivamente. 
+ En el ejemplo, si hay 4 instancias del mismo cliente que forman parte del mismo grupo: 
+ Primero, se intenta imputar con el primer criterio y aunque la Factura 1 podría imputarse con el Recibo 1, las otras instancias no cumplen el primer criterio distinto tipo de comprobante, por lo tanto, se intenta imputar todo con el segundo criterio (mismo monto) y como da 0 se imputan las 4 instancias (Factura 1 con Recibo 1 y Factura 2 con Factura 3). 
+ Por grupo se realiza una sola operación. 
+ Cuando dos o más usuarios quieran imputar la misma instancia pendiente, se presentará una notificación a todos aquellos usuarios que estén involucrados en el conflicto, notificando que dicha instancia (o elemento de la instancia) está siendo imputada por otro usuario y en el detalle, se mostrarán los usuarios involucrados con los valores correspondientes. 
+ Estándares de interfaz de usuario
+ El detalle de las notificaciones se encuentra en el documento de , explicado junto al resto de las notificaciones. 
+ 

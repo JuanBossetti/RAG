@@ -1,0 +1,9 @@
+Contenedor: Texto o Texto Enriquecido 
+ |    | Tipo de dato          | Numérico          | Texto          | Booleano          | Fechas          | Duración          |
+|---:|:-----------------------|:-------------------|:----------------|:-------------------|:-----------------|:-------------------|
+|  0 | Numérico              | 2 y 5             | 4              | 4                 | 6 y 5           | 6 y 5             |
+|  1 | Texto                 | nan                | 8              | 4                 | 4               | 4                 |
+|  2 | Booleano              | nan                | nan             | 5                 | 4               | 4                 |
+|  3 | Fechas                | nan                | nan             | nan                | 5               | 5                 |
+|  4 | Duración              | nan                | nan             | nan                | nan              | 5                 |
+ 

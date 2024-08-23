@@ -1,0 +1,26 @@
+Ejemplo – Colección Domicilios: 
+ Formato de la colección: 
+ Orden de elementos: 
+ Miembros del compuesto “Domicilio”: 
+ Colección a Texto Enriquecido (Domicilios) 
+ Devuelve: 
+ Colección a Texto Enriquecido (En .Domicilios buscar Dirección) 
+ Devuelve: 
+ Colección a Texto Enriquecido (En .Domicilios buscar Código postal; País; Ciudad; Dirección) Devuelve: 
+ Colección a texto internacionalizable(Colección) 
+ La función “Colección a texto Internacionalizable()” trabaja de manera similar a “Colección a Texto Enriquecido()” con la diferencia de que esta permite convertir un conjunto de ítems de una colección en una lista de elementos de tipo Texto Internacionalizable. 
+ Sintaxis válidas de la función: 
+ Colección a Texto Internacionalizable(<Colección>) Colección a Texto Internacionalizable(En <Colección> Buscar <Atributo>) Colección a Texto Internacionalizable(En <Colección> Buscar <Atributo 1>;<Atributo 2>;<Atributo 3>) 
+ Comportamientos en los que difiere respecto de “Colección a Texto Enriquecido()”: 
+ ✓ 
+ El tipo de atributo Tipo Internacionalizable no admite la modificación del formato del texto como lo hace el Texto Enriquecido, por lo que, “Colección a Texto Internacionalizable” recibe los parámetros de “Formato de la colección” y los aplica en la lista convertida como Literales. 
+ Permite convertir un conjunto de ítems de una colección en una lista de elementos de tipo Texto Internacionalizable. 
+ En esta función podemos utilizar como parámetro de entrada tanto un atributo de tipo Colección como una expresión de búsqueda “En <Colección> Buscar <Atributo>”, siempre y cuando luego de la instrucción “En” se indique una Colección, por ejemplo, si se desea obtener la lista de direcciones de un cliente, éstas pueden obtenerse del siguiente modo: En .Domicilios Buscar Dirección. 
+ Adicionalmente, la función admite que se pueda solicitar más de un elemento en la expresión de búsqueda, para esto, al momento de escribir la expresión se deberán indicar los elementos de la 
+ colección que se desean convertir separándolos con ‘;’, por ejemplo; En .Domicilios Buscar Dirección; Código postal. 
+ Sintaxis válidas de la función: 
+ Colección a Texto Internacionalizable(<Colección>) 
+ Colección a Texto Internacionalizable(En <Colección> Buscar <Atributo>) 
+ Colección a Texto Internacionalizable(En <Colección> Buscar <Atributo 1>;<Atributo 2>;<Atributo 3>) 
+ Ejemplos: 
+ 

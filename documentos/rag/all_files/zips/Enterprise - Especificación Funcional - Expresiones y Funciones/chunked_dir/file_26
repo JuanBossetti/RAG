@@ -1,0 +1,39 @@
+2.7.3 Orden de resolución / Prioridad 
+ El orden de resolución de las expresiones es el definido matemáticamente, esto es, de izquierda a derecha y siguiendo el siguiente orden: 
+ 1. 
+ Término entre paréntesis 
+ 2. 
+ Potenciación y raíz 
+ 3. 
+ Multiplicación y división 
+ 4. 
+ Suma y resta 
+ 5. 
+ Comparación 
+ 6. 
+ Operadores lógicos 
+ Si se combinan varios operadores en una única Expresión, se ejecutan las operaciones en el orden indicado. Si una Expresión contiene operadores con la misma prioridad (por ejemplo, si una 
+ Expresión contiene un operador de multiplicación y otro de división), se evalúan los operadores de izquierda a derecha. 
+ Esto significa que, si tengo escrita la siguiente expresión: 5 + 3 * 2 
+ Se resuelve como cinco, más tres por dos, es decir, 5 + 6, ya que se resuelve antes la multiplicación que la suma. 
+ Si tengo la expresión 5 + (8 – 5) * 2, se resuelve primero 8-5 = 3 por estar entre paréntesis, quedándonos 
+ 5 + 3 * 2, y ahora tenemos el mismo caso que antes. 
+ Supongamos la expresión: 
+ 45 * 2 – 8 > 25 Y Raíz cuadrada(25) * Potencia(4;2) < 200 
+ 45*2 – 8 > 25 Y 5 * 16 < 200 
+ 90 – 8 > 25 Y 80 < 200 
+ 82 > 25 Y 80 < 200 
+ Verdadero Y Verdadero 
+ Verdadero 
+ Veamos ahora cómo queda la misma expresión si modificamos agregando los paréntesis: 
+ 45 * (2 – 8) > 25 Y Raíz cuadrada(25) * Potencia(4;2) < 200 
+ 45 * (-6) > 25 Y Raíz cuadrada(25) * Potencia(4;2) < 200 
+ 45 * (-6) > 25 Y 5 * 16 < 200 
+ (-270) > 25 Y 80 < 200 
+ Falso y Verdadero 
+ Falso 
+ El simple hecho de agregar los paréntesis hizo que cambiara el resultado completamente, por eso es sumamente importante tener en cuenta este orden de Prioridad. 
+ Otro ejemplo a considerar es cuando tenemos varias operaciones de Y con paréntesis. Veamos el siguiente caso: Necesito visualizar todos los clientes que sean del país Argentina y que el monto Total de sus facturas en los últimos 6 meses sea mayor a $100mil. Para esto, podría usar un filtro en un Gestor dinámico de información con la siguiente estructura: 
+ Obtener traducción(Domicilio facturación.País.Nombre;’es’) = ‘Argentina’ y (en Factura sumar Importe cuando Cliente = super.Esta instancia y Fecha > Hoy() – {6 meses}) > 100000 
+ En este caso, en primer lugar se resuelve el paréntesis que corresponde al EN SUMAR 
+ 

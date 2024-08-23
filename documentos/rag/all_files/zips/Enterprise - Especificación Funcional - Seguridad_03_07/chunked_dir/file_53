@@ -1,0 +1,38 @@
+Preferencias de Usuario 
+ Si es la primera autenticación del usuario, se deberá evaluar la política “Forzar carga de datos personales en primer acceso”. Si la política está activa para el usuario autenticado, el mismo visualizará sus preferencias de usuario, y deberá completar los campos obligatorios: 
+ Las Preferencias de Usuario se componen de una primera sección con los datos personales del mismo, y una segunda sección para los datos correspondientes a sus preferencias en cuanto al sistema. Esta pantalla tiene en cuenta la seguridad del usuario. 
+ Los datos personales son: 
+ • 
+ Usuario: no editable por el usuario. 
+ • 
+ Nombre. 
+ • 
+ Apellido. 
+ • 
+ Foto. 
+ • 
+ Contraseña. 
+ • 
+ E-mail. 
+ • 
+ Teléfono celular. 
+ • 
+ Domicilio. 
+ • 
+ Código postal. 
+ • 
+ Ciudad. 
+ • 
+ Localidad/estado/provincia. 
+ • 
+ País. 
+ Las preferencias del sistema son: 
+ • 
+ Editor de 
+ Temas
+ Tema preferido: el usuario debe elegir uno de los temas visuales sobre los temas que tiene permiso. De manera predeterminada, se hereda el tema del dominio. Al costado de la lista de selección para el tema, se presenta un botón para personalizar dicho tema. Esta personalización sólo la podrá realizar el usuario autenticado y aplicará para dicho usuario solamente, de acuerdo a lo establecido en el documento . 
+ • 
+ Idioma preferido de UI: indica el idioma en el que el usuario accede a todos los modelos. Si lo cambia, automáticamente se cambiará el idioma en el que se encuentra usando el modelo actualmente. 
+ • 
+ Idioma de datos preferido: indica el idioma de datos en el que el usuario accede a todos los modelos. Si lo cambia, NO se cambiará el idioma de datos en el que se encuentra usando el modelo actualmente. 
+ 

@@ -1,0 +1,11 @@
+4.1.13 Tipos Secuencia en Editor de Entidades 
+ Para poder utilizar una secuencia, bastará –tal como ocurre con los demás tipos de atributo– con asociar el Tipo Secuencia correspondiente a los atributos que se desee, tal como se muestra en la (<>)Imagen 7, la (<>)Imagen 8, y la (<>)Imagen 9. 
+ Al asociar un atributo con un Tipo Secuencia, se creará automáticamente el Secuenciador correspondiente, el cual tendrá como nombre, de manera predeterminada, una cadena de texto con la nomenclatura “<Nombre de Entidad>.<Nombre de Atributo>”. 
+ Imagen 7 
+ Imagen 8 
+ Imagen 9 
+ 4.1.13.1 Solapa “Seguridad” 
+ La solapa “Seguridad” permitirá definir qué usuarios pueden crear atributos usando el tipo de atributo, y que usuarios pueden modificar este tipo de atributo. En forma predeterminada no se 
+ presentan restricciones de seguridad en esta solapa. 
+ Pantalla 12 
+ 

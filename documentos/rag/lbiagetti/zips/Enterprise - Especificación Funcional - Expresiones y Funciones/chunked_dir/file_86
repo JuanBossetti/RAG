@@ -1,0 +1,3 @@
+Extraer(Texto, Posición, Número de caracteres) 
+ Devuelve un número específico de caracteres de una cadena de texto que comienza en la posición que se especifique. Equivalente a SUBSTRING (cadena, posición, [longitud]). 
+ 

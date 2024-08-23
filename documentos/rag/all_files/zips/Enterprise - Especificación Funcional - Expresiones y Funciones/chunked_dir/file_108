@@ -1,0 +1,3 @@
+Ejemplos: 
+ Suponiendo que tenemos un texto en un idioma y queremos asignarlo en un atributo de tipo texto internacionalizable, es necesario usar esta función. Por ej: Traducir texto a idiomas(“hola”;”es”) mostraría un texto con el valor hola, y en el diccionario de traducciones, para inglés queda “hello”. Si en el dominio hubiese otros idiomas, también se obtendrían las traducciones de los mismos. 
+ 

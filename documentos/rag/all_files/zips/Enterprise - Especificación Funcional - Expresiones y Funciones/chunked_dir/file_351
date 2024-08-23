@@ -1,0 +1,3 @@
+Chequeo inicio JVM() 
+ Chequea si tiene que iniciar una nueva jvm. Se utiliza en el Marketplace. 
+ 

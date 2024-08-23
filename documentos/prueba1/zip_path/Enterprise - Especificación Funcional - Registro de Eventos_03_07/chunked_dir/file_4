@@ -1,0 +1,73 @@
+3 Características principales de los registros 
+ • 
+ Se accede a los registros, colas y notificaciones desde el menú Registro de eventos del acordeón. Allí tenemos los registros de datos entrantes y procesados, los eventos de modelo y los de dominio. 
+ • 
+ Son de solo lectura para el usuario, con una funcionalidad similar a una bitácora de eventos. 
+ • 
+ Siempre se guardan instancias separadas por cada evento, es decir, si hay varios cambios en atributos en una entidad, por cada cambio se guarda una instancia de log. Por ejemplo, tenemos una Regla de Negocios en una Planificación de requerimientos de materiales que si el Lead Time de algún producto o materia prima es 0, envía una notificación por cada uno de los productos/materiales que se encuentren en esa situación. En el registro de aplicación, se guardan cada una de las notificaciones realizadas. 
+ • 
+ Los atributos internacionalizables se traducen a los idiomas de la aplicación o del modelo según corresponda. Veamos cómo se ve el registro anterior si el usuario cambia sus preferencias de Idioma a inglés. 
+ • 
+ Atributos comunes en todas las Colas y Registros 
+ 1. 
+ Nivel de registro: Indica si el evento es informativo, advertencia, error, evento crítico. Este campo siempre tiene algún valor. 
+ 2. 
+ Tipo de Origen: Indica el componente que generó el evento. Por ejemplo, actividad, regla de negocio, autenticación, AC, AI, etc. Este campo siempre tiene algún valor. 
+ 3. 
+ Entidad principal: Referencia a la entidad principal asociada al evento. Puede no tener valor (al menos en el Log de Seguridad). 
+ 4. 
+ Instancia principal: Id de la instancia principal de la transacción asociada al evento. 
+ 5. 
+ Entidad directa: Referencia a la entidad asociada a la generación directa del evento. Puede no tener valor. 
+ 6. 
+ Instancia directa: Id de la instancia asociada a la generación directa del evento. Por ejemplo, si el usuario da de alta una Factura id 44, esta instancia desencadena en una Cuenta Corriente id 88 y a su vez, esta instancia de Cuenta Corriente genera que se envíe un email. En la cola de emails se genera un evento con Entidad principal = Factura, Instancia Principal = 44, Entidad Directa = Cuenta Corriente e Instancia Directa = 88. 
+ En los casos en que la instancia principal sea igual a la instancia directa, se repiten los campos entidad principal = entidad directa e instancia principal = instancia directa. 
+ 7. 
+ Proceso de negocio: Referencia al proceso de negocio de la actividad asociada al evento. Puede no tener valor. 
+ 8. 
+ Actividad: Referencia a la actividad asociada al evento. Puede no tener valor. 
+ 9. 
+ Formulario: Referencia a formulario utilizado en el evento asociado. Esta es una referencia a ítem de colección dentro de una actividad. Puede no tener valor. 
+ 10. 
+ Vista de información: Gestor dinámico de información asociado al evento . Puede no tener valor. 
+ 11. 
+ Regla de negocio: Regla de negocio asociada al evento. Puede no tener valor. 
+ 12. 
+ Identificador de JVM: JVM desde la que se originó el registro. 
+ 13. 
+ Atributos predefinidos: Conjunto de datos de auditoría del sistema que se agregan en forma automática en todas las entidades 
+ a) 
+ Sitio: Sitio o lugar geográfico en el que inició sesión el usuario 
+ b) 
+ Usuario: Usuario que realizó la operación sobre la instancia 
+ c) 
+ Fecha hora de creación: Fecha y hora en la cual se creó la instancia originalmente 
+ d) 
+ Fecha hora de actualización: Fecha y hora en la cual se realizaron cambios sobre la instancia 
+ e) 
+ Modo de creación: Identifica la forma de creación de la instancia, si creó en forma directa, por desencadenante o transformación 
+ f) 
+ Base de datos: Base de datos desde la cual se creó la instancia 
+ • 
+ Siempre se registran atributos predefinidos para identificar rápidamente la instancia de la operación, por ejemplo: usuario, fecha y hora de la operación, servidor, tipo de origen de la instancia, etc. Resulta muy útil poder utilizar filtros rápidos para identificar los registros que se necesitan revisar, por ejemplo, podemos utilizar en la fecha hora de actualización el siguiente filtro rápido: >02/10/2023 y nos muestra todos los registros a partir del 02/10/2023 a las 0hs. Es decir, que incluye los de ese día. 
+ De la misma manera, podemos aplicar un filtro rápido por usuario, en este caso completando el nombre del usuario y se filtran los registros de todos los usuarios que tengan ese nombre. 
+ • 
+ Tanto la fecha hora de actualización como el usuario se encuentran dentro de un compuesto Atributos predefinidos, por lo tanto, si se quiere aplicar un filtro desde el panel de propiedades, es necesario mencionar el compuesto y luego el atributo. Es decir que si queremos filtrar que el usuario sea Rubén Armoa y la fecha igual o posterior al 02/10/2023 tenemos que ingresar el siguiente filtro en el filtro de lectura (recordemos que es necesario Habilitar personalizaciones desde el candado que aparece en la barra de herramientas, para poder aplicar un filtro de lectura): 
+ Atributos predefinidos.Fecha hora de actualización > {02/10/2023} y Atributos predefinidos.Usuario.Nombre de usuario = 'rarmoa' 
+ • 
+ Es posible además consultar los registros y colas asociados a una operación, desde la consulta del comprobante, accediendo a las vistas previas. Por ejemplo, al consultar una factura, vemos cómo puede tener relacionados registros en la Cola de correo electrónico, de servicio web, en el Registro de sistemas, entre otros. 
+ Para acceder a cada uno de ellos basta con seleccionarlo y se verán el o los registros asociados, por ejemplo, si accedemos a la cola de servicios web, visualizamos los eventos relacionados, de la siguiente manera: 
+ • Atributos comunes en todas las colas: 
+ 1. 
+ Estado: Estado del procesamiento en la cola (nuevo, en progreso, completado, fallo permanente, cancelado, reintentando, bloqueado) 
+ 2. 
+ Subestado: Sub-estado del procesamiento en la cola, indica información adicional del estado de procesamiento según el tipo de estado en el que se encuentre. 
+ 3. 
+ Intentos de procesamiento: Cantidad de veces en las cuales se intentó procesar nuevamente la instancia. 
+ 4. 
+ Reintentar hasta: Momento hasta el cual se seguirá reintentando el consumo en la cola. 
+ 5. 
+ Intento satisfactorio: Indica cuál fue el número de intento que se considera satisfactorio. 
+ 6. 
+ Origen: Link a la instancia directa que generó el registro en la cola. 
+ 

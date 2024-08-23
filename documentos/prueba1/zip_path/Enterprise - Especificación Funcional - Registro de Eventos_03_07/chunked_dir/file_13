@@ -1,0 +1,7 @@
+4.4.5 Consumo de Servicios web 
+ Por cada servicio web ejecutado de manera efectiva se registra independiente una instancia en la entidad de Registro, de lo contrario no se instancia. Los datos que se almacenan en la instancia además de la información general son la referencia al grupo de servicio web ejecutado, el servicio ejecutado, la operación ejecutada, el total de Megabytes que fueron enviados y/o recibidos en el payload, es decir, el peso del cuerpo de la petición o respuesta del servicio web. 
+ En el caso de los métodos GET, cuando el payload de envío contiene datos, se cobra por el peso del mismo, de lo contrario, solo se cobra el peso de la respuesta. 
+ Diferencia entre consumos de servicios web sincrónicos y confirmados en edición. 
+ Los servicios web que se resuelven en caché no se registran en el servicio de consumo, solo se registra el primer consumo, luego los que se resuelven en caché, no. Por ejemplo, cuando hay reintentos de la cola de servicio web, los mismos no son registrados en este registro de consumo. 
+ Cada operación debe acumularse en edición mientras el usuario se encuentra trabajando en la instancia origen. Por ejemplo, en caso de las funciones sincrónicas si no tienen caché se debe ir acumulando cada consumo que se realice, de lo contrario esto no se cobra. 
+ 

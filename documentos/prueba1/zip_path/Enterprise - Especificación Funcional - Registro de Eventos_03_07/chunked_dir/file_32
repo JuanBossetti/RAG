@@ -1,0 +1,33 @@
+4.11.2 Consulta de tiempos persistidos 
+ Adicionalmente, al confirmar una instancia, una transformación, o una imputación, se guardarán los tiempos de la transacción. Estos tiempos, a diferencia de los detallados anteriormente, quedarán persistidos en el “Registro de tiempos”. 
+ Los procesos sobre los cuales se llevará registro de tiempos son los siguientes: 
+ • 
+ Alta de instancia 
+ • 
+ Recálculo 
+ • 
+ Regla de Negocio 
+ • 
+ Regla de negocio recursiva 
+ • 
+ Condición de una Regla de negocio 
+ • 
+ Validación 
+ • 
+ Imputación pendiente 
+ • 
+ Imputación manual 
+ • 
+ Imputación automática 
+ • 
+ Desencadenante 
+ • 
+ Transformación 
+ • 
+ Actualización de acumulador 
+ • 
+ Ejecución de Transacción 
+ • 
+ Acceso a Base de datos 
+ Además, el “Registro de tiempos” tiene un acumulador asociado que apila los tiempos por cada Entidad. Está disponible para ser consultado con el nombre de “Registro de tiempos.Tiempos Acumulados”. 
+ 

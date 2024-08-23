@@ -1,0 +1,20 @@
+Validación extra ante una autenticación en un nuevo dispositivo 
+ Si hay algún método de validación extra ante una autenticación en un nuevo dispositivo, entonces debe verificarse primero la correcta autenticación del usuario con los métodos de autenticación definidos, y luego se evalúa si está queriendo ingresar desde un dispositivo en el cual el usuario no se haya autenticado anteriormente. De ser, así se procede a validar con el/los método/s definidos. 
+ Se define autenticación en un nuevo dispositivo cuando el usuario accede desde un dispositivo diferente o incluso, desde otro navegador o una nueva pestaña de incógnito dentro del mismo dispositivo. 
+ A continuación, se presentan los métodos de validación extra: 
+ • 
+ Aplicación OTP 
+ Métodos de 
+ autenticación adicionales – Aplicación OTP
+ Los detalles de la autenticación con método OTP se detallan en la sección “”. 
+ • 
+ Envío de email 
+ Métodos 
+ de autenticación adicionales – Email
+ Los detalles de la autenticación con método Email se detallan en la sección “”. 
+ • 
+ Envío de SMS: al igual que el email, pero el código se envía por SMS al celular del usuario. 
+ • 
+ Métodos de autenticación adicionales –Telegram
+ Envío de mensaje mediante Telegram Los detalles de la autenticación con método Telegram se detallan en la sección “”. 
+ 

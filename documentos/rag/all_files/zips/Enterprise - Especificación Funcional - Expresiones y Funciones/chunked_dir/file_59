@@ -1,0 +1,64 @@
+Por cada parámetro interactivo se debe especificar: 
+ ✓ 
+ Nombre: Atributo requerido. Es el nombre del Parámetro. Es un texto internacionalizable y debe ser único para una misma Función. No puede haber ni otro parámetro interactivo con el mismo nombre ni otro parámetro de entrada con el mismo nombre. Este mismo nombre es el que se muestra como etiqueta, en el panel de ingreso de valores por parte del usuario. 
+ ✓ 
+ Tipo de atributo: Atributo requerido. Es el Tipo de dato del Parámetro. Es referencia a tipo de atributo. No se podrán seleccionar tipos de atributos compuestos ni colecciones. A partir de este tipo de dato se infiere el widget a mostrar en el panel de ingreso de valores. 
+ ✓ 
+ Valor inicial: Es el valor por defecto que tomará ese parámetro. Es una expresión. Se muestra este valor en el widget correspondiente en el panel de ingreso de valores. Se toma como valor predeterminado cuando no existe interacción. Este valor inicial puede establecerse con una expresión obtenida del contexto global o también pueden utilizarse los parámetros de entrada de la función. 
+ ✓ 
+ Descripción: Permite indicar una breve descripción del parámetro. Es un texto internacionalizable y tiene la característica de verse como ayuda emergente en el panel de ingreso de valores. 
+ ✓ 
+ Documentación: Permite ingresar una explicación del parámetro en el caso de ser necesaria. Es un texto multimedia internacionalizable y tiene la característica de verse como documentación asociada a la ayuda emergente en el panel de ingreso de valores. 
+ Nota de arquitectura 
+ Field condition para los atributos: 
+ Nombre: Field condition = “INTERACTIVE_PARAMATER_NAME” 
+ Tipo de atributo: Field condition = “INTERACTIVE_PARAMATER_TYPE” 
+ Valor inicial: Field condition = “INTERACTIVE_PARAMATER_VALUE” 
+ El contexto de la expresión del Valor inicial será GLOBAL (sin incluir parámetros de entrada) 
+ Para el filtro del ejemplo anterior, podríamos armar una función con las siguientes características: 
+ • 
+ Parámetros interactivos 
+ o 
+ Ingresar fecha: dato tipo fecha y con valor inicial = hoy() 
+ • 
+ Condición: 
+ Los parámetros interactivos no se pasan al ser invocada la función, sino que el sistema pide su ingreso por pantalla. 
+ El orden que tienen los parámetros en la grilla es el orden en que aparecen, la etiqueta y widget correspondientes, en el panel de ingreso de valores. 
+ Si se elimina un parámetro interactivo, el sistema valida que el mismo no esté siendo usado en una expresión de la solapa de Condiciones. 
+ Si en las expresiones de la solapa de condiciones, se usan funciones interactivas, estas serán evaluadas estrictamente con sus valores predeterminados, no se pedirán por pantalla. 
+ En cuanto a su Invocación: 
+ • 
+ En caso de existir una interfaz visual, se solicitan los valores para los parámetros interactivos. En otros casos, se hará la ejecución con el valor predeterminado que se le dé a cada parámetro de la función. 
+ • 
+ Cuando haya una interfaz visual, se define genéricamente, que la invocación de parámetros interactivos se hará en el panel de mensajes. Es un subpanel dentro del panel de mensajes. Puede haber, por ejemplo, invocación de una función interactiva en: 
+ o 
+ Vista de información: En las expresiones de filtros definidos para cada componente de la vista. Al invocarse desde una vista de información, cuando se ejecuta la misma, se intentará utilizar los valores predeterminados cargados en la función para cada parámetro, en caso de no tener valor alguno de ellos, se deberá solicitar el valor a los usuarios en el panel de mensajes antes de mostrar el resultado. 
+ o 
+ Tarea de integración: En la expresión de filtro de instancias definido para una tarea de exportación de datos. Se abrirá el panel pidiendo los valores para los filtros y mostrando los valores por defecto. A diferencia de la invocación desde un GDI, cuando se invoca desde una tarea de integración, se piden siempre los parámetros interactivos, aunque todos tengan configurados valores por defecto, antes de ejecutar la actividad. Es posible utilizar los parámetros interactivos en la expresión que da nombre al archivo que surge de la tarea de integración. Por ejempo, si se va a exportar información a un archivo para hacer una presentación a un organismo, se ingresa la fecha del período que se está exportando y esta fecha puede formar parte del nombre del archivo obtenido, para cumplir con el formato requerido por el organismo. 
+ • 
+ El panel de ingreso de valores para parámetros interactivos tiene un botón “Confirmar” para disparar la evaluación de las expresiones involucradas. 
+ o 
+ En el caso de un GDI, al ingresar o modificar valores de los parámetros interactivos y presionar botón de confirmación, el sistema evalúa las expresiones y calcula o recalcula el conjunto resultado para cada componente involucrado. 
+ o 
+ En el caso de una tarea de integración, al ingresar valores de los parámetros interactivos y presionar botón de confirmación, el sistema evalúa la expresión de filtro, calcula el conjunto resultado para exportar y dejar en read only los valores de los mismos porque ya no se podrán modificar. 
+ Como no es obligatorio que se configuren los valores por defecto de los parámetros interactivos, se definen en forma genérica los siguientes comportamientos: 
+ • 
+ Se muestra siempre expandido el Panel de mensajes (Excepto que no haya interacción del usuario: GDI automático por tarea programada, Tarea de integración por tarea programada). 
+ • 
+ Al ingresar se evalúan las expresiones y se muestran los resultados filtrados. Si quedan parámetros sin valor, la expresión se evalúa igualmente. 
+ • 
+ El usuario puede modificarlos y, al confirmar, se reevalúan las expresiones, pero en las Tareas de Integración, al confirmar quedan de solo lectura. 
+ • 
+ En los casos en los que no hay interacción del usuario, si se pudieron resolver las expresiones sin error entonces se ejecuta la tarea. Si no se pudo resolver alguna expresión de filtro, no se ejecuta la tarea quedando registro del error. 
+ Estándares de interfaz de usuario
+ En el documento de , se detallan las características y comportamiento del panel de ingreso de valores para los parámetros interactivos. 
+ Respecto del procesamiento: 
+ • 
+ Si una función interactiva se invoca en una expresión de filtro, los parámetros se piden una sola vez y no para cada registro a evaluar. 
+ • 
+ Si en una misma expresión se invoca más de una vez a la misma función interactiva, se pregunta por pantalla solo una vez. 
+ • 
+ Si en una misma actividad se evalúan varias expresiones, y en esas expresiones se invoca más de una vez la misma función interactiva, se pregunta por pantalla solo una vez. Por ejemplo, en una vista de información con varias grillas con filtro. 
+ • 
+ Si en una misma actividad se evalúan varias expresiones, y en esas expresiones se invocan varias funciones interactivas, se van a preguntar por pantalla todos los parámetros interactivos al mismo tiempo. Por ejemplo, en una vista de información con varias grillas con diferentes filtros. 
+ 

@@ -1,0 +1,17 @@
+3.7 Puestos de trabajo 
+ Para el caso en que el dispositivo sea una computadora (de escritorio, notebook, etc.) el tipo de objeto debe ser Puesto de Trabajo. 
+ Un Puesto de Trabajo tendrá las siguientes propiedades: 
+ ✓ 
+ General: ubicación, nombre, descripción, sitio en donde se encuentra localizado, sitios/grupos de sitios desde donde se puede acceder al puesto de trabajo, calendario y dispositivos predeterminados (para imprimir, para numerar, para escanear, etc.). El 
+ calendario y los dispositivos lo heredará de la OU donde se encuentra, o del dominio en el caso de que el puesto de trabajo no se encuentre dentro de ninguna OU. 
+ ✓ 
+ Propiedades específicas del puesto de trabajo: dentro de las mismas se encuentra la ubicación en tcp/ip, ya sea con hostname o dirección IP.  
+ ✓ 
+ Estándares de interfaz de usuario
+ Historial de Versiones: se podrá mantener un historial de versiones de cada puesto de trabajo, de acuerdo a lo definido en el documento . 
+ ✓ 
+ Seguridad: contendrá una lista usuarios y grupos de usuarios que podrán acceder al puesto de trabajo y los permisos de cada uno sobre el mismo. 
+ ✓ 
+ Documentación: contendrá la documentación específica del dispositivo. 
+ Las propiedades obligatorias serán el nombre y la ubicación hostname/ip. 
+ 

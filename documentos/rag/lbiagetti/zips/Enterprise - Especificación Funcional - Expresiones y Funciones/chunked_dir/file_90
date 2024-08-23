@@ -1,0 +1,3 @@
+Quitar espacios(Texto) 
+ Elimina espacios en blanco iniciales, finales y en medio de un texto. Equivalente a TRIM(str) 
+ 

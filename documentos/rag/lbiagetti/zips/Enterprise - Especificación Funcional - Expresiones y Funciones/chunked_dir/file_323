@@ -1,0 +1,3 @@
+Estación de Trabajo() 
+ Devuelve una referencia a la instancia de Puestos de Trabajo en la cual se encuentra autenticado el usuario. 
+ 

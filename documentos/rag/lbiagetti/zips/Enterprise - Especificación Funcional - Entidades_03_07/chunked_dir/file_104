@@ -1,0 +1,4 @@
+1.14 Solapa Reglas de negocio. 
+ Dentro del editor de entidades, el sistema presentará al usuario una solapa en la que se detallará cada una de las reglas de negocios en la que la entidad que se encuentra definida como contexto 
+ origen. Es decir, todas las reglas de negocios que podrían ser ejecutadas a partir de que un usuario realice acciones sobre las instancias de dicha entidad. 
+ 

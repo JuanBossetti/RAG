@@ -1,0 +1,6 @@
+Ejemplos: 
+ • 
+ Al realizar un Ticket de venta, se consume el web service del Padrón ARBA AGIP para consultar las alícuotas de IIBB. Se registra en la cola de servicio web para los eventos de Modelo. 
+ • 
+ Periódicamente se ejecuta un servicio web para sincronizar los usuarios con el Marketplace. Este evento se registra dentro de los eventos de dominio. 
+ 

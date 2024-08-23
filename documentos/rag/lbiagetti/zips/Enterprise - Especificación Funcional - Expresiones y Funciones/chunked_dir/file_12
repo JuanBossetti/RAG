@@ -1,0 +1,8 @@
+2.3 Contexto global 
+ Vimos los contextos de acumulador, colección y entidad. Ahora veamos el contexto global. Es el contexto que siempre está presente. ¿Qué significa esto? Que en cualquier elemento donde se pueda ingresar una Expresión, es posible moverse al contexto global a través de alguna operación de búsqueda, por ejemplo: EN… BUSCAR o EN... PRIMER. 
+ De esta manera, es posible moverse al contexto de cualquier Entidad, Colección o Acumulador, gracias al contexto Global donde se encuentran todos ellos. 
+ Este contexto global puede tener alguna relación con el contexto inicial donde nos encontramos o no. Por ejemplo, en el caso de ir a buscar el nombre del cliente de una factura, empezamos en el contexto de la factura y pasamos al contexto del cliente de esa factura. 
+ Sin embargo, en otra situación, podríamos desde la factura ir a buscar la cotización del dólar a la entidad Cotizaciones, y no estar relacionado en nada con la factura que se está emitiendo. 
+ En Cotizaciones ÚLTIMO cotización CUANDO Moneda = “USD” 
+ De esta manera, obtenemos la cotización del dólar sin tener que relacionarlo con nada de la factura. 
+ 

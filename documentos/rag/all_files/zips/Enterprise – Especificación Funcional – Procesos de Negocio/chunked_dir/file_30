@@ -1,0 +1,67 @@
+3.7.8 Acciones/métodos disponibles por categoría 
+ Por cada Web Service existirá un conjunto de métodos predefinidos. El usuario modelador podrá activar y desactivar estos métodos. De manera predeterminada, dichos métodos estarán desactivados. 
+ Los métodos predefinidos por categoría son: 
+ ✓ 
+ Categoría Única instancia: 
+ o 
+ Métodos: consultar, crear, actualizar, habilitar, deshabilitar, eliminar, restaurar y sincronizar. 
+ ✓ 
+ Categoría Múltiples Instancias: 
+ o 
+ Métodos: consultar, crear, actualizar, habilitar, deshabilitar, eliminar, restaurar y sincronizar. 
+ ✓ 
+ Categoría Transformación: 
+ o 
+ Métodos: consultar instancias para transformar, y transformar. 
+ ✓ 
+ Categoría Autorización: 
+ o 
+ Métodos: consultar instancias para autorizar, y autorizar. 
+ ✓ 
+ Categoría Imputación: 
+ o 
+ Métodos: consultar instancias para imputar, e imputar. 
+ ✓ 
+ Categoría Única Instancia con Imputaciones: 
+ o 
+ Métodos: consultar, consultar instancias para imputar, crear instancia e imputar. 
+ ✓ 
+ Categoría Transformación con Imputaciones: 
+ o 
+ Métodos: consulta instancias a transformar, consulta estado luego de transformación, transformación, consulta instancias a imputar, e imputación. 
+ ✓ 
+ Categoría Imputación con Comprobantes Múltiples: 
+ o 
+ Métodos: consultar instancias para imputar, consultar instancias para generar, imputación con comprobantes. 
+ ✓ 
+ Categoría Vista de Información: 
+ o 
+ Métodos: consulta. 
+ Los métodos disponibles en una Actividad dependerán de la categoría, y de las operaciones permitidas configuradas en la Entidad. 
+ La descripción de cada método es: 
+ ✓ 
+ Consultar: permitirá obtener los valores de los atributos de las instancias de la entidad asociada a la actividad. 
+ ✓ 
+ Crear: permitirá crear una instancia de la entidad asociada a la actividad 
+ ✓ 
+ Actualizar: permitirá modificar una instancia de la entidad asociada a la actividad. 
+ ✓ 
+ Sincronizar: permite consultar, y dependiendo del resultado realizar un insert o un update. Si la instancia está, se modifica. Si la instancia no está, se inserta. Los valores únicos son los encargadós de decir “la instancia está” 
+ ✓ 
+ Habilitar/Inhabilitar (sólo para maestras y paramétricas): permitirá habilitar/inhabilitar instancia/s de la entidad asociada a la actividad. 
+ ✓ 
+ Eliminar: permitirá eliminar instancia/s de la entidad asociada a la actividad. 
+ ✓ 
+ Restaurar: permitirá restaurar instancia/s de la entidad asociada a la actividad. 
+ ✓ 
+ Consultar instancias para transformar/autorizar/imputar: permitirá obtener los valores de los atributos de las instancias pendientes de transformar/autorizar/imputar, de la entidad asociada a la actividad. 
+ ✓ 
+ Transformar: permitirá realizar la transformación. 
+ ✓ 
+ Autorizar: permitirá realizar lala autorización. 
+ ✓ 
+ Imputar: permitirá realizar lala imputación. 
+ ✓ 
+ Imputación con comprobantes: permitirá realizar la imputación y generar los comprobantes asociados. 
+ Volver a una versión anterior de una instancia NO estará disponible para realizarse por WS. 
+ 

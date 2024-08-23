@@ -1,0 +1,4 @@
+Ejemplos: 
+ Palabra sin caracteres especiales('123abcd') retorna '123abcd' 
+ Palabra sin caracteres especiales('123abcd é') retorna '' 
+ 

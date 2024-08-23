@@ -1,0 +1,28 @@
+Propiedades: 
+ o 
+ Nombre: texto internacionalizable. El nombre es único con respecto a los otros atributos del acumulador y con respecto al nombre de los atributos de la entidad. 
+ o 
+ Descripción: texto internacionalizable. 
+ o 
+ Tipo de agregación: Indica si el atributo de agregación que se va a acumular es mediante expresión o es un atributo de la entidad/colección (dependiendo del contexto de evaluación). 
+ o 
+ Retorno de la expresión: Indica el Tipo de atributo que debe retornar la expresión del atributo Expresion de agregación. Este atributo es visible si el valor del tipo de agregación es Expresión. 
+ o 
+ Expresión de agregación: Indica la expresión que se va a evaluar para calcular el atributo de agregación. Esta expresión tiene como contexto la entidad/colección (dependiendo del contexto seleccionado) y puede acceder a un contexto global. Debe retornar el valor seleccionado en el atributo Retorno de la expresión. 
+ o 
+ Atributo para la agregación: atributo por el cual se acumula. Permitirá seleccionar un atributo de la entidad/colección (dependiendo del contexto de evaluación) por medio de una lista desplegable de selección única. Esta lista de atributos incluirá todos los atributos de la entidad/colección. No podrán seleccionarse los atributos de tipo compuesto ni colección. Es visible si el campo Tipo de atributo de agregación tiene el valor Atributo. Solo es visible si el Tipo de agregación es Atributo. 
+ o 
+ Función de agregación: permitirá seleccionar una función de agregación mediante la cual se definirá el valor final del atributo del acumulador. Esta lista desplegable contendrá las funciones de agregación disponibles de acuerdo al tipo de atributo del atributo para la agregación. Por ejemplo, Suma (Kardex.Cantidad), siendo cantidad de tipo numérico. Dato requerido. 
+ o 
+ Eliminar valores 0: Si se habilita esta propiedad, los registros que tengan valor 0 en este atributo, se eliminaran. Esta validación la ejecuta persistencia; de esta manera se filtra siempre, tanto en grillas como en expresiones. Por ejemplo, si se crea una regla de asignación de valores con un En Buscar sobre este acumulador, no tendrá en cuenta los registros donde el valor del atributo actual sea 0, ya que no existirá dicho valor en el mismo. 
+ o 
+ Validación: permitirá definir una validación para el valor obtenido del atributo del acumulador. Para definir esta validación, se contará con las siguientes campos: 
+ o 
+ Función de validación: permitirá seleccionar una función de comparación para realizar la validación. Inicialmente las opciones serán: Mayor que, Menor que, Igual que, Distinto de, Mayor o igual que, Menor o igual que, Entre. 
+ o 
+ Valor de comparación: permitirá ingresar un valor mediante el cual se comparará el valor del atributo del acumulador. Sólo permitirá definir literales. En caso de que se seleccione la opción “Entre”, se presentarán dos campos como el que se esa describiendo, y se denominarán “Valor de comparación inicial” y “Valor de comparación final”. Estos campos dependerán del tipo de atributo del atributo para la agregación seleccionado (si es decimal, los valores de comparación serán decimales; si es fecha, serán fecha, etc). 
+ o 
+ Mensaje de error: mensaje que se presentará cuando el atributo del acumulador no cumpla con la validación. Este mensaje de error será un texto enriquecido internacionalizable. Para esta funcionalidad se utilizará el editor de texto enriquecido. 
+ o 
+ Validación en tiempo real: indica si se debe validar en forma centralizada el valor del acumulador, de forma de que sea imposible que quede con un valor inválido al trabajar con bases de datos distribuidas, o si se admite que haya un conflicto debido a que alguna base de datos distribuida aún no se ha replicado. De manera predeterminada, no se encuentra tildada. En el caso de que un acumulador tenga validación en tiempo real, para poder confirmar la transacción se debe primero intentar actualizar este acumulador centralizado. Si no, no se podrá confirmar. Un ejemplo de un acumulador con una validación en tiempo real se da en los bancos, donde una validación es que el saldo de los clientes no puede ser negativos. Entonces si un usuario realiza una extracción de dinero, el cajero donde lo realiza deberá estar en línea. Si no es en tiempo real, se podrán realizar operaciones incluso si el servidor de base de datos está offline. Por ejemplo, un acumulador de puntos que se suman por compra en cada cliente, validando que los puntos no excedan un cierto valor; se podrían realizar operaciones que afecten al acumulador (compras, nuevos clientes) aunque el servidor de DBs esté offline. 
+ 

@@ -1,0 +1,253 @@
+4.1.2 Propiedades particulares en base a la capa de bajo nivel 
+ En las imágenes siguientes de los prototipos del editor de tipos de atributos, sólo se presentará la solapa General, y dentro de ella, sólo la parte correspondientes a las propiedades del tipo de atributo que se está creando. Considere que dicha solapa cuenta también con el componente de validaciones definido dentro del presente documento. 
+ 4.1.2.1 Numérico 
+ Permitirá almacenar valores numéricos enteros o decimales. 
+ Tendrá las siguientes propiedades: 
+ ✓ 
+ Enteros: Permitirá indicar la cantidad de dígitos enteros que podrá contener el valor almacenado en un atributo del tipo que se está definiendo. En los tipos de atributo hijos sólo se podrá acotar el valor heredado. Ejemplo: si el tipo padre moneda posee 3 enteros, los tipos hijos de moneda heredarán este valor pudiendo redefinirlo con valores menores a 3 (no mayores). 
+ ✓ 
+ Decimales: Permitirá indicar la cantidad de dígitos decimales que podrá contener el valor almacenado en un atributo del tipo que se está definiendo. En los tipos de atributo hijos sólo se podrá acotar el valor heredado. 
+ ✓ 
+ Formato: Permitirá definir formato de tipografía y colores del texto siempre o cuando se cumple una condición expresada mediante una formula. Se va a implementar mediante una ventana (que será modal al panel) en la cual se visualizará un asistente. 
+ 4.1.2.2 Lógico (o booleano) 
+ Permitirá almacenar valores que pueden tomar uno de dos estados como por ejemplo, verdadero/falso, sí/no o activado/desactivado. 
+ Un atributo que sea definido con este tipo atributo será representado por una casilla de verificación (también conocida como checkbox). 
+ Tendrá las siguientes propiedades: 
+ ✓ 
+ Formato: Idem Numérico. 
+ 4.1.2.3 Texto 
+ Permitirá almacenar caracteres, palabras y/o frases de texto. 
+ Tendrá las siguientes propiedades: 
+ ✓ 
+ Longitud: Permitirá indicar la cantidad de caracteres que podrá contener el texto. En los tipos de atributo hijos sólo se podrá acotar el valor heredado. Ejemplo: si el tipo padre tiene longitud 30, los tipos hijos heredarán este valor pudiendo redefinirlo con valores menores a 30 (no mayores). 
+ ✓ 
+ Valores de atributos 
+ internacionalizables
+ Permite valores internacionalizables: Ver detalle en . 
+ ✓ 
+ Formato: Ídem Numérico 
+ ✓ 
+ Análisis funcional - Entidades
+ Idioma de datos: permite definir el idioma en el cual se ingresan y muestran los valores de los atributos que tienen este tipo. Sólo estará disponible si el tipo permite valores internacionalizables. Las opciones disponibles serán “usuario autenticado” (opción predeterminada), “expresión” (por ejemplo, que la dirección de los clientes dependa de la nacionalidad de los mismos, entonces para un cliente chino la dirección se ingresará y se visualizará en chino pero para un cliente argentino, la dirección estará en español) o cualquiera de los idiomas disponibles de los datos (sirve para ingresar algún campo con un juego de caracteres particular), definidos en el Dominio. Ver el detalle en . 
+ ✓ 
+ Activar corrección ortográfica: indica si el browser validará que estén bien escritas las palabras en el campo de texto. Por ejemplo, al escribir un email en Hotmail o Gmail la corrección ortográfica está activa (nota de arquitectura: se le envía al browser el tag correspondiente para que el browser active el corrector ortográfico). Este dato es sólo configurable en los tipos (no en los atributos). Aclaración: el navegador debe tener descargado el diccionario para que la opción funcione. Por ende si una maquina tiene instalado solo el idioma Inglés (Estados Unidos) y se quisiera activar el corrector en español, el mismo quedaría sin funcionamiento. Si el texto no es internacionalizable y tiene corrección ortográfica, se valida con el idioma del usuario autenticado. 
+ ✓ 
+ Ignorar tilde: Indica si en las búsquedas sobre valores de atributos de este tipo, se van a considerar similares los caracteres con y sin tilde. Tener en cuenta que para cada idioma y dialecto estará configurado en forma predeterminada, si ese idioma y dialecto utiliza esta configuración. Por ejemplo, si se consideran similares los caracteres “i” y “í” para el idioma español, entonces, al buscar la palabra “rio” el sistema va a encontrar como coincidente, tanto “rio” como “río”. Esta propiedad va a estar disponible para los textos, textos enriquecidos y textos multimedia. Solo se va a considerar, si para el idioma y dialecto actual se configuró “Utiliza tildes” en verdadero en la configuración regional predeterminada. 
+ Aplica solo a: 
+ ▪ 
+ Expresiones de comparación (por ejemplo filtro de una grilla). Se considera siempre del lado de los datos y no del lado de palabras reservadas ni nombres de elementos. 
+ ▪ 
+ Valores únicos 
+ NO Aplica a los siguientes usos: 
+ ▪ 
+ Búsqueda rápida 
+ ▪ 
+ Búsquedas en combos 
+ ▪ 
+ Búsqueda global (tiene su propio algoritmo y criterio de búsqueda) 
+ ✓ 
+ Ignorar mayúsculas minúsculas: Indica si en las búsquedas sobre valores de atributos de este tipo, se van a considerar similares los caracteres en mayúscula y en minúscula. Si para los atributos de un tipo, se ignora el hecho de que un carácter esté en mayúscula o minúscula, entonces, al buscar la palabra “madrid” el sistema va a encontrar tanto “madrid” como “Madrid” o “MADRID”. 
+ Aplica a los siguientes usos: 
+ ▪ 
+ Búsqueda rápida 
+ ▪ 
+ Búsquedas en combos 
+ ▪ 
+ En expresiones de comparación (por ejemplo filtro de una grilla). Se considera siempre del lado de los datos y no del lado de palabras reservadas ni nombres de elementos. 
+ ▪ 
+ Valores únicos 
+ 4.1.2.4 Texto Enriquecido 
+ Este tipo de atributo permitirá expresar un texto al cual se le podrá definir un formato especial, como por ejemplo distintos colores y tipo de letras, diferentes estilos, negrita, itálica, etc. 
+ Además de las propiedades definidas para tipos de atributo de categoría Simple, en el tipo de atributo “Texto Enriquecido” se podrá definir una propiedad extra la cual permitirá indicar si dicho tipo permite valores internacionalizables. 
+ Sin embargo, las siguientes propiedades mencionadas en la categoría “Simple” no estarán disponibles para definirse en el tipo de atributo “Texto Enriquecido”: 
+ ✓ 
+ No permitirá definirle un Formato condicional. 
+ ✓ 
+ No permitirá definir una longitud límite o máxima. 
+ En la imagen siguiente, se presenta un ejemplo de la solapa General del Editor de tipo de Atributos al definir un tipo cuyo padre sea el tipo “Texto enriquecido”: 
+ El tipo “Texto Enriquecido”, no posee la propiedad de Formato condicional pero si tiene la propiedad “Permite valores internacionalizables”, la cual estará activa de manera predeterminada. Además, como se puede ver, el componente de edición de la propiedad “Valor inicial” será distinto al utilizado normalmente, con el fin de poder ingresar como valor inicial un texto enriquecido, o bien ingresar una expresión que devuelva un atributo de tipo “Texto enriquecido”. 
+ En un tipo de atributo Texto Enriquecido, el usuario podrá ingresar un texto cualquiera y darle formato particular al mismo, y además, podrá ingresar expresiones propias del sistema, como por ejemplo atributos de entidades, expresión EN-BUSCAR, etc. Para poder escribir estas expresiones, se debe seleccionar la opción “insertar expresión” desde el menú contextual en el área multilínea o desde el botón . Esta acción, invocará al Editor de Expresiones y Funciones. Dentro del editor, se controlará que la expresión definida sea válida sintácticamente y que el resultado de la expresión sea texto. Para poder editar la expresión, se deberá seleccionar y mediante el menú contextual 
+ “editar expresión” o mediante el botón se invocará a dicho Editor pero con la expresión ya definida. 
+ Una vez escrita la expresión, la misma quedará encerrada con un borde de línea de puntos. 
+ Además, la expresión sólo podrá seleccionarse de manera completa (no parcialmente) y darle un formato particular, o bien, dejarla “sin formato” y que el resultado de dicha expresión tome el formato del resultado de dicha expresión (si es que tiene alguno). 
+ Este tipo también posee la opción “Activar corrección ortográfica” que indica si el browser validará que estén bien escritas las palabras en el campo de texto. Por ejemplo, al escribir un email en 
+ Hotmail o Gmail la corrección ortográfica está activa (nota de arquitectura: se le envía al browser el tag correspondiente para que el browser active el corrector ortográfico).Nota de Arquitectura: 
+ Inicialmente, el componente visual a utilizar será el brindado por DHTMLX. Dicho componente, es el que se puede visualizar en la imagen anterior. 
+ En caso de que el modelador haya definido un valor inicial para el tipo de atributo (o bien, para el atributo), el mismo se visualizará dentro del campo, tal como se presentan todos los valores iniciales. Por otro lado, si se definió que el atributo es internacionalizable, se presentará el ícono correspondiente, tal como se ve en el valor inicial de ejemplo. 
+ Los atributos basados en el tipo de atributo “Texto Enriquecido” soportarán la funcionalidad de traducción automática, siempre y cuando tengan activa la opción de internacionalización. Considerando que la traducción automática se realizará para cada oración dentro del texto completo, el sistema deberá evaluar qué características de texto enriquecido tiene en común la oración, y deberá respetarlas luego de traducir la oración. 
+ En aquellos casos que coexistan dentro de un texto enriquecido internacionalizable, texto fijo escrito por el usuario y expresiones de usuario (como por ejemplo, el nombre de un atributo), el sistema deberá traducir únicamente el texto fijo ingresado. Además, cuando se presente la grilla de internacionalización para un atributo de tipo Texto Enriquecido, y el usuario seleccione una de las traducciones propuestas, se deberá presentar una ventana flotante con el componente gráfico de texto enriquecido, tal como se muestra a continuación: 
+ 4.1.2.5 Texto Multimedia 
+ Este tipo de atributo permitirá expresar información donde se combine texto, imágenes, audio, y videos. Inicialmente, este tipo de atributo estará almacenado con un archivo binario o HTML 5. 
+ El Texto Multimedia contendrá las mismas propiedades que el tipo “Texto enriquecido”. Es decir, que, tomando como base las propiedades de los atributos de categoría simple, no podrá definirse un formato condicional ni una longitud máxima, y se incorporará la propiedad de definir si permite valores internacionalizables. 
+ En la imagen siguiente, se presenta un ejemplo de la solapa General del Editor de tipo de Atributos al definir un tipo cuyo padre sea el tipo “Texto Multimedia”: 
+ Como se puede ver en la imagen anterior, la interfaz al seleccionar como tipo padre al tipo “Texto Multimedia” será similar a la presentada para el caso de “Texto Enriquecido” con la diferencia que en este caso, se presentará en el campo de valor inicial la opción de insertar diferentes contenidos multimedia como por ejemplo imágenes, audios, o videos. a través de los diferentes íconos que se presentan en la definición del valor inicial. 
+ El componente gráfico de visualización de este tipo de atributo en el sistema final estará definido por un área de texto multi-línea, la cual contendrá las opciones para dar formato al texto y además, las diferentes opciones para insertar contenidos multimedia tales como imágenes, audio, videos, mapas, etc. A continuación, se presenta una imagen de dicho componente: 
+ En caso de que el modelador haya definido un valor inicial para el tipo de atributo (o bien, para el atributo), el mismo se visualizará dentro del campo, tal como se presentan todos los valores iniciales. Por otro lado, si se definió que el atributo es internacionalizable, se presentará el ícono correspondiente, tal como se ve en la imagen de ejemplo. 
+ Los atributos basados en el tipo de atributo “Texto Multimedia” soportarán la funcionalidad de traducción automática, siempre y cuando tengan activa la opción de internacionalización. Para cada traducción realizada, el sistema deberá evaluar qué características de texto multimedia presenta el contenido multimedia, o la mayor parte de ella, y respetarlas luego de realizada la traducción. Los contenidos multimedia que no sean texto, tal como una imagen o video, no serán traducidos. 
+ Por ejemplo, se podría tener el siguiente contenido multimedia “HdiosO, el agua de los dioses [imagen]”. Al realizar la traducción automática al idioma inglés, dicho contenido quedaría “HdiosO, water of the Gods [imagen]”. En este caso, el usuario podría asignar una imagen diferente para cada idioma. 
+ Además, cuando se presente la grilla de internacionalización para un atributo de tipo “Texto Multimedia”, y el usuario seleccione una de las traducciones propuestas, se deberá presentar una ventana flotante con el componente gráfico de Texto Multimedia, tal como se ejemplifico para el tipo “Texto Enriquecido”. 
+ Este tipo también posee la opción “Activar corrección ortográfica” que indica si el browser validará que estén bien escritas las palabras en el campo de texto. Por ejemplo, al escribir un email en Hotmail o Gmail la corrección ortográfica está activa (nota de arquitectura: se le envía al browser el tag correspondiente para que el browser active el corrector ortográfico). 
+ 4.1.2.6 Json 
+ El tipo de atributo Json permitirá almacenar texto estructurado del tipo Json. 
+ El mismo permitirá visualizar de forma rápida la estructura tipada de este tipo de atributo como también su edición. 
+ Deberá permitir internacionalización. 
+ Por defecto vendrá colapsado a primer nivel. 
+ Estándares de interfaz de usuario – Punto 17.2 Widget tipo JSON – 
+ Opciones en el encabezado 
+ Para mayor información sobre las opciones provistas en el encabezado del widget del atributo., consultar la documentación de 
+ 4.1.2.7 Xml 
+ El tipo de atributo Xml permitirá almacenar texto estructurado del tipo Xml. 
+ El mismo permitirá visualizar de forma rápida la estructura tipada de este tipo de atributo como también su edición. 
+ Deberá permitir internacionalización. 
+ 4.1.2.8 Tipos Binarios 
+ El tipo de atributo Binario pertenecerá a la capa 1 del sistema de tipos. El mismo permitirá almacenar cualquier archivo binario, incluyendo contenidos multimedia, como por ejemplo imágenes, audio, sonidos, pdf, doc, etc. Sin embargo, este tipo de archivo sólo permitirá almacenar un único tipo de archivo a la vez. Por lo tanto, la capa de sistema y usuario inicialmente tendrá los tipos: Imagen, Audio y Video. 
+ En general, todos los tipos binarios tendrán los campos: 
+ o 
+ Permite valores internacionalizables: checkboxs para definir si habrá un archivo por cada idioma o si no será un dato internacionalizable. 
+ o 
+ Idioma de datos: permite definir el idioma en el cual se ingresan y muestran los valores de los atributos que tienen este tipo. Sólo estará disponible si el tipo permite valores internacionalizables. Las opciones disponibles serán “usuario autenticado” (opción predeterminada), “expresión” o cualquiera de los idiomas disponibles de los datos definidos en el Dominio. 
+ o 
+ Tipo de valor inicial: se deberá indicar si el valor inicial es “Fijo” o es una “Expresión” que retornará un tipo binario. Si es expresión, se visualizará una expresión para ingresar el valor inicial y si es fijo, se podrá subir un archivo. Este dato es opcional. 
+ o 
+ Tipos de archivos aceptados. Es un combo de selección múltiple cuyas opciones dependen del tipo. Por ejemplo para las imágenes: jpg, gif, png, etc. El usuario podrá modificar las opciones predeterminadas. En el caso de que un usuario intente subir un tipo de archivo inválido, el archivo no se podrá subir y se mostrará al usuario el siguiente mensaje de error en una ventana modal: 
+ ▪ 
+ Título de la ventana: “Tipo de archivo inválido” 
+ ▪ 
+ Texto: “El tipo del archivo que intenta seleccionar: <png> es inválido. Los formatos válidos son: <jpg>”. 
+ ▪ 
+ Botón “Aceptar”. 
+ o 
+ Tamaño máximo de archivo. No se podrán cargar archivos que superen este valor. La unidad de medida es KB. Existirá un tamaño máximo predeterminado para cada tipo, pero el usuario podrá redefinirlo. En el caso de que un usuario intente subir un archivo de mayor tamaño que el tamaño máximo definido, el archivo no se podrá subir y se mostrará al usuario el siguiente mensaje de error en una ventana modal: 
+ ▪ 
+ Título de la ventana: “Tamaño de archivo inválido” 
+ ▪ 
+ Texto: “El tamaño del archivo que intenta seleccionar es: <3950> KB. El tamaño máximo de archivo es: <3000> KB”. 
+ ▪ 
+ Botón “Aceptar”. 
+ o 
+ Validaciones, como todos los tipos simples. 
+ Todos los campos se heredan del tipo padre y categoría del tipo; y a su vez, los atributos heredan todas estas propiedades, pero sólo se pueden redefinir en los atributos las propiedades “permite valores internacionalizables”, “idioma de datos” y “valor inicial”. El resto de las propiedades (tipos de archivos aceptados y tamaño máximo de archivo) no se visualizarán en los atributos de tipos binario. 
+ Por ejemplo, para imágenes: 
+ 4.1.2.8.1 Imagen 
+ Este tipo permitirá almacenar una imagen. Las propiedades serán las mismas que Texto Multimedia, pero además, para el valor inicial primero se deberá indicar si este es “Fijo” o es una “Expresión” que retornará un tipo imagen. 
+ En la imagen siguiente, se presenta un ejemplo de la solapa General del Editor de tipo de Atributos al definir un tipo cuyo padre sea el tipo “Imagen” y donde el valor inicial es fijo: 
+ En caso que el valor inicial sea “Expresión” se visualiza el ícono correspondiente para insertar expresiones, en vez del ícono para insertar archivo de imagen. 
+ Todos los tipos imágenes son tipos descriptivos. 
+ 4.1.2.8.2 Audio 
+ Este tipo permitirá almacenar un audio. Las propiedades serán las mismas que en tipo Imagen. 
+ En la imagen siguiente, se presenta un ejemplo de la solapa General del Editor de tipo de Atributos al definir un tipo cuyo padre sea el tipo “Audio” y donde el valor inicial es fijo: 
+ En caso que el valor inicial sea “Expresión” se visualiza el ícono correspondiente para insertar expresiones, en vez del ícono para insertar archivo de audio. 
+ 4.1.2.8.3 Video 
+ Este tipo permitirá almacenar un video. Las propiedades serán las mismas que el tipo imagen y audio. 
+ En la imagen siguiente, se presenta un ejemplo de la solapa General del Editor de tipo de Atributos al definir un tipo cuyo padre sea el tipo “Video” y donde el valor inicial es fijo: 
+ En caso que el valor inicial sea “Expresión” se visualiza el ícono correspondiente para insertar expresiones, en vez del ícono para insertar archivo de audio. 
+ 4.1.2.9 Sólo Hora 
+ Permitirá expresar una Hora, Minutos y Segundo. No incluye Fecha ni Zona horaria. El rango que permitirá será desde 00:00:00 hasta 23:59:59. 
+ Tendrá las siguientes propiedades: 
+ ✓ 
+ Mascara de salida: La máscara de salida se utilizará para definir cómo se deberá visualizar la hora cuándo se vea en un reporte/formulario. Las opciones disponibles serán: 
+ ▪ 
+ Formato Corto: Por ejemplo, 01:50 PM. 
+ ▪ 
+ Formato Medio: Por ejemplo, 13:50. 
+ ▪ 
+ Formato Largo: Por ejemplo, 13:50:20. 
+ ▪ 
+ Formato Completo: Por ejemplo, 13:50:20 
+ Seguridad
+ Estos formatos serán tomados de la configuración regional del Dominio.. Para mayor información ver documento de . En forma predeterminada estará seleccionado el formato largo. 
+ Para el ingreso de datos se utiliza el formato medio, pudiendo el usuario usar cualquiera de los separadores disponibles. 
+ Para las expresiones se utiliza el formato medio. 
+ ✓ 
+ Formato: Ídem Numérico. 
+ 4.1.2.10 Sólo Fecha 
+ Permitirá expresar una Fecha determinada. No incluye Hora ni Zona horaria. 
+ Tendrá las siguientes propiedades: 
+ ✓ 
+ Mascara: se utilizará para definir como se deberá visualizar e ingresar la fecha. Las opciones disponibles serán: 
+ ▪ 
+ Formato Corto: Por ejemplo, 25/01/12. 
+ ▪ 
+ Formato Medio: Por ejemplo, 25/01/2012. 
+ ▪ 
+ Formato Largo: Por ejemplo, 25 de Enero de 2012. 
+ ▪ 
+ Formato Completo: Por ejemplo, Lunes, 25 de Enero de 2012. 
+ Internacionalización
+ Estos formatos serán tomados de la configuración regional del Modelo. Para mayor información ver documento de . En forma predeterminada estará seleccionado el formato medio. 
+ Para el ingreso de datos se utiliza el formato medio, pudiendo el usuario usar cualquiera de los separadores disponibles. 
+ ✓ 
+ Formato: Ídem Numérico. 
+ 4.1.2.11 Fecha y Hora 
+ Permitirá expresar una Fecha y Hora. Incluye Zona Horaria, y la Hora incluye minutos y segundos. 
+ Tendrá las mismas propiedades que Solo Fecha y Solo Hora. Para el ingreso de datos se utiliza el formato medio, pudiendo el usuario usar cualquiera de los separadores disponibles. 
+ Estos tipos de atributo tendrán una propiedad “zona horaria requerida” para indicar si cuando se utilice un campo fecha y hora en la aplicación, la zona horaria se deberá tomar del sitio donde se encuentre logueado el usuario (de la sesión) o si el usuario deberá elegir la zona horaria manualmente. De manera predeterminada, se tomará de la sesión. 
+ 4.1.2.12 Instante 
+ Permitirá expresar una Fecha y Hora al igual que en el caso anterior, pero en este caso la unidad de medida será milisegundos. 
+ Tendrá las mismas propiedades que Fecha y Hora, con la excepción de que el formato largo y el formato completo incluirán la hora con la máxima precisión. 
+ Su interfaz gráfica será la misma que para Fecha y Hora con sitio, con la diferencia que se podrá ingresar mayor precisión. 
+ Los segundos tendrán 3 decimales como máximo. Ejemplo: 23:59:59.999. 
+ 4.1.2.13 Duración 
+ Permitirá indicar un lapso de tiempo. Cuando se define el tipo se deberá indicar en que unidad se medirá. Las posibles unidades serán: años, meses, semanas, días, horas, minutos, segundos, milisegundos, y nanosegundos. 
+ Tendrá las siguientes propiedades: 
+ ✓ 
+ Unidad de medida: Es la unidad en la cual va a estar el dato guardado en tablas. Este dato se configura en el tipo de atributo, es heredado por los atributos y no se puede modificar. Será un enumerado de selección simple con los siguientes valores: años, meses, semanas, días, horas, minutos, segundos, milisegundos, microsegundos y nanosegundos. 
+ ✓ 
+ Unidades de ingreso: Son las unidades en las que se va a poder ingresar el dato y en las que se va a visualizar tanto en un cuadro de texto como en la celda de una grilla. Puede ser una sola, por ejemplo, en minutos (20 m) o ser varias unidades a la vez, por ejemplo ingreso en días, horas, minutos y segundos (5d 6 h 3m 2s). Se puede configurar en el TA, es heredado por el atributo y se puede modificar. Será un enumerado de selección múltiple con los mismos valores que la unidad de medida. 
+ Ejemplo: Duración de una tarea 
+ UM: Segundos. 
+ UI: Horas, minutos, segundos 
+ En un formulario se ve: 
+ En una grilla: 
+ Restricciones, aclaraciones y validaciones: 
+ • 
+ Cada unidad va a tener una letra correspondiente para utilizar como sintaxis. Esto se va a definir para cada idioma diferente en la Configuración regional del Dominio. Ver ejemplo (1). 
+ • 
+ La unidad de medida debe ser un dato requerido para los TA y atributos de tipo duración. 
+ • 
+ Las unidades de ingreso son opcionales. Si no se definen UI, el dato se ingresa y se visualiza en la UM sin ningún formato. Esto es, si la unidad de medida es en minutos, y no se configuran unidades de ingreso, el dato se ingresa como un dato numérico entero y se 
+ muestra en cuadros de texto y en celdas de grillas como un número (por ejemplo 120 y no 120s). 
+ • 
+ Las UI disponibles para una duración, están acotadas a las unidades de igual y menor precisión que la UM, más algunas otras restricciones que se definirán específicamente. Ver ejemplo (2). 
+ • 
+ Tanto con el botón asociado, como directamente escribiendo en el cuadro de texto, las unidades permitidas son las definidas como UI. En el ejemplo anterior, si se ingresa manualmente en el cuadro de texto (sin utilizar el asistente) solo serán válidas las unidades "h", "m" y "s". El sistema valida esto y muestra el mensaje correspondiente si se usan unidades inexistentes o no incluidas entre las UI. 
+ • 
+ Tanto al ingresar el dato duración en un cuadro directamente con la sintaxis correspondiente, como cuando se ingresa por asistente, al aceptar el dato se transformará si es necesario para que cada unidad no tenga un dato que supere el máximo de cada una. Por ejemplo: Si ingreso 5h 70m 10s -> entonces me lo transforma en el momento y se ve: 6h 10m 10s 
+ • 
+ Sin embargo, nunca se mostrarán unidades que no estén dentro de las seleccionada como unidades de ingreso. Si ingreso en el cuadro de texto o en el asistente, 25h 70m 10s -> entonces se ve: 26h 10m 10s. No transforma 26 horas en 1d 2h porque las unidades de ingreso definidas eran hora, minuto y segundo (no incluye día). 
+ • 
+ Las unidades que tengan valor en cero no se mostrarán. Si ingreso en el cuadro de texto o en el asistente, 5h 10m 0s -> se ve: 5h 10m (no se muestran los ceros). Si ingreso 5h 0m 30s -> se ve: 5h 30s. 
+ • 
+ Los datos tipo duración son siempre número enteros, por lo cual el usuario va a tener que elegir como UM la mínima posible para ese dato. 
+ • 
+ Un dato de tipo duración se podrá visualizar en gdi y en campos de salida de solo lectura, en cualquier otra unidad (respetando relaciones citadas en Ejemplo 2). Esto es independiente de las unidades de ingreso configuradas, se va a manejar con formato de formularios, gdi y actividades. 
+ • 
+ La relación entre unidades se define a continuación, quizás más adelante se pueda definir otra correspondencia (por ejemplo usando calendario). Hasta el momento la correspondencia es la siguiente: (no hay correspondencia entre UM de diferente grupo) 
+ Grupo 1: 
+ año = 12 meses 
+ mes = 1 mes 
+ Grupo 2: semana = 7 días, 168 horas, 10.080 minutos, 604.800 segundos, 604.800.000 milisegundos, 604.800.000.000.000 nanosegundos. día = 24 horas, 1.440 minutos, …. hasta nanosegundos. hora = 60 minutos, 86.400 segundos, 86.400.000 milisegundos, 86.400.000.000.000 nanosegundos. minuto = 60 segundos, 60.000 milisegundos, 6.000.000.000 nanosegundos. segundo = 1.000 milisegundos, 1.000.000.000 nanosegundos. milisegundo = 1.000.000 nanosegundos. 
+ nanosegundo= 1 nanosegundo. 
+ Ejemplo (1) -> Sintaxis idioma español: 
+ años = a 
+ meses = M 
+ semanas = S 
+ días = d 
+ horas = h 
+ minutos = m 
+ segundos = s 
+ milisegundos = l 
+ microsegundos = c 
+ nanosegundos = n 
+ Ejemplo (2): Acotar para cada Unidad de medida -> las unidades de ingreso disponibles 
+ UM = n -> UI = n,c,l,s,m,h,d,S 
+ UM = c -> UI = c,l,s,m,h,d,S 
+ UM = l -> UI = l,s,m,h,d,S 
+ UM = s -> UI = s,m,h,d,S 
+ UM = m -> UI = m,h,d,S 
+ UM = h -> UI = h,d,S 
+ UM = d -> UI = d,S 
+ UM = S -> UI = S 
+ UM = M -> UI = M, a 
+ UM = a -> UI = a 
+ 

@@ -1,0 +1,31 @@
+Acumuladores creados por el usuario 
+ Adicionalmente, además del acumulador automático del pendiente de transformar, se pueden crear manualmente acumuladores dentro del Log de transformaciones. 
+ Es decir, el usuario podrá crear sus propios acumuladores utilizando los atributos del log para llevar la cuenta del pendiente de transformar según las dimensiones que precise. 
+ Por ejemplo, dada una transformación en la entidad Nota de venta a Factura, en la cual se transforma por cada ítem de producto, la entidad de log presenta la siguiente estructura: 
+ Y el acumulador automáticamente se crea con la siguiente definición: 
+ • 
+ Atributos del acumulador: 
+ o 
+ Pendiente de transformar: sumatoria del atributo principal de la transformación, en este caso Cantidad de producto. 
+ • 
+ Dimensiones: 
+ o 
+ Nota de venta: Referencia a la instancia de Nota de venta. 
+ o 
+ Ítem origen: Referencia al ítem de producto de Nota de venta. 
+ Entonces, en caso de que el usuario quiera tener calculado el pendiente de transformar por categoría de producto y rubro, siendo categoría y rubro atributos de la entidad Producto, el cual es un atributo referencia dentro del ítem de producto de Nota de venta, se puede crear un acumulador con la siguiente definición: 
+ • Atributos del acumulador: 
+ o 
+ Pendiente de transformar: sumatoria del atributo principal de la transformación, en este caso Cantidad de producto. 
+ • Dimensiones: 
+ o 
+ Nota de venta: Referencia a la instancia de Nota de venta. 
+ o 
+ Ítem origen.Producto.Categoría: Referencia a la categoría del producto del ítem de producto de Nota de venta. 
+ o 
+ Ítem origen.Producto.Rubro: Referencia al rubro del producto del ítem de producto de Nota de venta. 
+ En este caso además del pendiente de transformar por ítem de producto, podrá visualizar por ejemplo en un GDI, el pendiente de transformar por categoría y rubro de producto. 
+ Al igual que cualquier acumulador, los datos de estos acumuladores podrán utilizarse dentro de expresiones y funciones. 
+ documento funcional de análisis de impacto
+ Se debe tener en cuenta que en caso de que se realicen cambios en la transformación que impliquen la generación de un nuevo log, el sistema no tendrá la responsabilidad de migrar los acumuladores generador manualmente por el usuario al nuevo log. Para más detalles de los casos en que se genera un nuevo log de transformaciones, chequear el . 
+ 

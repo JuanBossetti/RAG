@@ -1,0 +1,143 @@
+Los criterios de Generación de instancias disponibles serán en orden: 
+ ✓ 
+ Creación de una instancia de la Entidad Destino por cada grupo: este criterio permitirá crear una instancia de la Entidad Destino por cada agrupación de la Entidad origen. El nombre de la opción será “Instancia única por cada grupo”. En el caso de seleccionar este criterio, se visualizará debajo del mismo una lista doble para seleccionar uno o varios atributos que se utilizarán para agrupar. Por ejemplo, que se cree un Remito por cada ubicación a la que pertenecen los ítems seleccionados y por cada cliente de la factura, entonces se generará por ejemplo un remito para la ubicación “sur” y el cliente “Mary”, otro remito para la ubicación “norte” y el cliente “Mary” y otro para la ubicación “norte” y el cliente “Luigi”. 
+ ▪ 
+ Agrupación de atributos: lista doble que permitirá seleccionar los atributos de la entidad origen. Será obligatorio definir al menos uno. 
+ Esta selección indica que dicho/s atributo/s debe/n contener un único valor en todas las instancias seleccionadas de la entidad origen para generar una instancia en la entidad destino. 
+ Si la transformación es “parcial”, dentro de la lista doble se mostrarán todos los atributos del nivel/contexto en donde se encuentra el atributo principal o de control de la entidad origen y de los contextos superiores, incluyendo en las referencias la posibilidad de expandirlas para elegir un atributo de otra entidad a la que se llegue por referencia. Si la transformación es “total” se mostrarán todos los atributos de la entidad, incluyendo la posibilidad de expandir las referencias. 
+ ▪ 
+ Agrupación de expresiones: al igual que lo definido anteriormente en agrupación de atributos, permite definir un conjunto de expresiones por las cuales agrupar los valores para generar las instancias en la entidad destino, en caso de definir agrupaciones por atributos y agrupaciones por expresiones el resultado final será la sumatoria de ambos grupos. 
+ Para definir las expresiones de agrupación se presenta una grilla con dos campos: 
+ ✓ 
+ Tipo de retorno: Tipo de dato que retornará el resultado de la expresión a ingresar (Referencia a Tipo de atributo). 
+ ✓ 
+ Expresión: Permite ingresar la expresión cuyo resultado determinará el valor para agrupar. El Contexto de esta expresión es análogo al contexto origen de la transformación (Entidad/colección según corresponda). 
+ A diferencia de las agrupaciones de atributos, en este caso se pueden seleccionar expresiones que retornen datos de distintos niveles, por ejemplo, teniendo como base en la entidad “Factura” una transformación a “Remito”, cuyo contexto origen de transformación es la colección de “Ítems de comprobante”, se seleccionan como atributos agrupadores: 
+ ✓ 
+ Cliente. 
+ ✓ 
+ Empresa. 
+ ✓ 
+ Sitio Origen. 
+ Y como Agrupaciones de expresiones, datos de una colección que está al mismo nivel de “Items de comprobante”, 
+ ✓ 
+ Tipo de retorno: Texto. 
+ ✓ 
+ Expresión: Colección a texto internacionalizable(en .Atributos contables buscar Atributo; Porcentaje) 
+ Si se seleccionan para transformar 2 Facturas con la siguiente estructura: 
+ o 
+ Factura 1: 
+ o 
+ Cliente: Carlos H. 
+ o 
+ Empresa: MyLogic. 
+ o 
+ Sitio Origen: Central. 
+ ▪ 
+ Items de comprobante: 
+ • 
+ Item 1: 
+ o 
+ Producto: Mesa. 
+ o 
+ Precio: 1800. 
+ o 
+ Cantidad 2. 
+ • 
+ Item 2: 
+ o 
+ Producto: Silla. 
+ o 
+ Precio: 500. 
+ o 
+ Cantidad 3. 
+ ▪ 
+ Atributos contables. 
+ • 
+ Atributo: Ventas 1. 
+ • 
+ Porcentaje: 100. 
+ o 
+ Factura 2: 
+ o 
+ Cliente: Carlos H. 
+ o 
+ Empresa: MyLogic. 
+ o 
+ Sitio Origen: Central. 
+ ▪ 
+ Items de comprobante: 
+ • 
+ Item 1: 
+ o 
+ Producto: Sofá. 
+ o 
+ Precio: 35000. 
+ o 
+ Cantidad: 1. 
+ ▪ 
+ Atributos contables. 
+ • 
+ Atributo: Ventas 1. 
+ • 
+ Porcentaje: 100. 
+ Entonces, al transformarlas se creará un solo Remito con los datos: 
+ o 
+ Cliente: Carlos H. 
+ o 
+ Empresa: MyLogic. 
+ o 
+ Sitio Origen: Central. 
+ ▪ 
+ Items de comprobante: 
+ • 
+ Item 1: 
+ o 
+ Producto: Mesa. 
+ o 
+ Precio: 1800. 
+ o 
+ Cantidad 2. 
+ • 
+ Item 2: 
+ o 
+ Producto: Silla. 
+ o 
+ Precio: 500. 
+ o 
+ Cantidad 3. 
+ • 
+ Item 3: 
+ o 
+ Producto: Sofá. 
+ o 
+ Precio: 35000. 
+ o 
+ Cantidad: 1. 
+ Restricciones en la elección de atributos agrupadores: 
+ ✓ 
+ Un atributo no puede estar duplicado en la definición de "Agrupación de atributos" de la transformación. 
+ ✓ 
+ Un atributo que está asignado como valor a un atributo de cabecera de la transformación, debe estar seleccionado como agrupador. 
+ ✓ 
+ Creación de una instancia en la Entidad Destino por cada instancia de la Entidad Origen: este criterio permitirá crear una instancia de la Entidad Destino por cada instancia de la Entidad Origen. Por ejemplo, crear una Factura por cada Remito. El nombre de la opción será “Instancia única por cada instancia”. 
+ ✓ 
+ Creación de una instancia en la Entidad Destino por cada ítem seleccionado: este criterio permitirá crear una instancia de la Entidad Destino por cada ítem, a partir de varias instancias de la Entidad Origen. Por ejemplo, crear un Remito por cada ítem de una Factura. El nombre de la opción será “Instancia única por cada ítem”. Este criterio sólo se podrá seleccionar si la transformación es “parcial”. 
+ ✓ 
+ Creación de una instancia en la Entidad Destino por cada unidad de cada ítem seleccionado: este criterio permitirá crear una instancia de la Entidad Destino por cada 
+ unidad de cada ítem de la Entidad Origen. Por ejemplo, si se tiene una Factura en la cual hay un único ítem del cual se vendió 10 unidades, que se creen 10 Remitos, uno por cada unidad. El nombre de la opción será “Instancia única por cada unidad”. Este criterio sólo se podrá seleccionar si la transformación es “parcial”. 
+ ✓ 
+ Creación de una única instancia en la Entidad Destino para todos los ítems/instancias seleccionados: este criterio permitirá crear una instancia de la Entidad Destino para varias instancias de la Entidad Origen. Por ejemplo, crear un único Remito para múltiples instancias de Facturas. El nombre de la opción será “Instancia única”. 
+ A continuación, se presenta una imagen de la interfaz descripta recientemente: 
+ - 
+ En el caso que un usuario se encuentre realizando una transformación, y edite algún valor en la entidad destino, se utilizará la inversa de lo definido en la grilla de valores por omisión para calcular cómo se calcula el atributo de la entidad origen. La inversa siempre se calcula con regla de 3 simples. 
+ Por ejemplo: 
+ Si el usuario desea 
+ transformar cantidad 2 en ítem de la factura, se calculará la cantidad 200 en el ítem de remito 
+ correspondiente. Si el usuario edita a 300 la cantidad de dicho ítem en Remito, se calculará que el ítem de Factura quedará en 3. 
+ El redondeo en estos casos será implícito. Es decir, si en el atributo de la entidad origen, el cálculo inverso da con n decimales, se redondeará a lo que soporte el atributo. 
+ Como se mencionó anteriormente, al definir un tipo de cancelación automática, se debe determinar una entidad destino mediante la cual realizar la cancelación de valores pendientes. A continuación, se presenta una imagen representativa de la pantalla anterior para el caso descripto. En la misma, se puede observar una lista desplegable por encima de la grilla de “Destinos”. En esta grilla, se listarán todas las Entidades que pueden ser destino de la transformación y el usuario deberá seleccionar una de ellas, a partir de la cual se definirá el destino que se genera al entrar dentro de los límites de tolerancia con cancelación automática. Aclaramos que una entidad destino de transformación, también puede ser una entidad imputable. Esto es una aclaración y no es limitante en nada de lo definido en los puntos anteriores. 
+ Cuando dos o más usuarios quieran transformar la misma instancia pendiente, se presentará una notificación a todos aquellos usuarios que estén involucrados en el conflicto, notificando que dicha instancia (o elemento de la instancia) está siendo transformada por otro usuario y en el detalle, se mostrarán los usuarios involucrados con los valores correspondientes. 
+ Estándares de interfaz de usuario
+ El detalle de las notificaciones se encuentra en el documento de , explicado junto al resto de las notificaciones. 
+ 

@@ -1,0 +1,3 @@
+Convertir de base64 a archivo(Nombre de archivo, Texto) 
+ Dado un tipo de dato base64, retorna un atributo de tipo blob, permitiendo definir un nombre de archivo. 
+ 

@@ -1,0 +1,5 @@
+2.6.3 Agregar y Eliminar elementos 
+ Se podrán adicionar elementos a una colección mediante el operador “+”; de la misma forma, se podrán eliminar con el operador “–” o con el método eliminar(<índice>). En el caso de la eliminaciones con el operador “–”, se eliminarán de la colección todas las ocurrencias del operando que está a la derecha del operador. 
+ Colección1 + Colección2 + [“roca”;1626] ; [“Montevideo”;100] 
+ Colección1 – [“roca”;1626] 
+ 

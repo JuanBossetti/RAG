@@ -1,0 +1,7 @@
+2.6 Federación2 
+ Una federación es una colección de dominios que han establecido confianza. Uno de estos dominios será el administrador de la federación. El nivel de confianza puede incluir sólo autenticación, incluir autenticación y autorización, etc. 
+ Mediante soluciones de Identidad Federada3 , un usuario puede utilizar la misma identificación personal (típicamente usuario y contraseña) para identificarse en redes de diferentes sectores o incluso empresas. De este modo las empresas pueden compartir información sin tener que compartir tecnologías de directorio, seguridad y autenticación. 
+ El sistema deberá estar preparado para formar parte de una federación. 
+ 2 Esta funcionalidad se describirá en detalle para incorporar en el Release 2 de la aplicación. 
+ 3 Tener en cuenta productos como Microsoft Active Directory Federation Services 2.0 
+ 

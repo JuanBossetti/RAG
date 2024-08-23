@@ -1,0 +1,3 @@
+Ejemplos: 
+ SIMILAR('toast', 'coast') retorna 75. 
+ 

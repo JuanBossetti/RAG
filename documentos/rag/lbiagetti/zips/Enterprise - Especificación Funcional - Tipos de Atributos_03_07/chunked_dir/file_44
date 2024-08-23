@@ -1,0 +1,24 @@
+5.1 Consideraciones 
+ 1. 
+ minuta del día 08/11/2011
+ minuta del 
+ día 27/10/2011, 
+ De acuerdo a la , la cual reemplaza la definición en una colección se considera como una categoría más de tipo de atributo. 
+ 2. 
+ Deberá permitirse al usuario definir validaciones en los tipos de atributos. Por ejemplo, si se quisiera definir el tipo “Rango de fechas”, compuesto por los atributos “Fecha de inicio” y “Fecha de fin”, debería permitirse definir una validación tal que la Fecha de fin no pueda ser anterior a la Fecha de inicio. 
+ 3. 
+ Debe analizarse la posibilidad de definir valores iniciales en los elementos de un tipo de dato. Por ejemplo, para el caso anterior, podría querer definirse que el valor inicial de la Fecha de inicio sea la fecha del día. 
+ 4. 
+ minuta del día 27/10/2011
+ También en base a la , los tipos Referencia deberán ser implícitos, es decir que no hará falta definirlos en el editor de tipos. Al crearse una entidad, automáticamente quedará definido un tipo implícito con el mismo nombre de la entidad. 
+ 5. 
+ Los atributos que formen parte de un tipo Compuesto podrán ser de tipo Simple, Referencia, Colección, o ser a su vez de tipo Compuesto. 
+ 6. 
+ Al hacer uso de tipos Referencia, deberá tenerse en cuenta la posibilidad de efectuar copia de atributos de la entidad referenciada. Para cada atributo seleccionado se copiará su definición, y deberán analizarse los siguientes escenarios: 
+ a. 
+ Sólo se copia la definición de atributos. 
+ b. 
+ Se copia la definición de atributos, y sus valores se copian o se calculan al crear una instancia (por ejemplo, Producto.Precio a Ítem de Factura.Precio), siendo dichos valores de sólo lectura. 
+ c. 
+ Ídem anterior, pero los valores se copian y pueden ser modificados tanto por el usuario como por procesos. 
+ 

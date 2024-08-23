@@ -1,0 +1,10 @@
+Caso 5: Crear una sola instancia de la entidad destino con una colección poblada con otra colección que es resultado de una expresión/función 
+ Se tiene una Propuesta de Seguros, la cual contiene –entre otros datos– Cliente, Importe, y Cantidad de Cuotas. A partir de dicha Propuesta, se debe generar una Póliza de Seguros, la cual contendrá un plan de pagos en el cual se indicará el número de cuota, la fecha de vencimiento, y el importe a pagar en dicha fecha. 
+ El modelo contiene a la entidad Propuesta de Seguros y a la entidad Póliza de Seguros, la cual a su vez contiene una colección de Cuotas. 
+ Para este caso se hace necesario generar los elementos de la colección mencionada. Dicha acción puede efectuarse de dos maneras diferentes. Se presentan a continuación las opciones posibles: 
+ Opción 1 
+ En este caso se utiliza una función de generación de cuotas, la cual recibe como parámetros al importe total y la cantidad de cuotas, y devuelve una colección de cuotas. La misma se asigna a la colección Cuotas de la entidad Póliza de Seguros. 
+ Opción 2 
+ En este caso se asignan valores individuales a cada uno de los elementos de la colección, siendo uno de dichos valores una colección obtenida a partir de una función, con lo cual el sistema se comportará de acuerdo a lo descripto en el (<>)Caso 2. 
+ Generalizando, este caso presenta una entidad de destino, la cual contiene un atributo de categoría “Colección”. Los elementos de la misma se crearán en base a otra colección generada a partir de una expresión o función, ya sea asignándola directamente a la colección (Opción 1), o a un atributo contenido en ella (Opción 2). 
+ 

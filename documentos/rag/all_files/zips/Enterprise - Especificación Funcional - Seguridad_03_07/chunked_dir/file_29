@@ -1,0 +1,6 @@
+3.10 Seguridad de objetos 
+ La solapa “Seguridad” de cada objeto descripto anteriormente contendrá una lista de usuarios y grupos de usuarios que podrán realizar acciones sobre dicho objeto, así como las posibles acciones organizadas en una ACL (Lista de Control de Accesos). 
+ A continuación se detallarán los ítems de dicha ACL correspondientes a cada tipo de objeto. 
+ En el caso de grupos y unidades organizacionales, podrán contener objetos de su mismo tipo, es decir, una OU podrá contener n OUs y un grupo podrá contener n grupos. Por lo tanto, en la ACL de estos objetos aparecerá dos veces la administración de los mismos: una para los objetos contenidos y otra para el objeto que se está editando. Por ejemplo, en el caso de los grupos, aparecerá la administración de los usuarios contenidos, la administración de los grupos de usuarios contenidos, y la administración del grupo que se está editando. La diferencia entre los objetos contenidos y el objeto que se está editando se indicará con un tilde grisado (✓), indicando en el ítem, qué objeto tendrá esa propiedad. 
+ Se deberá tener en cuenta que si un usuario cuenta con permiso de modificación sobre un objeto, también tendrá permiso de consulta sobre el mismo. Por ejemplo, si un usuario cuenta con permiso de modificación de un sitio, podrá visualizar los datos del sitio. 
+ 

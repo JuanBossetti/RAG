@@ -1,0 +1,4 @@
+Expresiones en acumuladores 
+ El objetivo de los atributos mediante expresión en acumuladores es agilizar los cálculos cuando deseamos agregar un valor que depende de una expresión, y no tener que almacenar dicho valor dentro del valor calculado de un atributo definido previamente en la entidad. Es decir, no es necesario agregar un atributo a una entidad para poder acumular el valor resultante de una expresión. Esta expresión es evaluada y el valor resultante se debe impactar en el acumulador, pero este valor no se debe recalcular a menos que se realice una acción sobre la instancia origen. 
+ o 
+ 

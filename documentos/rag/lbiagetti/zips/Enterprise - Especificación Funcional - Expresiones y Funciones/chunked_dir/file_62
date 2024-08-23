@@ -1,0 +1,42 @@
+3.11.2 Consumo de Dispositivo. 
+ Los parámetros de invocación a presentar por cada comando, se obtienen de los controladores que el usuario haya seleccionado en la Función. Los valores de los Parámetros de invocación que se hayan definido en el Controlador se presentarán al usuario, quién podrá modificarlos, en caso de ser necesario. 
+ Propiedades a completar cuando la función sea de tipo Consumo de dispositivo: 
+ ✓ 
+ Tipo de dispositivo. Indica el Tipo de dispositivo para el cual aplicará la función. 
+ ✓ 
+ Origen de dispositivo: Define cómo obtener el dispositivo que se va a consumir cuando se invoque la función. Las opciones disponibles son: 
+ o 
+ Dispositivo fijo. Cuando se invoque la función, se consumirá el dispositivo seleccionado en el atributo “Dispositivo”. 
+ ▪ 
+ Dispositivo.  Define el dispositivo a consumir. 
+ o 
+ Dispositivo predeterminado. Determina que cuando se invoque la función, se debe consumir un Dispositivo predeterminado, de acuerdo a la configuración establecida en el atributo Tipo de dispositivo predeterminado, el cual a su vez permite seleccionar una de las siguientes opciones: 
+ • 
+ Predeterminado del Usuario autenticado 
+ • 
+ Predeterminado del Sitio 
+ • 
+ Predeterminado del Dominio 
+ o 
+ Expresión. Cuando se invoque la función, se evaluará la expresión ingresada en el atributo “Expresión de dispositivo” para obtener el dispositivo a consumir. 
+ ▪ 
+ Expresión de dispositivo: Expresión a evaluar para obtener el dispositivo a consumir. 
+ ✓ 
+ Controladores 
+ El usuario puede seleccionar un conjunto de controladores, entre todos los existentes para el Tipo de dispositivo seleccionado en la Función. Si el Origen de dispositivo es “Dispositivo fijo”, se valida que el usuario haya seleccionado un único Controlador. 
+ Por cada Controlador seleccionado se debe configurar: 
+ • 
+ Comando. Indica el Comando que se va a ejecutar cuando se invoque la función. 
+ • 
+ Parámetros de invocación del comando. El sistema presenta los Bloques de tipo “Carga útil” que estén definidos en el Controlador y el conjunto de Atributos que lo conforman. Si en el Controlador se definió una expresión sin contexto (unbound) en el atributo Valor, la misma es presentada al usuario, quien si lo desea puede modificarla.: 
+ o 
+ Parámetro. Referencia a la carga útil del Parámetro de invocación del comando del controlador. Este valor no se puede editar. 
+ o 
+ Tipo de atributo. Referencia al tipo de atributo utilizado en cada ítem de la carga útil de comando. Este valor no se puede editar. 
+ o 
+ Requerido. Indica si el ítem es requerido en la carga útil del comando. Este valor no se puede editar. 
+ o 
+ Valor. Valor que se enviará en la carga útil del comando cuando se consuma el dispositivo. 
+ o 
+ Condición. 
+ 

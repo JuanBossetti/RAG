@@ -1,0 +1,11 @@
+Datos de la Entidad destino: 
+ • 
+ Entidad destino: representa el destino en el que se transformarán las instancias que se está editando. Este atributo es mandatorio, además dentro de una transformación no se puede repetir la misma entidad. 
+ • 
+ Atributo principal: propiedad en donde se indica cuál es al atributo asociado en el que se transforma el atributo principal de la entidad origen. Se podrá elegir este atributo dentro de una lista de selección única y podrá ser un atributo directo de la entidad destino, un atributo dentro de un compuesto, dentro de una colección o dentro de una colección de colección; es decir; un atributo de la entidad en cualquier nivel de la misma. Esta propiedad sólo se visualizará si la transformación es parcial. 
+ • 
+ Criterio de Generación de Instancias: esta lista desplegable de selección simple permitirá definir la forma en que se generarán las instancias de la entidad destino. Esta propiedad será de carácter obligatorio. 
+ • 
+ Valor inicial de cantidad a transformar: permite definir para cada destino en transformaciones parciales, el valor sugerido de cantidad a transformar mediante una expresión de valor inicial, es decir, en caso de definirse un valor en este campo, se completará el destino con este valor inicial, y si el usuario lo desea lo podrá modificar. Si no 
+ se define ninguna expresión de valor inicial, al seleccionar una instancia/ítem para transformar, se completará el destino predeterminado con el valor del total pendiente de transformar. 
+ 

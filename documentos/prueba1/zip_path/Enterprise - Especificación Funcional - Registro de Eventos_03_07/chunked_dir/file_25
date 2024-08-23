@@ -1,0 +1,30 @@
+4.8 Registro de ejecución de corrección de datos 
+ Este log incluye todos los procesos de ejecución de correcciones de datos por código. Se visualiza dentro de la sección de registro de dominio y solo se muestran las instancias correspondientes al modelo-ambiente en el que se encuentra logueado el usuario. 
+ Versionado 
+ En el documento en la sección 3. Correcciones de datos podemos encontrar todas las definiciones sobre la herramienta que permite corregir datos. 
+ Acciones posibles sobre el registro: 
+ • 
+ Desde el log se puede revertir la corrección y se vuelve al valor anterior el dato involucrado en la corrección y los acumuladores que se vieron afectados al ejecutar la corrección. 
+ • 
+ Se puede eliminar un registro del log y la corrección queda pendiente para ejecutarse en la próxima publicación. 
+ • 
+ Las correcciones creadas en un ambiente de producción o prueba se pueden ejecutar desde el ABM de correcciones y si bien quedará registro de su ejecución en el "Registro de ejecución de correcciones de datos", se pueden volver a ejecutar desde el ABM. 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Corrección de datos: Solución para corregir o reparar los datos de las entidades. 
+ • 
+ Modelo: Modelo sobre el cual aplica la corrección. 
+ • 
+ Ambiente: Ambiente sobre el cual aplica la corrección. 
+ • 
+ Build: Build sobre el cual aplica la corrección. 
+ • 
+ Versión: Versión sobre la cual aplica la corrección. 
+ • 
+ Registro de preparación: Indica la etapa y el Paso de la preparación que se realizaba cuando se ejecutó la corrección. 
+ • 
+ Procesadas con éxito: Cantidad de instancias procesadas con éxito. 
+ • 
+ Procesadas con error: Cantidad de instancias procesadas con error. 
+ 

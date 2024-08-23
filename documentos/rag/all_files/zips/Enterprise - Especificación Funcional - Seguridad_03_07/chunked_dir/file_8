@@ -1,0 +1,10 @@
+2.3.5 Eventos que se notifican entre dominios 
+ • 
+ Alta, aprobación, rechazo y baja del vínculo 
+ • 
+ Alta y baja de objetos compartidos, y modificación de una propiedad que se copia 
+ • 
+ Alta y baja de un objeto dentro de una OU compartida 
+ • 
+ Alta y baja de un objeto dentro de un grupo compartido 
+ 

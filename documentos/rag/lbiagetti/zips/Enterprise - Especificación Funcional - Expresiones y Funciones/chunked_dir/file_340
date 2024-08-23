@@ -1,0 +1,71 @@
+Horarios laborales(Calendario, Día) 
+ A partir de un calendario específico y un día determinado, la función retornará los horarios laborales del día indicado. 
+ Esta función será utilizada para conocer los horarios laborales dentro de un calendario, al momento de presentar la semana laboral. 
+ Ejemplos: 
+ Clasificación de instancias de entidades paramétricas( ) 
+ No recibe parámetros. Utiliza la función Entidad propia de dominio() 
+ Retorno: Clasificación de elemento dinámico 
+ Cuando las instancias de entidades paramétricas sean creadas en el dominio donde fue creada la entidad, se considerarán de Sistema. En el caso contrario, es decir, en el caso que una entidad pase a otro dominio y ahí se cree una instancia, ésa instancia tendrá clasificación de Usuario. 
+ Ejemplos: 
+ La entidad Tipo de documento es paramétrica, se envían algunas instancias desde el dominio donde se crea la entidad. Luego, en otro dominio se crea otra instancia. En ese dominio, en el ABM se crea una columna calculada donde se indique la función Clasificación de instancias de entidades paramétricas(). La instancia creada en el dominio hijo, retorna Usuario, mientras que las otras instancias retornan Sistema. 
+ Clasificación de herramientas dinámicas( ) 
+ No recibe parámetros. Utiliza la función Modelo de dominio raíz() 
+ Retorno: Clasificación de elemento dinámico 
+ Si el modelo es de dominio raíz, la clasificación será de sistema. Si el modelo no es del dominio raíz, tendrá clasificación de usuario. 
+ Obtener coordenadas geográficas() 
+ Esta función no recibe parámetros y retorna un tipo de atributo Coordenadas (latitud y longitud). Este atributo indica las coordenadas geográficas actuales del dispositivo usado. Las mismas son un hipervínculo a la aplicación de mapas que se tenga configurada. 
+ Ejemplos: 
+ Obtener precisión geográfica() 
+ Esta función no recibe parámetros y retorna un atributo de tipo Precisión. Este atributo indica la precisión de la posición geográfica actual del dispositivo. 
+ Ejemplos: 
+ Editado por usuario(Atributo) 
+ Determina si el valor de un atributo fue ingresado por el usuario, recibe como parámetro el atributo sobre el cual se desea consultar si el valor actual que posee fue asignado por el usuario y retorna "verdadero" o "falso" según corresponda. 
+ Ejemplos: 
+ Editado por usuario(Fecha) 
+ • 
+ Verdadero: el valor actual del atributo fue asignado manualmente por el usuario. 
+ • 
+ Falso: el valor del atributo no fue ingresado por el usuario. 
+ Calculado por valor inicial(Atributo) 
+ Determina si el valor de un atributo fue asignado por un valor inicial, recibe como parámetro el atributo sobre el cual se desea consultar si el valor actual que posee fue asignado por valor inicial y retorna "verdadero" o "falso" según corresponda. 
+ Ejemplos: 
+ Calculado por valor inicial(Fecha) 
+ • 
+ Verdadero: el valor actual del atributo fue calculado por un valor inicial. 
+ • 
+ Falso: el valor del atributo no fue calculado por un valor inicial. 
+ Retorna nulo() 
+ Existen situaciones de negocio por las cuales en los procesos desarrollados se requiere blanquear atributos, asignando a estos un valor nulo. Para este tipo de situaciones es posible utilizar la función que permite asignar a cualquier atributo del sistema un valor nulo. Esta función no requiere de parámetro de entrada y su forma de invocación es Retorna nulo(). 
+ Consideraciones: 
+ Puede utilizarse para asignar un valor nulo a cualquier atributo independientemente del tipo de atributo que posean. 
+ Ejemplos: 
+ Se crea una Regla de negocio por botón de modificación de instancia actual para limpiar un formulario. Entonces, al presionar el botón, se les asigna Retorna nulo() en el valor a cada uno de los atributos de la entidad donde aplica. 
+ Un ejemplo de uso es ingresar los valores, confirmar. Presionar el botón y reingresar los valores. En el historial de la entidad para esa instancia, se observa de la siguiente manera: 
+ Base de datos() 
+ Esta función devuelve una referencia a la base de datos actual de la sesión. 
+ Clave única por servicio Web() 
+ La Regla de negocio que consume un servicio web puede devolver la clave única para identificar a la instancia desde donde se ejecuta. 
+ Esto se configura en la acción de la Regla de negocio. 
+ Evaluar() 
+ El operador Evaluar permite obtener el resultado de una Expresión Dinámica previamente guardada en una Instancia, logrando así la creación de Expresiones Dinámicas. 
+ Comportamiento: 
+ El operador Evaluar ejecuta una Expresión Dinámica utilizando como contexto la Instancia o Ítem que se le envía como primer parámetro. El Tipo de Atributo resultante de evaluar esta expresión, es el Tipo de Atributo configurado en la definición de la Expresión Dinámica. 
+ Ejemplos: 
+ Si se quiere inicializar de manera automática los descuentos de los ítems de comprobante de una factura según el rubro de estos, podemos modelar este proceso de la siguiente manera: 
+ Primero, debemos modelar la Entidad que poseerá las Instancias de las Expresiones Dinámicas 
+ Una vez dada de alta esta Entidad, se deben dar de alta las Instancias de la misma que contendrán las Expresiones Dinámicas 
+ Para este ejemplo, modelaremos la Entidad Factura de la siguiente manera: 
+ En la Entidad Factura, dentro de la colección Items de Comprobante, desplegaremos la colección Descuentos y allí modificaremos los siguientes Atributos: 
+ Porcentaje 
+ En Valor inicial escribimos la siguiente expresión: 
+ Evaluar(Ítem padre.Producto; En Descuentos por rubro primer Expresión Dinámica cuando Rubro = Ítem padre.Producto.Rubro) 
+ Subtotal 
+ En Valor calculado escribimos la siguiente expresión: 
+ Ítem padre.Subtotal 
+ Importe 
+ En Valor inicial escribimos la siguiente expresión: 
+ Subtotal*Porcentaje/100 
+ De esta manera, el operador ejecutará las Expresiones dinámicas de la Entidad Descuentos por rubro e inicializará el valor de Porcentaje según el Rubro del Producto. 
+ Como podemos observar, en el caso de Tela, que corresponde al rubro Textil, inicializa el porcentaje en 20: 
+ Mientras que, en el caso de Auriculares, que pertenecen al rubro Electrónica, inicializa el porcentaje en 10: 
+ 

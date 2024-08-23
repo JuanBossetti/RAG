@@ -1,0 +1,9 @@
+2.7.1 Tipos de operadores 
+ Existen distintos tipos de operadores; tenemos los operadores aritméticos (los podemos usar por ejemplo para asignar un valor inicial a un atributo numérico), tales como: 
+ Resaltamos que los operadores +,- podemos utilizarlos para sumar o restar números, fechas y duraciones. Por ejemplo, podemos sumarle a la fecha de una factura 30 días y así calcular un vencimiento. 
+ También el operador + se puede usar para concatenar textos, combinando varias cadenas en una sola. 
+ Otro tipo de operadores son los de comparación (muy utilizados en las validaciones). Entre estos tenemos <, >, =, >=, <>, <=. Estos operadores utilizan 2 operandos del mismo tipo y retornan un valor lógico: verdadero o falso. Podemos utilizarlos entre números y fechas. Por ejemplo Total>100 o Fecha<{25/12/2000} 
+ Y, por último, tenemos los operadores lógicos, como O o Y, que toman dos valores lógicos y retornan otro lógico. Si deseamos aplicar un descuento para las facturas del mes de marzo del año 2001, por ejemplo, podemos escribir la expresión 
+ Fecha>={01/03/2001} y Fecha<={31/03/2001} 
+ La evaluación de las Expresiones lógicas es mínima. Es decir, solo se evalúa un segundo argumento en el caso de que el anterior no sea suficiente pare determinar el resultado. Por ejemplo, en una expresión en la que se deben cumplir dos condiciones separadas por el operador “Y”, en el caso de que no se cumpla el primero no se evalúa el resto de la operación. 
+ 

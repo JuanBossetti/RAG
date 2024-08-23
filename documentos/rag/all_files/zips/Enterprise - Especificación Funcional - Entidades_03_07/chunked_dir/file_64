@@ -1,0 +1,3 @@
+Atributos identificadores 
+ Se visualizará una grilla en la que se indicará cuál/es atributo/s de la entidad/colección origen identificará/n la transformación. Se deberán elegir uno o varios atributos que identifiquen la transformación dentro de una lista de selección múltiple. Si este atributo está dentro de la colección del contexto, indica que se transformará por cada ítem de esa colección. No se podrá elegir atributos de distintos niveles, es decir, o son de la cabecera de la entidad (nivel 1) o dentro de la misma colección. Este atributo será obligatorio. 
+ 

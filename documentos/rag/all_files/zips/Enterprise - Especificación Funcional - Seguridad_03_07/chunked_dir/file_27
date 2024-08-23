@@ -1,0 +1,33 @@
+3.8.1.2 Cuentas para envío de email 
+ En el dominio se podrán definir cuentas para el envío correos electrónicos de diferentes proveedores. Se deberá tener en cuenta que según el Proveedor de email que se seleccione, la configuración a definir puede presentar variaciones. 
+ Para todas las cuentas se definen las siguientes propiedades: 
+ ✓ 
+ Nombre: Permite definir un nombre de la cuenta de email a crear. El mismo debe ser único en el sistema y para el idioma en que se está modelando, además, será pasible de internacionalización. Este dato es obligatorio. 
+ ✓ 
+ Descripción: Permite ingresar un texto donde se describe más en detalle la cuenta a crear. Este campo será pasible de internacionalización. 
+ ✓ 
+ Proveedor de e-mail: Combo de selección única donde se permite elegir el proveedor de e-mail de la cuenta. Las opciones disponibles son: Gmail, Outlook, Exchange u Otro. 
+ ✓ 
+ Nombre de usuario: Permite ingresar el nombre de usuario que se presentará como remitente del e-mail enviado. Este dato es obligatorio. 
+ ✓ 
+ Contraseña: permite ingresar la contraseña de la cuenta de email que se configura. Este dato es obligatorio. 
+ ✓ 
+ Dirección de correo: permite ingresar la dirección de correo desde la cual se enviará el e-mail y en la cual recibirá las respuestas. Este dato es obligatorio. 
+ ✓ 
+ Validar cuenta: Este botón permite validar los datos de la cuenta que se crea. Esta acción envía un correo de verificación a la cuenta configurada. 
+ En las cuentas de los proveedores Gmail, Outlook y Otras además se deben configurar las siguientes propiedades: 
+ ✓ 
+ Seguridad de la conexión: Combo de selección única donde se permite elegir el protocolo criptográfico que se utilizará para lograr una comunicación segura a través de la red. Las opciones son: SSL-TLS, STARTTLS o Ninguno. 
+ ✓ 
+ Host: Permite ingresar el nombre de servidor de la cuenta que se configura. 
+ ✓ 
+ Puerto: Permite especificar el punto de acceso por el cual se transferirán los e-mails. 
+ En las cuentas de Exchange además se deben configurar las siguientes propiedades: 
+ ✓ 
+ URL EWS: Permite ingresar la URL para conectar con el servidor de Exchange 
+ ✓ 
+ Dominio EWS: Permite ingresar el dominio de la cuenta Exchange que se crea. 
+ Luego de validada la cuenta, se podrá usar en acciones de RN para envío de email, para asociar a un usuario, enviar GDI, etc. 
+ En caso de copiarse la cuenta de email en otros modelos vinculados, distintos de donde se creó la misma, se copiará las propiedades Nombre y Descripción, el resto de las propiedades quedan en blanco en el modelo vinculado teniendo que especificarse luego. 
+ Si la cuenta es utilizada faltando definir propiedades obligatorias, dará una excepción en tiempo de ejecución en la cola de envío de emails mostrando al usuario un mensaje y logueando el error en el log correspondiente. 
+ 

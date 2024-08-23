@@ -1,0 +1,5 @@
+Permitir mantener sesión iniciada 
+ Si la política “Permitir mantener sesión iniciada” se encuentra habilitada, deberá aparecer el campo “Mantener sesión iniciada” en la pantalla y si el usuario lo tilda y se autentica correctamente, no deberá volver a ingresar sus credenciales en la próxima autenticación. 
+ Si el usuario selecciona esta opción y luego de un tiempo se cierra sesión por inactividad, al volver a ingresar al sistema, se auto-logueará, sin que el sistema le pida las credenciales. 
+ En el caso de que el usuario conectado en un dispositivo A, se conecte en un nuevo dispositivo B correctamente, se cerrará la sesión del usuario en el dispositivo A (incluso si hubiese clickeado en “Mantener sesión iniciada” en A), comunicándoselo con el siguiente mensaje: 
+ 

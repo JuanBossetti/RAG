@@ -1,0 +1,3 @@
+Quitar espacios finales(Texto) 
+ Elimina todos los espacios en blanco del final del texto. Equivalente a RTRIM(str). 
+ 

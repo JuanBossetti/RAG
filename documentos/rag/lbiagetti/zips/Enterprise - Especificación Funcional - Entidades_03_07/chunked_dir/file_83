@@ -1,0 +1,25 @@
+Ejemplo de caso de uso: 
+ Al realizar un Pago con imputación, se desea para cada comprobante imputado con el pago poder aplicar un descuento adicional, y además sobre el Pago, tener un campo calculado que muestre el total de los descuentos aplicados en todos los comprobantes imputados con el mismo. 
+ Para esto se define en la colección de Datos adicionales de la imputación dos atributos: 
+ 1. 
+ Referencia al descuento: 
+ a. 
+ Nombre: Descuento. 
+ b. 
+ Tipo: Descuento. 
+ c. 
+ Valor inicial: en Descuento primer Esta instancia. 
+ 2. 
+ Porcentaje de descuento: 
+ a. 
+ Nombre: Porcentaje. 
+ b. 
+ Tipo: Porcentaje de descuento. 
+ c. 
+ Valor inicial: en Descuento primer Porcentaje. 
+ Luego, por una Regla de negocios se completa una colección en Pago con los comprobantes imputados, y se agrega para cada uno de ellos el valor de “Porcentaje de descuento aplicado” ingresado al imputar. 
+ Calculando además en base a este porcentaje y al importe por el cual se imputa el comprobante, el importe de descuento correspondiente. 
+ Luego, Con esta información se completa el campo calculado de Pago, visualizando la sumatoria total de los descuentos. 
+ Entonces, al crear un Pago con imputación, en la grilla de instancias a imputar, se agregan las nuevas columnas: 
+ Al seleccionar las instancias a imputar se completa la colección de comprobantes a imputar calculando para cada una de ellas el importe del descuento aplicado, y se calcula el Total de descuentos con la sumatoria de dichos importes. 
+ 

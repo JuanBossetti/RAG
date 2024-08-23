@@ -1,0 +1,135 @@
+4.3 Registro de seguridad 
+ El Log de seguridad incluye todos los eventos de seguridad importantes producidos en las aplicaciones o en cualquier herramienta. En base al evento, el mismo se almacena solo en el log asociado a un dominio particular, o en el log centralizado para todos los dominios. Para este último se incluirán los eventos críticos de seguridad que evidencien posibles intentos o usos indebidos relacionados con los permisos y/o políticas de seguridad. 
+ Siempre se guarda en otra transacción, es decir, se persiste, aunque se descarte la instancia que está siendo editada por el usuario. 
+ Entre los eventos que se registran en este log se encuentran los siguientes: 
+ • 
+ Intentar confirmar una instancia y el usuario no tiene permisos. 
+ • 
+ Intentos de autenticación fallida. 
+ • 
+ Eventos generados por incumplimientos en las políticas de seguridad configuradas. 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Mensaje: Conjunto de datos del detalle del evento generado. 
+ • 
+ Categoría de registro: Define el tipo de evento ocurrido. Algunos ejemplos son: 
+ o 
+ Contraseña 
+ o 
+ Validación 
+ • 
+ Detalle de mensaje: Detalle de mensaje que generó el registro. 
+ • 
+ Código de evento del registro: Indica qué evento ocurrió. Algunos ejemplos son: 
+ o 
+ Permiso denegado para crear instancia 
+ • 
+ Comando de registro: Indica el comando que ingresó el usuario. Algunos valores son: 
+ o 
+ Confirmación 
+ • 
+ Navegador: Incluye el detalle del Sistema operativo, versión del navegador, dirección IP, Zona geográfica etc. 
+ Ejemplos: 
+ • 
+ El usuario intenta autenticarse en el sistema e introduce una contraseña incorrecta. 
+ • 
+ El usuario es bloqueado luego de intentar autenticarse repetidas veces con una contraseña incorrecta. 
+ ,,. ...., .......Ł-..... -.. • GJJl'.>-t!:I Ł'=) Cll:lltlltll 60\'€"'8!l9lt<;llt0£0t'°' ,,. ..... ..........._ ..... -·· --ao-:i • GJJl'.>.)lltj £!! a'=J tlll,ut/1 60\'lNQllQlt"lll,OEO"tl.O,i: 
+ ŁNt&tlt?QZ/l.0/ 
+ OUflOIIIN tt9lt?OWO/tO 
+ CUltlu!N rn11'tol/ZG 
+ """°"'N K9LttOl/t.Olf 
+ Ł 
+ ££9LttotllOIZ ountlulN lt:llt'ZIIZ/ZOnO _,Ntt9ltŁ __,.. !.III ttoUtelil'O 0Un&iH 9Dlltl0l/ZGl61 OUIWN CltlttDZ/tOfll OUl'i6u!totlŁ OUl'IOIIN tU:ltlOVZOIIZ 
+ __,Al>UO!:.r.1lllnWIOll) 
+ -•..-•IOU3 
+ Łtttlttot/tO(l,l IU"l6u!N UOlf?WCWIO 
+ Ł 
+ lP-Olt?IIZ/£0/10 cu,6u,,,, ..., 1l't0Vt0/ ountlu!N 9UlflOVtQil'O ountlul"f tŁlt?OVto/90 oun6o•N KSlttGZ/t0/9 0Ultlu!Nti!::llt'ZIIZ/t0l9 ountl!MN ltSOtUIZ/tOlto 
+ Ol.f'IIIllOui.lOPf.lll-Ol-9fllfl] Ł"°""-""""°'-a lllnl4N -Ł--13 ---UO!Ł•JOUJ Olllllu,..-.--Ł .DUt1W1A1>"1'1Łn11>IOU] .......-....-9""""' O,-fl>U9'Ł11PIOilJ Olftll.WU>1tW9ffJDUIIOOl--,i1Joi:-W"91:ln!Utllllll'IOU] Ol.f'IIIU)IM9ff-lOOICUfllftl3autnlllA!>"91)DlUtlnlll'IOU3 ........9"'6ul-Ł13 oi-•...-.., , ..03 �-�-----13-Al>"91�-­...........,,,._...., _13 DUtlWIAl)l.!9'-"P""Ji � 9W,1Cui-Ol,llllll3 -fl>Ul'I-IIPIIIIIJ Ol.f'III,._liH.lllQII9IWWI _,..ll'U91:IQllltllll1'CIIOU] ..-.....-.. �\ll'Jll<autnllllflUO,:lb...... lllll) � � ... 950... __ 13 ""l'ffl81Al)"91-·IOU] Olllllu, �-\l'Nb,llleQWoi-13 -Al>\IOl�il'l>JOUJ � '"�--a -•"l'l-*'°'13 OIIINH'l,ll1Wlliil�9,._.__,..,UO!�WIOUJ �OJl1llllli-9� .GUIIWl;lf>"91:w.wiu.tllllilQIIW3 ......._.., ....__,,.,......,. Cll-lfl"l'l-lfl•OuJ � ljlW.OJl--13·-1p1191�1pJOJJ] Olllllu,llllli-lUIUl!Wowt111113 «-IJIIIOl:lr..Q(.lplOU] �.,_....,..._...9IUIIIUI -•111"-llPIOII) �...-"''"�9� GIJIIWl•uot�-KW) ....... ._ .. M,._)'W9,._ .._ ...orlQUtl'.KW) �>mCui-.-!11-13 -*1191-*IGII) �-JIIUl..-lll!COl-9flSl13 GIJIIWl*1191�n*IOUl �-..---o -•"9')DIUtlnl*14113 �-.eui..-..ioi-,113 -*\1111-*ICWJ � 
+ Ł 
+ LOOll'Ulllto/90 Cll.fl&I 00-llttol/to/lO DUl'6oN IOZLtlOUtOIIO ŁN!oLZll'l:OZ/tOIIO ount111t 911:lt?OVCOIID CIUtlfluN 9LZlt?ovtOfliO CIU:16ut 91Zlttol/tOIN """-'N 9illt;:c,•,, Ł, °'"""" 91ZltUIVEO/IO 
+ Ł 
+ ""'111Ł......--.o:) 
+ -··-·1411) 
+ GJIS'bt.iilPŁ ,. 
+ orn:ibt1•-•o6119o 
+ a 
+ • 
+ --•.,..-
+ Ł 
+ 6 00 -'!] -o ·®@ [!} Ł Ł C 
+ • llllO:OO • IIIJhCQI ""'l""• ;✓, , tt • ""'1�0UIIO -'\ = 
+ c,,,.n(l 9[,"l.Otml/tl/11: ouotlblN 6Hlt?OZ/IOIIO 0Utl6u,o, Ł(lt?OZ/IOIIO oun6utN t1601'tOVICl160 OUIIOllt tl-llt?Ol/10/tl CIUl'Qllo, tllltt!IUIOILI 
+ OUIIDuiN 0t-tLt?WIOltl Ł ttSlttllUIOIU OUIIOllt tl!lttolllOIU CIUNMN LP!l t?WIO/IZ ounOuu,i u·a1nou1010E OU11011t "·4lttoll10/IX Ł UOlt?OUIOIIX ou:Gl!N IJUlnol/10/l[ ŁO, lt'$ltl12110llt CU'IOl, , o, lŁSll'toVIO/lt OUIIOllt ltSltUlVIOltt ounDutN LtSLt?OUtO/lt °""°'"" ltSLtUll/10/U 
+ ŁIHltlOZltOllt CIUl'l&IN 6tSlt?OZ/IOltt Ol,WQII_N Sl9ll'toVtOllt 0U'IClul 91'9LttolltOllt CIUl'l&lo, !Z9lt?OUIOIU ,;,,,,:, , ., OC9lttoZ/IOIH OUIIOllt 61lltl11Zll.0110 
+ OUll6uio,tULtŁI.O OUIIOllt !ŁtittoZl?OIIO ouotlblN Utltllll/ZG/l 
+ CU1111»1•Ł .. 
+ Ł1'°""-5--13-
+ ŁllŁGJJl-/,IOl.ltfMl3 
+ Łl19fUlli!OUlMW-l3 
+ -*1191-*JIIUl 
+ GIJIIWlilPUOl:>nllltPilPIOUl 
+ .,._fc>"9'Łfc>14113 
+ ""'°'4Nll9AJllui_......,oi-13·
+ Ł•U01Ł*KWl 
+ 11116'N.__li_._\llUltll JIUl'IWlfc>"91Ł!1ailPKW) 
+ ________""'11•Ł...-...o_ 
+ Ol-ilPu;,o,.,....,.1411) 
+ Ł119M-f)IIIIWI.AIII-13 
+ -•"1'1-•Ł 
+ Ł..-.. ""-9"""'1 
+ Ł·..-·141/J 
+ Ł-ŁŁ-El 
+ .,._ilP\191ŁilPJCWi 
+ ..........ŁŁ-13 
+ -··-·Ł 
+ Ł, .... 9'WJOui--13 
+ °""""*1191-*IGI/J 
+ Ol.f'IIIIQoMIOUlŁ-13 
+ --*\191JQll.ltl10IOJ.Ji 
+ Ł•QMiflulŁ-13 
+ -•"9'ŁilPKW) 
+ Ł-9""Ł---13 
+ -*1191-*IGII) 
+ ŁllŁŁ-13 
+ _,..*1191Ł*KWl 
+ Łll9fUllllŁ-0 
+ Ol-fc>"9'-i1P141l3 
+ Ł•9"Ł---13 
+ "Gl}ll1ali1Pll9l:ll:J'1W10IGII) 
+ Ł--li-9Ł
+ --•'-'l"ŁIIW!ilPIOJ.Ji 
+ Ł-"'""_9,....... 
+ °'-·...-·1411) 
+ ŁŁliililt-1"'9LWIIII CGl}ll1al*\191-*JIIUl 
+ OIIIOui,...-.. "Ł9lllttUI 
+ .11Uf191.\IOl-·KW) 
+ Ł.,,..... .."Ł9"""" 
+ -·..-·1411) 
+ Ł...-liiltŁ9Ł 
+ ai,tn.iilP\191Ł*KWl 
+ .....,. ._ .. M,._)'119........ 
+ .._."9'Łni1P1CW) 
+ Ł-.."Ł9-
+ -*1191-*IGII) 
+ Ł-JIIUl-•-1:1-•1191Łi1PKW) 
+ Ł 
+ Ł-Ł--13 
+ -•"l")DIUtlnlilPŁ 
+ Oll'6aN Ł-Ł.oui--13 
+ -•"91-ilPIOlJJ 
+ Ł1'°"1---EI 
+ -•1191--ilPKWl 
+ oJ"5'1btJ*°""""*o6pq:, 
+ ...... 
+ -
+ _._...._,.......,. 
+ Ł 
+ 6 Ł -Ł -(> -@@ [!} Ł Ł C 
+ • 
+ Ł • Ł -1Ł '/, It • :IIOo"J,lj,jOUll(J -'\ = 
+ ·;;queuapeJuasap pep!iua eun ua empa1 ap OS!WJad '01dwafa Jod 'LI9!JJe eun JeZ!leaJ eJed sos!WJad aua!i ou O!Jensn 13 
+ • 
+ 

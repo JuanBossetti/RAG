@@ -1,0 +1,4 @@
+2.6.4 Ejecutar expresión sobre cada elemento de la lista 
+ Dada una operación aritmética cuyos operandos son de categoría simple, si la misma recibe una colección de elementos, se aplicará la operación sobre cada uno de dichos elementos. Para el ejemplo presentado a continuación, el resultado será una colección donde cada uno de sus elementos será un elemento de Colección1 multiplicado por 5. 
+ Colección1.atributo * 5 
+ 

@@ -1,0 +1,49 @@
+3.7.11 Registro de web service 
+ Todas las transacciones ejecutadas por WS se registran en el Registro de web service del dominio. Los campos de este log son: 
+ • 
+ Código de evento: 
+ o 
+ Resultado exitoso 
+ o 
+ Json inválido (esto sólo se loguea si el token es válido) 
+ o 
+ Token inválido 
+ o 
+ Operación inválida 
+ o 
+ Más de una instancia (sólo para categoría única instancia) 
+ o 
+ Falló la ejecución 
+ • 
+ JSON entrada 
+ • 
+ JSON salida 
+ • 
+ PN 
+ • 
+ Actividad 
+ • 
+ WS 
+ • 
+ Versión de api 
+ • 
+ Permiso de ejecución 
+ • 
+ Modelo (es un dato de todas las entidades) 
+ • 
+ Cantidad de instancias retornadas. 
+ • 
+ Cantidad de operaciones ejecutadas 
+ • 
+ Tamaño (en bytes) de JSON devuelto 
+ • 
+ Ambiente 
+ • 
+ Dominio 
+ |    | Código de evento                          | Json entrada                                                                                                                                                                                                                                                                                                                                                                                        | Json salida                                                                                                                   | PN                   | Actividad          | WS          |   …        |
+|---:|:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------|:--------------------|:-------------|------------:|
+|  0 | Json inválido       o mal escrito        | .json{       “process”: ”Sales process”, “activity”: ”New invoice”,       “web service”: “NewInvoiceWS”,       “api version” : 1, “action” : “add”, “data”: {       “date”: “29/09/2019”,       “invoice type”: “RET”,       “custoomer” : [ {“cuit” : “20-12345678-9”} , {“name”: “Pepsi”} ],       “address”: “Downing Street 255”,       “invoice items”: [ … ]       }       }        | .json{       “errors” : [       {“messag e”: “Invalid       request. View logs for more details”}       ]       }        | Sales process        | New invoice        | …           |         nan |
+ Este log se replicará en un log centralizado. 
+ En caso de presentarse un error del sistema, por ejemplo un error de protocolo, se generará una entrada en el log del WS. 
+ En caso de que el error no sea relacionado con el WS en sí, se generará una entrada en el log correspondiente. Cada tipo de error se deberá registrar en el log correspondiente. Por ejemplo: si se presenta un error en los permisos de un usuario o el token es incorrecto, se reportará dicho error en el log de seguridad o si se quiere confirmar una instancia inválida, en el log de sistema. 
+ 

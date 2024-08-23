@@ -1,0 +1,9 @@
+Definiciones y Acrónimos 
+ |    | Término          | Definición                                                                                            |
+|---:|:------------------|:-------------------------------------------------------------------------------------------------------|
+|  0 | Registro         | Detalle de solo lectura de un evento importante sucedido en el sistema.                               |
+|  1 | Evento           | Suceso ocurrido en el sistema o en la interacción con otros sistemas.                                 |
+|  2 | Cola             | Detalle de un evento, la secuencia en que fue insertado para ejecutarse y el estado del mismo.        |
+|  3 | Log              | Sinónimo de registro.                                                                                 |
+|  4 | Reintento        | Repetición de una operación o evento que, por algún motivo, falló en un intento anterior              |
+ 

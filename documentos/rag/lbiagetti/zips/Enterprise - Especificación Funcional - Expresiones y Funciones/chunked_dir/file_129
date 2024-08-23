@@ -1,0 +1,3 @@
+Mes(Fecha) 
+ Devuelve el mes para una fecha dada. Retorna número entre 1 y 12. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

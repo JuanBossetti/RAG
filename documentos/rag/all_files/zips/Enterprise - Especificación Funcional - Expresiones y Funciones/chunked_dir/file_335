@@ -1,0 +1,10 @@
+Valor a imputar (Referencia a instancia a imputar, Tipo de atributo imputable) 
+ Retorna un valor numérico, esta función recibe como parámetro la referencia a las instancias seleccionadas para imputar en una actividad de imputación y retorna el valor ingresado en el atributo imputable al momento de imputar la instancia. 
+ La invocación a esta función se define de la siguiente manera: 
+ valor a imputar(instancia a imputar; tipo de atributo imputable) 
+ Siendo instancia a imputar una referencia a una instancia seleccionada en la imputación (valor resultante de la función instancias a imputar), y el parámetro tipo de atributo imputable corresponde a un enumerado, el cual tendrá los siguientes valores posibles: 
+ 1- Entrada: atributo de entrada en una imputación de doble atributo imputable, o en caso de imputaciones de un único atributo imputable también se utilizará esta opción para definirlo. 
+ 2- Salida: atributo imputable de salida configurado en imputaciones de atributo imputable doble. 
+ Si esta expresión se evalúa en otro lugar que no sea una actividad de imputación retornará nulo. 
+ Por ejemplo, siguiendo con el mismo caso indicado anteriormente para la función de instancias a imputar, si además de la acción de crear ítem se define en la Regla de negocio una acción de modificación de ítem que asigne en un campo el resultado de esta función, agregará en el atributo el valor del importe ingresado cuando se imputó la instancia. 
+ 

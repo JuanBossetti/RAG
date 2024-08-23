@@ -1,0 +1,34 @@
+5.9 Cola de sincronización 
+ Versionado
+ Esta cola contiene el conjunto de estados en la preparación de una base de datos, que se realiza para poder publicar en un ambiente. Se lleva el estado de cada instancia, es decir, si falta sincronizar, si ya fue completada o si ocurrió un error durante la sincronización (fallo permanente). Más información en la sección Sincronizador de Modelo de Datos de . En modelos de aplicación, encontramos esta cola en los 
+ Eventos de Dominio. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Creador: Usuario que dio de alta el elemento en la cola. Es el usuario original y no se actualiza con las sucesivas modificaciones que pueda tener la instancia. 
+ • 
+ Versión del modelo: Versión del modelo que se sincroniza. 
+ • 
+ Construcción de modelo: Build del modelo que se sincroniza. 
+ • 
+ Tipo de solicitud: Tipo de acción solicitada a la cola de sincronización, puede tomar los valores: 
+ o 
+ PREPARE_STRUCTURE_AND_ADATA 
+ o 
+ PUBLISH 
+ o 
+ PREPARE_STRUCTURE 
+ o 
+ PREPARE_DATA 
+ o 
+ GET_REQUEST_ID 
+ o 
+ RECALCULATE_GOAL_ACCUMS. Solicitud de recálculo de los Acumuladores asociados a un Objetivo de un Ambiente dado. 
+ • 
+ Objetivo construir: Build objetivo al sincronizar. 
+ • 
+ Versión de Diana: Versión objetivo al sincronizar. 
+ • 
+ Atributo descriptivo: Atributo descriptivo a sincronizar. 
+ 

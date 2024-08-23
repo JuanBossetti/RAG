@@ -1,0 +1,6 @@
+Ejemplos: 
+ Convertir zona horaria(Ahora();"Europe/Madrid") 
+ Considerar Zona Horaria (Fecha hora) 
+ Fuerza a considerar la zona horaria de una fecha. 
+ Si Fecha Venta = {06/06/2016 15:45 GMT -3}, al utilizar el atributo Fecha Venta en cualquier expresión se tendrá en cuenta la siguiente fecha: {06/06/2016 15:45} (sin zona horaria) Pero la siguiente función: Considerar Zona Horaria (Fecha Vencimiento) devuelve {06/06/2016 15:45 GMT -3} (con zona horaria). 
+ 

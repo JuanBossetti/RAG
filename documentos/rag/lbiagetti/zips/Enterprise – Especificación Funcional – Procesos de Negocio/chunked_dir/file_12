@@ -1,0 +1,16 @@
+3.3.5 Imputación 
+ Una Actividad de categoría imputación se utilizará para realizar las imputaciones definidas como no automáticas en el Diccionario de Datos. Dicha Actividad sólo podrá tener asociada una entidad. La entidad asociada a la Actividad deberá tener al menos una imputación definida en el DD. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: se deberá definir la entidad sobre la que accionará la actividad. Dato obligatorio. 
+ ✓ 
+ Imputación: se deberá definir la imputación a la que hace referencia a la actividad en edición. Se podrá elegir entre aquellas imputaciones definidas para la entidad asociada a la actividad. Si la entidad posee una sola imputación definida, la misma será la predeterminada. Dato obligatorio. 
+ ✓ 
+ Definición de la imputación en el DD: se visualizará en sólo lectura la descripción, aplica sólo a nuevas instancias, el filtro de instancias a imputar y los criterios de imputación definidos en el DD para la imputación seleccionada. 
+ ✓ 
+ Filtro de instancias: igual que lo descripto para “Múltiples instancias”, peró este filtró será de instancias a imputar. En el casó en que la imputación tenga cónfiguradó al “Tipó de atributó imputable” cómó “Dóble”, el mismó filtró aplicará tanto las Entradas/Activos/Débito como las Salidas/Pasivos/Créditos. 
+ ✓ 
+ Duración prevista: igual que ló descriptó para “Única instancia”. En este caso, heredará del tiempo esperado que haya sido definido en el DD para la entidad. 
+ Desde una imputación, no se podrán invocar actividades asociadas a transformaciones. Por lo tanto, más allá de que “Entidad1” tenga definidas transfórmaciónes en el DD, las mismas no se podrán reflejar en el diagrama. 
+ Las actividades de tipo imputación inactivas/eliminadas , sólo se visualizarán en un ambiente si existen instancias pendientes de imputar por esa actividad en dicho ambiente. 
+ 

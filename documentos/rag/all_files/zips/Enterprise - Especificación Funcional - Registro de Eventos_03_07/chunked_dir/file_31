@@ -1,0 +1,4 @@
+4.11.1 Consulta de tiempos en edición, por unidad de cambio 
+ En cualquiera de los ambientes (Desarrollo, Producción o Prueba), al ingresar a una actividad, se puede consultar, en cualquier momento, el registro de tiempos de la última unidad de cambio. Esto se hace desde el botón de “Vistas previas”, con la opción llamada “Registro de tiempos”. 
+ Por cada unidad de cambio se guardan los tiempos, reemplazando el registro anterior. Este registro no quedará persistido. Se podrá consultar en la actividad actual el registro de la última unidad de cambio realizada. 
+ 

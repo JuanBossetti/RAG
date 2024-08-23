@@ -1,0 +1,39 @@
+4.1.11 Solapa "Seguridad" 
+ En la solapa "Seguridad" del Editor de Tipos de Atributos tendremos las siguientes opciones: 
+ • Seguridad de elementos 
+ Pueden configurarse -de acuerdo a la interfaz estándar definida para seguridad- los permisos para: 
+ o 
+ Usar(crear atributos utilizando este tipo de atributo). 
+ o 
+ Modificar. 
+ o 
+ Eliminar. 
+ o 
+ Restaurar. 
+ o 
+ Traducir. 
+ o 
+ Administrar permisos (consultar y modificar). 
+ Todos los modeladores podrán consultar todos los tipos de atributos. 
+ Imagen 6 
+ • Seguridad de instancias 
+ Se pueden denegar las siguientes acciones de consulta: 
+ o 
+ Consultar 
+ o 
+ Consultar en la creación 
+ Por ejemplo, es posible denegar la consulta al tipo de atributo Rentabilidad para un grupo de usuarios, de manera que los usuarios pertenecientes a ese grupo no podrán consultar el contenido de los atributos de dicho tipo en las diferentes instancias donde aparezca. 
+ Asimismo, se podrá denegar la consulta en la creación, para no ver por ejemplo el Importe moneda alternativa al crear una factura para un cliente, pero que sí sea posible visualizarlo al consultar las instancias. 
+ Esta definición se realiza por ambiente: desarrollo, prueba y producción. También se pueden configurar los permisos globales (aplica a todos los ambientes). 
+ Se pueden denegar estas acciones a tipos de atributos de cualquier categoría (Simple, Enumerado, etc.), incluso los tipos Compuesto o Colección. Se debe tener en cuenta que, si se deniega la consulta al compuesto de una colección, también estará denegado para otros atributos que utilicen el mismo compuesto. 
+ Ejemplo: 
+ Entidad
+ : Cliente 
+ Atributos
+ : 
+ Nombre: Texto 
+ Domicilio de facturación: Domicilio fiscal 
+ Domicilios de entrega: Domicilios (Colección de Domicilio fiscal) 
+ Si se deniega la consulta a la colección Domicilios, se ve Nombre y Domicilio de facturación. Si se deniega la consulta al compuesto Domicilio fiscal, solo se ve el atributo nombre. 
+ Nota: En el ambiente de producción, no está disponible la sección Tipo de atributo en el acordeón. Por lo tanto, para acceder a la definición de seguridad, se debe consultar una entidad que contenga el tipo de atributo y editarlo desde el menú contextual, luego acceder desde el botón de la barra a la definición de seguridad. 
+ 

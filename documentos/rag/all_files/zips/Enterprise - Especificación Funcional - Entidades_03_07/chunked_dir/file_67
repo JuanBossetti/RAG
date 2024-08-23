@@ -1,0 +1,63 @@
+Valores iniciales de entidad destino 
+ mediante esta grilla se podrá definir los valores por omisión de los atributos de la entidad destino. Dicha grilla contará con las siguientes columnas: 
+ 1. 
+ Atributo: listará todos los atributos de la entidad destino. 
+ 2. 
+ Valor: permitirá ingresar una expresión cuyo resultado se asignará a cada elemento de la columna anterior al momento de producirse la transformación. Las expresiones en esta columna podrán contener atributos de la entidad Origen de la transformación, pero no de la entidad Destino de la misma. Al momento de crear la transformación el sistema deberá inferir aquellos atributos que sean iguales, tal como se especificó anteriormente en el punto “Valor inicial automático en grilla de definición de valores”. En caso que en un atributo no se complete el valor, en la ejecución de la transformación se completarán con los valores iniciales definidos en la entidad destino. Por ejemplo, Remito.Cliente recibe el valor de Factura.Cliente. 
+ En estas expresiones se validará: 
+ • 
+ Si el atributo es una colección de la entidad destino, se le puede asignar una colección de la entidad origen si ambas poseen el mismo tipo de atributo, por ejemplo: 
+ Direcciones de entrega y direcciones deben ser del mismo tipo. 
+ En el caso de que sean varias las instancias a trasformar, en la colección de la entidad destino se asignan los ítems de todas las instancias de la entidad origen seleccionadas para transformar. 
+ • 
+ En los atributos simples dentro de una colección, se puede asignar atributos que estén todos dentro de la misma colección, por ejemplo: 
+ y/o atributos simples. 
+ • 
+ si el atributo no es colección, no se le puede asignar una colección. Se le puede asignar un simple del origen o un atributo agrupador (que siempre toma un valor para cada destino). También puede ser un EN BUSCAR que devuelva 1 única instancia. 
+ • 
+ En cada expresión, se tendrá en cuenta el tipo de atributo de cada atributo de la entidad destino y se obligará al usuario a definir el redondeo en la expresión en los casos que corresponda. 
+ • 
+ No se puede asignar valores con distinta cardinalidad. Por ejemplo, si en la factura hay un simple con el domicilio, y en el remito hay una colección de domicilios, se presenta un error al querer asignar la expresión y no se permite confirmar el cambio. 
+ En todos los valores por omisión son válidas expresiones de contexto global. Por ejemplo: usuario().nombre, sitio().zona horaria. 
+ 3 
+ Solo lectura: checkbox donde se indica si el valor de un atributo es de sólo lectura en la transformación, es decir, si se tilda esta opción cuando se transforme al destino, el valor que se asignó (valor por omisión o valor inicial) no puede editarse. 
+ Si se marca de sólo lectura un atributo que se encuentra en una colección, no se podrán editar ni los valores de los ítems que provengan de la transformacion ni los valores de los ítems agregados manualmente por usuarios. Si se marca de sólo lectura un atributo que se encuentra en una colección, no se podrán editar ni los valores de los ítems que provengan de la transformacion ni los valores de los ítems agregados manualmente. 
+ 4 
+ Agrupar: permite indicar en atributos de tipo colección que se agrupen los ítems cuyos valores asignados mediante la transformación coincidan, esta propiedad sólo es configurable en colecciones que no sean la colección definida como contexto origen de la transformación. Por ejemplo, se define una transformación agrupada donde a partir de varias Notas de venta se genera una única Factura, trayendo en la asignación de valores datos de la colección de Cargos de comprobante de las Notas de ventas seleccionadas, asignando los valores de la siguiente manera: 
+ Cargos del comprobante (Colección de entidad destino Factura). Agrupar = verdadero 
+ ✓ 
+ Cargo: 
+ o 
+ Valor:  Cargos del comprobante.Descripción 
+ ✓ 
+ Porcentaje: 
+ o 
+ Valor: Cargos del comprobante.Porcentaje 
+ Entonces, si se seleccionan para transformar dos notas de venta que tienen los mismos cargos: 
+ Factura 1: 
+ ✓ 
+ Cargos del comprobante: 
+ o 
+ Cargo: IVA 
+ o 
+ Porcentaje: 21 
+ Factura 2: 
+ ✓ 
+ Cargos del comprobante: 
+ o 
+ Cargo: IVA 
+ o 
+ Porcentaje: 21 
+ Se creará en la colección de Cargos del comprobante de la Factura un único ítem en lugar de dos con los datos: 
+ ✓ 
+ Cargos del comprobante: 
+ o 
+ Cargo: IVA 
+ o 
+ Porcentaje: 21 
+ acceder al 
+ documento funcional de AI
+ En cada instancia transformada, se almacenará en un atributo denominado Transformación origen, la referencia a la transformación que originó la instancia. Es decir, si se transforma desde una entidad Remito a Nota de Credito, mediante la transformación ‘Remitir comprobante’, en éste atributo, se almacenará la referencia a ésta transformación. Para más información sobre éste atributo, .El tipo de atributo de este atributo deberá ser de categoría “De uso interno” para que no pueda ser modificado por ningún proceso. 
+ Dentro de la grilla de valores por omisión, los atributos de la entidad destino que sean obligatorios y de sólo lectura o que sean obligatorios y sean de un destino elegido para la cancelación, deben estar siempre completos. De no ser así, deben tener un valor inicial o calculado en la definición del atributo dentro de la entidad destino. 
+ Además, el atributo principal del destino se visualizará con un icono que lo identifica y en la expresión de su valor por omisión, se visualizará el atributo principal de la entidad origen. En la expresión que contiene el atributo principal de la entidad destino, se propondrá usar la función Atransformar(atributo) que tiene en cuenta no el valor del atributo en la instancia origen, sino sólo los ítems que se han seleccionado para transformar. Esta función se propondrá en el atributo de control y en los atributos de todo el nivel donde se encuentra, es decir, en los demás atributos de la colección o entidad donde se encuentra el atributo de control. En el caso que el atributo de control se encuentre dentro de una colección de colección (segundo nivel o mayor), la función Atransformar(atributo) indica también que se tiene en cuenta sólo lo que se está transformando del ítem en donde se encuentra. La función Atransformar() sólo estará disponible en el caso de que la transformación sea parcial. Tanto en aimputar como en atransformar, para usar un patfield, todo el path va dentro del operador: atransformar(Item.Producto.Nombre) y aimputar(Item.Producto.Nombre) 
+ 

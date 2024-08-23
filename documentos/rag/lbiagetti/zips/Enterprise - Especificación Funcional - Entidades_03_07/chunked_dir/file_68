@@ -1,0 +1,45 @@
+El usuario podrá modificar las expresiones propuestas en “valores por omisión” pero para que sea válido en el caso anterior, siempre deberá tener la función detallada. 
+ Ejemplo: Si la entidad origen de la transformación es la entidad factura y la factura pendiente de transformar tiene una colección de entregas y dentro una colección de ítems de factura: 
+ Colección de Entregas: 
+ 10-may san martin 2054 Items de factura: 
+ mesa 1 
+ silla    6 
+ 10-jun ov lagos 880 Items de factura: 
+ escritorio 2 
+ Si el usuario ingresa para transformar 1 mesa, 1 silla y 1 escritorio, el resultado en los ítems en la entidad destino será: 
+ Colección de Entregas: 
+ 10-may san martin 2054 Items de factura: 
+ |    | Unnamed: 0                  | Unnamed: 1                | mesa           | 1          |
+|---:|:----------------------------|:--------------------------|:----------------|:------------|
+|  0 | nan                         | nan                       | silla          | 1          |
+|  1 | 10-jun ov lagos 880        | Items de factura:        | nan             | nan         |
+ escritorio 1 
+ El atributo principal de la entidad origen no podrá eliminarse ni modificarse, pero si se podrá agregar a la expresión, ciertas operaciones de manera acotada. Por ejemplo: Atransformar(ItemFactura.Cantidad)*1000 o Atransformar(ItemFactura.Cantidad)/12. Las operaciones que podrá agregar el usuario solamente son expresiones que se puedan revertir por regla 3 simple, por ejemplo: multiplicación, división, no suma ni resta. 
+ Ejemplo: 
+ | Atributos de la entidad origen: Factura       Número de factura (secuencia) Fecha (simple) Cliente (referencia) Entregas (colección)       Entrega (compuesto) fecha (fecha)          |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ dirección de entrega (referencia a ítem de cliente) 
+ Items de factura (colección) 
+ Item de factura (compuesto) 
+ producto (referencia) 
+ cantidad (número) ATT DE CONTROL 
+ |    | Atributos de la entidad destino: Remito                                                                                                                                                                                                                                                                                          | Valores por om                                                                                                                                                                              |
+|---:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | Número de remito (secuencia) Fecha (simple) Cliente (referencia) Entregas (colección)       Entrega (compuesto) fecha (fecha) dirección de entrega (referencia a ítem de cliente) Items de remito (colección)       Item de remito (compuesto) producto (referencia) cantidad (número) →      ATT DE CONTROL (DESTINO)        | Cliente       Atransformar(Entregas.fecha) Atransformar(Entregas.dirección de       Atransformar(Entregas.Items de factu Atransformar(Entregas.Items de fa       CONTROL (ORIGEN)        |
+ En este caso, si los ítems a transformar de una factura son: 
+ Entregas: 
+ |    |   10-may        |   San Martín 2054        |   Ítems de factura:        | mesa          | 1          |
+|---:|-----------------:|--------------------------:|----------------------------:|:---------------|:------------|
+|  0 |              nan |                       nan |                         nan | silla         | 6          |
+ | 10-jun          | Ov. Lagos 880          | Ítems de factura:          | escritorio          | 2          |
+|------------------|-------------------------|-----------------------------|----------------------|-------------|
+ Si el usuario ingresa para transformar 1 mesa, 1 silla y 1 escritorio, el resultado en los ítems en la entidad destino será: 
+ Entregas: 
+ |    |   10-may        |   San Martín 2054        |   Ítems de factura:        | mesa          | 1          |
+|---:|-----------------:|--------------------------:|----------------------------:|:---------------|:------------|
+|  0 |              nan |                       nan |                         nan | silla         | 1          |
+ | 10-jun          | Ov. Lagos 880          | Ítems de factura:          | escritorio          | 1          |
+|------------------|-------------------------|-----------------------------|----------------------|-------------|
+ Otra aclaración: al ingresar los valores por omisión para una entidad destino, no hay forma de ingresar una expresión que devuelva lo que completó el usuario para el otro destino. Por ejemplo, si el usuario quiere transformar 1 silla a Remito y 2 sillas a Nota de crédito, no se puede completar el Remito con las 2 sillas que ingresó el usuario para transformar a Nota de crédito. 
+ La grilla definida anteriormente no permitirá el ingreso de nuevas filas, pues su función principal es asignar un valor a cada atributo de la entidad destino en una transformación determinada. Por lo tanto, la funcionalidad de inserción de nuevos registros, definida en la grilla estándar (ver documento de Estándares de Interfaz de Usuario), deberá estar desactivada. 
+ 

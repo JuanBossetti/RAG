@@ -1,0 +1,3 @@
+Reemplazar(Texto, Número inicial, Número de caracteres, Texto nuevo) 
+ Elimina un número de caracteres enteros dados de una cadena que comienzan en una posición específica y los sustituye con otra cadena. Equivalente a STUFF(string1, start, length, string2). 
+ 

@@ -1,0 +1,10 @@
+4) DESDE UN ATRIBUTO DE UNA ENTIDAD ACCEDER A ATRIBUTOS DE OTRAS ENTIDADES REFERENCIADAS 
+ Se van a mostrar ejemplos desde la cabecera, pero aplica el mismo criterio, desde atributos de colecciones. 
+ En este caso, el atributo “Cliente” de esta entidad “Factura” es de tipo referencia. Por lo cual usando “Cliente.” Podemos acceder a cualquier atributo de la entidad referenciada “Cliente” 
+ Puedo hacer referencia directa a un atributo de cabecera de una entidad referenciada. Por ejemplo “Cliente.nombre” o “Cliente.Email” 
+ Puedo hacer referencia directa a un atributo de cabecera de una entidad referenciada a la entidad referenciada. Por ejemplo “Cliente.Cuenta de Venta.Nombre”. En este caso, el atributo “Cuenta de venta” de la entidad “Cliente” es una referencia a la entidad “Cuenta Contable”. 
+ Puedo hacer búsquedas (en... primer, en...sumar, etc) sobre cualquier colección de la entidad referenciada: 
+ En Cliente.Domicilios PRIMER … (recorre todos los domicilios del cliente de la factura actual) 
+ En Clientes.Contactos.Teléfonos BUSCAR … (recorre todos los teléfonos de todos los contactos del cliente de la factura actual) 
+ El mismo criterio se aplica sobre Atributos de tipo referencia a Colección. 
+ 

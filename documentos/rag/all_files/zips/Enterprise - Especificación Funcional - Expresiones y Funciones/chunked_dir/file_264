@@ -1,0 +1,5 @@
+Ejemplos: 
+ Duración a segundos({6 minutos}) devuelve 360 
+ Duración a segundos({2 horas}) devuelve 7200 
+ Duración a segundos({1 día}) devuelve 86400 
+ 

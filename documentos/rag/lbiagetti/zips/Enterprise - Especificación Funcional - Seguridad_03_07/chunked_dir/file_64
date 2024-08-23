@@ -1,0 +1,27 @@
+13.2 Configuración regional por Idioma 
+ En esta sección se detallan las configuraciones regionales definidas para los nuevos idiomas que se van incorporando en fastprg. 
+ ✓ 
+ Idioma: Hebreo. 
+ |    | Primer día de la semana                                        | Domingo                                  |
+|---:|:----------------------------------------------------------------|:------------------------------------------|
+|  0 | Primera semana del año                                         | Primera semana del año                   |
+|  1 | Separador decimal                                              | Punto                                    |
+|  2 | Separador de lista                                             | Punto y coma                             |
+|  3 | Separador de miles (Separador de agrupación de dígitos)        | Coma                                     |
+|  4 | Formato de Fecha – Por defecto                                 | Corto                                    |
+|  5 | Formato de Fecha – Corto                                       | dd/MM/yy                                 |
+|  6 | Formato de Fecha – Medio                                       | dd/MMMM/yyyy                             |
+|  7 | Formato de Fecha – Largo                                       | dddd dd MMMM yyyy                        |
+|  8 | Formato de Fecha – Completo                                    | yyyy MMMM ' ב ' dddddd                   |
+|  9 | Formato de Hora - Por defecto                                  | Corto                                    |
+| 10 | Formato de Hora - Corto                                        | HH:mm                                    |
+| 11 | Formato de Hora - Medio                                        | hh:mm tt                                 |
+| 12 | Formato de Hora – Largo                                        | HH:mm:ss                                 |
+| 13 | Formato de Hora -                                              | hh:mm:ss tt                              |
+| 14 | Completo                                                       | nan                                       |
+| 15 | Formato Fecha y Hora - Por defecto                             | Corto                                    |
+| 16 | Formato Fecha y Hora - Corto                                   | dd/MM/yy HH:mm                           |
+| 17 | Formato Fecha y Hora - Medio                                   | dd/MMMM/yyyy hh:mm tt                    |
+| 18 | Formato Fecha y Hora - Largo                                   | dddd dd MMMM yyyy HH:mm:ss               |
+| 19 | Formato Fecha y Hora - Completo                                | tt hh:mm:ssyyyy MMMM ' ב ' dddddd        |
+ 

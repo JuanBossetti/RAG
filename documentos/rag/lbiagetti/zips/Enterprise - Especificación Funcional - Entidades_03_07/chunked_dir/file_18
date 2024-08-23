@@ -1,0 +1,5 @@
+Enumerado 
+ La siguiente imagen presenta el caso en que el atributo seleccionado pertenezca a un tipo de atributo de categoría Enumerado: 
+ En este ejemplo se usó el enumerado Forma de pago definido en los Tipos de atributos. 
+ Los atributos enumerados heredan los campos: permite selección múltiple, valores (código, descripción, imagen, activo y condición de visibilidad), valor inicial y filtro de valores de su tipo. En cuanto a los valores, se podrán inactivar elementos heredados (no viceversa) y cambiar la condición de visibilidad, pero no agregar nuevos ni modificar los existentes. Los demás campos se podrán redefinir sin restricciones. 
+ 

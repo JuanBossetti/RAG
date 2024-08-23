@@ -1,0 +1,46 @@
+5.6 Cola de integración de datos externos 
+ Incluye todas las tareas de integración, que se generaron y ejecutaron. Se envían a la cola al crearse, se mantienen en la cola mientras están en ejecución y de igual forma al haber culminado. Van de la mano con un Log de tareas de integración, donde se almacena el detalle de la tarea. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Tarea de integración. Indica qué tarea de integración fue ejecutada en forma manual por el usuario o automática mediante tarea programada. 
+ • 
+ Plan de integración. Especifica qué Plan de integración fue ejecutado en el sistema bien sea por el usuario o automáticamente mediante tarea programada. 
+ • 
+ Parámetros interactivos. Detalle de los parámetros interactivos con que se ejecutó la tarea de integración. Si una tarea de integración de exportación, tiene una condición de filtro de instancias y en esa condición se incluye alguna función que involucre parámetros que se preguntan al usuario en forma interactiva, entonces en este campo se guardan dichos valores. Esto es para saber cuáles fueron los valores que el usuario ingresó para filtrar las instancias al ejecutar esta tarea. De cada parámetro interactivo, se guarda el nombre del mismo y el valor ingresado al momento de ejecución. 
+ • 
+ Archivo. Archivo importado en la tarea de integración. 
+ • 
+ Instancias procesadas correctamente. Cantidad de instancias procesadas sin errores hasta el momento, por la tarea de integración. 
+ • 
+ Instancias procesadas con errores. Cantidad de instancias procesadas con errores hasta el momento, por la tarea de integración. 
+ • 
+ Instancias a procesar. Cantidad total de instancias a procesar. 
+ • 
+ Etapa actual. Etapa en la que se encuentra el progreso de importación o exportación que se está realizando por tarea de integración. 
+ • 
+ Pedido de cancelación. Indica si para esta tarea hubo un pedido de detener el proceso de importación o exportación. 
+ • 
+ Procesadas correctamente del plan. Cantidad de instancias procesadas sin errores hasta el momento, por todas las tareas del plan de integración 
+ • 
+ Procesadas con error del plan. Cantidad de instancias procesadas con errores hasta el momento, por todas las tareas del plan de integración. 
+ • 
+ Ejecución de plan. Indica a qué registro de ejecución de plan de integración, corresponde la corrida de la tarea de integración actual. 
+ Ejemplos: 
+ • 
+ El usuario ejecuta una tarea de integración que exporta el listado de precios de los productos: 
+ • 
+ Se realiza una integración de clientes a través de la obtención del mismo por un servicio web. 
+ En cuanto a la seguridad de esta cola tendrá el siguiente comportamiento: 
+ ✓ 
+ Los usuarios pueden visualizar las instancias generadas por las tareas que ejecutaron. 
+ ✓ 
+ El Rol de Administradores de seguridad por defecto podrá consultar todas las instancias de la Cola y administrar seguridad sobre ellas. 
+ ✓ 
+ En caso de que una tarea de integración se ejecute por tarea programada: 
+ o 
+ Si el ejecutor es un grupo personal: el usuario del grupo puede consultar la instancia. 
+ o 
+ Si el ejecutor es un grupo de usuarios: el administrador deberá darle permisos manualmente. 
+ 

@@ -1,0 +1,3 @@
+Contar(Colección, Atributo, Condición) 
+ Devuelve la cantidad de elementos de la colección. Si no hay elementos en la colección, devuelve null. 
+ 

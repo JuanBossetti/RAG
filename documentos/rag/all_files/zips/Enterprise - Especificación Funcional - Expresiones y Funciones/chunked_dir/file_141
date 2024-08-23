@@ -1,0 +1,3 @@
+Quincena(Fecha) 
+ Devuelve la quincena del año para la fecha, en el rango de 1 a 24. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

@@ -1,0 +1,12 @@
+1.12.4 Vista de Seguridad de instancias 
+ La vista "Seguridad global de instancias de entidades" permite a los usuarios con rol Administrador del dominio visualizar los permisos globales definidos para cada entidad y cada usuario o grupo de usuarios. 
+ Esta vista se encuentra en el panel de navegación, dentro de la sección "Dominio" en "Administración de usuarios". 
+ La vista está organizada en tres grillas principales: 
+ • 
+ Grilla de Permisos Globales: permite visualizar los permisos de instancias globales desglosados por operación y ambiente. 
+ • 
+ Grilla de Entidades: permite filtrar los permisos por la entidad seleccionada. 
+ • 
+ Grilla de Grupos de Usuarios: permite filtrar los permisos por el usuario o grupo seleccionado. 
+ A continuación, se muestra la vista con un ejemplo: 
+ 

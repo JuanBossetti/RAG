@@ -1,0 +1,10 @@
+Solapa “Validación” 
+ La solapa “Validación” se subdividirá en tres áreas: 
+ • 
+ Una grilla con los nombres de las validaciones definidas. Las validaciones podrán agregarse, eliminarse, modificarse y cambiar de orden. Los nombres de las validaciones deberán ser pasibles de internacionalización. 
+ • 
+ Un área destinada a editar la fórmula asociada a la validación a través del Editor de expresiones y Funciones, donde se ingresará una expresión que al evaluarse debe ser verdadera para que el usuario pueda confirmar la instancia. En caso que se evalúe la expresión y de falsa se mostrará al Usuario el mensaje de error que se defina en el área correspondiente. 
+ • 
+ Un área destinada a editar el mensaje de error que se presentará cuando un valor ingresado no cumpla con la validación. Este mensaje de error será un texto enriquecido internacionalizable. Para esta funcionalidad se utilizará el editor de texto enriquecido. 
+ Tanto las validaciones en la entidad como las validaciones en los atributos que se den de alta o se modifiquen aplicarán a nuevas instancias y a modificaciones/restauraciones de instancias (no a instancias existentes previamente). 
+ 

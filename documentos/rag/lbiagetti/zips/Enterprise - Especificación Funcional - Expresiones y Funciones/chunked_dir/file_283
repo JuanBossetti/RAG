@@ -1,0 +1,3 @@
+Texto a Base64(Texto) 
+ Dada una cadena de texto ilimitada, retorna el mismo tipo de atributo (cadena ilimitada) en base 64. Base64 es un sistema numérico que se utiliza para transformar cualquier tipo de datos en una larga cadena de texto plano, para enviar información a través de internet sin poner en riesgo su integridad. El sistema numérico Base64 utiliza cadenas de seis bits para representar diferentes símbolos. 
+ 

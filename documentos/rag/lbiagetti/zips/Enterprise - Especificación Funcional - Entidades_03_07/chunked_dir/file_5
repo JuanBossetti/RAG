@@ -1,0 +1,43 @@
+1.3 Atributos 
+ Una entidad estará compuesta por un conjunto de atributos. 
+ Existirán una serie de atributos que se crearán por defecto junto con la entidad, a fin de facilitar las tareas de mantenimiento y auditoría. Estos atributos no se podrán modificar. Los mismos se presentan a continuación: 
+ • 
+ ID: es el identificador único de cada una de las instancias de las entidades, no será visible en los editores. El objetivo de este atributo es que se pueda cambiar todas las veces que sea necesario el contenido de un atributo que normalmente representa un valor único, como ser código de producto o nombre del cliente, sin afectar la historia de operaciones realizadas con cada instancia de entidad 
+ • 
+ Versión: versión de la instancia. Se incrementa en cada cambio. 
+ • 
+ Acción: enumerado que indica si la instancia está en edición, se encuentra confirmada o eliminada. 
+ • 
+ Usuario: usuario editor de la instancia. Es un dato de auditoria 
+ • 
+ Actualización: Fecha y hora en que se creó/modificó/eliminó/etc. la instancia. Es un dato de auditoria 
+ • 
+ Id Operación: operación (funcional) que dio origen a la instancia. Es un número único de transacción. O sea, es el Id único que representa cada conjunto indivisible de cambios en la base de datos. A priori no será visible por el cliente 
+ • 
+ Duración de la operación: Tiempo que le demando al usuario del sistema ingresar los parámetros (valores ingresados en los formularios) mientras el formulario tiene el foco para generar la instancia de la entidad. Debe existir un timeout automático para que no se registre tiempo muerto. El valor del timeout será un parámetro para la generación del sistema final. En el caso de que la operación se encuentre dentro de un lote (por ejemplo, una transformación) se ingresará el tiempo proporcional que llevo cada operación. 
+ • 
+ Versión Modelo Aplicación (modelversionapplication): Número de la Versión del sistema generado con la que se generó/modificó la instancia. Tiene una expresión de cálculo (valor calculado) que asigna la versión del modelo actual. 
+ • 
+ Build Modelo Aplicación (modelbuildapplication): igual que modelversionapplication pero con build. 
+ • 
+ Versión Modelo Editores (modelversioneditors): Número de la Versión de Enterprise con la que se generó/modificó la instancia. Tiene una expresión de cálculo (valor calculado) que asigna la versión del modelo actual. 
+ • 
+ Build Modelo Editores (modelbuildeditors): igual que modelversioneditors pero con build. 
+ • 
+ Versión Modelo Hibrido (hydridmodelversionapplication): Número de la versión del modelo híbrido del sistema generado hasta el cual la instancia fue actualizada. Al crear una instancia, contiene la misma versión que el campo Versión. Tiene una expresión de cálculo (valor calculado) que asigna la versión del modelo actual. Este campo sirve para saber si se produjo una actualización en la instancia de la entidad en la cual se creó una columna nueva (ya sea por cambio de tipo de atributo, porque se agregó un idioma, se creó un atributo, etc.) en la DB. En el proceso de sincronización de una versión y build en 
+ una DB, si hay una columna nueva vacía, se completa el valor (ejecutando la expresión de conversión) y se actualiza el campo Versión Modelo Híbrido con la versión que se está intentando publicar. Si se edita una entidad de usuario, va la versión de la aplicación generada; si se edita una entidad de sistema, va la versión de los editores. 
+ • 
+ Build Modelo Híbrido (hybridmodelbuildapplication): igual que hydridmodelversion pero con build. 
+ • 
+ Sitio: Sitio en el que inicio sesión el usuario que generó la instancia. 
+ • 
+ DBId: es el identificador del DBMS desde el cual se creó la instancia. Éste identificador será de utilidad para la sincronización de instancias cuando la aplicación se utilice con Base de Datos distribuidas con soporte off line. 
+ • 
+ Referencia a la misma instancia (selfInstanceReference): referencia simple. 
+ • 
+ Estado de la instancia: indica el estado de la instancia. El mismo podrá ser: “en edición”, “confirmada y en espera controlador fiscal”, “confirmada y en espera de confirmación diferida”, “inhabilitada”, etc.) Este atributo lo puede ver el usuario y usar en los filtros. 
+ • 
+ [Por ahora NO se implementa] Id de transacción: campo numérico que se va incrementando secuencialmente: 1, 2, 3, .. dentro de una conversación (NO se usa una secuencia Enterprise para generar su valor) y para identificar una transacción se usa id conversación + id transacción. Este número se pediría a una singleton que tendrá la responsabilidad de incrementar el número y proporcionarlo. En la operación también guardamos el número de transacción. 
+ Por otro lado, cada entidad tendrá un conjunto de atributos propios que la definirán. Los mismos serán creados por el usuario modelador del sistema. Para cada uno de estos atributos se detallarán una serie de propiedades que determinarán su comportamiento. 
+ Tanto las entidades como sus atributos estarán dotados de semántica, la cual permitirá al sistema realizar las actividades del consultor inteligente. 
+ 

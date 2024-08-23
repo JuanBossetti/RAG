@@ -1,0 +1,11 @@
+(<http://nodosp2016:26607/EnterpriseFuncional/Seguridad/Enterprise%20-%20Especificación%20Funcional%20-%20Seguridad.docx>)Enterprise - Especificación Funcional - (<http://nodosp2016:26607/EnterpriseFuncional/Seguridad/Enterprise%20-%20Especificación%20Funcional%20-%20Seguridad.docx>)Seguridad 
+ 1 Descripción 
+ En el presente documento se detalla el esquema de seguridad para el sistema que se usa para modelar, las herramientas del mismo y los sistemas generados por él. En este documento no se analizarán esquemas de licenciamiento. 
+ 1.1 Definiciones y Acrónimos 
+ |    | Término                      | Definición                                                                                                                                                                                                        |
+|---:|:------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | Elemento                     | Se refiere a todos aquellos elementos que se pueden definir en el sistema. Por ejemplo: entidad, proceso de negocio, desencadenante, transformación, etc.                                                         |
+|  1 | Modelador/Programador        | Se refiere al sistema formado por todas aquellas herramientas que se utilicen tanto para modelar y generar un sistema de información (por ejemplo: ERP, CRM, etc.), como para la inteligencia de negocios.        |
+|  2 | Objeto                       | Se refiere a todos aquellos elementos que se configuran desde el Dominio de Seguridad. Por ejemplo: usuario, grupo de usuarios, dispositivos, etc.                                                                |
+|  3 | WS                           | Web Service                                                                                                                                                                                                       |
+ 

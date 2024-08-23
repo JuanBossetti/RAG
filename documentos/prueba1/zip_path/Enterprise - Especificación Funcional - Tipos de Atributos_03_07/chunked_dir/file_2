@@ -1,0 +1,5 @@
+3 Introducción 
+ Los tipos de atributo permiten definir las características de los datos que se almacenarán en un atributo. Dichas características incluyen restricciones en los datos, tales como qué valores pueden tomar y qué operaciones se pueden realizar. 
+ Resulta de fundamental importancia definir el comportamiento y la semántica en un tipo de atributo, por ejemplo para su aplicación dentro del Mapa Estratégico, el Consultor Inteligente, etc. Estas características permiten al sistema comprender el significado de los atributos, para dotar al sistema de inteligencia a través de ellos. 
+ Por otra parte el uso de tipo de atributos simplifica radicalmente los cambios de comportamiento del sistema en forma global (cambios en el metamodelo, reportes, consultas, mapa, pantallas, etc.) 
+ 

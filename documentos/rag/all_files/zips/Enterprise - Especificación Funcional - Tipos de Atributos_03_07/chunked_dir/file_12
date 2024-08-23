@@ -1,0 +1,16 @@
+3.2 Capas de abstracción de un tipo de atributo 
+ Para abstraer al usuario de definiciones de bajo nivel, el sistema contará con capas de abstracción. Las mismas definirán en forma incremental las propiedades del tipo de atributo hasta llegar a la especificación final del usuario, y son las que se describen a continuación: 
+ 1. 
+ Capa de Bajo Nivel: en esta capa sólo se presentan tipos de dato, independientemente del motor de base de datos utilizado. Por ejemplo CHAR(), NUMERIC(), DATE, etc. 
+ 2. 
+ Capa Base: en esta capa se presentan conceptos genéricos relacionados con el negocio, basados en tipos pertenecientes a la capa de bajo nivel a los que se les proporciona semántica. Por ejemplo Texto, Dinero, Cantidad, Fecha, etc. 
+ 3. 
+ Capa de Sistema: en esta capa se presentan especializaciones concretas de los tipos de la capa base, los cuales no pueden ser modificados por el usuario. Servirán como punto de partida para que el usuario pueda definir sus propios tipos de atributo. Son ejemplos de tipos de la capa de Sistema: Razón Social, Importe total, Subtotal, Fecha de nacimiento, etc. En esta capa se proveerá desde NeuralSoft un icono o imagen que represente cada diferente tipo de atributo. En esta capa adicionalmente se indicará si el tipo de atributo permite valores reversibles. Esto implica que en el caso de que se realice una anulación de un comprobante el valor almacenado debe ser multiplicado por -1. Por ejemplo al anular una factura, en los ítems de la misma las cantidades de los productos deben ser reversibles, pero los precios unitarios de los mismos se no se deben multiplicar por -1 al realizar la anulación. Los tipos de atributos que se pueden marcar como reversibles son los de categoría simple (SCALAR) y cuyo tipo de dato base sea INTEGER, DECIMAL 
+ o DURATION. En esta capa se definirá cualquier tipo de comportamiento global que se requiera. Ejemplo, en el atributo compuesto domicilio, el mismo deberá incorporar la funcionalidad de localización geográfica automática, mediante la utilización de un servicio como Google Maps o similar. Otro ejemplo de uso es la definición en capa 2 o base, del tipo dinero y en capa 3 las especializaciones en deuda, acreencia, precio del producto, etc. Esto permite una gran mantenibilidad del sistema ya que por un lado se definen comportamientos generales para dinero y otros particulares para cada tipo de capa 3. Al cambiar un comportamiento de capa 2, todos los de capa 3 lo hereda. 
+ 4. 
+ Capa de Usuario: en esta capa se presentan tipos de atributo creados por el usuario y basados en tipos de la capa de Sistema. Puede considerárselos especializaciones de los tipos de la capa de Sistema. 1 Por default esta capa traerá una copia completa de la capa anterior. 
+ La semántica para herramientas tales como Mapa Estratégico y/o Consultor Inteligente, estarán dadas a partir de la inteligencia de la capa tres. 
+ La capa de bajo nivel y la capa base serán creadas por Neuralsoft y no serán visibles por el usuario de los editores y por ende no factibles de ser modificadas. La capa de sistema también es creada por Neuralsoft y es visible por el usuario pero no editable. 
+ Las categorías de tipo de atributo anteriormente descriptas sólo aplicarán a las capas de Sistema y de Usuario. 
+ Capa de Usuario Capa de Sistema Capa Base Capa de Bajo Nivel 
+ 

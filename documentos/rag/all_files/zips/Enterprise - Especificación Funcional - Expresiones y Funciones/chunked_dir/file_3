@@ -1,0 +1,46 @@
+Inglés 
+ In Client Search Email When Phone start with ‘341’ 
+ Las expresiones cambian de idioma en función del Idioma de interfaz de usuario definido en las preferencias del mismo. Es importante resaltar que los nombres de los operadores y los nombres de las instrucciones, en todos los idiomas, son palabras clave reservadas. Esto implica que no podrán crearse Entidades, atributos o acumuladores que contengan en sus nombres alguna palabra clave reservada. 
+ Podremos indicar una expresión en cualquier lugar donde se nos presente el siguiente ícono , y dependiendo de dónde lo hagamos, tendremos distintos usos. Entre ellos, la asignación de valores a un atributo, ya sea en un desencadenante, un valor inicial o valor calculado. También, podemos utilizar expresiones en filtros de instancias o ítems, como así también en la definición de condiciones, tanto de una Regla de negocio, como de una transformación, entre otros. 
+ Veamos, ahora, un ejemplo. Tenemos una grilla de productos, pero nos interesa visualizar solo aquellos que se encuentren disponibles para la venta. Es importante aclarar que existe un atributo lógico llamado Vendible, el cual nos permite identificar este grupo específico de instancias, dentro de la entidad Producto. Para esto, nos posicionamos sobre la grilla, desplegamos el panel de propiedades, luego, damos clic en el símbolo de Expresiones del filtro y escribimos que la categoría sea vendible, es decir: 
+ Vendible = verdadero 
+ O simplemente 
+ Vendible 
+ En consecuencia, se filtran los productos y vemos únicamente aquellos que cumplen con lo escrito. Podemos filtrar, también, por ejemplo, por los productos pertenecientes a un rubro o a una marca particular: 
+ Obtener traducción(Rubro.Rubro;’es’) = ’Aceites y lubricantes’ 
+ Incluso, podemos filtrar los que sean de cierto rubro y, a su vez, vendibles. 
+ Obtener traducción(Rubro.Rubro;’es’) = ’Aceites y lubricantes’ y vendible 
+ De esta manera, tenemos la posibilidad de escribir miles de expresiones. 
+ Al hacer clic o tap en el ícono de expresiones, se abre una ventana donde podemos especificar la expresión. A esa ventana la llamamos Editor de expresiones. El objetivo de esta ventana es proveer un acceso rápido a los distintos elementos del modelo, a las funciones y operadores. Por otro lado, en algunos formularios el Editor de Expresiones se encuentra embebido en los mismos formularios. 
+ El Editor de Expresiones presenta los siguientes elementos: 
+ • 
+ Una caja de texto donde se ingresa la Expresión. 
+ • 
+ Un panel inferior donde se tiene acceso a las distintas herramientas que facilitan el armado de la expresión. Este panel se encuentra colapsado si el Editor está embebido en el formulario. 
+ El Área de texto cuenta con una barra de herramientas para acceder a un conjunto de acciones que podrán variar en función del tipo de dato que espera el contenedor de la Expresión: 
+ • 
+ Texto Enriquecido, se muestra un conjunto de herramientas para dar formato al texto, similar al siguiente: 
+ • 
+ Contenido Multimedia se presentan íconos asociados a las siguientes funcionalidades: 
+ o 
+ Insertar Imágenes Prediseñadas: Ventana que permite seleccionar una imagen prediseñada, la cual será insertada dentro de la expresión. 
+ o 
+ Insertar Contenido Multimedia: Ventana que permite seleccionar un archivo local que contiene una imagen, video o audio, el cual será insertado dentro de la expresión. 
+ Nota de arquitectura 
+ Para el caso en que el tipo de dato contenido en la Expresión sea de Texto Enriquecido o de Contenido Multimedia, no se permitirá ingresar operaciones, funciones u otros elementos del modelo que se evalúan dinámicamente, sino que sólo se permitirá ingresar contenido estático. 
+ Además, en el área de texto, tenemos las siguientes características para facilitar el uso de las expresiones: 
+ • 
+ Resaltado de Sintaxis: Permite facilitar la lectura de las Expresiones. 
+ El texto se visualiza automáticamente con diferentes tipografías y estilos en función de la categoría de los términos. Por ejemplo, los Atributos, Operadores, Literales, Funciones, etc. tendrán diferentes tipografías y estilos, los cuales serán configurados mediante una parametrización del sistema. 
+ Inicialmente se usarán los siguientes colores: 
+ • 
+ Instrucciones, operadores: Rojo 
+ • 
+ Entidades:  Azul 
+ • 
+ Atributos y acumuladores: Azul 
+ • 
+ Literales: Verde 
+ • 
+ Funciones: Fucsia 
+ 

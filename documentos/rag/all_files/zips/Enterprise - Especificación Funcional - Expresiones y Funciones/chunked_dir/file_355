@@ -1,0 +1,6 @@
+Extraer metadata de binario() 
+ Extraer metadata de binario 
+ Ejemplos: 
+ En la entidad binario se tiene un atributo Blob, se agrega una columna calculada con la función: 
+ Extraer metadata de binario(blob) y muestra el contenido de la metadata. 
+ 

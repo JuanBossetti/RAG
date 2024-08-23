@@ -1,0 +1,10 @@
+1. Introducción 
+ En primer lugar, a los fines de comprender a qué nos referimos cuando hablamos de expresiones, debemos recordar que “FastPrg es una plataforma de desarrollo, ejecución y evolución ágil de aplicaciones de negocios”. 
+ Para lograr esto, uno de los aspectos fundantes de FastPrg consiste en que los desarrollos no requieran de programadores expertos que modifiquen el código fuente de la plataforma, sino que sea directamente un usuario conocedor del negocio quien pueda cambiar el comportamiento del sistema. 
+ Es por esto que FastPrg crea un lenguaje de programación propio, de alto nivel, el cual nos permite, de forma intuitiva, realizar variaciones en el funcionamiento dentro de la plataforma. Este lenguaje está formado por expresiones. 
+ Éstas nos posibilitan obtener un resultado a partir de la evaluación de una fórmula en un contexto. Esta fórmula está compuesta por una serie de operandos y operadores, la cual está escrita en un lenguaje intuitivo y específico de FastPrg, a partir del cual podemos asemejar las expresiones al lenguaje coloquial, de manera que sea innecesario tener conocimientos en el área del desarrollo de software. 
+ Cabe destacar que cada usuario que escriba una expresión lo hará en su idioma y FastPrg la internacionalizará, a fin de que, si otro usuario ingresa en una lengua diferente la visualice en esa misma, con la que accedió. 
+ Por ejemplo: 
+ Español 
+ En Cliente Buscar Correo electrónico Cuando Teléfono Comienza con ‘341’ 
+ 

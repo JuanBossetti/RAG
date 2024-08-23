@@ -1,0 +1,49 @@
+5 Delegación de Actividades 
+ Tanto desde el ribbon, como desde el panel de navegación en la sección “Procesos de Negocio”, se podrá acceder a la consulta de Actividades Delegadas, desde la cual se podrá administrar de una forma centralizada las actividades que un usuario delega. Su funcionalidad es que un usuario pueda conceder a otros usuarios la autorización de ejecutar actividades en nombre del primero. 
+ Se denomina usuario delegador a aquel usuario que delega una o varias actividades, es decir, el usuario que con sus permisos puede realizar la actividad. Por otro lado, se denomina usuario delegado al usuario a quien le delegan actividades. Un usuario delegador podrá delegar una o más actividades a cada usuario delegado. Un usuario puede ser delegador y delegado a la vez. 
+ Además, desde el menú contextual sobre un usuario existirá la opción “Delegar actividades” y la opción “Consultar Actividades Delegadas”. La primera opción abrirá la consulta de Actividades Delegadas con el usuario seleccionado como usuario delegado y con el usuario autenticado como usuario delegador. La segunda opción abrirá la consulta de Actividades Delegadas con el usuario seleccionado como usuario delegador, es decir, las actividades delegadas del usuario seleccionado. En este último caso, la consulta será de sólo lectura. 
+ Un usuario delegador deberá tener activa la política “Delegación de actividades” y sólo podrá delegar actividades a los usuarios que autorice la política (a todos, a sus pares y subordinados o sólo a sus subordinados). De la misma manera, para que un usuario pueda consultar actividades delegadas de otros usuarios, debe tener activa la política “Consulta de actividades delegadas” y sólo podrá consultar actividades delegadas de los usuarios autorizados por la política (a todos, a sus pares y subordinados o sólo a sus subordinados). 
+ Aclaración: los pares y los subordinados de cada usuario se definen en el organigrama de seguridad. 
+ Las actividades se podrán delegar de manera permanente o de manera transitoria. Por lo tanto, a cada usuario se le pueden delegar distintas actividades en distintos tiempos. 
+ La interfaz de las Actividades Delegadas será: 
+ En la sección superior, se podrán agregar o quitar usuarios a los cuales se les delega actividades. 
+ Formularios
+ En la sección inferior, al seleccionar un usuario se podrá configurar tanto el período de delegación (permanente o transitorio) como las actividades delegadas por cada período. Además, contará con un botón que servirá para confirmar lo que se está editando. Este botón se encuentra dentro de una barra de Navegación de Instancias, tal como se detalla en el documento , pero a diferencia de los Formularios, no hay otras opciones dentro de esta barra. 
+ El período hará referencia a la hora y fecha de la zona horaria del sitio donde el usuario delegador se autenticó. En este período se puede definir: 
+ ✓ 
+ Inicio: es obligatorio definir la fecha y el horario de comienzo de delegación, es decir, desde cuando el usuario delegado podrá ejecutar la/s actividad/es delegadas. De manera predeterminada, este valor estará vacío para que el usuario lo complete obligatoriamente. 
+ ✓ 
+ Reglas de Negocio
+ Frecuencia: es obligatorio definir la frecuencia o repetición de delegación. Las opciones de este combo son: siempre, semanal, mensual y anual. La opción predeterminada es “siempre”, la cual permitirá definir una actividad delegada que se pueda ejecutar en todo momento dentro de las fechas y horas de inicio y expiración. Las particularidades de cada opción se definen en el documento . 
+ ✓ 
+ Definir franja horaria: al activar este checkbox, el usuario podrá definir una hora de inicio y de fin para que la actividad delegada puede ser ejecutada por el usuario delegado, dentro de cada día que se defina a partir del campo “Frecuencia”. De manera predeterminada, la franja horaria no estará activa, y al activarla, sus valores iniciales son: Desde 00:00:00 Hasta 23:59:59. 
+ ✓ 
+ Activar expiración: al activar este checkbox, el usuario podrá definir una fecha y hora de expiración, luego de la cual, el usuario delegado no podrá ejecutar la actividad 
+ delegada. De manera predeterminada, la expiración no estará activa, al activarse, la fecha y el horario estarán vacíos inicialmente. 
+ Se podrán agregar otros períodos con , y dentro del nuevo período se podrán delegar las mismas u otras actividades pero al mismo usuario (el usuario seleccionado en la grilla de la sección superior). 
+ Si el período de delegación termina, el usuario delegado no podrá ejecutar las actividades delegadas, pero esta delegación seguirá visualizándose en la consulta de Actividades Delegadas. 
+ Si un usuario posee una actividad delegada por un determinado período y este, a su vez, desea delegarla a otro usuario por otro período, el período efectivo o período resultante será aquel que esté incluido en ambos períodos (la intersección). Por ejemplo: si la actividad está delegada desde el 04/05 al 10/06/2016 y el usuario delegado decide delegarla desde el 01/06/2016 con una frecuencia semanal de días lunes de 9 a 15:30 hs, entonces el período efectivo será los días lunes de 9 a 15:30 hs desde el 01/06 al 10/06/2016. Esto se visualizará en un tooltip dentro de un icono representativo en dicha actividad. 
+ Las actividades que se podrán delegar serán las que pueda ejecutar el usuario delegador en el ambiente en que se encuentra autenticado. Estas actividades se visualizarán en sólo lectura, en una grilla dentro del período de delegación. Los datos que se visualizaran de las Actividades son: el nombre de cada Actividad y si es delegada, el usuario delegador y el período. 
+ Al activar el checkbox de la columna Delegar sobre un Proceso de Negocio, se seleccionarán automáticamente las actividades de dicho PN en ese momento. En caso de que luego de delegar el Proceso de Negocio, el usuario delegador puede ejecutar más actividades dentro de dicho PN, automáticamente las podrá ejecutar el usuario delegado. 
+ La delegación de actividades se podrá realizar: 
+ ✓ 
+ Entre usuarios del mismo dominio. 
+ ✓ 
+ Desde usuarios locales a los usuarios externos que hayan previamente establecido un vínculo de seguridad con el dominio local. 
+ ✓ 
+ Desde usuarios externos a los usuarios locales. 
+ ✓ 
+ Entre usuarios externos que hayan previamente establecido un vínculo de seguridad con el dominio local. 
+ A continuación se detalla un ejemplo de delegación de un usuario a otro. 
+ En este ejemplo, el usuario autenticado es Jack Collins. Dicho usuario tiene la política que le permite delegar actividades a sus subordinados. Por lo tanto, al ingresar al menú contextual sobre el usuario Mike Anderson, que es uno de sus usuarios subordinados, podrá acceder a la opción “Delegar Actividades”. 
+ A diferencia de acceder a la consulta de Actividades Delegadas desde el ribbon o desde el panel de navegación, cuando se ingresa desde el menú contextual de un usuario, dicho usuario se agregará a la grilla de usuarios delegados, o aparecerá seleccionado si el mismo ya se encuentra entre los usuarios delegados. 
+ Se inicializará el período con las configuraciones predeterminadas. 
+ Luego, el usuario delegador podrá configurar los períodos que desee y por cada uno de estos periodos, deberá seleccionar una o más actividades para delegar. Por ejemplo: 
+ Por último, el usuario delegador deberá confirmar la delegación presionando el botón confirmar. 
+ En el momento en que el usuario delegador confirma la delegación, el usuario delegado tendrá disponible la ejecución de las actividades delegadas (siempre que se esté dentro del periodo de delegación de la actividad). Es importante aclarar, que si el usuario delegado se encuentra ejecutando la actividad cuando termina el período de delegación, entonces no podrá confirmar la misma. Las mismas tendrán un icono particular para indicar que son delegadas y podrán ser ejecutadas desde la opción “Ejecutar en nombre del usuario delegador” en el menú contextual de dichas actividades: 
+ Si un usuario sólo puede ejecutar una actividad con permisos delegados de un solo usuario, entonces no será necesario ejecutar la actividad desde el menú contextual, se podrá ejecutar con permisos del otro usuario al hacer clic. 
+ Así como desde cualquier lugar donde se acceda al menú contextual de una instancia se puede ejecutar las actividades permitidas por el usuario, también se podrán ejecutar las actividades 
+ delegadas. Por ejemplo, dentro de una grilla, al ver una factura pendiente de transformar, se podrá invocar a la actividad para transformar la factura con los permisos propios o de otro usuario, si la actividad se encuentra delegada. 
+ Por último, si el usuario autenticado tiene activa la política para consultar actividades delegadas de otro usuario, podrá hacerlo desde el menú contextual sobre el usuario y presionando la opción “Consultar Actividades Delegadas” 
+ En este caso se visualizará la consulta de Actividades Delegadas con las actividades de usuario consultado y en solo lectura. 
+ 

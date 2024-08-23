@@ -1,0 +1,19 @@
+3.2.1 De usuario 
+ Existen distintos tipos de funciones, iniciamos con las más simples: las funciones estándares de usuario. 
+ En un caso hipotético, necesitamos aplicar un descuento del 15% en una factura si el cliente es mayorista. De lo contrario, no se efectúa el descuento. Si nos dirigimos a la entidad Factura, podemos lograr esto con una función, la cual recibe un parámetro: el cliente. 
+ A la función la llamamos Descuento por cliente, tiene también una descripción y una documentación, al igual que cualquier elemento de FastPrg. Además, cuenta con una categoría que nos facilita agrupar las funciones y un tipo de dato de retorno, esto es, lo que devolverá la función. 
+ Una función recibe una colección de parámetros que podrá utilizar para evaluar y calcular su retorno, los cuales pueden ser interactivos o no. También, disponemos de las condiciones, por las que definimos el cálculo que realizará la función para obtener nuestro valor de retorno. 
+ En el caso del ejemplo, tenemos el parámetro Cliente. Dado que recibimos una referencia, podemos navegarla. La primera condición consiste en que sea mayorista (Cliente.Mayorista = verdadero) y escribimos, entonces, su retorno: 0.85. 
+ Como segunda condición, establecemos que el cliente no sea mayorista (esnulo(Cliente.Mayorista) o Cliente.Mayorista=Falso) y determinamos su retorno: 1. Una vez que hayamos finalizado estos pasos, tenemos modelada nuestra función. 
+ Se debe tener en cuenta que: 
+ • 
+ El contexto para las condiciones y las expresiones es el de los parámetros. 
+ • 
+ Las condiciones se evalúan desde arriba hacia abajo, es decir, primero se chequeará que el cliente sea mayorista y luego que no lo sea. 
+ • 
+ El retorno de las expresiones debe ser compatible con el definido en la función. 
+ • 
+ Si ninguna condición se cumple, la función retornará nulo. Entonces, una buena práctica consiste en definir una última condición que sea siempre verdadera y un valor por defecto. 
+ • 
+ Los parámetros de entrada pueden ser de cualquier tipo excepto una colección. 
+ 

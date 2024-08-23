@@ -1,0 +1,13 @@
+2.11 Memoria de cálculo 
+ Con el objetivo de que un usuario pueda comprender el motivo por el cual a una instancia en Fastprg se le asignó un valor, Fastprg proporciona una funcionalidad que almacena la memoria de cálculo con cada uno de los elementos que asignaron un valor al mismo, como lo puede ser un valor inicial, valor calculado, Regla de negocio, etc. 
+ Para acceder a esta funcionalidad, el usuario debe posicionarse sobre el dato del cual se desea obtener la información, por ejemplo, en el ABM Factura, en la columna “importe”, en el número de importe en el que se quiera obtener la información, y allí se presenta una ayuda emergente en la que existe un ícono para poder acceder a la mencionada funcionalidad. 
+ El comportamiento de esta funcionalidad, varía en función del tipo de ambiente en el que se encuentre trabajando el usuario: 
+ • 
+ En el caso de ser ambiente de desarrollo, se presentará en forma predeterminada la memoria de cálculo en cada una de las instancias en edición, pero una vez confirmada la instancia, esta información no se persiste, y además se presentará un botón en la toolbar que permite activar o desactivar la memoria de cálculo, que por defecto siempre estará desactivado. 
+ • 
+ En el caso de ser otro tipo de ambiente, solo se presenta esta información cuando el atributo tiene activa la memoria de cálculo. 
+ Para más información sobre como activar esta funcionalidad, ver documento funcional de tipos de atributo. 
+ Dependiendo del origen del dato al cual se quiere obtener información, varia la estructura JSON dentro de la funcionalidad: 
+ • 
+ Si el origen del dato proviene de un desencadenante, transformación, valor inicial o valor calculado, la estructura JSON es la siguiente: 
+ 

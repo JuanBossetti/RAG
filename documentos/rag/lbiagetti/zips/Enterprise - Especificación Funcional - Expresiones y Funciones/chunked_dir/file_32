@@ -1,0 +1,9 @@
+Contenedor: Numérico 
+ |    | Tipo de dato          | Numérico          | Texto          | Booleano          | Fechas          | Duración          |
+|---:|:-----------------------|:-------------------|:----------------|:-------------------|:-----------------|:-------------------|
+|  0 | Numérico              | 2                 | 3              | 3                 | 7               | 7                 |
+|  1 | Texto                 | nan                | 3              | 3                 | 3               | 3                 |
+|  2 | Booleano              | nan                | nan             | 3                 | 3               | 3                 |
+|  3 | Fechas                | nan                | nan             | nan                | 7               | 7                 |
+|  4 | Duración              | nan                | nan             | nan                | nan              | 7                 |
+ 

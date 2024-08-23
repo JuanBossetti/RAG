@@ -1,0 +1,3 @@
+Es Numérico (Texto, Idioma) 
+ Comprueba si un texto se puede convertir a un número, considerando el idioma y la configuración regional para el separador decimal. El valor del parámetro Idioma sólo aceptará literales. Si la conversión es posible, la función devuelve verdadero; si no, falso. Si el argumento es nulo, devuelve falso. 
+ 

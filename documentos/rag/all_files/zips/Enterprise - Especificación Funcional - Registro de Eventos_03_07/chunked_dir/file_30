@@ -1,0 +1,5 @@
+4.11 Registro de tiempos 
+ Ocasionalmente, se necesitan conocer los tiempos de ejecución de determinados eventos que suceden ante una unidad de cambio. 
+ Si, por ejemplo, al ingresar un dato en un formulario, notamos una tardanza que no está acorde al tiempo esperado, podemos ver los procesos que se ejecutaron y el tiempo que insumió cada uno. Esto nos permite detectar configuraciones donde mejorar el desarrollo y así, poder disminuir ese tiempo. 
+ Otra necesidad es tener registrado el tiempo total de cada transacción al confirmar para poder ser consultado posteriormente y poder comparar tiempos con otras ejecuciones. 
+ 

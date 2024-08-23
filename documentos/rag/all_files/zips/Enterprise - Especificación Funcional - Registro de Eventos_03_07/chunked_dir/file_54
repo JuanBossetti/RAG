@@ -1,0 +1,28 @@
+5.11 Mecanismo de reintentos automáticos 
+ Se pueden dar casos en que no se ejecuta correctamente el evento origen de una cola. Para estos casos, existe un mecanismo de reintento automático desde las colas en caso de ser eventos que tengan un motivo para reintentar. Por ejemplo: por un error de comunicación, por un error en el agente de dispositivos, por un servidor caído en la comunicación con un sistema externo, etc. 
+ En forma genérica, cuando un usuario dispara un consumo en una cola el sistema hace lo siguiente: 
+ • 
+ Guarda el consumo en la cola con estado “Pendiente”. 
+ • 
+ Cuando la cola toma un pedido para procesarlo, en ese momento la cambia al estado a "En proceso". Luego a partir de este momento puede suceder: 
+ o 
+ Que la petición se procese correctamente, en este caso se persiste que el consumo fue OK y se continúa. 
+ o 
+ Que de un error por el cual no se pueda reintentar. En este caso se persiste el error y se continúa al siguiente registro. 
+ o 
+ Que de un error, el cual tenga sentido realizar reintento. En este caso, el sistema realiza el siguiente comportamiento: 
+ ▪ 
+ Deja el registro en la cola en estado “Reintentando” y agrega en el atributo “Reintentando hasta” la fecha y hora hasta la cual se ejecuta el reintento y en el campo “sub estado” se visualiza el motivo/causa de error por el cual se está realizando el intento. 
+ ▪ 
+ Se envía una notificación global al usuario que generó la instancia que disparó el consumo de la cola y se registra el evento en el log de sistemas. 
+ ▪ 
+ De manera predeterminada el tiempo de reintento en cada cola, es el siguiente: 
+ • 
+ Cola de WS e impresión: cada minuto por 24 hs. 
+ • 
+ Cola de correo y mensajería: cada 5 min por 24 hs 
+ ▪ 
+ Si en el proceso de reintento se logra ejecutar la operación de manera satisfactoria, se confirma la instancia y en el log el registro pasa a estar en estado “Completado”. 
+ ▪ 
+ Si se agota el tiempo de reintento y no se logra procesar correctamente, la petición pasa a estar en estado de “Fallo permanente”, se deja un registro en el log de sistemas indicando que se agotaron los reintentos y se envía nuevamente una notificación global al usuario informando la situación para que pueda tomar las acciones que considere necesarias. 
+ 

@@ -1,0 +1,4 @@
+Usuario() 
+ Devuelve una referencia a la instancia de la entidad Usuario que corresponde al usuario que está utilizando actualmente el sistema, es decir, el usuario autenticado. Utilizando esta referencia se puede llegar a cualquier atributo del usuario por ejemplo: Usuario().Nombre. 
+ En este caso, se debe tener en cuenta la seguridad del usuario que está ejecutando la función. Además, hay ciertos datos que no se podrán visualizar, más allá de la seguridad, por ejemplo: la contraseña. 
+ 

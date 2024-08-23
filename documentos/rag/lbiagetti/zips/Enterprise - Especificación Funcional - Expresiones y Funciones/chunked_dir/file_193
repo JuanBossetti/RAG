@@ -1,0 +1,3 @@
+Techo(Número) 
+ Devuelve el primer número entero mayor o igual que el número real enviado por parámetro. O sea devuelve el entero más próximo por exceso. (Ej: Techo(-2,4) devuelve valor -2; Techo(1,5) devuelve el valor 2). 
+ 

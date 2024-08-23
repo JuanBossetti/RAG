@@ -1,0 +1,31 @@
+Ejemplos: 
+ Colección a texto enriquecido (Colección) 
+ Permite convertir un conjunto de ítems de una colección en una lista de elementos de tipo Texto Enriquecido Internacionalizable. 
+ En esta función podemos utilizar como parámetro de entrada tanto un atributo de tipo Colección como una expresión de búsqueda “En <Colección> Buscar <Atributo>”, siempre y cuando luego de la instrucción “En” se indique una Colección, por ejemplo, si se desea obtener la lista de direcciones de un cliente, éstas pueden obtenerse del siguiente modo En .Domicilios Buscar Dirección. 
+ Adicionalmente, la función admite que se pueda solicitar más de un elemento en la expresión de búsqueda, para esto, al momento de escribir la expresión se deberán indicar los elementos de la colección que se desean convertir separándolos con ‘;’, por ejemplo; En .Domicilios Buscar Dirección; Código postal. 
+ Sintaxis válidas de la función: 
+ | Colección a Texto Enriquecido(<Colección>) Colección a Texto Enriquecido(En <Colección> Buscar <Atributo>) Colección a Texto Enriquecido(En <Colección> Buscar <Atributo 1>;<Atributo 2>;<Atributo 3>)          |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ Comportamientos: 
+ ✓ 
+ Si el parámetro de la función es un atributo de tipo Colección, se convertirán todos los atributos de la misma a Texto Enriquecido. Por otra parte, si el parámetro es una expresión de búsqueda se convertirán solamente los elementos indicados en la misma. 
+ ✓ 
+ En los casos en los que los atributos a presentar sean de tipo numérico, la función contemplará los formatos de cantidad de decimales expresados en el formato visual del atributo. 
+ ✓ 
+ Si el valor de un atributo que se está convirtiendo es nulo, no se presenta un error y concatena el separador de elemento. 
+ ✓ 
+ Si el tipo de atributo de un elemento que se está convirtiendo es de Referencia a Entidad o Referencia a Colección, la función convertirá a texto los atributos descriptivos identificadores de la referencia. 
+ ✓ 
+ Para establecer el formato de la lista, la función toma del atributo “Formato de la colección” de la Colección que se desea convertir los parámetros “Iniciador de grupo”, “Separador de elemento”, 
+ “Finalizador de grupo” y “Separador de grupo”. La función utiliza estos parámetros con el fin de que se pueda personalizar el formato del texto a convertir, además, al convertirse en texto Enriquecido, se admite que en estos parámetros se agreguen Saltos de línea o personalizaciones del formato del texto como escribir en Negrita. De esta manera, se define que el formato del texto convertido será: 
+ <Iniciador de grupo> <Elemento> <Separador de elemento> <Elemento> <Finalizador de grupo> <Separador de grupo> 
+ ✓ 
+ Para los casos en los que se encuentre una colección dentro de la colección que estoy convirtiendo, la función utilizará el formato de la nueva colección por sobre el de la colección superior. 
+ Orden de los elementos: 
+ ✓ 
+ La función prioriza el Orden de Elementos establecido en la Colección para listar los grupos de elementos en base al orden establecido por la misma. Si la misma no tiene un orden entonces lista los elementos en el orden predeterminado de UI. 
+ ✓ 
+ Los elementos de cada grupo se listarán en el orden en que se disponen los miembros del compuesto de la Colección. 
+ ✓ 
+ Si se establece un orden en la expresión de búsqueda utilizada como parámetro de la función, éste prevalecerá por sobre los definidos en los puntos anteriores. 
+ 

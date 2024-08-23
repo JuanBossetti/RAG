@@ -1,0 +1,6 @@
+Existe carácter especial (Texto) 
+ Realiza la búsqueda de caracteres especiales dentro del texto recibido por parámetro y retorna un valor booleano. 
+ En el caso que exista carácter especial, la función retorna verdadero, caso contrario retorna falso. 
+ Se entiende como carácter especial a cualquier letra que no se encuentre en el rango [a-z], [A-Z] o [0-9]. 
+ Entre dichos caracteres se incluyen: ñ,á,é,í,ó y ú. 
+ 

@@ -1,0 +1,3 @@
+Encontrar(Texto1, Texto2, Posición inicial) 
+ Busca el texto Texto2 dentro de Texto1. Opcionalmente, se puede definir un número de posiciones desde el cual comenzar a buscar. Si es negativo, indica desde cuál posición comenzar a buscar contando desde el final de la cadena. El valor de retorno corresponde a la posición donde se encuentra la sub-cadena (no a la cantidad de ocurrencias). Equivalente a LOCATE(str1, str2,[number]). El valor de retorno corresponde siempre a la posición relativa al comienzo de la cadena, no relativa al tercer parámetro. La primera posición del texto es 1. Retorna 0 si no encuentra Texto2. 
+ 

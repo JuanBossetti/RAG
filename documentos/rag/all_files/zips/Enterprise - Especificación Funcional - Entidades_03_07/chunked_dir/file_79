@@ -1,0 +1,58 @@
+1.11 Definición de Imputaciones 
+ Dada una entidad transaccional, una imputación permite relacionar un conjunto de “n” instancias que representan una entrada/activo/débito con otro conjunto de “m” instancias que representan una salida/pasivo/crédito (perteneciendo ambos conjuntos a la misma entidad), de acuerdo a un criterio determinado. Esta asignación tendrá como resultado un saldo. Toda imputación se define y se ejecuta en la misma entidad en la cual se creó. Por ejemplo, en la entidad Cuenta Corriente existirán movimientos provenientes de Recibos (entradas) que se imputarán contra otros movimientos provenientes de Facturas (salidas). 
+ Las imputaciones solo estarán disponibles para entidades de tipo transaccional. El usuario podrá crear una nueva imputación desde un menú contextual o bien seleccionando una fila vacía dentro de la grilla de imputaciones. 
+ La solapa “Imputaciones” presentará una pantalla dividida en dos paneles: 
+ • 
+ El panel superior estará compuesto por una grilla con la lista de imputaciones que contiene la entidad. En caso de no existir Imputaciones asociadas a la entidad, en la primera fila de esta grilla se visualizará el siguiente texto: “Haga clic aquí para ingresar una nueva Imputación”. 
+ • 
+ El panel inferior estará compuesto por cuatro solapas: 
+ o 
+ La primera de ellas se denominará “General” y presentará los siguientes campos: 
+ ▪ 
+ Nombre: nombre de la imputación. El mismo deberá ser único para esa entidad y para el idioma en que se está modelando. Además, deberá ser pasible de internacionalización. En caso de que, al realizar la traducción automática, en algún idioma el nombre de la imputación se repita, el sistema deberá buscar un sinónimo de dicho nombre para el idioma en conflicto. 
+ ▪ 
+ Descripción: texto breve donde se detalla la acción. El mismo deberá ser pasible de internacionalización. 
+ ▪ 
+ Contexto de evaluación: Esta propiedad permite indicar si se imputan instancias completas o los ítems de colección de una instancia. 
+ Si se desea que la imputación sea sobre una instancia completa se debe elegir la opción de contexto “Entidad”. 
+ Si se desea que la imputación sea sobre ítems de colección de una instancia se debe elegir la opción “Colección”. Si se elige esta opción se visualiza a continuación un combo de selección única que contiene todas las colecciones de la entidad donde se define la imputación. Entonces, las propiedades de la imputación y las expresiones que se definan en ellas dependerán de este contexto. 
+ ▪ 
+ Orden: está opción es obligatoria. Se visualiza como un combo de selección única. Las opciones son: 
+ • 
+ Primero lo más antiguo: se utiliza cuando se desee imputar primero aquellas instancias con fecha de creación más antigua. 
+ • 
+ Primero lo más reciente: se utiliza cuando se desee imputar primero aquellas instancias con fecha de creación más reciente. 
+ • 
+ Ordenado por “Atributo”: Se utiliza cuando se desee definir un orden de imputación de acuerdo a uno o más atributos del contexto elegido. Por ejemplo, imputar por orden ascendente del atributo “Importe total”. 
+ Por defecto, el orden en que se imputan las instancias es “Primero lo más antiguo”, utilizando la fecha de creación de la instancia como atributo comparativo. 
+ Aplica siempre un único orden para lo pendiente de imputar. 
+ Si se elige “Ordenado por Atributo”, se visualiza a continuación una lista doble donde se eligen los elementos de la entidad por los cuales se debe realizar el ordenamiento y el tipo de orden (ascendente o descendente). Además, se debe tener en cuenta que se aplica el ordenamiento según el orden en que fueron elegidos los atributos, ordenando inicialmente por el primero elegido. 
+ Se podrán elegir atributos de tipo simple, referencia o atributos que se lleguen por referencia, secuencia y compuesto, no así atributos de tipo colección. Si el atributo elegido es internacionalizable, se toma para ordenar el atributo en el idioma del contexto del usuario logueado. 
+ ▪ 
+ Tipo de imputación: Se permite al usuario configurar tres tipos de imputaciones: 
+ • 
+ Manual. No se presentará la opción de realizar imputaciones automáticas. 
+ • 
+ Automática. La imputación se realizará de modo automático, incluso en cada uno de los criterios de imputación definidos. 
+ • 
+ Automática según criterio. En este caso, se permitirá configurar en cada uno de los criterios si se desea que la imputación se realice o no de forma automática. Es decir, solo se deberá realizar imputación automática solo en caso de que el criterio lo indique. 
+ ▪ 
+ Sólo permite imputación total: Al tildar esta opción se indica que la suma de uno o más atributos de las instancias deben ser iguales para que puedan imputarse entre sí. En caso contrario, no se puede imputar. Por ejemplo, que la suma de los importes de las instancias creadas por Facturas sea igual a la suma de los importes de las instancias creadas por Recibos si se eligió correspondencia por el atributo Importe. Es decir, si el usuario selecciona instancias para imputar de distintos criterios/agrupaciones (por ejemplo, de distintos clientes), los grupos que puedan cancelarse porque sus valores se anulan por completo (incluyendo la cantidad por tolerancia definida), se imputan correctamente, y los grupos cuyos valores no se anulan de forma completa no podrán imputarse mostrando un mensaje de validación en el panel de notificaciones. 
+ Esta opción por defecto se encuentra desactivada, además sólo se permite habilitarla para los casos de imputación manual, es decir, si se tilda la opción “imputación automática” esta opción se encontrará inhabilitada. 
+ ▪ 
+ Tipo de Tolerancia: Indica el tipo de tolerancia que presentará la imputación en edición. Los valores posibles para esta propiedad serán los siguientes: “Sin tolerancia”, “Porcentual”, y “Absoluta”. En caso que la tolerancia sea “Porcentual”, el porcentaje de tolerancia se evalúa siempre sobre el valor de la instancia original. 
+ ▪ 
+ Límite inferior de tolerancia: es el máximo desvío negativo permitido sobre el valor del atributo de control respecto del valor total a imputar, para permitir la cancelación del valor pendiente de imputación. En este atributo se podrá ingresar un valor numérico o una expresión que retorne un valor numérico. 
+ ▪ 
+ Límite superior de tolerancia: es el máximo desvío positivo permitido sobre el valor del atributo de control respecto del valor total a imputar, para permitir la cancelación del valor pendiente de imputación. En este atributo se podrá ingresar un valor numérico o una expresión que retorne un valor numérico. La cancelación de valores pendientes de imputar que se encuentre dentro del rango de tolerancia, se realiza siempre automáticamente. 
+ ▪ 
+ Aplica sólo a nuevas instancias: cuando este checkbox se encuentre activo, la definición de la imputación se aplica únicamente a nuevas instancias de la entidad que contiene la imputación, es decir, a instancias que se generen en un momento posterior a cuando se publica la nueva versión del modelo (y por ende, la nueva imputación). De manera predeterminada, esta opción se presenta activa. 
+ ▪ 
+ Filtro de instancias a imputar: en este campo el usuario puede ingresar una expresión que sea válida dentro del contexto de evaluación de la imputación, la cual debe cumplir la instancia/ítem para poder ser imputada/o mediante la definición de la presente imputación. 
+ ▪ 
+ Tipo de Atributo imputable: indica si existirá un atributo imputable o si existirán dos atributos imputables uno para las Entradas, Activo o Débitos y otro para las Salidas, Pasivos o Créditos. Las opciones que presentarán este combo serán: “Único” y “Doble”. Este campo solo es editable al crear la imputación. 
+ ▪ 
+ Atributo Imputable: indica a través de cuál atributo del contexto de evaluación definido para la imputación el sistema llevará control sobre las instancias que han sido imputadas y las que no. Este atributo debe ser de tipo base “Numérico” y no se permiten atributos a los que se llegue por referencia. Si el tipo es doble, se deben elegir 2 atributos del mismo nivel que sean distintos, no se permite elegir un mismo atributo ya que una misma instancia no puede quedar reflejada en el Debe y Haber. Este campo solo es editable al crear la imputación. 
+ Además, cuando se creen instancias (alta por formulario, desencadenantes, transformaciones, etc.) de la entidad donde se definió la imputación, se valida que la misma no generen valores en el Debe y Haber al mismo tiempo. En caso que ocurra se muestra un mensaje de validación y el usuario no podrá confirmar la instancia. 
+ En el caso en que el atributo imputable quede con valor nulo o 0, se permite confirmar de igual forma la instancia. 
+ 

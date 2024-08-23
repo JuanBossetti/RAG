@@ -1,0 +1,17 @@
+6 Organigramas 
+ Un organigrama es la representación gráfica de la estructura de una empresa u organización. Se podrá definir tanto en tiempo de edición como de ejecución. Una organización podrá definir uno o varios organigramas. Por ejemplo, un organigrama por zona geográfica y otro jerárquico. Habrá un organigrama predeterminado de toda la organización, que será el utilizado en seguridad por organigrama. 
+ Un departamento es un contenedor de integrantes de la organización. 
+ Dentro de un organigrama, los integrantes pueden ser pares, jefes y/o subordinados de otros integrantes. A su vez, el jefe de un departamento podrá ser subordinado de otro. Un integrante corresponderá a un usuario. El organigrama podrá mostrar los datos de cada integrante, por ejemplo la foto. 
+ • 
+ Un departamento podrá contener n departamentos. 
+ • 
+ Un departamento podrá pertenecer a n departamentos. 
+ • 
+ Un subordinado podrá tener n jefes. 
+ • 
+ Un jefe podrá tener n subordinados. 
+ • 
+ Un integrante podrá estar en n departamentos. 
+ • 
+ Un integrante podrá tener n puestos, uno por departamento. 
+ 

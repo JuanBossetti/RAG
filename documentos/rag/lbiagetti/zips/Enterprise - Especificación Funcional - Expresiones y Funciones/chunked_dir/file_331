@@ -1,0 +1,26 @@
+Valor anterior(Atributo) 
+ Características del operador: 
+ El operador ‘valor anterior()’ brinda el valor anterior de un atributo para una instancia, es decir, el valor del atributo en la última versión persistida de la instancia. Esto permite, por ejemplo, comparar el valor actual del atributo con el valor anterior. Para utilizarlo, el usuario debe invocar al operador y especificar dentro de los paréntesis el nombre del atributo del cual se desea conocer su valor anterior. 
+ Sintaxis: 
+ Valor anterior(<Atributo>) 
+ Restricciones: 
+ El operador no admite parámetros de un contexto ajeno al de la instancia sobre la cual es invocado. 
+ Categoría de tipo de atributo de entrada admitidos: 
+ • 
+ Simple 
+ • 
+ Enumerado 
+ • 
+ Secuencia 
+ • 
+ Referencia a Entidad 
+ • 
+ Referencia a Colección 
+ Valor de retorno: 
+ Retorna el mismo tipo de atributo que se ingresa como parámetro, el valor de este será el de la última instancia persistida o nulo. 
+ Comportamiento: 
+ El operador retorna el valor del atributo solicitado en la última versión persistida de la instancia, independientemente si difiere del valor actual o si el valor anterior y el valor actual son iguales. En el caso de que no se encuentre un valor anterior para el atributo especificado, se retorna el valor nulo. 
+ Ejemplo en Regla de negocio: 
+ Condición de ejecución: valor anterior(Cliente) <> Cliente 
+ De esta manera, la acción condicional de la Regla de negocio se ejecutará solamente si el valor anterior y el valor actual del atributo Cliente de la instancia son diferentes, es decir, si se modifica el Cliente en la instancia. 
+ 

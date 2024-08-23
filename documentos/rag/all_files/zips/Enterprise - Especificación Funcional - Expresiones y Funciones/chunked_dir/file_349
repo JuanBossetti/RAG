@@ -1,0 +1,4 @@
+Validar código Telegram(Texto, Entero, Teléfono celular, Texto, Texto) 
+ Valida que la cuenta de notificación este autorizada a utilizar el servicio de Telegram. 
+ Devuelve un valor de tipo booleano 
+ 

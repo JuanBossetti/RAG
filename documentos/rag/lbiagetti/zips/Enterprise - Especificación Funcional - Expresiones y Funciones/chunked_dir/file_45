@@ -1,0 +1,5 @@
+Expresiones mixtas: 
+ • 
+ Cuando el mensaje de error muestra un atributo en el cual el usuario no tiene permiso de lectura, se deberá ofuscar el valor del atributo con el mismo formato que las contraseñas: o ***. Por ejemplo: El límite de crédito debe ser menor a 1000 y actualmente es ”. Ver si esto no es costoso en la implementación. 
+ Por otro lado, con respecto a entidades de sistema, cuando se usa un atributo de una entidad de sistema en una expresión, por ejemplo: en una condición de la Regla de negocio se pone: Actividad.Nombre = Facturación, se debe tener en cuenta el permiso “consultar actividades” en el Modelo (es decir permiso de consulta en todas las actividades, no en cada una). Es decir, en este caso, no se controla la seguridad por atributo (ya que no existe). 
+ 

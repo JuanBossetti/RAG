@@ -1,0 +1,82 @@
+3.6 Dispositivos 
+ Los dispositivos podrán ser cualquier periférico para el cual se necesite administrar la seguridad, por ejemplo, impresoras, scanners, tickeadoras, impresoras fiscales, etc. 
+ El tipo de dispositivo deberá especificarse en el momento de la creación del dispositivo. 
+ El formulario del objeto Dispositivo tendrá las siguientes solapas con sus respectivas propiedades: 
+ ✓ 
+ General: en esta solapa se especifican las propiedades principales. Las mismas son: 
+ • 
+ Nombre: permite ingresar un nombre representativo del dispositivo, el mismo es un texto internacionalizable de valor único y obligatorio. 
+ • 
+ Descripción: permite ingresar una descripción para el dispositivo, el mismo es un texto internacionalizable. 
+ • 
+ Tipo de dispositivo: valor obligatorio que permite elegir el tipo correspondiente para el dispositivo a crear. Es un combo de selección única que lista los valores posibles proporcionados por el sistema. Algunos de los tipos de dispositivos predefinidos inicialmente serán: 
+ o 
+ Impresora de documentos 
+ o 
+ Dispositivos Multifunción 
+ o 
+ Scanner 
+ o 
+ Impresora fiscal 
+ o 
+ Tickeadora 
+ o 
+ Impresora de código de barra 
+ o 
+ Balanza 
+ o 
+ Dispositivo biométrico 
+ o 
+ Puerto 
+ o 
+ Terminal punto de venta 
+ • 
+ Modelo de dispositivo: valor obligatorio a elegir desde un combo de selección única que lista los modelos de dispositivos (drivers) que corresponda con el dispositivo a crear. Los modelos de dispositivos disponibles estarán definidos en el Administrador de Modelos y deberán ser compatibles con el tipo de dispositivo. Por ejemplo, para el tipo de dispositivo impresoras fiscales, los modelos podrán ser: HASAR SMH/P-P441 f, SMHP 330 f, etc. La selección del modelo será obligatoria. 
+ Si el tipo de dispositivo es “Impresora” no se visualiza la propiedad “Modelo de dispositivo”. 
+ • 
+ Tipo de configuración: valor obligatorio a elegir desde un combo de selección única donde las opciones disponibles son “Automático” o “Manual”. La opción “Automático” indica que se seleccionará un dispositivo detectado automáticamente por uno o más de los agentes dados de alta en el sistema. En cambio, la opción “Manual” indica que ningún agente disponible lo puede detectar automáticamente, por lo que al elegir esta opción para asociar el dispositivo con alguno de los agentes del sistema se deben configurar propiedades adicionales que permitirán luego acceder al mismo. 
+ • 
+ Sitio: se debe indicar el sitio en donde se encuentra localizado el dispositivo. Opcional. 
+ • 
+ Calendario: El calendario se hereda de la OU donde se encuentra, pudiendo redefinirse el calendario a utilizar por el dispositivo. Esta opción es un combo de selección única, donde los valores disponibles son aquellos calendarios creados en el sistema. 
+ • 
+ Agentes: En la sección a continuación se define el o los agentes correspondientes al dispositivo actual, por cada agente que se agrega se muestra un combo de selección única donde los valores posibles son los agentes definidos en el dominio y que se encuentran vinculados. Será obligatorio al menos agregar un agente. 
+ Si el tipo de configuración es automática, una vez seleccionado el agente se debe elegir el periférico detectado. Las opciones son todos aquellos dispositivos que detecta el agente en el host donde se instaló. En este combo el usuario debe elegir la opción que corresponde al dispositivo que se está creando. 
+ Si la identificación del dispositivo es “Manual”, debajo del agente seleccionado en vez de listarse los dispositivos físicos detectados se visualizan las propiedades necesarias para configurar el dispositivo físico, las propiedades son las que se detallan a continuación: 
+ o 
+ Tipo de conexión: tipo de puerto en donde se encuentra conectado el dispositivo físico. Combo de selección única donde las opciones son “Puerto serie” o “Ethernet”. 
+ Si se elige la opción “Puerto serie” se deben configurar también las siguientes opciones: 
+ o 
+ Puerto: es un combo de selección única, por ejemplo, COM3 
+ o 
+ Velocidad: es un valor de enumerado selección simple 
+ o 
+ Longitud de palabra de datos: es un enumerado selección simple 
+ o 
+ Paridad: es un enumerado selección simple 
+ o 
+ Cantidad de bits de parada: es un enumerado selección simple 
+ o 
+ Control de flujo: es un enumerado selección simple 
+ Si se elige la opción “Ethernet” se debe completar el valor “IP” con la IP correspondiente. 
+ Poder agregar más de un agente permite poder agregar distintos agentes que detectan el mismo dispositivo físico, entonces si ocurre que un agente no responde el otro agente agregado permite usar el dispositivo. También se pueden elegir distintos dispositivos detectados por un mismo agente, permitiendo balancear carga entre los distintos dispositivos físicos vinculados. 
+ Si el agente vinculado se vuelve a instalar y el nombre del dispositivo detectado por la nueva instalación del agente coincide con el configurado en el dispositivo, la configuración realizada sigue siendo válida. Si no coincide el nombre del dispositivo, o el agente quedó desvinculado, el dispositivo definido en el dominio queda inválido y se notificará el error en ejecución cuando se quiera consumir. 
+ ✓ 
+ Estándares de interfaz de 
+ usuario
+ Historial de Versiones: se puede mantener un historial de versiones de cada dispositivo, de acuerdo a lo definido en el documento . 
+ ✓ 
+ Seguridad: contendrá una lista usuarios y grupos de usuarios que podrán acceder al dispositivo y los permisos de cada uno sobre el mismo (los permisos dependerán del tipo de dispositivo). 
+ ✓ 
+ Documentación: contendrá la documentación específica del dispositivo. 
+ En la siguiente imagen se muestra el alta de un dispositivo: 
+ En la siguiente imagen se muestra la configuración en caso que se haya elegido la opción Manual en Identificación dispositivo. 
+ ¿Con qué orden de prioridad se consumen los agentes? ¿Con qué algoritmo resolvemos la asignación de trabajos? 
+ Primero, el primero definido en dispositivo y luego los siguientes, esto es funcionalmente como en las acciones de las RN pero para los dispositivos igualmente hay que tener una lógica interna, por ejemplo se van asignando trabajos en cada dispositivo, dependiendo la carga. 
+ ¿Lo podría configurar el usuario o es interno? Por ejemplo, si en todos los dispositivos hay trabajos, pero en el 1ro hay un trabajo que se reconoce puede demorar más, cuando se enconle una nueva petición se asignará al 2do dispositivo o al menos cargado. 
+ Ver excepciones al querer consumir un dispositivo, y qué hacer en cada caso, no hay papel en un agente, no está conectada la impresora, da error el dispositivo, etc. Se manejan las excepciones como Windows. 
+ Aclaración: los dispositivos no poseen dentro de su configuración acciones, comandos ni parámetros ya que las expresiones en cada parámetro no podrían configurarse porque los dispositivos no están dentro de ningún modelo (están dentro del dominio). Por este motivo, las expresiones en cada parámetro de entrada y salida se configuran dentro de los “Controladores de Dispositivo” que se encuentran dentro de cada Modelo. 
+ Luego de configurado el dispositivo, se puede usar en acciones de RN para dispositivos. 
+ En caso de copiarse el dispositivo en otros modelos vinculados, distintos de donde se creó el mismo, se copiará las propiedades Nombre, Descripción, Documentación y Tipo dispositivo, el resto de las propiedades específicas del dispositivo físico quedan en blanco en el modelo vinculado teniendo que especificarse luego. Por otra parte, el atributo Unidad organizacional al copiarse el dispositivo se completará en el hijo con una referencia a la OU general. 
+ Si el dispositivo es invocado faltando definir propiedades obligatorias, dará una excepción en tiempo de ejecución en la cola de consumo de dispositivos mostrando al usuario un mensaje y logueando el error en el log correspondiente. 
+ 

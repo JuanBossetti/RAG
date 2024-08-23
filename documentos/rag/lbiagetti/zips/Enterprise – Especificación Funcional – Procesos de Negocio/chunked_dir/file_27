@@ -1,0 +1,15 @@
+3.7.5 Acumuladores por WS 
+ configurar el WS
+ Desde una Actividad por WS tendremos la posibilidad de consultar acumuladores de la entidad dónde aplica el WS. Cuandó el campó denóminadó “tipó” sea “Acumuladór” a la hóra de . 
+ La acción permitida a la hora de armar el JSON de invocación es de consulta, es decir, la clave action tendrá que tener el valór “read”. 
+ 3.7.5.1 JSON de Invocación. 
+ .json { “action”:”read”, “activity”:”Nombre actividad”, “api version” : “1”, “data” : {}, “process”: “libi”, “web service” : “Nombre ws” 
+ } 
+ Es importante destacar que se podrá agregar también el atributo “where” en la invocación que nos servirá para filtrar la consulta por las dimensiones que tengamos para el acumulador. No será obligatorio ingresar un filtro. 
+ 3.7.5.2 JSON de Retorno 
+ La respuesta del JSON varía dependiendo de las dimensiones y atributos que se hayan instanciado en el acumulador que estemos consultando, a continuación, veremos un ejemplo de consulta: 
+ • 
+ En el caso que estemos acumulando la suma de todas las instancias de un atributo importe con dos dimensiones en las cuales en las dimensiones se utilizan los atributos cliente y empresa, la respuesta del JSON será: 
+ .json { “result” : “ok”, “data”: { “Cliente”: “Pedro Ruiz”, “Empresa” : “Neuralsoft Rosario”, “Importe” : 10000 }, { “Cliente”: “Pedro Ruiz”, “Empresa” : “Neuralsoft Buenos Aires”, “Importe” : 15000 } 
+ } 
+ 

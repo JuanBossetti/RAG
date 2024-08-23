@@ -1,0 +1,107 @@
+3.7.1 Usuarios de WS 
+ Las actividades WS siempre se ejecutan por usuarios WS. 
+ Market place
+ Como cualquier usuario, al autenticarse se validarán las políticas de seguridad (usuario y contraseña válidos, contraseña no expirada, ip permitida, rango horario permitida, usuario no bloqueado ni inhabilitado, tiempo máximo permitido de inactividad antes de cerrar sesión, etc.) y que la licencia se encuentre activa. Los detalles de la licencia de los usuarios ws se detallan en el documento . 
+ Por cada actividad WS que se ejecute, se validarán los permisos de los mismos al igual que se validan los permisos de los usuarios de aplicación cuando ejecutan actividades con formularios. 
+ Los usuarios WS primero deberán loguearse en la aplicación y cambiar la contraseña antes de ejecutar cualquier WS. Es decir, al crear un usuario WS la pólítica “Forzar cambio de contraseña en el próximo acceso” estará definida en “si”. 
+ Los usuarios WS podrán autenticarse en la aplicación al igual que el resto de los usuarios, pero solo podrá acceder a sus preferencias: 
+ • 
+ Nombre 
+ • 
+ Apellido 
+ • 
+ Contraseña 
+ • 
+ Email 
+ • 
+ Teléfono 
+ • 
+ Domicilio 
+ • 
+ Localidad/estado/provincia 
+ • 
+ Código postal 
+ • 
+ País 
+ • 
+ Tema preferido (solo aplica cuando se loguea en la aplicación) 
+ • 
+ Idioma preferido (solo aplica cuando se loguea en la aplicación) 
+ • 
+ Interfaz de usuario preferida para cada modelo (solo aplica cuando se loguea en la aplicación) 
+ Los usuarios de Web Service no podrán ejecutar Actividades interactivas mediante Formularios; y los usuarios de aplicación no podrán ejecutar Actividades de Web Service. 
+ 3. 7.2 Configuraci6n por WS 
+ [8,1 )( General Reglas de Negocio Historial de Versiones Seguridad Documentaci6n @ Alta Clientes Clientes Propiedades de la Actividad Propiedades de la Actividad General Atributos Web Service Reglas de Negocio Hist:JrDI Definir la configuraciOn de Web Services: La Actividad de WS se podr8 invocar mediante la URL provista, por usuarios especificos del dominio para uso exclusivo de Web Services. Defina los idiomas y los metodos que desea que esten disponibles para dichos usuarios, en cadaWeb Service. ws1 URL: cocr.,cola.neuralsoft.cornterplwebse,vicelfacturaciorY altaclienteslws1 ldiorna (*) I [ Espariol, Ingles ) i:':M@N Consulta □ Alta □ Dependen de la Modificaci6n □ categoria Baja □ 8%111111F\fri: L>. Vista panoramica General I Clientes I Web Service I Reglas de Negocio I Historial d m_m_m_t--_-_-_-_-_-_-_-_-_-1� *!"'";;;;;.;. Valorinicial l�_________LI•� No requerido coma par8metro de WS 0 Validaciones ----------� Nombre -
+ Actividades General valdations attnl:ues enllbesToGeru!rale lfltitJlouchers .assoc:iedAdMbes methods attributes lanouaoe methods pareflt a a lfltllJlToGenl.nle entitil!oucfwn; vaidation 0 attribute vaHdatiOfls initialValueType conditiooaFomiat5 webServices inSlanceRlter expl1dti1Wal\lalues (O(l(litJDnaFclrms Sdll!llJast 0 initialValue requiredAtbibute -
+ Activldades Gene-al valid.Jbo attnl:ues entitmsToGenerate entitil!oucfwn; ŁedAdMIJe methods attributes •--------Ł I,_ langua9e methods a a entitlesForVoucher.; vaidation 0 illSl:anceRlter triggered Entity imputation entity oroupm!jAttributes condtlon.!Forms SdierU!!ask 0 attributes validatioos instanceRlter -
+ Artividades General '1.-dations attnl:ues entitlesToGenerale entitil!ouchers ;m-.ooatedActivl methods language methods a a Łes entJbesToGenEnte entity oroupinGAttflbutes attributes 11151:anceRlter attributes validations condilonilForms SdiecUedclSt 0 entitiesToGenerate 
+ Una Actividad podrá ser provista por uno o varios Web Services. 
+ La sólapa “Web Service” cóntendrá unó ó variós Web Services, y en cada uno de estos, se presentará: 
+ ✓ 
+ El nombre del WS. 
+ ✓ 
+ Idioma de modelo en el que se publicará el WS. De manera predeterminada, es el idioma predeterminado del dominio. Se utiliza para los nombres de los parámetros y nombres de actividad, proceso de negocio, etc. (excluyendo las claves del header del JSON y la acción que siempre están en inglés). El idioma de datos se deberá especificar en la entrada del WS. 
+ ✓ 
+ Métodos/acciones que se publican (dependen de la categoría de la actividad). Es un enumerado de selección múltiple. Es requerido elegir al menos uno. 
+ ✓ 
+ acumuladores por web service 
+ Tipo: Este atributo tendrá dos opciones para seleccionar, la ópción de “Entidad” ó la infórmación del acumuladór de la Entidad dónde aplica, selecciónandó la ópción de “Acumuladór”. En el casó que se haya seleccionado la segunda alternativa, dirigirse a para más información. De manera predeterminada, será ‘Entidad’, campo requerido. 
+ o 
+ Si seleccionamos la segunda opción se nos mostrará otro campo denominado “Acumulador”, en este pódremós selecciónar el acumuladór que querremós óbtener por WS de la Entidad ya que por este medio podremos seleccionar un solo acumulador, en el caso que querramos seleccionar más acumuladores deberemos crear un servicio aparte dentro del Grupo de Web Service. 
+ Aquí podremos seleccionar si el WS retornará la información de las instancias o atributos (dependiendo del tipo de acción que se realice) de la Entidad donde aplica. 
+ ✓ 
+ Configuraciones para acotar la/s entidad/es base de la actividad (dependen de la categoría de la actividad). 
+ o 
+ Validaciones 
+ o 
+ Atributos 
+ ▪ 
+ Excluir como parámetro de entrada del WS: indica si el atributo se excluye como entrada del WS. 
+ Cuando un atributo sea excluido como entrada, un usuario no podrá asignar valores al mismo a través de dicha actividad. En este caso, cuando un usuario envíe los valores para dicho atributo, el sistema deberá registrar este evento dentro del log de WS y no se deberá permitir confirmar la instancia. 
+ ▪ 
+ Requerido 
+ ▪ 
+ Valor inicial 
+ ▪ 
+ Validaciones 
+ ▪ 
+ Atributo identificador de la referencia: si el atributo es referencia, se deberá elegir un atributo de la entidad referenciada de valor único para usar en el WS. El mismo será opcional de seleccionar. La lógica será: 
+ 1. 
+ Si configuró algo en el selector, se toma eso. 
+ 2. 
+ Si no, se busca por el primer atributo de valor único. 
+ 3. 
+ Si no, se busca por el primer atributo descriptivo 
+ Se puede elegir un atributo compuesto de valor único. De manera predeterminada, se propone el primer descriptivo de valor único. Dato obligatorio. Si un atributo que es de valor único deja de serlo, AI debe validar que el atributo no se use en esta propiedad en un WS. Para indicar una referencia en el JSON se deberá ingresar: 
+ “nómbre atributó referencia”:{“atributó identificador”:“valór”}, 
+ Si el atributo es compuesto: 
+ “nómbre atributó referencia”:[{“identificadór 1”:“valór 1”} , {“ identificadór 2”: “valór 2”}, etc.] 
+ Si el atributo identificador es internacionalizable puede indicarse el valor en un “nómbre atributó referencia”: {“atributo identificador”: {"idióma": “valór” } }, Ejemplo, cliente se identifica con un compuesto cuit + nombre de cliente internacionalizable: 
+ “custómer”: [ {“cuit” : “20-12345678-9”} , {“name”: {"en": "Pepsi”} } ], 
+ ▪ 
+ Descripción para documentación del WS. Texto opcional para dar más información de un atributo. Debería estar en el idioma del WS. 
+ ✓ 
+ Retorno de las consultas: 
+ o 
+ Atributos a incluir en el retorno: el modelador puede elegir qué atributos a los que se llega por referencia retornar en las consultas. 
+ o 
+ Filtro de instancias. 
+ o 
+ Cantidad máxima de instancias a retornar: número que indica la cantidad máxima de instancias a retornar en las consultas. Si la cantidad de instancias a retornar excede este número, se retornará un mensaje “Se ha excedidó la cantidad de instancias máxima a consultar en este ws. Ingrese un filtro cuyo resultado de una cantidad menor de instancias” (y nó se retórna ninguna instancia). De manera predeterminada, esta cantidad es 100 y como máximo se podrá configurar en 100.000. Por cada instancia siempre se retornan todos los ítems. Este límite aplica a todos métodos de consulta, incluso consulta de instancias pendientes de transformar y de imputar. 
+ ✓ 
+ Tipo de retorno (enum): sóló se visualiza si tipó es ‘Entidad’. Campo requerido. 
+ o 
+ ‘Tóda la óperación’: si el usuario intenta confirmar alguna operación por WS, retorna toda la operación (se envían las instancias procesadas, sus desencadenantes, referencias inversas, etc con los datos de todos los atributos en los que el usuario ws tiene permisos) 
+ o 
+ ‘solo el resultado’: retorna “ók” si el mismo es sin errores o “errór”, y de existir los mismos se devolverán completos. 
+ o 
+ Solo instancia principal: Retorna la instancia procesada únicamente. 
+ ✓ 
+ Validaciones de la Entidad: En esta colección podemos aplicar validaciones adicionales al diccionario de datos, las cuales serán consideradas cuando se realiza alguna de las siguientes acciones: actualizar o insertar (update, add, upsert en el JSON de invocación) y la categoría de la actividad sea de única o múltiples instancias. En el caso que no ingresemos ninguna validación para el web service, el mismo no tendrá ninguna restricción a la hora de realizar las acciones que se detallaron anteriormente. Al momento de crear una validación necesitaremos completar los siguientes campos: 
+ o 
+ Nombre de la validación 
+ o 
+ Expresión de validación: El contexto de la expresión será la Entidad cabecera de la actividad. 
+ o 
+ Mensaje de error: En el caso que la expresión no se cumpla, en el JSON de retorno veremos el mensaje que hemos modelado en este campo. 
+ 

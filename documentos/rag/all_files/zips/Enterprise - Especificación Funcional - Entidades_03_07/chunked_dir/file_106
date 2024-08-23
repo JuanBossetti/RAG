@@ -1,0 +1,3 @@
+1.16 Documentación de una Entidad 
+ La solapa “Documentación” permitirá cargar, en formato de texto enriquecido, la documentación asociada a la entidad. Si bien el editor permitirá generar documentación en forma automática, la misma será principalmente estructural (por ejemplo las entidades, sus relaciones, atributos, desencadenantes, transformaciones, etc.), mientras que el propósito de esta funcionalidad será permitir al usuario documentar aquellos aspectos que no puedan documentarse automáticamente; por ejemplo, aspectos funcionales. Además, como se menciona en el documento de Estándares de Interfaz de Usuario, se deberá permitir al usuario ingresar contenido multimedia como ser videos, grafos, etc. 
+ 

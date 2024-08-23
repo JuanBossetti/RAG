@@ -1,0 +1,3 @@
+Ejemplos: 
+ Reemplazar('chocolate cake'; 11; 4; 'pie') retorna 'chocolate pie' 
+ 

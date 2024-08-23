@@ -1,0 +1,6 @@
+Ejemplos: 
+ Redondear(123,45;1) retorna 123,40 
+ Redondear((- 123,45);1) retorna -123,40 
+ Redondear(123; -2) = 100 
+ Redondear(182; -2) = 200 
+ 

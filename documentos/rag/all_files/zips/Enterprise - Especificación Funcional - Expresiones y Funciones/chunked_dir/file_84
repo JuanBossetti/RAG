@@ -1,0 +1,3 @@
+Últimos(Texto, Número De Caracteres) 
+ Devuelve los últimos caracteres de un texto. Equivalente a RIGHT(str, number) 
+ 

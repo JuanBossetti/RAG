@@ -1,0 +1,48 @@
+Log auxiliar de transformaciones 
+ Para cada transformación definida en una entidad, existirá una tabla de doble entrada (que cumplirá la función de log auxiliar de transformaciones) en la cual se llevará un registro histórico de cómo han sido transformadas. Esta tabla contendrá información sobre las operaciones que se han realizado, la instancia de la entidad de origen, el valor del atributo principal y de los atributos informativos y de la instancia de la entidad destino. 
+ Cada uno de los registros de la tabla de doble entrada guardará los siguientes datos: 
+ • 
+ idOperación (es obligatorio) 
+ • 
+ Referencia a instancia de entidad origen (es obligatorio y de tipo referencia) 
+ Si la transformación es “parcial” y el atributo principal se definió dentro de una colección se guardará: 
+ • 
+ Referencia a ítem origen (obligatorio y de tipo referencia a colección) 
+ Sí además se definió en una colección dentro de la colección se guardará: 
+ • 
+ Referencia a ítem de ítem origen (obligatorio y de tipo referencia a colección) 
+ Sucesivamente se guardarán las referencias dependiendo en qué nivel se encuentre el atributo de control origen. 
+ Si la transformación es “parcial” y posee atributos informativos se guardará: 
+ • 
+ Valor de cada atributo informativo (son del mismo tipo que los tipos de dichos atributos) 
+ Si la transformación es “parcial” se guardará: 
+ • 
+ Valor del atributo de control (es del mismo tipo que el tipo del atributo de control) Si la transformación es “total” se guardará: 
+ • 
+ Pendiente de transformar: es un campo que indica con un “+1” si las instancias están pendientes de transformar (en las operaciones que corresponden al alta de las instancias orígenes) y con un “-1” si las instancias ya fueron transformadas (en las operaciones que corresponden a la transformación de las instancias). 
+ Por cada entidad destino: 
+ • 
+ Referencia a entidad destino (este campo es opcional ya que en cada registro sólo uno de todos los destinos va a estar completo, son de tipo referencia). 
+ Si la transformación es “parcial” y el atributo de control del destino se encuentra dentro de una colección se guarda: 
+ • 
+ Referencia a ítem destino (es opcional y son de tipo referencia a ítem de colección) Sucesivamente se guardarán las referencias dependiendo en qué nivel se encuentre el atributo de control destino. 
+ Si la transformación es “parcial”: 
+ • 
+ Valor del atributo de control en la entidad destino. 
+ • 
+ Requiere autorización (es obligatorio y de tipo booleano categoría simple) 
+ • 
+ Colección de autorizaciones (es opcional y de tipo colección de compuesto) 
+ o 
+ Referencia a RN (de tipo referencia). 
+ o 
+ Referencia a Colección de RN (de tipo referencia a colección, referencia asociada: Referencia a RN) 
+ o 
+ Referencia a Acción Autorización de RN (de tipo referencia a colección, referencia asociada: Referencia a Colección de RN) 
+ Persistencia
+ Los campos de las instancias de la entidad de origen y de destino junto con el timeStamp identifican la instancia y versión de la entidad origen y destino que intervinieron en la transformación. Para más información ver el documento de . 
+ Cuando se cree una instancia de una entidad origen, se agregará un nuevo registro en la tabla de doble entrada correspondiente a cada una de las transformaciones definidas para dicha entidad. Dicho registro solo contendrá valores para los campos relacionados con la entidad de origen, el valor inicial del atributo principal y de los atributos informativos y en caso de que dicha transformación contenga autorizaciones, deberá indicar la colección de autorizaciones involucradas para dicha instancia. 
+ Cuando se persista una instancia de la entidad de destino a partir de una transformación, se creará un nuevo registro en la tabla de doble entrada correspondiente a dicha transformación; dicho registro presentará valores en todos sus campos. Los atributos correspondientes al origen y destino de la transformación se obtendrán de la misma transformación, mientras que los valores del atributo principal y de los atributos informativos se obtendrán a partir de la fórmula de conversión de dichos atributos definida en la solapa “Conversión de atributos” de la solapa “Destinos” de la definición de la transformación. Estos registros no contendrán ningún valor en las columnas correspondientes a las autorizaciones. 
+ Cuando se modifica una instancia de la entidad de destino que se generó a partir de una transformación se agregan al log dos instancias nuevas, una correspondiente a la reversión de la versión anterior y otra correspondiente al agregado de la nueva versión de la instancia. 
+ Previamente a persistir una instancia de una entidad destino a partir de una transformación se deberá validar que el acumulador del atributo principal más el valor del mismo en la instancia que se intenta persistir (el cual debe calcularse mediante la fórmula de conversión) se encuentra dentro del rango de valores permitidos, definido por el valor inicial del atributo principal y valor de tolerancia, si el mismo existe. De ser así, se permitirá persistir dicha instancia. 
+ 

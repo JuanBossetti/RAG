@@ -1,0 +1,14 @@
+4.4.2 Actividades de múltiples instancias o GDI 
+ En estas actividades no existe una relación directa entre la cantidad de lecturas realizadas y aquellas instancias sobre las cuales el usuario realiza una acción. Es por esto que se independizan los consumos de lectura de los de escritura realizados. Es decir, en este tipo de actividades se generan: 
+ • 
+ Un registro por el total de lecturas realizadas en dicha operación(sin el link a la instancia origen). 
+ • 
+ Un registro por cada instancia sobre la cual el usuario realiza una acción, como puede ser actualizar o crear. La información registrada por este consumo, es análoga a la de actividades de única instancia. 
+ En el caso que no se creen instancias, es decir, que solo se abra el ABM o GDI, el registro por escrituras no se instancia. 
+ Ejemplo en actividad de múltiples instancias y GDI 
+ Siguiendo con el ejemplo anterior, si realizamos la misma acción desde la actividad de múltiples instancias y desde allí creamos dos instancias de Factura. En la entidad de Registro quedan persistidas: 
+ • 
+ Un registro por las lecturas realizadas durante la operación, es decir, todas las instancias de la actividad. 
+ • 
+ Dos registros que representan las escrituras realizadas en cada una de las instancias origen, en este caso cada instancia origen son las facturas creadas. La información registrada por este consumo, es análoga a la de actividades de única instancia. 
+ 

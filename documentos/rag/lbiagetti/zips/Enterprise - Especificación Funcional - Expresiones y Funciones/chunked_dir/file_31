@@ -1,0 +1,12 @@
+2.9 Conversiones de Tipos de datos 
+ En el caso en que en una Operación se utilicen Operandos incompatibles (es decir, Operandos a los que no sea posible aplicarles la Operación debido a su tipo), el sistema sugiere las acciones correctivas más usuales para dicha Operación. 
+ En los siguientes ejemplos se muestra la edición de una expresión para el valor inicial de un atributo basado en un tipo Texto. En este caso el sistema resalta los errores, y al posicionarse 
+ sobre un error, se muestra un tooltip indicando el detalle del error y se ofrece aplicar las acciones correctivas más comunes. 
+ Imagen 1: El cursor está posicionado sobre el operando Factura.Fecha y se presenta el tooltip. 
+ Imagen 2: El cursor está posicionado sobre el operando 10 y se presenta el tooltip. 
+ Imagen 3: El cursor está posicionado sobre la expresión y se presenta el tooltip anteriormente descripto, ya que en este caso la incompatibilidad se presenta entre el tipo de dato del resultado de la expresión y el tipo de dato del contenedor. 
+ A continuación se muestra una tabla con las posibles combinaciones que pueden presentarse al utilizar operandos de diferentes tipos. 
+ Dentro de dicha tabla, asociado a cada par de tipos de datos involucrados en la operación, se presenta un número que indica el comportamiento que deberá tener el sistema ante dicha operación. El contenedor indica el tipo de dato en capa base que se espera del resultado de la expresión. Para el los distintos tipos para representar una Fecha (Instante, Fecha y Hora, Solo Fecha, Solo Hora) se agrupan en las columnas y filas “Fechas”, y luego más adelante en el documento se detalla el comportamiento entre los mismos. 
+ Respecto al Tipo de Dato contenedor “Texto Enriquecido” aplican las mismas combinaciones que el tipo de dato “Texto”. Si se deseara realizar una operación con un tipo de dato “Texto Enriquecido” sobre un contenedor diferente de su tipo, deberá aplicarse sobre el mismo una función de sistema de conversión a tipo de dato a “Texto”, la cual extraerá del texto enriquecido el texto sin formato, a partir de ahí aplicarán las mismas restricciones que el tipo de dato “Texto”. 
+ La descripción del comportamiento asociado a cada número se detalla a continuación de la tabla. 
+ 

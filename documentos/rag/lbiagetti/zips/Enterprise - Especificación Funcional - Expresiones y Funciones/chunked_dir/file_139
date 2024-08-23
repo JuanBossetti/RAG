@@ -1,0 +1,3 @@
+Bimestre(Fecha) 
+ Devuelve el trimestre del año para la fecha, en el rango de 1 a 6. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

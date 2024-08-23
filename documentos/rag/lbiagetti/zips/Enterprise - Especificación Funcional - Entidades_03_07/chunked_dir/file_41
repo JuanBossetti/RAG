@@ -1,0 +1,11 @@
+Actualización de valores de un acumulador 
+ Cuando cambia el valor de un atributo que es utilizado en la fórmula de definición de una dimensión de un acumulador, el sistema deberá recalcular el valor de dicho acumulador. Es decir, que los acumuladores siempre se calculan con la última versión de las instancias de la entidad donde se encuentran definidos. Por ejemplo: si hay un acumulador que suma el total facturado y una factura tenía un monto de $300 y el monto cambia a $500, el total facturado restaría los $300 y sumaría los $500. 
+ Otro ejemplo es, en la entidad factura se define un acumulador que tiene como atributo “Total Facturado”, el cual se calcula como la suma del atributo importe total. Además, dicho acumulador 
+ presenta como dimensión el atributo “Cliente.Ciudad”, es decir, que el acumulador presentará el importe total facturado por cliente. Por ende, cuando se cree una nueva factura o cuando se modifique la ciudad de un cliente, se deberá recalcular dicho acumulador. 
+ Cuando uno o más usuarios se encuentran editando instancias que afecta al acumulador, puede que los valores detallados no cumplan con una o más validaciones definidas en el acumulador. En este caso se le notifica al usuario el error correspondiente indicando que no podrá confirmar la instancia. 
+ Estándares de interfaz de usuario
+ El detalle de las notificaciones respecto a los acumuladores se encuentra en el documento de , explicado junto al resto de las notificaciones. 
+ Aclaración: Cuando dos usuarios están modificando una misma instancia que ya estaba confirmada, no se afecta el valor de un acumulador. Por ejemplo, existe una factura de $100 que impactó en el acumulador “Total facturado” en el momento en que se dio de alta. Luego, el usuario A la tiene en edición y el cambia el total a $50, y en el mismo momento el usuario B también la edita e ingresa $40. En este caso, el acumulador en edición no será afectado por $50 ni $40. Cuando el primer usuario confirme, si afectará al valor acumulado. 
+ Por lo tanto, las validaciones en acumuladores, NO se validan en la modificación de instancias (SI en el resto de las operaciones). 
+ Cuando el usuario confirme los cambios, se validarán con el valor definitivo del acumulador. Si no son válidos, no podrá confirmar la instancia en edición. 
+ 

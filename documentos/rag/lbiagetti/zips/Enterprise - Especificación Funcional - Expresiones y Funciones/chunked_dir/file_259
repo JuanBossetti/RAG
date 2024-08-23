@@ -1,0 +1,3 @@
+Fecha hora a Fecha (Fecha hora, Máscara) 
+ Esta función recibe un dato fecha y hora y lo convierte a solo fecha. Puede recibir por parámetro un dato tipo fecha/hora o instante de forma indistinta. 
+ 

@@ -1,0 +1,3 @@
+Texto a Número (Texto) 
+ Convierte y devuelve en formato numérico el texto enviado como parámetro. Esta función sólo acepta un texto con un solo separador o ninguno, y este separador es el que se toma como separador decimal. 
+ 

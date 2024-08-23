@@ -1,0 +1,5 @@
+5 Colas 
+ Se define como Cola al conjunto de filtros, ordenamientos y agrupamientos de tareas, las cuales se asignarán a usuarios o grupos de usuarios. Se especializan de acuerdo a una funcionalidad determinada (mails, mensajes o impresiones) y sus componentes. Desde las colas se pueden visualizar una tarea pendiente o ya realizada y, en ciertos casos, se permite también realizar acciones específicas, como por ejemplo modificar las direcciones de correo a quien se envía el mail. 
+ Los eventos se van registrando en la cola correspondiente y quedan a la espera de su procesamiento. Luego, a medida que se realiza el procesamiento, se va registrando el avance y el resultado del mismo. Las colas tienen reintentos automáticos para los eventos que lo permiten. 
+ En Fastprg, existen varios tipos de colas, las principales y que se visualizan dentro del registro de eventos, se exponen a continuación. 
+ 

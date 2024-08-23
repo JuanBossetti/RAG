@@ -1,0 +1,3 @@
+Traducir Texto a Idiomas(Texto, Idioma de origen) 
+ Dado un texto en un idioma, devuelve las traducciones a todos los idiomas de la aplicación (retorna texto i18n). El texto recibido podrá ser plano, enriquecido o internacionalizable. 
+ 

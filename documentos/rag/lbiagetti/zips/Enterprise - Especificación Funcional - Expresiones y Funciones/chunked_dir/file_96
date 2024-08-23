@@ -1,0 +1,4 @@
+Comparar JSON(JSON origen, JSON a comparar) 
+ Realiza la comparación entre dos JSON, retornando la diferencia entre ellos. 
+ - La comparación se realiza mediante la utilización de una clave para cada nivel del JSON. Esto permite identificar unívocamente donde estuvo la diferencia al momento de realizar la comparación. Para la definición de claves, se utiliza a nivel entidad aquello que el usuario haya definido como valores únicos en la colección de valores únicos de la entidad, en caso de haber definido más de una, se asume la primera de ellas. A nivel colección se utiliza el identificador de ítem generado automáticamente en Fastprg para cada uno de ellos. 
+ 

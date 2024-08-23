@@ -1,0 +1,4 @@
+Entidades predefinidas del Sistema 
+ El sistema contará con una serie de Entidades internas predefinidas. Alguna de ellas serán, por ejemplo, País, Ciudad, Puesto de trabajo, Usuario, Sitio, Unidad Organizacional, etc. Estas Entidades presentarán una estructura predefinida y la misma no podrá ser modificada por el usuario. Las mismas podrán ser maestras, transaccionales o paramétricas. 
+ Cabe aclarar que se proveerán entidades del sistema que residirán en la base de datos del dominio y otras que residirán en la base de datos de cada modelo y ambiente. 
+ 

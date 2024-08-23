@@ -1,0 +1,4 @@
+2.3.6 Seguridad / Permisos necesarios para establecer un vínculo 
+ Cada dominio podrá tener uno o varios usuarios administradores de seguridad, que gestionarán los usuarios dentro del dominio al cual pertenezcan y validarán los vínculos de seguridad con otros dominios. Cada administrador podrá otorgar a los usuarios del dominio los permisos que él posee, si cuenta con los derechos necesarios. 
+ El permiso necesario para administrar los vínculos se llama “Administrar vínculo”. 
+ 

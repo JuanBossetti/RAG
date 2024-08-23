@@ -1,0 +1,102 @@
+4.4.8 Datos del Registro de consumo 
+ 4.4.8.1 Estructura 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Categoría: La categorización surge a partir de la necesidad de gestionar de manera diferente la totalidad de los datos que se registran en las instancias de Registro de consumo. Dependiendo de las acciones realizadas en el sistema por los usuarios veremos a continuación, el detalle de cada una de estas categorías: 
+ o 
+ Transacción. Se considera transacción a la creación de recursos dentro del sistema, cada vez que se edite, cree o revierte/elimina una instancia este tipo de acción se considera una transacción, por lo tanto, cuando se cree la instancia de Registro de consumo dicha instancia tiene esta categoría como valor.  Por ejemplo, cuando un usuario instancia una nueva Factura. 
+ o 
+ Consulta. El término consulta se refiere a la acción de leer o recuperar información de elementos del sistema. En el contexto de la instancia del Registro de consumo, la categoría se establece con este valor. Por ejemplo, cuando abrimos y luego cerramos la actividad de múltiples instancias de los Asientos contables o cuando consultamos un GDI que contiene el flujo de procesos de ventas. 
+ o 
+ Web service. Se considera un web service cada vez que se realiza una petición hacia un servicio web externo a la aplicación. Por lo tanto, cuando se crea la instancia del Registro de consumo, la categoría tiene este valor. Por ejemplo, cuando se realiza una petición hacia un servicio que obtiene la cotización de la moneda. 
+ • 
+ Tipo de operación. Se denomina operación a las funciones básicas de la persistencia de datos, una de estas accione se puede realizar sobre una instancia en la aplicación. Entre ellas encontramos: 
+ o 
+ Creación. 
+ o 
+ Modificación. 
+ o 
+ Eliminación/Reversión. 
+ • 
+ Evento: Origen por el cual se disparó el registro de consumo. Es decir, que al momento de que ocurre alguno de los siguientes eventos en el sistema, se registra el consumo realizado por el usuario. El tipo de atributo es enumerado denominado Evento de consumo. 
+ o 
+ Cierre de actividad: Se registra cuando la actividad sobre la que está trabajando el usuario se cierra. 
+ o 
+ Cierre de sesión/expiración de sesión: Al momento de realizar el cierre de sesión, se registran los datos de todas las actividades que se encuentran abiertas. 
+ o 
+ Confirmación de actividad: Se registra cuando la actividad sobre la que está trabajando el usuario se confirma. 
+ • 
+ Actividad: Actividad desde el cual se origina el consumo. El tipo de atributo es Referencia a instancia Actividad. 
+ • 
+ Tipo de actividad: Tipo de actividad que origina el consumo. El tipo de atributo es enumerado denominado Categoría de actividad. 
+ o 
+ Única instancia. 
+ o 
+ Múltiples instancias. 
+ o 
+ Transformación. 
+ o 
+ Autorización. 
+ o 
+ Imputación. 
+ o 
+ Única instancia con imputaciones. 
+ o 
+ Vista de información. 
+ • 
+ Usuario del consumo: Usuario que origina el consumo. Tipo de atributo Referencia a Usuario. 
+ • 
+ Tipo de usuario: Tipo de licencia que tiene el usuario al momento de realizar el consumo. Este valor debe persistirse en el momento en que se efectúa el consumo. 
+ • 
+ Tarea programada: Identifica la Tarea programada desde la que se origina el consumo. El tipo de atributo es Referencia a instancia Tarea programada. Este atributo solo se completa en caso de que el consumo se origine mediante Tarea programada. 
+ • 
+ Plan de integración: Identifica el Plan de integración desde el que se origina la ejecución de consumo. Este atributo solo se completa en caso de que el consumo se origine mediante Plan de integración. El tipo de atributo es Referencia a instancia Plan de integración. 
+ • 
+ Tarea de integración: Identifica la Tarea de integración desde la que se origina la ejecución de consumo. Este atributo solo se completa en caso de que el consumo se origine mediante Tarea de integración. El tipo de atributo es Referencia a instancia Tarea de integración. 
+ • 
+ Actividad por servicio web: Identifica la Actividad por web service desde la que se origina la ejecución de consumo. Este atributo solo se completa en caso de que el consumo se origine mediante una actividad por web service. Tipo de atributo Referencia a colección Servicio web de Actividad. 
+ • 
+ Grupo de servicio web: Identifica el grupo de servicio web que origina la ejecución de consumo. Este atributo solo se completa en caso de que el consumo se origine mediante web service. Tipo de atributo Referencia a instancia Grupo de servicio web. 
+ • 
+ Servicio web: Identifica el servicio web que origina la ejecución de consumo. Es decir, el servicio web al cual pertenece la operación. Este atributo solo se completa en caso de que el consumo se origine mediante web service. Tipo de atributo Referencia a colección Servicio web. 
+ • 
+ Operación: Identifica la operación del servicio web que origina la ejecución de consumo. Este atributo solo se completa en caso de que el consumo se origine mediante web service. Tipo de atributo Referencia a colección Operación de servicio web. 
+ • 
+ Recibidos: Indica la cantidad de Megabytes recibidos al momento de realizar el consumo de un servicio web. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ • 
+ Enviados: Indica la cantidad de Megabytes enviados hacia el servicio web que se consumió. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ • 
+ Usuario: Contiene la información de la cantidad de instancias, lecturas y escrituras procesadas de entidades con clasificación de usuario. Tipo de atributo compuesto. 
+ o 
+ Principal: Contiene la información de las instancias principales procesadas en la transacción. Tipo de atributo compuesto Instancia de consumo. 
+ ▪ 
+ Lectura: Indica el total de Megabytes leídos. Para este cálculo también se consideran cada una de las lecturas realizadas mientras el usuario se encuentra trabajando en edición. Tipo 
+ de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ ▪ 
+ Escritura: Indica el total de Megabytes escritos. Para este cálculo también se consideran cada una de las escrituras realizadas mientras el usuario se encuentra trabajando en edición. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ ▪ 
+ Cantidad de instancias: Indica el total de instancias procesadas. Se debe tener presente que, al momento de contabilizar la cantidad de instancias, solo se contabilizan la cantidad de instancias escritas en almacén definitivo. Tipo de atributo Entero 9. 
+ o 
+ Secundaria: Contiene la información de las instancias secundarias procesadas en la transacción. Tipo de atributo compuesto Instancia de consumo. 
+ ▪ 
+ Lectura: Indica el total de Megabytes leídos. Para este cálculo también se consideran cada una de las lecturas realizadas mientras el usuario se encuentra trabajando en edición. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ ▪ 
+ Escritura: Indica el total de Megabytes escritos. Para este cálculo también se consideran cada una de las escrituras mientras el usuario se encuentra trabajando en edición. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ ▪ 
+ Cantidad de instancias: Indica el total de instancias procesadas. Se debe tener presente que, al momento de contabilizar la cantidad de instancias, solo se contabilizan la cantidad de instancias escritas en almacén definitivo. Tipo de atributo Entero 9. 
+ • 
+ Sistema: Contiene la información de la cantidad de instancias, lecturas y escrituras procesadas de clasificación de sistema. Tipo de atributo compuesto. 
+ o 
+ Lectura: Indica el total de Megabytes leídos. Para este cálculo también se consideran cada una de las lecturas realizadas mientras el usuario se encuentra trabajando en edición. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ o 
+ Escritura: Indica el total de Megabytes escritos. Para este cálculo también se consideran cada una de las escrituras mientras el usuario se encuentra trabajando en edición. Tipo de atributo Megabyte de consumo de 6 enteros y 3 decimales categoría Simple, con tipo de padre Decimales. 
+ o 
+ Cantidad de instancias: Indica el total de instancias procesadas. Se debe tener presente que, al momento de contabilizar la cantidad de instancias, solo se contabilizan la cantidad de instancias escritas en almacén definitivo. Tipo de atributo Entero 9. 
+ • 
+ Origen: Link a la instancia que da origen al consumo. 
+ • 
+ JVM: Identifica JVM desde la cual se originó el consumo. 
+ • 
+ GDI: Indica el GDI desde el cual se originó el consumo. Este atributo estará completo solo si el tipo de actividad es Vista de información. Tipo de atributo Referencia a entidad Vista de información. 
+ 

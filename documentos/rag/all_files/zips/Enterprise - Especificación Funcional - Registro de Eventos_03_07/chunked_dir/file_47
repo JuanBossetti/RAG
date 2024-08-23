@@ -1,0 +1,36 @@
+5.5 Cola de servicio web 
+ Incluye el detalle de todos los webs services consumidos desde el sistema. Utiliza el mismo mecanismo de las demás colas, es decir, se registra tanto el evento de cuando se solicita el consumo del servicio web, como cuando efectivamente se accede a dicho servicio web o cuando se produce algún error en el acceso. Cuando el servicio web se deja en cola tiene todas las expresiones resueltas, es decir, que ya está generado y listo para consumir. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Grupo de servicios web: indica el grupo de servicios web que se consumió. 
+ • 
+ Servicio Web: indica el servicio web dentro del grupo de servicios web que se consumió. 
+ • 
+ Operación: indica la operación del servicio web que se consumió. 
+ • 
+ Información complementaria. 
+ o 
+ URL. URL donde se encuentra la definición del web service. 
+ o 
+ Cadena de consulta. Conjunto de datos de consulta del web service. 
+ o 
+ Método http. Método http que se invoca en la operación. 
+ o 
+ Parámetros de la cabecera. Información que se envía dentro de la cabecera de http. 
+ o 
+ Payload. Conjunto de datos de carga. Indica los parámetros de invocación del método del web service y el valor de cada uno de ellos. 
+ • 
+ Estado de respuesta. Indica el estado de la respuesta del consumo del servicio web 
+ • 
+ Mensaje de respuesta. Mensaje obtenido al procesar la respuesta del servicio web. Si al realizar el consumo del servicio web se obtiene una respuesta definida dentro del procesamiento de respuestas del servicio web como errónea, en este campo se almacenará el mensaje configurado para la respuesta. 
+ • 
+ Respuesta del WS: permite visualizar las respuestas que se obtuvieron desde el consumo del método del web service. En este punto, en función del retorno configurado dentro de la salida de la operación del web service, se permitirá visualizar la información en tres atributos diferentes: 
+ o 
+ Respuesta del servicio web. Se completará con la respuesta del web service cuando se configure que la respuesta está dada en texto plano. 
+ o 
+ Respuesta del servicio web JSON. Se completará con la respuesta del web service cuando se configure que la respuesta está dada en JSON. 
+ o 
+ Respuesta del servicio web XML. Se completará con la respuesta del web service cuando se configure que la respuesta está dada en texto plano XML. 
+ 

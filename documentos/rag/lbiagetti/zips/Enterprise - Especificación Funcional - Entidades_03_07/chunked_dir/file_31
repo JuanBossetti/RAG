@@ -1,0 +1,6 @@
+1.8 Definición de Acumuladores 
+ Un acumulador sirve para dar acceso rápido a los datos y evitar realizar cálculos que pueden consumir muchos recursos y que se utilizan frecuentemente, como por ejemplo el stock disponible de un producto. Una entidad puede tener asociada uno o más acumuladores. Algunos de ellos son definidos por el modelador del sistema y otros son creados automáticamente por el sistema en función de las consultas que va efectuando. Estos últimos no serán visibles para el usuario. 
+ El usuario puede crear un nuevo acumulador desde un menú contextual o bien, haciendo clic sobre una fila vacía dentro de la grilla de acumuladores. 
+ Cada vez que se cree un acumulador, se generará automáticamente un GDI predeterminado con una grilla que contiene datos acumulados (inicialmente no agrupada). Al hacer clic en un acumulador en el acordeón, se ejecutará dicho GDI. 
+ La solapa “Acumuladores” presenta en la parte superior de la pantalla, una grilla con la lista de acumuladores relacionados con la entidad en edición. En la parte inferior de la pantalla, se presentarán cuatro solapas, las cuales se explican a continuación: 
+ 

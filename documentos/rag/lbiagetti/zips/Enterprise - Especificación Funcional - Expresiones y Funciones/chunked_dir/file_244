@@ -1,0 +1,6 @@
+Ejemplos: 
+ Texto a Número (“101,104) devuelve el número 101.104 
+ Texto a Número (“123456.123”) devuelve el número 123456.123 
+ Texto a Número (“102;102222”) da error 
+ Texto a Número (“102.102.222”) da error. 
+ 

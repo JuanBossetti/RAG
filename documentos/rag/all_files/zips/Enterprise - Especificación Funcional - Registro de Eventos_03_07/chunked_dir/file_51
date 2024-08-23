@@ -1,0 +1,31 @@
+5.8 Cola de ejecución robot de testeo 
+ tarea programada 
+ actividad por web service
+ Es la encargada de procesar la ejecución de cada uno de los planes de prueba que se ejecutan en los ambientes de robot de testeo. Esta cola puede ser invocada mediante una acción de una o mediante la invocación de una . 
+ Utiliza el mismo mecanismo de las demás colas, es decir, se registra el evento de cuando comienza a ejecutarse el plan de pruebas y luego se va actualizando a medida que se obtienen resultados. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ especificación funcional 
+ de robot de testeo
+ Resultado. Contiene la información centralizada de los datos utilizados para la ejecución de la grabación de caso de prueba: dominio, plan de pruebas, versión de aplicación, build de aplicación, fecha de inicio de la ejecución, y el caso de prueba incluido. Se detalla su comportamiento en la . 
+ • 
+ Base de datos. Contiene la información de las bases de datos que se deben utilizar al momento de ejecutar un plan de pruebas. Este atributo es una referencia a la entidad cola de base de datos de robot de testeo. 
+ • 
+ Versión de aplicación. Indica la versión para la cual se ejecuta el plan de pruebas. 
+ • 
+ Código fuente. Indica el código fuente con el cual se ejecuta el plan de pruebas. 
+ Las transición de estados de esta cola, difiere del resto siendo los estados por los cuales transiciona los siguientes: 
+ • 
+ Nuevo. Cuando se genera una nueva petición de ejecución de un plan de pruebas, a esta petición se la encola con estado nuevo. Esto indica que la cola de robot de testeo tiene el pedido encolado pero que aún no comenzó a procesarse. 
+ • 
+ Esperando creación de base de datos. Una petición de la cola posee este estado cuando la cola de base de datos de robot de testeo comenzó a crear la base de datos para la ejecución del plan de pruebas. 
+ • 
+ En Proceso. Una vez creada las bases de datos para la ejecución del plan de pruebas, la cola de robot de testeo lanza la ejecución del plan de pruebas y es en este momento en donde las peticiones en la cola quedan con el estado En progreso. 
+ • 
+ Completado. Se asigna este estado a las peticiones que la cola pudo procesar correctamente, independientemente de si la comparación de resultados da o no errores en los resultados esperados. 
+ • 
+ Fallo permanente. Este estado es asignado en caso de que falle el proceso de ejecución del plan de pruebas, es decir, no se pudo realizar la ejecución. 
+ Como comportamiento general, esta cola no serializa la ejecución de planes de prueba, sino que es la cola de creación de base de datos la que serializa la creación de las mismas, y una vez que las bases de datos son creadas, la cola de ejecución de robot de testeo ejecuta cada uno de los planes de pruebas sin ningún tipo de serialización. 
+ 

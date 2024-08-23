@@ -1,0 +1,5 @@
+Ejemplos: 
+ |    | Texto       Negrita. Cursiva.                                                                        |   enriquecido        |   a        |   Texto(“Este        |   es        |   un        |   texto        |   con        |   formato.        |
+|---:|:-------------------------------------------------------------------------------------------------------|----------------------:|------------:|----------------------:|-------------:|-------------:|----------------:|--------------:|-------------------:|
+|  0 | Negrita y cursiva.”) retorna “Este es un texto con formato.Negrita.Cursiva.Negrita y cursiva.”        |                   nan |         nan |                   nan |          nan |          nan |             nan |           nan |                nan |
+ 

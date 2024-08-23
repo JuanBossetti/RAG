@@ -1,0 +1,15 @@
+2.1 Creación de un Proceso de negocio 
+ De la misma forma que cualquier otro elemento de FastPRG, un proceso de negocio puede ser creado mediante el botón (+) ubicado en la cabecera de la categoría en el acordeón, ó mediante la ópción ‘Crear prócesó de negóció’ dispónible en el menú cóntextual de cualquier prócesó de negóció ya creadó, al presionarlo se nos mostrara en pantalla el siguiente formulario 
+ Un campo para ingresar el Nombre del Proceso de negocio. Dato obligatorio. 
+ Un campo para ingresar la Descripción del Proceso de negocio. Dato obligatorio. 
+ Un área de diseño del proceso de negocio, donde se seleccionan 
+ - Actividades: Conjunto de actividades que se encontraran dentro del Proceso de negocio 
+ - 
+ Actores: En cada actor se podrá definir permisos para Usuarios o Grupos de usuarios sobre los elementos contenidos. 
+ - 
+ Sub procesos: Se pueden crear subprocesos para agrupar actividades y otros subprocesos en forma anidada y facilitar la visualización del esquema del proceso de negocio. 
+ Una sección de adjuntos donde se podrán documentar las fotos y/o videos necesarios para ayudar al usuario a comprender el circuito y funcionamiento del proceso de negocio definido. Esto se visualizará como un carrete de adjuntos y será solo editable en el ambiente de desarrollo. En producción, se mostrará en solo lectura, pero si se podrán descargar los archivos disponibles para su visualización. 
+ Estándares de interfaz de 
+ usuario
+ Los campos detallados deberán cumplir con las validaciones definidas en el . 
+ 

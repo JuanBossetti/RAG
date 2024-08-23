@@ -1,0 +1,57 @@
+4.7 Registro de versionado 
+ Contiene información vinculada a eventos de actualizaciones que se realicen sobre un ambiente con el fin de que un usuario modelador pueda tener auditoría de los cambios de modelado que fueron propagados entre distintos modelos o ambientes. 
+ Los eventos que se registran en este log son los siguientes: 
+ • 
+ Publicación en un ambiente. 
+ • 
+ Actualización de modelos vinculados, tanto de modelos de aplicación como de la plataforma. 
+ • 
+ Reparación de un ambiente. 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Tipo: Indica el tipo de acción realizada sobre el ambiente, los posibles valores a adoptar están asociados a las posibles acciones realizadas por un usuario y son: 
+ o 
+ Actualización 
+ o 
+ Reparación 
+ o 
+ Cierre de build 
+ o 
+ Correcciones de datos 
+ o 
+ Publicación 
+ • 
+ Modelo: Modelo sobre el cual se realizó la acción. 
+ • 
+ Ambiente: Ambiente sobre el cual se realizó la acción. 
+ • 
+ Build previo: Esta información solo será visible cuando la acción sea una publicación. Indica el build que estaba instalado en el ambiente previo a la publicación. 
+ • 
+ Build destino: Esta información solo será visible cuando la acción sea una publicación. Indica el build que se publicó. En caso de Reparación, el build previo y el build destino, son el mismo. 
+ • 
+ JAR: Es el código java con el cual se ejecutó la acción. Ejemplo: 1.2-BN952. 
+ • 
+ Estado: Indica el estado en que se encuentra la acción ya sea Publicación, Actualización o Reparación. Los estados pueden ser: 
+ o 
+ Pendiente 
+ o 
+ En progreso 
+ o 
+ Ok 
+ o 
+ Error 
+ o 
+ Finalizado con inconsistencias 
+ • 
+ Versión de editores: Release de editores en el cual se ejecutó la acción. 
+ • 
+ Versión del modelo: Versión del modelo en el cual se ejecutó la acción. 
+ • 
+ Paquete: Tamaño en Megabytes del paquete de actualización. Sólo será visible cuando la acción sea Actualización o Reparación. 
+ • 
+ Duración: Duración en minutos de las actualizaciones, publicaciones o reparar modelo. 
+ • 
+ Colección de modelos padres y sus releases: Esta información sólo será visible cuando la acción sea Actualización o Reparación. 
+ Al iniciar una publicación se le presenta al usuario el siguiente formulario, donde puede ver su progreso. El registro de preparación se encuentra filtrado por su referencia al registro de versionado. 
+ 

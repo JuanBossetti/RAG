@@ -1,0 +1,3 @@
+Solicita código de autorización a Telegram(Texto, Entero, Teléfono celular) 
+ Recibe por parámetro los datos necesarios para el servicio de Telegram y retorna el código de autorización provisto por la API de Telegram. 
+ 

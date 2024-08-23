@@ -1,0 +1,37 @@
+3.12 Actividades predeterminadas 
+ En el caso de arrastrar una entidad desde el panel de navegación al área de diseño a un espacio en blanco, se creará automáticamente una Actividad Predeterminada en ese PN, la cual tendrá la siguiente configuración inicial: 
+ ✓ 
+ Un nombre predeterminado, que es igual al nombre de la Entidad. 
+ ✓ 
+ Una entidad asociada. 
+ ✓ 
+ Un “tiempo esperadó de realización” que hereda de la configuración de la Entidad en el DD. 
+ ✓ 
+ La categóría “única instancia”. 
+ ✓ 
+ Todos los atributos de la Entidad están asociados a la Actividad. 
+ ✓ 
+ El tipó de actividad “Interactivó mediante fórmulariós”. 
+ ✓ 
+ El formulario generado de manera predeterminada de acuerdo al tipo de actividad y entidad, cón la cóndición inicial “Siempre”. 
+ ✓ 
+ Nombre y título predeterminados del formulario. 
+ ✓ 
+ Las reglas de negocio que apliquen a la actividad. 
+ ✓ 
+ La seguridad predeterminada será: para el grupó “Tódós” el permisó “ejecución” permitido. 
+ Pór ejempló, se arrastra la entidad “Próductó” al lienzo del Editor de Procesos de Negocio, entonces, la actividad predeterminada se mostrará de la siguiente manera: 
+ (C\ x) !SJ xi General I Reglas de Negocio I Historial de Versiones I Seguridad I Documentaci6n !SJ Todo '7 V Diccionario de datos lo Entidades .---0 Neta de Credrto , .l-ŁP:uc: _) 0 Neta de Debrto _,. ,· D stock _, . -· --0 Cliente ·' --D Factura ,. ----D Rernrto , . -· .•·' D Producto -• D Proveedor ; 
+ t8l X General I Reglas de Negocio I Historial de Versiones I Seguridad I Documentaci6n [B al Producto Producto I 'v Propiedades de la Actividad General I Producto I Formularios Reglas de Negocio 14-i&t IA Nombre (Ł) I Producto IOI r-Descripci6n IOI Categoria predeterminada I Categoria (') 1 Unica instancia lvl Actividad Padre I 1---1 t:1!111!1111111·111,lllll!MI! EŁtidad Łnesta secci6n, se podr8n configurar las propiedades de L asoc1ada a la a actividad que dependen de la categoria seleccionada. actividad 1 IŁ Entidad (') I Producto IVI I Lo hereda de la entidad Tiemoo esoerado de realizaci6n I IŁI Seleccione los atributos que no podr8n utilizarse en es1a Actividad. Atributos [] Atributos asociados no disponibles Todos los atributos i EJ [ estan asociados EJ [J rvl +M@Mti@ I Tipo de actividad l..... predeterminada: interactiva I Ł;,,.. [71 V ,,. Vista panoramica 
+ Una Actividad Predeterminada, se podrá modificar pero no se podrá eliminar. Cada entidad siempre debe tener una actividad predeterminada asociada. 
+ Entidades
+ Además de lo descripto anteriormente, al crear una Entidad, se creará automáticamente una Actividad Predeterminada, tal como se detalla en el documento . Esta actividad se crea siempre, no solo si la Entidad tiene comó óperación permitida “Alta directa” mediante “Fórmulariós”, ya que la misma será utilizada para consultar o visualizar instancias que fueron creadas por RN, GDI, AI, o que no hayan sido creadas por formularios de única instancia. 
+ La diferencia de esta Actividad Predeterminada es que se creará en un “Proceso de Negocio Predeterminado” desde el Editor de Procesos de Negocio. De todas formas, se podrán modificar, ejecutar, eliminar, agregarlas en procesos de negocio, y todas las acciones que se pueden realizar con las demás Actividades. 
+ Además de las actividades predeterminadas que se crean cada vez que se crea una entidad, hay otros 3 casos en los cuales se crean actividades automáticamente en el PN predeterminado: 
+ • 
+ Cada vez que se crea una transformación en una entidad, se crea una actividad de categoría transformación. 
+ • 
+ Cada vez que se crea una imputación en una entidad, se crea una actividad de categoría imputación. 
+ • 
+ Cada vez que se crea una autorización en una acción de una RN, se crea una actividad de categoría autorización. 
+ 

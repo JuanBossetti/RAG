@@ -1,0 +1,31 @@
+1.12.3 Seguridad de modelado 
+ Estándares de Interfaz de Usuario
+ La imagen siguiente muestra la solapa “Seguridad”, la cual funciona de acuerdo a lo explicado en el documento de , en la sección “Características de seguridad”. Las opciones de seguridad para el editor de Entidades estarán administradas en diferentes grupos de acuerdo a las funcionalidades del editor. Estas agrupaciones de seguridad se detallan a continuación: 
+ • 
+ Administrar Entidad 
+ • 
+ Administrar Atributos 
+ • 
+ Administrar Filtros predefinidos 
+ • 
+ Administrar Acumuladores 
+ • 
+ Administrar Desencadenantes 
+ • 
+ Administrar Transformaciones 
+ • 
+ Administrar Imputaciones 
+ • 
+ Envío de información masiva 
+ • 
+ Traducir Entidad 
+ • 
+ Administrar permisos de la Entidad 
+ Cada uno de estos grupos (menos los últimos tres) contienen a su vez las siguientes opciones: Crear un nuevo elemento, modificar un elemento, consultar y eliminar/revertir un elemento. 
+ Se presenta como excepción el grupo “Administrar Entidad”, el cual sólo presenta las opciones de modificar entidad, consultar y eliminar entidad. Este caso se debe a que no es correcto otorgar permisos de creación de entidades desde la definición de una entidad en el modelador. 
+ Estas opciones mencionadas, se encontrarán disponibles para todos los ambientes del modelo. Sin embargo en ambientes de prueba y producción solo se puede consultar y no se pueden realizar cambios en la definición de las entidades del modelo. 
+ En lo que respecta a la consulta de definición en las entidades, desde otros ambientes, se utilizará lo definido en esta solapa. Por ejemplo, si las transformaciones son accesibles desde el ambiente de producción, los usuarios que podrán consultarlas serán aquellos que tengan permitida la consulta de transformaciones en la seguridad de modelado. Activar o desactivar el checkbox a nivel de grupo implica que la acción (otorgar o denegar el permiso) se aplica al conjunto de opciones de seguridad. 
+ De manera predeterminada, el grupo “Administradores de Seguridad” tendrá activo el permiso de “Administrar permisos de la Entidad”. Además, este permiso no podrá ser desactivado o denegado para este grupo. 
+ Por otro lado, el grupo “Traductores” presentará activo el permiso de “Traducir Entidad” y el mismo no podrá ser desactivado o denegado para ese grupo. 
+ Si la entidad es paramétrica se visualizará la Seguridad de la siguiente forma, donde no se encuentran los permisos de Administrar Acumuladores, desencadenantes, transformaciones e imputaciones. 
+ 

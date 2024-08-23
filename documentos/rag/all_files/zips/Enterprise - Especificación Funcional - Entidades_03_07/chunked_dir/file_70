@@ -1,0 +1,41 @@
+Atributos editables 
+ Por defecto, y sin tener configuraciones en esta solapa, las instancias origen de transformación no serán editables si ya se realizó alguna transformación total o parcial sobre la instancia (contexto entidad) o alguno de sus ítems (contexto colección). 
+ Solo se podrán editar los datos configurados expresamente en cada transformación, en esta solapa de “Atributos editables”. 
+ Atributos editables: Se puede seleccionar cualquier atributo de la entidad origen, menos los identificadores de la transformación. Se permite editar un atributo de control y se validará en tiempo de ejecución contra las transformaciones ya realizadas. 
+ Si el atributo seleccionado como editable es de categoría “Colección”, implica que sobre esa colección se podrá agregar ítems o eliminar Ítems (no transformados ni total ni parcialmente). 
+ Al momento de configurar una transformación: 
+ • 
+ Se puede indicar qué atributos será editables de la entidad origen, en instancias ya transformadas total o parcialmente. 
+ • 
+ Se pueden seleccionar todos los atributos de la entidad origen. 
+ • 
+ El contexto inicial para seleccionar atributos, es la entidad (aunque el contexto de la transformación sea una colección). 
+ • 
+ Si el contexto de la transformación es entidad, se pueden seleccionar atributos de cabecera o de cualquier colección, de cualquier nivel. 
+ • 
+ Si el contexto es una colección, se pueden seleccionar atributos de la entidad, de la colección del contexto y de colecciones padres, hijas, hermanas, etc. 
+ • 
+ La única restricción es que no se pueden seleccionar como editables, atributos identificadores de la transformación actual. 
+ • 
+ Si se seleccionan como editables, atributos de categoría colección, implica que sobre esa colección se podrán agregar o eliminar ítems (no transformados ni total ni parcialmente). 
+ Al momento de modificar una instancia origen de transformación: 
+ Si una instancia no tuvo ninguna transformación (ni total ni parcial, ni a nivel de instancia ni de alguno de sus ítems), se va a poder modificar cualquier dato de la misma. 
+ Si una instancia ya tuvo alguna transformación (total o parcial, a nivel de instancia o de alguno de sus ítems), y no tiene configuraciones en la solapa “Atributos editables”, entonces no se podrá modificar ningún dato. 
+ Si una instancia ya tuvo alguna transformación, y tiene configuraciones en la solapa “Atributos editables”, entonces el comportamiento es el siguiente: 
+ • 
+ El sistema revisará todas las transformaciones ya realizadas sobre esta instancia. 
+ • 
+ Solo se podrán editar los atributos definidos expresamente como editables en todas y cada una de las transformaciones ya realizadas sobre esta instancia (o ítem de cualquier colección). 
+ • 
+ Si el atributo modificable, es un atributo de control en alguna de las transformaciones ya realizadas, el sistema validará que no quede menor a ninguno de los totales ya transformados. 
+ • 
+ Se podrán agregar ítems en una colección solo si así se configuró expresamente en todas las transformaciones ya realizadas sobre la instancia. 
+ • 
+ Se podrán eliminar ítems en una colección solo si así se configuró expresamente en todas las transformaciones ya realizadas sobre la instancia. Además, si la colección es contexto de alguna transformación ya realizada de la instancia, entonces solo se podrá eliminar si el ítem no sufrió ninguna transformación parcial ni total. 
+ • 
+ Si se modifica un valor de un atributo permitido (A) (o se elimina un ítem de colección) y esa acción dispara una modificación de otro atributo no editable (B), el sistema debe hacerlo, pero con las siguientes contemplaciones: 
+ o 
+ Si el atributo que sufre modificación por acción de otro, es un atributo que es identificador en alguna de las transformaciones que ya se hicieron efectivas sobre esa instancia (si el contexto es entidad) o sobre ese ítem (si el contexto es colección), entonces no se podrá modificar el valor de (A). 
+ o 
+ Si el atributo que sufre modificación por acción de otro, es un atributo de control en alguna de las transformaciones ya realizadas, el sistema validará que no quede menor a ninguno de los totales ya transformados. Solo se podrá modificar (A) si se cumple está validación sobre (B). 
+ 

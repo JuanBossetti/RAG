@@ -1,0 +1,16 @@
+Expresiones NO sujetas a seguridad: 
+ • 
+ Formato condicional 
+ • 
+ Condición de visualización y edición 
+ • 
+ Filtros (en vistas, en un componente, etc) 
+ • 
+ Expresión de agrupamiento de las instancias dentro de la banda de detalle. 
+ • 
+ Expresión para mandar a imprimir a una impresora 
+ • 
+ Expresión para obtener idioma 
+ • 
+ Todas las expresiones definidas en los editores (Entidades, TA, Actividades): valor inicial, validaciones, expresión para agrupar transformaciones, condiciones de formularios. 
+ 

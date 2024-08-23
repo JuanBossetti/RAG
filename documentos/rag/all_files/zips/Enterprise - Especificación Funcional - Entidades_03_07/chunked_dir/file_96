@@ -1,0 +1,3 @@
+Comportamiento del permiso: 
+ Si se otorga un permiso (o una denegación) en una operación específica dentro de dicho permiso, se podrán ejecutar las actividades que tengan esa operación definida en la actividad (sin considerar las demás operaciones). 
+ 

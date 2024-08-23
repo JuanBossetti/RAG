@@ -1,0 +1,9 @@
+1.7 Valores Únicos 
+ Un atributo en una entidad puede configurarse como atributo de valor único de manera que no puede tener valores iguales en diferentes instancias/ítems de la entidad/colección, pero además existe la posibilidad de configurar una “Clave única compuesta” la cual permite seleccionar una colección de valores únicos, es decir, que en este último caso no podrá repetirse la combinación de los atributos seleccionados en diferentes instancias/ítems de la entidad/colección. 
+ Para definir una colección de valores únicos debe seleccionarse la combinación de atributos que no deben repetirse en la entidad/ítem de la entidad/colección y a su vez definir el mensaje a mostrar en el panel cuando se incumpla esta definición. 
+ Tipos de atributos 
+ Se deben tener en cuenta las propiedades “Ignorar tildes” e “Ignorar mayúscula minúscula”. Para más detalle ver documento de 
+ Si la entidad es paramétrica, debe definirse siempre un único conjunto de valores únicos para identificar cada instancia. 
+ Por ejemplo, se define en un modelo que dos Clientes no deben tener la misma combinación de email e identificación, entonces, se define la clave única compuesta de la siguiente manera: 
+ En este caso nunca podrán crearse dos Clientes con el mismo valor en email + identificación. 
+ 

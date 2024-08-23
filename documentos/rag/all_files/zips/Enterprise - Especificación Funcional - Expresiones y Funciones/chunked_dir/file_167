@@ -1,0 +1,3 @@
+Máximo(Colección, Atributo, Condición) 
+ Devuelve el mayor elemento de la colección. Si no hay elementos en la colección, devuelve null. 
+ 

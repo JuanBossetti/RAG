@@ -1,0 +1,21 @@
+3.12 Definición de Seguridad 
+ Estándares de Interfaz de 
+ Usuario
+ La solapa Seguridad funciona de acuerdo a lo explicado en el documento de , en la sección “Características de seguridad”. 
+ Las opciones de seguridad para el Editor de funciones se detallan a continuación: 
+ ✓ 
+ Crear función: Indica los usuarios o grupos de usuarios que pueden crear Funciones. Solo se está disponible para configurar en el dominio o modelo, no en cada función. 
+ ✓ 
+ Consulta función: Indica los usuarios o grupos de usuarios que pueden consultar una Función. 
+ ✓ 
+ Modificar Función: Indica los usuarios o grupos de usuarios que pueden modificar cualquier parte de la definición de la Función. 
+ ✓ 
+ Eliminar Función: Indica los usuarios o grupos de usuarios que pueden eliminar la Función. 
+ ✓ 
+ Restaurar función: Indica los usuarios o grupos de usuarios que pueden restaurar una Función eliminada. 
+ ✓ 
+ Traducir función: Indica los usuarios o grupos de usuarios que pueden traducir las propiedades internacionalizables de una Función. 
+ ✓ 
+ Administrar permisos de la función: Indica los usuarios o grupos de usuarios que pueden administrar permisos (consultar o modificar) de una Función. 
+ En forma predeterminada estarán otorgados todos los permisos para todos los usuarios. 
+ 

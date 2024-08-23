@@ -1,0 +1,3 @@
+Ordenar(Colección, Atributo1 ASC Atributo2 DESC) 
+ Ordena los elementos de la colección según el orden (ASC o DESC) y los atributos indicados. 
+ 

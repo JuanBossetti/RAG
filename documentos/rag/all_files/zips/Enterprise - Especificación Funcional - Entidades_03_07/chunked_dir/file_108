@@ -1,0 +1,12 @@
+Modificación y eliminación de una Entidad 
+ Para el análisis de eliminación y modificación de una Entidad, deberá tenerse en cuenta los siguientes casos: 
+ 1. 
+ Se desea eliminar la Entidad o un atributo de la misma. 
+ 2. 
+ Se desea modificar aspectos generales de la entidad, es decir aquellos que no afectan a la estructura de la misma, como por ejemplo el nombre, la descripción, documentación, validación, nombre de atributos, nombre de transformaciones, nombre de desencadenantes, etc. 
+ 3. 
+ Se desean eliminar/modificar aspectos relacionados con las Transformaciones, Desencadenantes, Imputaciones y Acumuladores de la entidad. 
+ Para el caso de eliminación de una entidad o de uno de sus atributos (punto 1), el editor verificará si la entidad está siendo utilizado como referencia en la definición de uno o más atributos de otra 
+ entidad o si cualquiera de los dos elementos se utiliza en reportes, funciones de usuario, mapa estratégico, reglas de negocio, etc. De ser así, se notificará al usuario acerca de esta situación, presentando una lista de todos aquellos elementos que serían afectados por la eliminación, diferenciando entre aquellos que solo afecten cuestiones de visualización y aquellos que afecten la estructura del sistema. Si sólo modifica aspectos visuales, quedará a elección del usuario eliminar o no el elemento. En cambio, si la eliminación produciría una inconsistencia en el sistema, el usuario podrá acceder al editor del elemento que produciría dicha inconsistencia, desde la lista que se presentó anteriormente, a fin de solucionar dicho problema. Una vez que solucione todos los puntos de conflicto, el sistema permitirá llevar adelante la eliminación de elemento. Por otro lado, si la entidad o atributo no está siendo utilizada en ninguno de los elementos anteriormente mencionados, se permitirá la eliminación de la misma. Ídem para el caso 3 
+ Aquellas modificaciones que no afecten la estructura de la entidad (caso 2), se podrán efectuar libremente ya que las mismas no tendrán desencadenante estructural en el sistema. Sin embargo, deberá validarse que las modificaciones realizadas sobre la entidad no provoquen inconsistencias con información producida anteriormente. En caso de que se presenten inconsistencias en la información, no se permitirá realizar la modificación. 
+ 

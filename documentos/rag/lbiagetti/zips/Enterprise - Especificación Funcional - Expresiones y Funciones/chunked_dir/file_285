@@ -1,0 +1,3 @@
+Convertir de base64 a blob(Texto) 
+ Dado un tipo de dato base64, retorna un atributo de tipo blob. Invocación: 
+ 

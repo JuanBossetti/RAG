@@ -1,0 +1,26 @@
+3.7.3 Versiones del API del WS 
+ Cada WS podrá tener varias versiones de apis. Cada una de estas versiones no cambiará en el tiempo para garantizar que los clientes puedan continuar con la ejecución, a pesar de los cambios en el modelo. 
+ o 
+ Actividad (referencia con versión específica) 
+ o 
+ WS (referencia con versión específica) 
+ o 
+ Análisis de Impacto
+ Número incremental de la versión. Cada vez que se realiza un cambio en el sistema que afecte el api (por ejemplo: marcar un atributo para usar en el ws, desmarcar el atributo a mano o porque se está eliminando el atributo, cambiar el tipo de atributo de un atributo usado en el ws, agregar un atributo para retornar en el ws, etc.) se incrementa en 1 la versión del ws. Para más detalles de los casos que incrementan este valor, consultar documento . 
+ o 
+ Activa actualmente (si o no). 
+ o 
+ Fecha de caducidad del WS: cuando se inactiva un WS, se puede completar esta fecha hasta la cual se podrá seguir usando esta versión del api. Inicialmente, será la fecha en que se invalida la versión del api más 30 días. La fecha de caducidad podrá ser de 7 a 30 días desde su fecha de inactivación. Solo se completa para las versiones no activas. 
+ o 
+ Colección de versiones compatibles con este api. 
+ ▪ 
+ Primer build compatible 
+ ▪ 
+ Último build compatible 
+ Estos datos se usan la jvm en el ambiente destino con una versión y build compatible. En el caso de que el build publicado en dicho ambiente sea compatible, sea compatible, se usa directamente un jvm de ese build. En el caso contrario, hay que usar/levantar una jvm con un modelo hibrido con un build compatible como build origen y como destino, el build publicado en ese ambiente. 
+ o 
+ Documentación: se podrá visualizar la documentación del WS haciendo clic en un botón. La documentación muestra el formato JSON necesario para invocar la versión del api del WS en el idioma del WS y el modelador podrá enviarla a los clientes del WS. Si cambia algún dato de la documentación (por ejemplo, se agregar un valor a un enumerado usado en el WS) y no cambia la versión del API, es responsabilidad del modelador enviarla nuevamente a los clientes del WS. 
+ ✓ 
+ Para que una versión de api de un ws esté vigente (se pueda ejecutar), debe estar activa y la fecha de caducidad debe ser posterior a la fecha de hoy. Ejemplos: 
+ ✓ 
+ 

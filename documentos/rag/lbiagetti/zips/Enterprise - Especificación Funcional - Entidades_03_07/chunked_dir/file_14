@@ -1,0 +1,4 @@
+Compuesto 
+ La siguiente imagen presenta el caso en que el atributo seleccionado pertenezca a un tipo de atributo de categoría compuesto: 
+ Cuando el atributo hereda la configuración de un tipo compuesto, dentro de la entidad, no se permitirá agregar, eliminar, ni modificar el tipo de los atributos simples que contiene un compuesto. Para poder realizar esta acción, el usuario deberá ingresar directamente en el tipo de atributo compuesto y agregar/modificar/eliminar los miembros del compuesto. 
+ 

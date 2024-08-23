@@ -1,0 +1,17 @@
+5.4 Cola de mensajería 
+ Incluye el detalle de todos los mensajes instantáneos enviados desde el sistema, utilizando cualquiera de los servicios de mensajería provistos por Fastprg (Telegram, SMS, etc.). Esta cola se encuentra dentro de los eventos de dominio. 
+ Al igual que el resto de las colas, se registra tanto el evento de cuando se envía un mensaje instantáneo a la cola de envío, así como cuando se envía el mensaje definitivamente al destinatario que corresponda o se produce algún error durante el envío. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Destinatarios: Indica el o los destinatarios del mensaje instantáneo. 
+ • 
+ Archivos Adjuntos: Contiene los archivos adjuntos del mensaje. 
+ • 
+ Cuenta de mensajería: Una de las cuentas configuradas en el dominio que se utiliza como remitente para los mensajes salientes del usuario. 
+ • 
+ Contenido: Indica el texto contenido en el cuerpo del mensaje instantáneo. 
+ Ejemplo: 
+ Al crear un pedido se envía un mensaje al usuario indicando que su pedido fue confirmado por la empresa. 
+ 

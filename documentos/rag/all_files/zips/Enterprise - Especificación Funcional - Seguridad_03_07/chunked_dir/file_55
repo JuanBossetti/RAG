@@ -1,0 +1,7 @@
+8 Elementos del modelo 
+ Cada componente que pertenezca a un elemento, heredará todas sus propiedades (permisos y denegaciones). Pero podrán definirse más permisos y denegaciones para ese componente en particular. Por ejemplo, los atributos de una entidad heredarán sus permisos y denegaciones. 
+ Para cada elemento y para instancia de un elemento existirá una Lista de Control de Acceso (ACL) que estará compuesta por una lista de acciones que pueden ser aplicadas/ejecutadas sobre el mismo, además de los usuarios y/o grupos de usuarios con sus permisos y denegaciones sobre dicho elemento/instancia. 
+ Los permisos específicos en cada elemento se definirán en el editor correspondiente, así como la creación y eliminación de los mismos y las ACL correspondientes. De la misma forma se procederá con las instancias de un elemento. 
+ Estándares de interfaz de usuario
+ Por cada entidad, existirá una lista de operaciones permitidas y orígenes de operaciones permitidas, de acuerdo a lo establecido en el documento . Por ejemplo: 
+ 

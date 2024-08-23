@@ -1,0 +1,31 @@
+Cancelación automática por diferencia de conversión 
+ Es posible que se presenten casos en que las instancias imputadas presenten diferentes unidades de medida. Por ejemplo, para un sistema cuya unidad base es el peso ($), dada una Factura de U$S 100, con cotización U$S 1 = $ 4 al momento de facturar, se la imputa contra un Recibo de U$S 100, con cotización U$S 1 = $ 5 al momento de imputar. Para el ejemplo, las fórmulas de conversión al crear y la fórmula de conversión al imputar consisten en multiplicar el valor del atributo imputable por la cotización de la moneda en la unidad base. 
+ En este caso, al realizar la imputación, el valor obtenido mediante la aplicación de la Fórmula de Conversión al crear y el obtenido mediante la Fórmula de conversión al imputar serán distintos ($400 y $500), lo que indica que existe una diferencia por conversión (en este caso, una diferencia de cotización del dólar). Por lo tanto, el sistema deberá generar un comprobante para cancelar la diferencia en $. Esta funcionalidad podrá definirse en la solapa “Reglas de cancelación”. 
+ En caso de existir reglas de cancelación, el sistema deberá evaluar si para cada comprobante que se impute existe una diferencia entre el resultado de la fórmula de conversión al crear y el de la fórmula de conversión al imputar. En el caso de existir dicha diferencia, deberá evaluarse cada una de las Reglas de Cancelación definidas, aplicando las acciones según corresponda. En el caso de crearse una instancia de una entidad para saldar esta diferencia, la misma se deberá imputar contra el mismo comprobante que se imputo la instancia que generó dicha diferencia. 
+ Se deberá tener en cuenta que el comprobante que se cree por desencadenante debería saldar la diferencia surgida de la conversión. Sin embargo, en función de cómo se hayan definido las expresiones de la imputación y del desencadenante que genere la entidad creada en la entidad imputable, puede ocurrir que la diferencia no sea saldada. En caso de ocurrir esta situación, el sistema deberá avisarle al usuario, e impedir la transacción completa dejando registro. 
+ En el siguiente ejemplo se muestra un Log auxiliar de imputaciones para el caso presentado. Los campos que lo componen están simplificados, de forma de facilitar la comprensión del mismo. 
+ Los dos primeros registros corresponden a una Factura de U$S 100 y un Recibo de U$S 100. Al momento de emitirse la factura el Dólar cotizaba a $ 4, mientras que al emitir el Recibo la cotización era de $ 5. 
+ Luego se procedió a realizar la imputación, con lo cual primero que hace el sistema es calcular el valor del atributo imputable en unidad base para lo fórmula de conversión al imputar, es decir, a la cotización al momento de imputar. A partir de estos valores se obtiene el importe imputable por saldo de conversión y además, se puede determinar si se ingresó dentro de los límites de tolerancia. En este caso, la Factura se imputo por el total, pero existe una diferencia de cotización por la cual se realizará una Nota de Débito (suponiendo que el modelador definió esta acción en la Regla de Cancelación). 
+ Una vez que se obtienen estos valores, se generará la imputación. El primer registro correspondiente a la imputación descontará el importe imputado en la Factura. Los campos de este registro se calcularon de la siguiente manera: 
+ • 
+ Fórmula de conversión al crear: Es el menor valor absoluto entre los valores de Fórmula de conversión al imputar de las dos instancias que se están imputando, con signo opuesto al de la instancia imputada. En este caso, para la imputación en la factura el valor es de $ -400. 
+ • 
+ Importe a imputar: Se obtiene por regla de tres aplicada al valor de la Fórmula de conversión al crear que se obtuvo en el paso anterior. 
+ Siendo: 
+ A = Valor de la Fórmula de conversión al crear que se obtuvo en el paso anterior. 
+ B = Valor original del atributo imputable de la instancia imputada. 
+ C = Valor original de la Fórmula de conversión al crear de la instancia imputada. 
+ Entonces: 
+ Importe = (A*B) / C, redondeado a la máxima precisión que tenga el tipo de dato utilizado en el atributo imputable 
+ En este caso, A = $ -400, B = U$S 100 y C = $ 400. Por lo tanto, el importe quedaría en  U$S -100. 
+ • 
+ Fórmula de conversión al imputar: es el resultado de aplicar dicha fórmula al valor obtenido en el paso anterior. 
+ Para el siguiente registro corresponde descontar el importe imputado sobre el recibo. Los valores se deben calcular de la siguiente manera: 
+ • 
+ Fórmula de conversión al crear: se copia, con signo opuesto, el valor del atributo imputable en moneda base obtenido en el primer registro. En este ejemplo se obtendrá el valor 400. Esto ocurre dado que a se debe imputar el mismo valor en unidad base en ambos comprobantes. 
+ • 
+ Importe a imputar: A partir del valor obtenido en el paso anterior, se obtiene el atributo imputable en la moneda original del Recibo. En el ejemplo presentado, el Recibo se realizó en dólares con una cotización de $ 5. Por lo tanto, se obtendrá como resultado de la operación, el valor U$S 80 ($ 400/$ 5). Una vez que se obtienen estos valores, se genera el segundo registro en el log. 
+ • 
+ Fórmula de conversión al imputar: es el resultado de aplicar dicha fórmula al valor obtenido en el paso anterior. 
+ Finalmente, debido a que se produjo una diferencia de cotización se deberá imputar una Nota de Débito según lo indicado en la reglas de cancelación. La instancia generada por el comprobante se deberá imputar contra el Recibo, siguiendo los mismos pasos que se indicaron anteriormente para la imputación contra la Factura. 
+ 

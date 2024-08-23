@@ -1,0 +1,6 @@
+Ejemplos: 
+ Es fecha(‘25/10/2022’;’dd/MM/yyyy’) retorna verdadero 
+ Es fecha(‘25/10/22’;’dd/MM/yyyy’) retorna falso 
+ Es fecha(‘35/10/2022’;’dd/MM/yyyy’) retorna falso 
+ Es fecha(‘25/40/2022’;’dd/MM/yyyy’) retorna falso 
+ 

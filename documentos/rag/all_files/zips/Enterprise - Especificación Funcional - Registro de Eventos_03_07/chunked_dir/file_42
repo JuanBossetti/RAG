@@ -1,0 +1,30 @@
+5.1 Cola de correo electrónico 
+ La Cola de correo electrónico incluye el detalle de todos los correos enviados desde el sistema. Se registra tanto el evento cuando se envía el correo electrónico a la cola, así como cuando se envía el correo definitivamente al destinatario que corresponda o si se produce algún error durante el envío. 
+ El almacenamiento en cola de los correos a enviar, se realiza en el mismo momento de la realización del comprobante que generó el correo electrónico. Si se descarta la instancia principal, también se descarta el registro, por lo cual no queda pendiente el envío del correo. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Destinatarios: Conjunto de destinatarios del correo electrónico. 
+ • 
+ Destinatarios con CC: Conjunto de destinatarios copiados en el correo electrónico. 
+ • 
+ Destinatarios con CCO: Conjunto de destinatarios copiados en forma oculta en el correo electrónico. 
+ • 
+ Cuenta de correo electrónico: Cuenta de correo electrónico desde la cual se envío el email (remitente). 
+ • 
+ Asunto: Indica el asunto o título del correo electrónico enviado. 
+ • 
+ Contenido: Información enviada en el cuerpo del mensaje. 
+ • 
+ Adjuntos: Conjunto de archivos que se envían adjuntos al correo electrónico. 
+ • 
+ Prioridad: Establece la prioridad del correo electrónico enviado (normal, baja o alta). 
+ • 
+ Confirmación de lectura: Indica si requiere que el remitente confirme que ha leído el correo o no. 
+ • 
+ Grupo ejecutor: Grupo de usuarios ejecutor de la acción de envío de correo electrónico. Al realizar envíos de correo electrónico a través de una tarea programada, en este campo se registra el grupo de usuarios definido como ejecutor de dicha tarea. 
+ Por ejemplo, supongamos que tenemos configurado un reporte por banda que se envía por mail al realizar una Nota de Venta. En la cola de correo de electrónico del modelo, lo vemos de la siguiente manera: 
+ Vemos allí también que, en caso de ocurrir un fallo al enviar el correo, se visualiza el estado con Fallo permanente en color rojo. 
+ De igual manera, si un usuario, solicita recuperar su contraseña, se le envía un mail para realizar esta acción. Este evento queda en la Cola de correo electrónico de dominio, ya que no está vinculado directamente con una entidad de Usuario. En este caso, la cola se ve de la siguiente manera: 
+ 

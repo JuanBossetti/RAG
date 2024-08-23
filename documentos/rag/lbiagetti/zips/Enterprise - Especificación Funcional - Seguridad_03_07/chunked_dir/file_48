@@ -1,0 +1,5 @@
+7.3 Autenticación en un Modelo 
+ La interfaz de ingreso al sistema dependerá del modelo. La autenticación en un modelo se realizará en una url: <dominio>.fastprg.com/<identificadorWebModelo> 
+ Independientemente de si el usuario se autenticó alguna vez, accederá siempre al modelo que figura en la url. Si por algún motivo hubiese un error (por ejemplo, el usuario no posee permisos de acceso al modelo), se mostrará en la pantalla de login el mensaje “No tiene permitido el acceso a este modelo”. 
+ De todas formas, aunque el login se haya realizado en un modelo específico podrá acceder a los demás modelos en donde el usuario posee permisos desde la barra de títulos: 
+ 

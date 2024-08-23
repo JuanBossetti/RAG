@@ -1,0 +1,28 @@
+2.6.6 Buscar aleatorio 
+ El operador de sistema "Buscar aleatorio" permite al usuario buscar instancias aleatorias de un atributo persistido en la base de datos. 
+ Sintaxis: 
+ en <Entidad>o<Colección> Buscar aleatorio <Atributo> Limitar a <cantidad de elementos> Donde: 
+ - 
+ Buscar aleatorio es el operador que indica que se quiere buscar instancias aleatorias. 
+ - 
+ Limitar a es una palabra reservada que indica que se quiere limitar la cantidad de instancias aleatorias que se devuelven. 
+ - 
+ <cantidad de elementos> es un número entero que indica la cantidad máxima de instancias aleatorias que se desean obtener. 
+ Comportamientos: 
+ • 
+ Al usar buscar aleatorio, siempre se debe especificar el límite. Si se intenta utilizar sin la palabra reservada Limitar a, saltara en el panel de mensajes error de sintaxis en la expresión. 
+ • 
+ Si se especifica un límite, el sistema devuelve esa cantidad de instancias aleatorias del atributo especificado. 
+ • 
+ Si el límite especificado es mayor que la cantidad de instancias persistidas en la base de datos, el sistema devuelve todas las instancias de forma aleatoria. 
+ • 
+ Las instancias devueltas son seleccionadas de manera aleatoria de entre las instancias persistidas en la base de datos del atributo especificado. 
+ Ejemplos: 
+ En Cliente Buscar aleatorio Teléfono 
+ El sistema mostrara en el panel de mensajes un error de sintaxis, ya que la expresión para ser válida, necesita la palabra reservada Limitar a. 
+ En Cliente Buscar aleatorio Teléfono limitar a 5. 
+ Devuelve cinco instancias aleatorias del atributo "Teléfono" de la entidad "Cliente". 
+ Suponiendo que existen 50 instancias persistidas de la entidad "Cliente": 
+ En Cliente Buscar aleatorio Teléfono limite 51 
+ Como la cantidad de instancias persistidas del atributo "Teléfono" en la entidad "Cliente" es menor que 51, el sistema devuelve todas las instancias de forma aleatoria. 
+ 

@@ -1,0 +1,42 @@
+2.3.2 Configuración 
+ Para agregar un nuevo Vínculo de Seguridad, se deberá acceder a la configuración del domino, dentro de la sección Dominio. Es importante destacar que esto se puede realizar dentro de cualquier ambiente, siempre que se cuente con los permisos necesarios. 
+ Allí se deberá definir la siguiente información: 
+ • 
+ Dominios de autenticación: dominios externos cuyos usuarios podrán acceder a nuestro dominio. 
+ o 
+ Nombre del dominio: nombre del dominio externo, por ejemplo neuralsoft. Atributo de valor único. Texto no internacionalizable requerido. 
+ o 
+ URL: url del dominio externo. 
+ o 
+ Descripción: título o explicación para distinguir el elemento. Se usa como ayuda emergente del mismo. Texto internacionalizable opcional. 
+ o 
+ Documentación: información ampliada del vínculo. Texto enriquecido internacionalizable opcional. 
+ o 
+ Estado del vínculo: estado en el que se encuentra el vínculo actualmente. El estado de un vínculo siempre será el mismo en ambos dominios. Los estados de un vínculo podrán ser: 
+ ▪ 
+ Pendiente de Aprobación: indica que el vínculo ha sido solicitado y está a la espera de hacerse efectivo o ser rechazado por el otro dominio involucrado. Un dominio agrega a otro Dominio de autenticación o Dominio de acceso, y este último deberá aceptar/rechazar el vínculo. Un vínculo en estado pendiente podrá ser aprobado sólo por el dominio que no creó dicho vínculo, pero podrá ser rechazado por cualquiera de los dominios involucrados. Inicialmente el estado será Pendiente. 
+ ▪ 
+ Aprobado: indica que el vínculo se ha hecho efectivo. Luego de aprobado, un vínculo podrá rechazarse por cualquier dominio que forme parte del mismo. 
+ ▪ 
+ Rechazado: indica que se ha rechazado la vinculación. El vínculo se podrá rechazar desde el estado Pendiente. Una vez rechazado la única opción disponible será “eliminar”, de forma tal que ya no aparezca en la grilla. 
+ o 
+ Objetos externos: los objetos externos de acceso podrán ser usuarios, grupos de usuarios, unidades organizacionales o dispositivos del dominio externo. Dichos objetos estarán disponibles si el vínculo está aprobado, y si el Dominio de autenticación los ha definido previamente, o ha indicado que no existen restricciones (el dominio local puede visualizar todos los objetos del dominio externo). En esta sección sólo se visualizan los objetos compartidos de manera directa, pero no los objetos contenidos dentro de los mismos. En el Panel de Navegación se visualizan los objetos compartidos de manera directa, y además, se pueden expandir los grupos y OUs, y ver los objetos contenidos dentro de los mismos, es decir, los objetos compartidos de manera indirecta. 
+ • 
+ Dominios de Acceso: dominios externos en donde nuestros usuarios podrán acceder. 
+ Tienen la misma configuración que los Dominios de autenticación, excepto la última: 
+ o 
+ Objetos locales: podrán definirse usuarios, grupos de usuarios, unidades organizacionales y dispositivos de nuestro dominio que podrán acceder al dominio de autenticación. Podrán definirse tanto en el momento de la creación del vínculo con el dominio accesible, como luego de su aprobación. Cuando el dominio que debe efectivizar dicho vínculo, lo aprueba, si dichos objetos aún no han sido definidos, los mismos estarán pendientes de restricción y ningún usuario del Dominio de autenticación tendrá acceso al dominio accesible. Para que esto ocurra, se deberán seleccionar los objetos locales cuya seguridad de acceso al dominio accesible podrá ser administrada por dicho dominio. Si los objetos del vínculo se definen sin restricciones, el dominio que confía podrá administrar la seguridad de acceso de todos los objetos locales. 
+ En el caso en que desde un dominio se creen dos vínculos con otro dominio, uno en cada dirección, el dominio al cual se le realiza la petición podrá aprobar o rechazar individualmente cada vínculo. Si aprueba o rechaza uno de los vínculos, el otro quedará pendiente hasta el momento en que realice una de las posibles acciones. 
+ Sólo se podrá crear efectivamente un vínculo si no existe otro vínculo con el mismo dominio y dirección, o si existe y su estado es rechazado. Es decir, entre dos dominios no podrá haber más de un vínculo de seguridad en la misma dirección, con estado pendiente o aprobado. Si existe un vínculo entre dos dominios en una dirección, sólo se puede crear un nuevo vínculo en la misma dirección entre los mismos dominios, si el existente se encuentra rechazado. En este 
+ caso, se quitará automáticamente el vínculo rechazado de las interfaces de ambos dominios, y aparecerá el nuevo vínculo en estado pendiente. 
+ Cuando se crea un dominio de autenticación, se crea una OU raíz que se visualiza en el panel de navegación y los objetos que se comparten se pueden visualizar dentro. 
+ A continuación, un ejemplo de un dominio de autenticación: 
+ A continuación, un ejemplo de un dominio accesible: 
+ Si se establece un vínculo de confianza entre un dominio A (dominio de acceso) y un dominio B (dominio de autenticación), el administrador del dominio B deberá seleccionar los objetos que podrán tener acceso al dominio A. Los objetos de B podrán acceder a los elementos de A y el administrador de A podrá asignarles permisos a dichos objetos. 
+ Por ejemplo, el dominio A establece un vínculo con el dominio B. Un usuario administrador de B acepta el vínculo y restringe el acceso a un grupo de usuarios. Para que estos usuarios puedan acceder al dominio A, un administrador de A deberá otorgarles permisos. En este ejemplo, el administrador de A le concede permisos al grupo de usuarios de B para acceder a la entidad Factura y a un dispositivo, ambos dentro de A. En consecuencia, los usuarios pertenecientes al grupo del dominio B podrán ingresar al dominio A y tendrán acceso a la entidad factura y al dispositivo en cuestión. Pero B no podrá acceder a las cuentas de usuarios de A; para que esto ocurra, se deberá generar otro vínculo de seguridad de la forma inversa. También, el usuario administrador del dominio B podrá administrar las políticas de acceso al dominio A de los usuarios de B, como por ejemplo, el rango horario en que podrán ingresar, si podrán delegar sus actividades, etc. 
+ Dirección de confianza Dominio A Dominio B 
+ Además, si el dominio 3 confía en 2 y 2 confía en 1, se podrá dar el caso de que un usuario o grupo de 1 ingrese al dominio 3, ya que el dominio 2 puede administrar los usuarios externos en su dominio, como usuario de 1 y a su vez, puede administrar el grupo de usuarios que ingresan al dominio 3. Así, si ingresa un usuario de 1 a un grupo con acceso a 3, dicho usuario podrá acceder al dominio 3. 
+ Dominio 1 Dominio 2 Dominio 3 Acceso ConfianzaConfianza 
+ En este caso, Dominio 3 no sabe si los objetos que le comparte Dominio 2 son locales a este dominio, o se los comparte Dominio 1. En general, siempre que exista un vínculo de seguridad, el dominio accesible no sabrá en donde se originaron los objetos. 
+ Un vínculo de seguridad entre dominios implicará la copia de objetos entre dominios, aunque los mismos permanecerán asociados a sus dominios de origen (en el cual se dieron de alta). 
+ 

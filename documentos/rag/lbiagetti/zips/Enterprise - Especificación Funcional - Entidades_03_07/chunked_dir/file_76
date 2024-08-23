@@ -1,0 +1,50 @@
+Acumulador de pendiente a transformar 
+ El acumulador aplicará a la entidad Log de transformaciones para cada transformación y llevará la cuenta actualizada de lo pendiente de transformar. 
+ La definición de este log será: 
+ • 
+ Nombre: Acumulador de transformación <Nombre de la transformación> versión <versión> de la entidad <Nombre entidad origen>. 
+ • 
+ Descripción: - 
+ • 
+ Contexto de evaluación: entidad. 
+ • 
+ Condición para acumular: Siempre. 
+ • 
+ Atributos: 
+ o 
+ Nombre: Pendiente de transformar 
+ ▪ 
+ Atributo para la agregación: si es “parcial”, es el atributo del log de transformaciones que se corresponde con el atributo principal de la entidad origen. Es el que lleva la cantidad que se transforma. Si es “total”, es el atributo del log de transformaciones “transformado”. 
+ ▪ 
+ función para la agregación: suma. 
+ ▪ 
+ validación: no debe ser menor a 0. 
+ o 
+ Si es “parcial”: Nombre: Pendiente de transformar por atributo informativo 
+ ▪ 
+ atributo para la agregación: atributo del log de transformaciones que se corresponde con el atributo informativo de la entidad origen. 
+ ▪ 
+ función para la agregación: suma. 
+ ▪ 
+ validación: N/A. 
+ Un atributo por cada atributo informativo. 
+ • 
+ Dimensiones: 
+ o 
+ Referencia a la instancia de la entidad origen. 
+ Si es “parcial” y el atributo principal se definió dentro de una colección, otra dimensión será: 
+ o 
+ Referencia a ítem origen (en el nivel en donde se encuentre). 
+ • 
+ Seguridad de instancias: 
+ o 
+ No tiene seguridad específica. 
+ Ejemplo: Si la transformación es parcial y el log de transformaciones es el siguiente: 
+ El acumulador será: 
+ Quedando pendientes de transformar 0 sillas y 1 mesa. 
+ Si la transformación es total y el log de transformaciones es el siguiente: 
+ El acumulador será: 
+ En este caso, si miramos el acumulador, ambas instancias quedan en 0 (no están pendientes). 
+ Es importante aclarar que en lo que respecta al permiso de consultar instancias, tanto en el log auxiliar de transformaciones como en el acumulador de lo pendiente a transformar no se definirá seguridad específica, sino que se aplicará la misma seguridad que la definida en la entidad origen de la transformación. 
+ Para transformar se evalúan los permisos de consulta de instancias en la entidad origen, y de alta de instancias por transformaciones en la entidad destino, además del permiso de ejecución de la actividad. 
+ 

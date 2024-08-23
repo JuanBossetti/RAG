@@ -1,0 +1,102 @@
+4.1.8 Categoría de tipo de atributo Secuencia 
+ 4.1.8.1 Editor de tipos Secuencia 
+ 4.1.8.1.1 Solapa “General” 
+ Imagen 1 
+ En la solapa “General” se incluyen campos, los cuales tienen las mismas funcionalidades que las que se describió para categoría simple. 
+ • 
+ Nombre 
+ • 
+ Descripción 
+ • 
+ Categoría 
+ • 
+ Tipo padre 
+ • 
+ Formato 
+ • 
+ Condición de visibilidad y edición 
+ • 
+ Validaciones 
+ Además, podrán definirse las propiedades de las particiones que conformen al Tipo Secuencia: 
+ • 
+ Tipo de secuencia: permitirá especificar si la partición es numérica o alfanumérica. Dato requerido. 
+ • 
+ Si la partición es numérica (<>)(Imagen 1), podrán definirse las siguiente propiedades: 
+ o 
+ Tamaño: permitirá especificar el tamaño de la partición, en dígitos. Dato requerido. 
+ o 
+ Valor mínimo: permitirá especificar el mínimo valor que podrán tomar los atributos basados en el Tipo Secuencia, para la partición que se está definiendo. Dato opcional. 
+ o 
+ Valor máximo: permitirá especificar el máximo valor que podrán tomar los atributos basados en el Tipo Secuencia, para la partición que se está definiendo. Dato opcional. Deberá ser mayor al valor mínimo (aunque la secuencia sea descendente). 
+ o 
+ Orden: permitirá especificar el orden (ascendente o descendente) en el que se generarán los valores de la secuencia, para la partición que se está definiendo. De forma predeterminada será ascendente. 
+ o 
+ Permitir modificación manual de valores: permitirá especificar si el usuario podrá modificar los valores de aquellos atributos basados en el Tipo Secuencia, para la partición que se está definiendo. 
+ • 
+ Si la partición es alfanumérica(<>) (Imagen 2), podrán definirse las siguiente propiedades: 
+ o 
+ Juego de caracteres: permitirá especificar el conjunto de caracteres que se utilizará para generar los valores de la partición. De manera predeterminada, el juego de caracteres será UTF-8. 
+ o 
+ Tamaño: permitirá especificar el tamaño de la partición, en caracteres. Dato requerido 
+ o 
+ Valor mínimo: permitirá especificar el mínimo valor que podrán tomar los atributos basados en el Tipo Secuencia, para la partición que se está definiendo. Dato opcional. 
+ o 
+ Valor máximo: permitirá especificar el máximo valor que podrán tomar los atributos basados en el Tipo Secuencia, para la partición que se está definiendo. Dato opcional. 
+ o 
+ Caracteres no permitidos: permitirá especificar aquellos caracteres que no se deseen utilizar para la generación de valores de la partición que se está definiendo. Por ejemplo, si se desea una secuencia puramente alfabética, podrá especificarse que se excluyan los caracteres “0123456789”. 
+ o 
+ Orden: permitirá especificar el orden (ascendente o descendente) en el que se generarán los valores de la secuencia, para la partición que se está definiendo. De forma predeterminada será ascendente. El orden de caracteres de UTF-8 de menor a mayor es ‘0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ’. 
+ o 
+ Permitir modificación manual de valores: permitirá especificar si el usuario podrá modificar los valores de aquellos atributos basados en el Tipo Secuencia, para la partición que se está definiendo. 
+ Nota de arquitectura 
+ La cantidad máxima de dígitos/caracteres que se puede configurar en el total de la secuencia (sumando todas las particiones) es 50. 
+ Tal como las demás categorías de tipos de atributos, las expresiones de los tipos de atributo de categoría Secuencia pueden contener literales y expresiones que contengan atributos tanto de sesión y como del contexto, es decir, atributos de la entidad que va a utilizar la secuencia. Por lo tanto, estas expresiones recién se pueden validar cuando se asigna un tipo de atributo secuencia a una entidad y se debe presentar un error si es inválida para dicha entidad. 
+ Cuando el usuario está creando/modificando una partición alfanumérica, la aplicación deberá validar que las expresiones de los valores mínimos y máximos devuelvan solo caracteres permitidos. 
+ En el caso de no especificar valores mínimos y máximos, la aplicación los calculará en función de: 
+ • 
+ el tipo de partición (numérica, o alfanumérica). 
+ • 
+ los caracteres no permitidos, si posee. 
+ • 
+ la cantidad de caracteres/dígitos de la partición. 
+ Por ejemplo, en el caso de una partición alfanumérica de 3 caracteres sin números permitidos, el mínimo sería ‘AAA’ y el máx ‘ZZZ’. Es importante aclarar que esto no depende del orden (ascendente/descendente). 
+ Tal como puede apreciarse en las imágenes, deberá existir al menos una partición para cada tipo Secuencia. 
+ Imagen 2 
+ Si la secuencia posee más de una partición, el tamaño de cada partición será fija de acuerdo a la cantidad de dígitos/caracteres que posea, utilizando para completar los espacios vacíos ceros/espacios en blanco respectivamente. Por ejemplo, en una partición numérica, en lugar de ‘9‘ se almacena ‘009‘; en cambio, en una partición alfanumérica se almacenaría ‘  9‘. 
+ Si hay una sola partición, el tamaño varía, esto es, se almacena solamente ‘9‘ aunque la cantidad de dígitos configurados en la partición sea 3. 
+ 4.1.8.1.2 Solapa “Criterios de secuencia” 
+ Esta solapa permitirá configurar los Criterios del Tipo Secuencia de acuerdo a la funcionalidad descripta en (<>)3.1.8.1. , pudiendo definirse las siguientes propiedades: 
+ • 
+ Criterio: permitirá especificar el nombre del criterio que se está definiendo. Dato obligatorio. 
+ • 
+ Condición de criterio: permitirá especificar la condición de cumplimiento del criterio. Su valor inicial será “Siempre”. Dato obligatorio. Si al ejecutar la secuencia, no se cumple ninguna condición, dará un error. Si al ejecutar la secuencia, se cumple más de una condición, se tomará como válida sólo la primera condición que se cumpla. 
+ • 
+ Origen de generación: permitirá especificar el origen de generación de la secuencia. Los valores posibles serán “Interno” y “Externo”. Dato obligatorio. 
+ Imagen 3 
+ • 
+ Si el origen es Interno se presentarán las siguientes propiedades: 
+ o 
+ Tipo de generación de valores: permitirá especificar la manera en la que se generarán los valores de la secuencia. Los valores posibles serán “Automática con valores correlativos” y “Automática con valores discontinuos”. Dato obligatorio. 
+ o 
+ Habilitar definición de expresión de incremento: si esta opción está activa indica que podrá definirse una expresión de incremento en el Editor de Secuenciadores. Si esta opción esta inactiva, el incremento del secuenciador será 1. Inicialmente, se encontrará inhabilitada. 
+ o 
+ Habilitar definición de disponibilidad offline: si esta opción está activa indica que podrá definirse que la secuencia tenga disponibilidad offline en el Editor de Secuenciadores. Si esta opción esta inactiva, la disponibilidad del secuenciador será online. Inicialmente, se encontrará inhabilitada. 
+ o 
+ Habilitar utilización de distintos criterios de generación: si esta opción está activa indica que podrán definirse distintos criterios de generación (simple, agrupado por expresiones, etc.) en el Editor de Secuenciadores. Si esta opción esta inactiva, el criterio de generación del secuenciador será simple. Inicialmente, se encontrará inhabilitada. 
+ Imagen 4 
+ • 
+ Si el origen es Externo, se presentarán las siguientes propiedades: 
+ o 
+ Origen de dispositivo: permitirá especificar la manera de seleccionar el dispositivo que proveerá los valores de la secuencia. Los valores posibles serán “Dispositivo predeterminado” y “Expresión”. 
+ ▪ 
+ Si el Origen de dispositivo es “Dispositivo predeterminado”, se presentará la propiedad del mismo nombre (“Dispositivo predeterminado”), la cual podrá tomar los valores “Para el puesto de trabajo”, “Para el usuario”, “Para el sitio”, y “Para el dominio”. 
+ ▪ 
+ Si el Origen de dispositivo es “Expresión”, se presentará la propiedad “Expresión”, la cual permitirá ingresar una expresión de selección de dispositivo. 
+ o 
+ Habilitar redefinición de valores para los parámetros: si esta opción está activa indica que podrán redefinirse las expresiones en cada parámetro para comunicarse con el dispositivo en el Editor de Secuenciadores. Si esta opción está inactiva, se utilizarán los valores definidos en los parámetros dentro de cada Modelo de Dispositivo. Inicialmente, se encontrará inhabilitada. 
+ Imagen 5 
+ 4.1.8.1.3 Uso de secuencias en expresiones 
+ Dentro de una expresión se podrá invocar tanto a la secuencia como a un todo, como así también a cada partición. 
+ expresiones y funciones
+ Para más detalle ver documento . 
+ 

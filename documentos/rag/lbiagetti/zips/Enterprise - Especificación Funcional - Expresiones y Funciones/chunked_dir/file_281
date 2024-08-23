@@ -1,0 +1,3 @@
+Hipervínculo(Atributo referencia a instancia o atributo ítem de colección) 
+ Genera un link con el nombre de la entidad + los descriptivos de la instancia separados por “,” en todos los idiomas existentes; por lo tanto se debe utilizar un atributo del tipo Texto internacionalizable para poder utilizar la función. Es muy importante revisar los descriptivos de la entidad o colección a la que se hace referencia, para que se muestre el hipervínculo con el valor adecuado. En caso de no estar definido el descriptivo correctamente, se muestra con un ID. 
+ 

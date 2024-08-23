@@ -1,0 +1,75 @@
+4.2.5 Estado de secuenciador 
+ En la entidad Estado del secuenciador, se visualiza el valor actual de cada secuencia generada, es decir, cuando se crea una instancia con un número de secuencia se genera automáticamente una instancia en la entidad Estado de secuenciador con el valor actual de la secuencia. 
+ Esta entidad está compuesta por los campos: 
+ • 
+ Secuenciador: Contiene la referencia al secuenciador a través del cual se generó la secuencia. 
+ • 
+ Criterio de secuenciador: criterio definido en el secuenciador que genera la secuencia. 
+ • 
+ Condición de secuenciador: condición configurada en el secuenciador que debe cumplir la secuencia. 
+ • 
+ Grupo por condición: resultado de cada agrupación generada al definir una agrupación por condición en el secuenciador. 
+ • 
+ Grupo por expresión: resultado de cada agrupación generada al definir una agrupación por expresión en el secuenciador. 
+ • 
+ Valor actual: valor actual de la secuencia, es decir que al generar la próxima instancia que utilice la secuencia se generará con el valor siguiente. 
+ Además, se agregará la posibilidad de definir adicionalmente un rango de valores para el secuenciador, es decir, se podrá configurar adicionalmente dos campos: 
+ • 
+ Límite inferior: permitirá especificar el valor mínimo a partir del cual se generarán los valores de la secuencia. 
+ • 
+ Límite superior: permitirá especificar el valor máximo hasta el cuál se generarán los valores de la secuencia. 
+ Este rango de valores aplicará únicamente a la secuencia definida, por ejemplo, en un secuenciador “Agrupado por expresiones” donde por cada resultado de la expresión, se genera una instancia en Estado de secuenciador, en cada una de esas instancias se podrá definir un rango de valores en caso de ser necesario. 
+ Cabe destacar que de manera predeterminada estos campos estarán vacíos. Es importante aclarar, que si se ingresa un valor en alguno de los campos obligatoriamente se deberá completar ambos valores, es decir, si se completa un Valor mínimo se debe definir un Valor máximo. 
+ Ejemplo: 
+ Siguiendo con el caso del secuenciador agrupado por expresiones, supongamos que al ingresar valores se generan 3 instancias en estado de secuenciador con los siguientes valores: 
+ • 
+ Número de comprobante. 
+ o 
+ Sucursal Centro. 
+ ▪ 
+ Valor actual: 001 
+ • 
+ Número de comprobante. 
+ o 
+ Sucursal Norte. 
+ ▪ 
+ Valor actual: 001 
+ • 
+ Número de comprobante. 
+ o 
+ Sucursal Sur. 
+ ▪ 
+ Valor actual: 001 
+ Se podrá configurar: 
+ • 
+ Número de comprobante. 
+ o 
+ Sucursal Centro. 
+ ▪ 
+ Valor actual: 001. 
+ ▪ 
+ Límite inferior: 001. 
+ ▪ 
+ Límite superior: 100 
+ • 
+ Número de comprobante. 
+ o 
+ Sucursal Norte. 
+ ▪ 
+ Valor actual: 050. 
+ ▪ 
+ Límite inferior: 001. 
+ ▪ 
+ Valor máximo: 150. 
+ • 
+ Número de comprobante. 
+ o 
+ Sucursal Sur. 
+ ▪ 
+ Valor actual: 001. 
+ ▪ 
+ Valor mínimo: 001. 
+ ▪ 
+ Valor máximo: 200. 
+ Si se alcanza el valor máximo de la secuencia o el valor actual no se encuentra dentro del rango definido se mostrará un mensaje de error informando la situación: 
+ 

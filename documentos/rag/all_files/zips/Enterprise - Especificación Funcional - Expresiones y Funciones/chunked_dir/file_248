@@ -1,0 +1,5 @@
+Ejemplos: 
+ Número a palabra (101) devuelve “ciento uno”, “one hundred and one”, “centouno”, etc. 
+ Número a palabra (12547,24) devuelve “Doce mil quinientos cuarenta y siete con veinticuatro centavos”, “Twelve thousand five hundred forty seven with twenty four cents” 
+ Número a palabra (-58651,22) devuelve “Menos cincuenta y ocho mil seiscientos cincuenta y uno con veintidos centavos”, “Negative fifty eight thousand six hundred fifty one with twenty two cents” 
+ 

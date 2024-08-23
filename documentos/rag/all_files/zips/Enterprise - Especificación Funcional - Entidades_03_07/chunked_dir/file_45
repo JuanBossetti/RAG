@@ -1,0 +1,53 @@
+1.9 Definición de Desencadenantes 
+ Un desencadenante define la creación automática de nuevas instancias de entidades relacionadas o vinculadas ante la creación de cada nueva instancia de entidad sobre la cual se define el desencadenante. Los desencadenantes se persisten automáticamente en la misma transacción de base de datos por la cual se crea cada nueva instancia de la entidad que los origina. Una entidad puede contener “n” desencadenantes.   Por ejemplo, al crear una Factura, se crean automáticamente los asientos contables correspondientes. 
+ El usuario podrá crear un nuevo desencadenante desde un menú contextual o bien seleccionando una fila vacía dentro de la grilla. 
+ La solapa “Desencadenantes” presentará la siguiente interfaz: 
+ • 
+ La parte superior de la pantalla contendrá los siguientes campos: 
+ o 
+ Nombre: es el nombre del Desencadenante. El mismo deberá ser pasible de internacionalización y además, deberá ser único, en el idioma de modelado, para todo el sistema. Este atributo será de carácter obligatorio. 
+ o 
+ Descripción: texto breve donde se detalla el desencadenante. El mismo deberá ser pasible de internacionalización. 
+ o 
+ Tipo de Contexto: Permitirá indicar el contexto inicial desde el cual se dispara la creación desde la entidad origen hacia la entidad destino. Las opciones serán: 
+ ▪ 
+ caso de desencadenante que se origine
+ Entidad. Se crearán las instancias en la entidad destino, teniendo como contexto inicial, los atributos de primer nivel de la entidad origen. En este caso, se dispara el desencadenante una única vez, donde, en función del , puede crear una o N instancias. 
+ ▪ 
+ Colección. Se crearán las instancias en la entidad destino, teniendo como contexto inicial, los atributos de la colección seleccionada como origen de la entidad desde la que se ejecuta el desencadenante. 
+ caso de desencadenante que se origine
+ En caso de que el origen sea colección, se deberá disparar el algoritmo de desencadenante por cada uno de los ítems de la colección. Es decir, que si de la colección origen, se generaron 3 ítems, éste algoritmo deberá evaluarse 3 veces, donde, en función del , puede crear una o N instancias. 
+ o 
+ Entidad de Destino: Entidad en la cual se efectuará el desencadenante. La misma está relacionada con la entidad en edición mediante un atributo de categoría Referencia que creará el AI (más allá si ya hay otra referencia en la entidad destino hacia la entidad origen). Podrá existir más de un desencadenante entre la Entidad de Origen y la Entidad de Destino. 
+ o 
+ Condición de creación: expresión que deberá ser evaluada como verdadera para que se genere el desencadenante. Además, el contexto de evaluación variará en función 
+ del contexto de desencadenante seleccionado. En caso de ser entidad, serán los atributos de primer nivel de la entidad, de lo contrario, se deberá posicionar sobre la colección indicada como contexto inicial. Si no se define una condición se evalúa como verdadero. 
+ o 
+ Documentación: permite definir la documentación asociada al Desencadenante. 
+ • 
+ La parte inferior de la pantalla estará compuesta de la siguiente manera: 
+ o 
+ Grilla “Definiciones de Valores”: Dicha grilla presentará tres columnas. 
+ ▪ 
+ Atributo: lista todos los atributos de la Entidad de Destino seleccionada. 
+ ▪ 
+ Valor: permite ingresar un atributo de la entidad de origen o expresión que defina el valor que debe tomar el atributo de destino correspondiente al momento de realizarse el desencadenante. No se permitirá ingresar expresiones de asignación en atributos compuestos ni calculados. 
+ ▪ 
+ Condición de creación: permite al usuario definir una expresión para la creación de cada uno de los atributos de la entidad destino del desencadenante. 
+ ▪ 
+ Agrupación: valor lógico que indica si se va a agrupar por el atributo seleccionado. 
+ ▪ 
+ Agregación: función de agregación entre las que se encuentran Máximo, Mínimo, Promedio, Varianza. 
+ ▪ 
+ Duplicar colección: permite crear ítems de la misma colección a través de diferentes expresiones. 
+ ▪ 
+ Permite editar: valor lógico que indica si el atributo puede ser modificado en la instancia destino. 
+ En las columnas “Valor” y “Condición de creación”, en las expresiones se podrán ingresar atributos de la Entidad Origen del desencadenante, pero no atributos de la Entidad Destino. En caso que en un atributo no se complete la expresión de asignación, cuando se ejecute el desencadenante, a dicho atributo se le asignará el valor inicial definido en la entidad Destino. Además, si la condición de creación del atributo da falso, cuando se ejecuta el desencadenante se asignará el valor inicial al atributo. 
+ o 
+ Grilla “Valores únicos”: Los valores únicos son atributos de la "Entidad de destino" o de una colección en la entidad de destino. Al ejecutar un desencadenante, utilizando “Valores únicos", se comparará la/las instancias desencadenadas contra la/las generadas en un proceso previo (en caso de existir) a fin de determinar si se trata de instancias nuevas o nuevas versiones de instancias existentes. En caso de no seleccionarse ningún valor el sistema eliminará y creará nuevas instancias desencadenadas quedando todas en su versión V1. 
+ A continuación, se puede observar una imagen de la interfaz descripta anteriormente: 
+ Casos de “Valores únicos” en Desencadenantes 
+ De acuerdo a lo definido en el documento de Persistencia, se deberá tener presente que al revertir o eliminar una instancia de una entidad que haya efectuado desencadenantes también deberán revertirse o eliminarse (según corresponda) las instancias generadas a partir de dichos desencadenantes. Lo mismo ocurrirá cuando se modifique el valor de una instancia, se deberá recalcular los valores del desencadenante. 
+ Además, aclaramos que una entidad que es destino de desencadenante (Ej. Cuenta Corriente) también puede recibir altas de instancias como todas las entidades, por ejemplo, manualmente a través de un formulario. 
+ Por otro lado, aquellos atributos que sean de carácter obligatorio deberán tener un valor en la definición del Desencadenante, o bien, tener un valor inicial en la definición del atributo en la entidad destino. 
+ 

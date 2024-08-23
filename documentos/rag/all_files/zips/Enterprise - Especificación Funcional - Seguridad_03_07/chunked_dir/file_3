@@ -1,0 +1,63 @@
+2.2 Configuración regional por idioma 
+ Dentro de la configuración regional se puede definir: 
+ ✓ 
+ Día inicial de la semana: esta propiedad permite seleccionar el primer día de la semana para el idioma o dialecto que se esté definiendo. Las opciones disponibles son: lunes (opción predeterminada), martes, miércoles, jueves, viernes, sábado y domingo. 
+ ✓ 
+ Semana inicial del año: esta propiedad permite seleccionar la primera semana del año para el idioma o dialecto que se está definiendo. Las opciones que se pueden seleccionar son las siguientes: “Primera semana” (opción predeterminada), “Primer Semana Completa”, “Comienza el 1 de Enero”. 
+ ✓ 
+ Separador decimal: esta propiedad permite especificar para el idioma seleccionado cuál es el separador decimal de un número. El valor definido en este campo no podrá ser igual que los valores definidos en los campos “Separador de lista” y “Separador de miles”. 
+ ✓ 
+ Separador de lista: esta propiedad permite especificar para el idioma seleccionado cuál es el separador de elementos dentro de una lista, por ejemplo, para separar parámetros dentro de una función. El valor definido en este campo no podrá ser igual que los valores definidos en los campos “Separador decimal” y “Separador de miles”. Este separador de lista no se utiliza para separar ítems dentro de una colección, ya que, para esto se utiliza el separador de elementos definidos en la colección. 
+ ✓ 
+ Separador de miles: esta propiedad permite especificar para el idioma seleccionado cuál es el separador de miles a utilizar. El valor definido en este campo no podrá ser igual que los valores definidos en los campos “Separador decimal” y “Separador de lista”. 
+ ✓ 
+ Formato de Fecha: a través de este separador colapsable, el usuario puede definir para cada idioma, los diferentes formatos de fecha que estarán disponibles en la aplicación. Además, se debe indicar uno de los formatos 
+ como valor predeterminado. Este se usará luego para visualizar los datos de tipo fecha. 
+ ✓ 
+ Formato de Hora: a través de este separador colapsable, el usuario puede definir para cada idioma, los diferentes formatos de hora que estarán disponibles en la aplicación. Además, se debe indicar uno de los formatos como valor predeterminado. Este se usará luego para visualizar los datos de tipo hora. 
+ ✓ 
+ Formato Fecha y Hora: a través de este separador colapsable, el usuario podrá definir para cada idioma, los diferentes formatos para los campos que son Fecha y Hora. Además, se debe indicar uno de los formatos como predeterminado. Este se usará luego para visualizar los datos de tipo fecha y hora. 
+ ✓ 
+ De forma predeterminada, existirá una configuración predeterminada por cada uno de los idiomas seleccionados en la solapa general, pudiendo los usuarios redefinirla. 
+ La configuración regional aplica a todo el dominio, incluyendo los modelos contenidos en él. 
+ 11.2 Configuración regional por idioma
+ En la sección Anexos, de este documento, se incluye una sección de Configuración regional por idioma (), donde se incluyen la configuración para los idiomas nuevos de8finidos en Fastprg. 
+ Las opciones de formato disponibles se representarán con distintas notaciones. Estas notaciones dependerán del idioma del usuario logueado (no importa el idioma en el cuál se está definiendo el formato, para todos los formatos usa el idioma en el que está el usuario). 
+ Las notaciones definidas a continuación sólo se usan si el usuario está logueado en el idioma español: 
+ Para la fecha: 
+ Para los formatos corto y medio: 
+ D = número del día sin mostrar 0 a la izquierda. Por ejemplo: 7 o 22 
+ DD = número del día mostrando 0 a la izquierda. Por ejemplo: 07 o 31 
+ M = número del mes sin mostrar 0 a la izquierda. Por ejemplo: 5 o 10 
+ MM = número del mes mostrando 0 a la izquierda. Por ejemplo: 05 o 11 
+ AA = año mostrando solo los dos últimos dígitos. Por ejemplo: 98 o 15 
+ AAAA = año mostrando los cuatro dígitos. Por ejemplo: 1998 o 2015 
+ Solo son posibles los siguientes separadores: “-“, “.” y “/”. Además todos los separadores utilizados en un formato corto y medio deben ser iguales, NO se podrá configurar por ejemplo 31-12/2017. 
+ Para los formatos largo y completo se pueden utilizar todos las anteriores más: 
+ DDD = día de la semana abreviado. Por ejemplo: Lun o Vie 
+ DDDD = día de la semana escrito en forma completa. Por ejemplo: Lunes, Sábado 
+ MMM = mes del año abreviado. Por ejemplo: Jun o Ene 
+ MMMM = mes del año escrito en forma completa. Por ejemplo: Junio o Enero 
+ Los separadores pueden ser distintos y no están acotados. 
+ Todas las notaciones de fecha están en mayúsculas. El separador de fecha no tiene una notación específica, sino que el usuario lo escribe directamente en la caja del formato que está configurando. 
+ Por ejemplo para la fecha 07/12/2015 el usuario escribirá dd/mm/aaaa. 
+ Todos los formatos siempre deben tener el día, mes y año. 
+ Para la hora: 
+ h = horas sin mostrar 0 a la izquierda. Por ejemplo: 5 o 11 
+ hh = horas mostrando 0 a la izquierda. Por ejemplo: 05 o 11 
+ mm = minutos (siempre muestra el 0 a la izquierda). Por ejemplo: 09 o 58 
+ ss = segundos (siempre muestra el 0 a la izquierda). Por ejemplo: 06 o 47 
+ h/H = formato 12 o 24 horas. Si el formato es 12 horas, deberá especificarse alguno de los siguientes: 
+ t = “p” o “a”. Por ejemplo: 04:32 p 
+ tt = a.m. o p.m. Por ejemplo: 04:32 p.m. 
+ Todas las notaciones de hora están en minúsculas. En el caso de los formatos corto y medio solo son posibles los siguientes separadores: [":", "|"] y todos los separadores deberán ser iguales. Todos los formatos donde se configuren horas siempre deben tener la hora y los minutos. 
+ Por ejemplo para la hora 07:15 a.m. el usuario escribirá hh:mm tt 
+ Sólo en la configuración del formato Fecha y Hora, y para los formatos largo y completo se puede configurar la zona horaria: 
+ z = zona horaria corta. Por ejemplo: UTC-03:00 
+ zz = zona horaria larga. Por ejemplo: Argentina (Buenos Aires) 
+ En los formatos largo y completo el separador de hora no tiene una notación específica, sino que el usuario lo escribe directamente en la caja del formato que está configurando. 
+ Además, se presentará una lista de selección simple, para indicar cuál es el formato predeterminado de fecha y de hora (aquí se podrá seleccionar entre Formato Corto, Medio, 
+ Largo o Completo), mediante la interfaz descripta en el documento de “Estándares de Interfaz de Usuario”. 
+ Para el ingreso de cualquiera de estos tipos de datos se utiliza el formato medio, pudiendo el usuario usar cualquiera de los separadores disponibles. 
+ La configuración definida para el idioma, aplicará a todos los dialectos del mismo. En caso de que se necesite definir una configuración particular para uno o más dialectos, el usuario deberá seleccionar el icono, situado al lado del texto “Excepciones de configuración regional por dialecto”. Al seleccionar el icono se presentará una lista desplegable de selección múltiple y las propiedades de configuración regional, de modo de que el usuario pueda definir la misma para ciertos dialectos del idioma. El usuario podrá seleccionar uno o más dialectos y definir la configuración regional para los mismos. Además, existirá la posibilidad de eliminar alguna configuración particular que se haya hecho para algún conjunto de dialectos. La interfaz para definir excepciones de dialectos será la siguiente: 
+ 

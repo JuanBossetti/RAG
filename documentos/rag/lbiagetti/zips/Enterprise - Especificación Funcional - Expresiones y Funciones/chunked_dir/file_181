@@ -1,0 +1,3 @@
+Último(Entidad/Colección, Atributo, [Condición], [Ordenar], [Desde almacén]) 
+ Devuelve el último elemento de una colección. 
+ 

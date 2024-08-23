@@ -1,0 +1,94 @@
+4.2 Registro de sistema 
+ El Log del sistema contiene los errores producidos por cualquiera de los componentes provistos con el sistema. Incluye eventos en los cuales un usuario desea confirmar una instancia que no es válida o le falta una aprobación y eventos en los cuales un usuario descarta una instancia, también si no se ejecutó una condición o acción de RN porque el usuario no tenía permisos. Los eventos de este tipo de log pueden almacenarse solo en el Log de un dominio particular, y en algunos casos además en forma centralizada para todos los dominios. Para este último, se incluirán eventos relevantes que deban ser centralizados para corregir u optimizar infraestructura o código. En principio todos los eventos de sistema se registran tanto en el dominio particular como en el dominio centralizado. 
+ Siempre se guarda en una transacción aparte, es decir, se persiste, aunque se descarte la instancia que está siendo editada por el usuario. 
+ Entre los eventos que se registran en este log se encuentran los siguientes: 
+ • 
+ Atributos obligatorios incompletos 
+ • 
+ Error inesperado 
+ • 
+ Intentar confirmar una instancia que no es válida (no cumple validaciones modeladas en la entidad o en algún atributo). 
+ • 
+ Descartar alta o modificación de una instancia. 
+ • 
+ Intentar realizar una operación no permitida para la entidad. 
+ • 
+ Intentar confirmar instancia que le falta una aprobación requerida. 
+ • 
+ Intentar transformar algo pendiente de autorizar. 
+ • 
+ Intentar ejecutar una Regla de negocio que no tiene permisos. 
+ • 
+ Intentar realizar una división por cero. 
+ • 
+ Rechazar una aprobación. 
+ • 
+ Rechazar una advertencia. 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Mensaje: Conjunto de datos del detalle del evento generado. 
+ • 
+ Código de evento del registro: Indica qué evento ocurrió. Algunos ejemplos son: 
+ o 
+ Operación descartada 
+ o 
+ Error de validación de atributos modelados 
+ o 
+ Error de validación de la entidad modelada 
+ o 
+ Error de validación de atributos obligatorios 
+ o 
+ Error de la traducción 
+ o 
+ Falla servicio de traducción 
+ • 
+ Categoría de registro: Define el tipo de evento ocurrido. Algunos ejemplos son: 
+ o 
+ Error inesperado 
+ o 
+ Validación modelada en atributo 
+ o 
+ Validación modelada en entidad 
+ o 
+ Expresión escalar de modelo de base 
+ o 
+ Operación no permitida 
+ o 
+ Atributos obligatorios 
+ o 
+ Operación no permitida 
+ o 
+ Validación de la regla de negocio 
+ o 
+ Ítem generado por regla de negocio 
+ o 
+ Falló la autenticación al servicio de traducciones 
+ o 
+ Servicio de traducción no disponible 
+ • 
+ Comando de registro: Indica el comando que ingresó el usuario. Algunos valores son: 
+ o 
+ Confirmación 
+ o 
+ Descarte 
+ o 
+ Eliminar instancia 
+ • 
+ Detalle de mensaje: Detalle de mensaje que generó el registro. 
+ • 
+ Atributo: Atributo asociado al evento 
+ • 
+ Número de Build: Número de build dentro de la rama que estaba activa al momento de ocurrir el error. 
+ • 
+ Línea de código: Número de línea de código del proyecto que está relacionada con la falla que se registró. 
+ • 
+ Clase: La clase que está asociada a la falla que se registro. 
+ Ejemplos: 
+ • 
+ El usuario intenta confirmar el alta de un cliente, sin haber asignado un valor al atributo “DNI” el cual es obligatorio en la entidad. 
+ • 
+ Se genera una factura por una compra mayor a 5.000$ y no se ejecuta la regla de negocio que modifica el valor del porcentaje de descuento a 10% debido a que la regla de negocio se ejecuta con los permisos del usuario autenticado y el usuario no tiene permisos de modificar el atributo porcentaje de descuento. 
+ • 
+ El usuario intenta modificar el nombre de un cliente a través de una vista de información y la entidad no tiene esta operación permitida. 
+ 

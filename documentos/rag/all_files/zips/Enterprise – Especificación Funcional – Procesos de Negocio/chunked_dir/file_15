@@ -1,0 +1,20 @@
+3.3.8 Imputación con comprobantes múltiples 
+ Una Actividad de categoría imputación con comprobantes múltiples se utilizará para realizar las imputaciones definidas en el Diccionario de Datos, y luego crear comprobantes, los cuales se van a imputar con las instancias seleccionadas. Dicha Actividad podrá tener asociada una entidad para la imputación y múltiples entidades para los comprobantes, si las mismas se encuentran definidas en el DD para la imputación seleccionada. La entidad asociada a la Actividad que se visualizará en el diagrama será la correspondiente a la imputación. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: se deberá definir la entidad sobre la que accionará la actividad. Dato obligatorio. 
+ ✓ 
+ Imputación: igual que ló descriptó para “Imputación”. 
+ ✓ 
+ Definición de la imputación en el DD: igual que lo descripto para “Imputación”. 
+ ✓ 
+ Filtro de instancias igual que ló descriptó para “Imputación”. 
+ ✓ 
+ Duración prevista: igual que ló descriptó para “Única instancia”. En este caso, heredará del tiempo esperado que haya sido definido en el DD para la entidad. 
+ ✓ 
+ Comprobantes asociados: entidades que desencadenan en la entidad de la imputación. Pueden crearse instancias de estas entidades para utilizarse como comprobantes de la imputación asociada a la Actividad. De manera predeterminada, estarán todas seleccionadas. Siempre deberá quedar seleccionada al menos una. Todas las entidades que sean orígenes de desencadenantes hacia la entidad asociada de la actividad se visualizarán en una grilla. 
+ Es importante destacar que esta actividad no está relacionada con los comprobantes automáticos que se generan a partir de la definición de la sólapa “Reglas de cancelación” dentró de las imputaciónes en el DD. 
+ X General I Reglas de Negocio I Historial de Versiones I Seguridad I Documentaci6n I Propiedades de la Actividad General I Entidad1 I Formularios I Reglas de Negocio " it:!, (B Saldar cuenta ) IOI� Nombre (�) I Saldar cuenta Cuenta corriente I 101 Descripci6n Categorfa (�) I 1mputaci6n con comprobantes mUttipl� VI Actividad Padre I 1 ... 1 @%11·111¥lilll,1·5bl4·1·1■f L En est a secci6n, se podran configurar las propiedades de la actividad que dependen de la categoria seleccionada. Entidad (") I Cuenta corriente H lmputaci6n (�) I Saldar cuenta cliente H Descripci6n Jg] Aplica s61o nuevas instancias 12] Fittro de instancias a imputar Sin filtro � Crlterios de imputaci6n I Distinto de Entidad1. Fecfla Fittro de instancias I Todas las intancias I�I Tiempo esperado de realizaci6n I I�I V "' Vista panoramica 
+ t8l X General I Reglas de Negocio I Historial de Versiones I Seguridad I Documentaci6n 'v Propiedades de la Actividad General I Entidad1 I Formularios I Reglas de Negocio M it:!, (() Saldar cuenta ] 12] � Cuenta corriente Aplica s61o nuevas instancias Fittro de instancias a imputar Sinfiftro � Criterios de imputaci6n Distinto de Entidad1. Fecha Fittro de instancias I Todas las intancias I�I Tiempo esperado de realizaci6n I I�I Seleccione las Entidades sobre las cuales desea crear comprobantes para completar la imputaci6n. 11 Entidades origen de □ Entidades para l desencadenantes comprobantes Factura EJ Recibo Nota de debito EJ Nota de credito +tMMMi!@ lnteractiva mediante formularios 121 Autornatica mediante tarea programada □ Autornatica mediante provisi6n de web service D I� Vista panoram1ca 
+ Desde una imputaci6n, nose podran invocar actividades asociadas a transformaciones. Por lo tanto, mas alla de que "Entidadl" tenga definidas transformaciones en el DD, las mismas nose podran reflejar en el diagrama. 
+ 

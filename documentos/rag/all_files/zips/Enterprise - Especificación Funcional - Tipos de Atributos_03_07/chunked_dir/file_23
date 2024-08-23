@@ -1,0 +1,28 @@
+4.1.5 Categoría de tipo de atributo Referencia a Elemento de una Colección 
+ Al seleccionar la categoría de tipo de atributo como Referencia a Elemento de Colección, los campos son diferentes a las que se habilitaban al elegir categoría simple(<>) (Pantalla 4). 
+ En la solapa “General” se incluyen campos, los cuales tienen las mismas funcionalidades que las que se describió para categoría simple. 
+ • 
+ Nombre 
+ • 
+ Descripción 
+ • 
+ Categoría 
+ • 
+ Tipo padre 
+ • 
+ Formato 
+ • 
+ Filtro de modelo: es una expresión para filtrar ítems a mostrar. Es una propiedad editable. Este filtro se heredará desde el tipo padre, y luego en los atributos asociados al tipo y en los combos para seleccionar la referencia al ítem. 
+ • 
+ Valor inicial 
+ • 
+ Validaciones 
+ • 
+ Evalúa seguridad de entidad referenciada: al igual que lo definido para la Categoría Referencia a instancia, en caso de estar activa, indica que se evalúa el permiso de consulta en este caso sobre los ítems de la colección a la que hace referencia, además de los permisos definidos sobre la entidad donde se utilice este tipo de atributo. 
+ A continuación, se muestra una imagen de la solapa que se acaba de describir: 
+ Pantalla 7 
+ La Colección Referenciada se hereda del tipo de atributo padre y no se puede modificar. Sólo se muestra para darle mayor información al usuario modelador. 
+ Podemos ver, además, que se presentan las solapas Historial de versiones, Seguridad y Documentación. Las tres últimas, conservan las mismas funcionalidades que para la categoría simple. 
+ Los tipos Referencia a Elementos de Colección que se definen implícitamente podrán ser visualizados mediante el Editor de Tipos pero no se podrá cambiar su definición, por lo tanto se visualizará en sólo lectura. 
+ De forma similar a como sucedía en los Tipos de Atributos Referencia, la referencia a un Elemento de una colección es una identificación interna que apunta a un elemento de una instancia dentro de la entidad, su visualización dentro de un atributo de dicho tipo no será representativa del valor de la instancia referenciada, es por ello que cuando se utiliza un atributo de Tipo Referencia a Elemento de una Colección el usuario en realidad visualizará el primer Atributo con la propiedad “Tipo de Atributo Descriptivo” activada dentro de la colección. Por ejemplo, si en la entidad Facturas se crea un Atributo de Tipo “Referencia a Elemento de Colección de Direcciones de Clientes”, y en la entidad Clientes el primer Atributo Descriptivo de la colección “Direcciones” es “Calle”, el usuario de la aplicación modelada visualizará la “Calle” dentro del atributo de Tipo “Referencia a Elemento de Colección de Direcciones de Clientes” en la entidad Facturas 
+ 

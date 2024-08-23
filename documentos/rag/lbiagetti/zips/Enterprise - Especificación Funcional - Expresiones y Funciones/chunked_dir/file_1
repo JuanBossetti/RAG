@@ -1,0 +1,13 @@
+Definiciones y Acrónimos 
+ |    | Término                      | Definición                                                                                                                               |
+|---:|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | Expresión                    | Serie de Operandos combinados con Operadores, con el objetivo de producir un determinado Tipo de Dato al evaluarse en un Contexto        |
+|  1 | Función                      | Grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra Función o desde una expresión            |
+|  2 | Contexto                     | Delimita qué elementos están disponibles para la evaluación de la expresión                                                              |
+|  3 | Tipo de dato                 | Tipo de atributo del resultado de la evaluación de la expresión                                                                          |
+|  4 | Operandos                    | Elementos que contienen el valor para la evaluación de la expresión                                                                      |
+|  5 | Operador                     | Elementos que realizan una operación                                                                                                     |
+|  6 | Parámetros                   | Conjunto de elementos que se reciben al momento de invocar a las funciones                                                               |
+|  7 | Función interactiva          | Función con al menos un parámetro interactivo                                                                                            |
+|  8 | Parámetro interactivo        | Parámetro que implica una interacción del usuario que puede asignar o modificar su valor                                                 |
+ 

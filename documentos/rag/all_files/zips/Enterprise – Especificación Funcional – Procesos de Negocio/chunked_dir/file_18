@@ -1,0 +1,22 @@
+3.4.1 Solapa “General” 
+ Dentró de la sólapa “General” se visualizarán las siguientes própiedades de la entidad definidas en el DD, pero en sólo lectura: 
+ ✓ 
+ Descripción. 
+ ✓ 
+ Tipo de entidad. 
+ ✓ 
+ Tiempo esperado de realización. 
+ Se deberán mostrar además las siguientes propiedades, que el sistema permitirá al usuario modificar el valor pero inicialmente vendrán heredados de la entidad. 
+ ✓ 
+ Tipo navegación. 
+ ✓ 
+ Tamaño mínimo de un fragmento 
+ ✓ 
+ Tamaño máximo de un fragmento 
+ ✓ 
+ Ancho deseado de fragmento 
+ ✓ 
+ Cantidad de fragmentos. 
+ Entidades 
+ Luego, se visualizarán en sólo lectura las validaciones de la Entidad definidas en el DD. Se podrán agregar validaciones, y estas se complementarán con aquellas definidas en el Diccionario de Datos mediante una operación de intersección, es decir que todas las validaciones deberán cumplirse de manera simultánea. Además, en el caso de las Actividades que tengan asociada una transformación (categoría transformación, transformación con imputaciones, etc.), se podrá redefinir opcionalmente el criterio de generación de instancias. Este criterio heredará de la configuración de cada Entidad Destino en el Diccionario de Datos y aplicará de forma predeterminada a formularios, tareas programadas y web services que se configuren en la Actividad. El detalle de los criterios de generación de instancias descripto en el documento se visualizará en el tooltip sobre cada uno de los mismos. 
+ 

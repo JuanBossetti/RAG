@@ -1,0 +1,51 @@
+Colección 
+ La siguiente imagen presenta el caso en que el atributo seleccionado pertenezca a un tipo de atributo de categoría colección, en caso de que el valor inicial del mismo se realice mediante una expresión: 
+ En cambio, si el valor inicial se define mediante valores explícitos, la interfaz presentará un leve cambio, ya que el componente para definir el valor inicial será una grilla en la cual se presente el tipo contenido en la colección: 
+ Para definir el valor inicial se presentará una condición y una grilla de 3 columnas. Si se cumple la condición se asignarán los valores iniciales definidos en la grilla. La primera columna contendrá en sólo lectura los atributos de la colección, en la segunda columna, permitirá ingresar una expresión que define el valor que tomará inicialmente el atributo, al momento de dar de alta una instancia y en la última columna una condición que debe cumplirse para asignar el valor de la 2da columna al atributo de la 1ra. 
+ Dicha grilla será similar a la grilla de definición de desencadenantes. En cada valor inicial, se podrá: 
+ • 
+ Para los atributos basado en Simple o Referencia: se podrá activar o desactivar la agrupación, haciendo clic en el icono de agrupación: . Si se activa la agrupación, los valores asignados a todos los atributos de la colección estarán agrupados. 
+ • 
+ Para los atributos basados en Simple y que permiten operaciones de agregación de acuerdo a lo definido en Capa Base: se podrá seleccionar una función de agregación, cambiando la función desde el combo en el icono . 
+ • 
+ Para los atributos de categoría colección se presentará sobre el elemento contenido por dicha colección, un botón que permite duplicar el elemento de dicha colección. Esto generará dos o más elementos de dicha colección. 
+ Se aplicarán las mismas consideraciones que las definidas en desencadenantes los iconos de agrupación, función de agregación y duplicar. 
+ Tanto en el caso de definir valor inicial para una colección mediante una expresión, como mediante valores explícitos, los valores iniciales para una colección se evaluarán sólo una vez al dar de alta una instancia, no se evalúan ante cada unidad de cambio. Este comportamiento es diferente al definido para los valores iniciales del resto de los atributos. 
+ A continuación, un ejemplo que inicializa una colección de cuotas en una factura en 3 cuotas: 
+ El atributo podrá modificar tanto el valor inicial, como la forma de definirlo que hereda del tipo de atributo. 
+ En caso de que el tipo de atributo contenga valores iniciales, se heredarán dichos valores y el usuario podrá cambiarlos, eliminarlos o agregar nuevos valores. 
+ ✓ 
+ En caso de modificar alguno de los valores (o modificar la expresión que define los valores iniciales) se rompe la herencia con el tipo de atributo que se definió. Además, en caso de que se cambie la forma de definir el valor inicial, es decir si en el tipo de atributo se definieron los valores iniciales mediante una expresión y en el atributo se define mediante valores explícitos (o viceversa), también se romperá la herencia con respecto a lo definido en el tipo de atributo. En caso de que el valor inicial del tipo de atributo se haya definido mediante una expresión, el usuario podrá escribir una nueva fórmula o bien, sobrescribir la definida. En 
+ este último caso, se rompería la herencia, es decir, que si se redefine la expresión de valor inicial del tipo de atributo, no se alterará la expresión definida en la entidad. 
+ ✓ 
+ En caso de que el valor inicial de la colección se haya definido mediante el ingreso explícito de las instancias, el usuario podrá definir nuevas instancias o modificar/eliminar algunas de las recibidas por el tipo de atributo. En el caso de modificar el valor de una instancia heredada, se romperá la herencia sobre dicha instancia, pero no sobre el resto de las instancias creadas en la colección. 
+ Desde la entidad, se pueden definir las condiciones a cumplir para poder agregar, modificar o eliminar ítems de las grillas desde un formulario, sólo cuando estas provengan de una colección modelada en una entidad. Estas condiciones, se configuran para cada colección y acción por separado dentro del compuesto “Valores iniciales” y en caso de que no se cumplan bloquearán la acción realizada. 
+ La condición tiene efecto sólo cuando se intente agregar, modificar o eliminar ítems de la colección de manera directa o a través de un servició del sistema como un Servicio Web. Si los ítems se agregan por ejecución de una regla de negocio, estos se modifican a pesar de no cumplir con la condición establecida. 
+ Editando una entidad, para cada colección se va a poder configurar: 
+ ✓ 
+ Condición para agregar ítem (Tipo de atributo expresión) 
+ ✓ 
+ Condición para editar ítem (Tipo de atributo expresión) 
+ ✓ 
+ Condición para eliminar ítem (Tipo de atributo expresión) 
+ Cada una de estas tres acciones tiene un contexto a partir de cual se evalúa la expresión que da forma a la condición: 
+ ✓ 
+ Condición para agregar ítem: 
+ El contexto donde se evaluará la condición, es el nivel superior de la colección. Por ejemplo, si la colección está en un primer nivel dentro de una entidad, el contexto de evaluación de la condición es la entidad. Si la colección está dentro de otra colección padre, el contexto será la colección padre. 
+ ✓ 
+ Condición para editar ítem: 
+ El contexto donde se evaluará la condición, es la misma colección. 
+ ✓ 
+ Condición para eliminar ítem: 
+ El contexto donde se evaluará la condición, es la misma colección. 
+ A su vez, pueden configurar para cada condición un mensaje de error que se mostrará en pantalla cuando se incumpla la condición establecida para cada tipo de acción. El widget para poder configurar el mensaje será visible sólo cuando se defina una condición. 
+ Al igual que con las condiciones el mensaje se visualiza siempre que se intente eliminar de manera directa los ítems a la colección o a través del servicio de consumo de Web Service, ya que si los ítems 
+ se modifican por ejecución de algún proceso del sistema tal como una Regla de Negocio, el mensaje no se visualiza y los ítems se modificarán 
+ Editando una entidad, para cada colección y cada condición se va a poder configurar: 
+ ✓ 
+ Mensaje de validación al agregar ítems (Tipo de atributo: Texto enriquecido) 
+ ✓ 
+ Mensaje de validación al modificar ítems (Tipo de atributo: Texto enriquecido) 
+ ✓ 
+ Mensaje de validación al eliminar ítems (Tipo de atributo: Texto enriquecido) 
+ 

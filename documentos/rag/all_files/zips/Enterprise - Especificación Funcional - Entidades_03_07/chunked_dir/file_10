@@ -1,0 +1,56 @@
+1.2 Operaciones 
+ En esta solapa se definirá que operaciones lógicas pueden realizarse en la entidad en edición y los orígenes de las mismas. Para cumplir estas funcionalidades se presentarán dos secciones, las cuales se especifican a continuación: 
+ 1) 
+ Operaciones permitidas: esta sección permitirá definir aquellas operaciones que podrán efectuarse sobre la entidad que se está editando, es decir todas aquellas operaciones válidas para la entidad desde el punto de vista funcional 
+ Para llevar a cabo esta funcionalidad, se presentará una grilla para seleccionar cuales de las operaciones permitidas se pueden realizar desde la entidad en edición y cuáles no. Las mismas incluyen a: 
+ • 
+ Creación 
+ • 
+ Consulta 
+ • 
+ Modificación 
+ • 
+ Restauración 
+ • 
+ Eliminación o Reversión (las entidades de tipo maestras mostraran la opción de eliminación y las transaccionales la de reversión) 
+ • 
+ Habilitación/Inhabilitación: Sólo para entidades maestras. Una instancia inhabilitada podrá modificarse, eliminarse, etc. tal cual una instancia habilitada. La única diferencia es que se podrían configurar las referencias para que permitan referenciar a instancias habilitadas y a inhabilitadas no. 
+ Si una operación no tiene activado el checkbox, implica que dicha operación no podrá realizarse sobre la entidad en edición. Por ejemplo, a partir de esta lista podemos definir que la Entidad “Factura” no permite Reversión de instancias. Para esto, debemos dejar sin activar el checkbox correspondiente a esta acción. 
+ La principal diferencia entre los conceptos de Eliminación y Reversión es que en las Entidades Maestras existen las operaciones de eliminación de instancias, mientras que en las Entidades Transaccionales existen operaciones de reversión. Además, si los atributos son reversibles se multiplican todos los campos por -1. 
+ A partir de esta diferenciación, al realizar una consulta sobre una entidad maestra, los datos se obtendrán de una tabla resumen (Acumulador de todos los campos), en la cual sólo se encuentran el estado final de los registros activos de las entidades. En cambio, al realizar una consulta sobre una entidad transaccional, la misma se efectuará sobre la tabla histórica y se mostrarán todos los registros de dicha entidad. 
+ 2) 
+ Origen de operaciones permitidas: Esta sección presentará una grilla en la cual se definirá en forma detallada cuáles son las operaciones que se pueden realizar desde los diferentes orígenes. Dicha grilla, presentará como filas cada uno de los posibles orígenes de las operaciones permitidas y como columnas las operaciones propiamente dichas. 
+ De esta manera, se permite al usuario definir y visualizar para cada origen posible de una operación, si el mismo tiene los “permisos” para poder llevar adelante dicha operación en esta entidad. 
+ Finalmente, si una operación es activada o desactivada en las operaciones permitidas, las opciones activadas en la grilla de orígenes de operaciones permitidas no tendrán cambios, salvo que se mostrarán en grisado como read only si la primera selección está desactivada. 
+ La cantidad de orígenes de operaciones permitidas será variable e irá incrementándose en forma paulatina, pudiendo llegar a cientos de elementos con lo cual debe implementarse como cualquier otra grilla 
+ La barra de desplazamiento dentro de la grilla de orígenes de operaciones permitidas deberá aparecer únicamente cuando la totalidad de elementos de dicha grilla no puedan visualizarse sin ella. 
+ Las operaciones permitidas en conjunto con los permisos de seguridad del usuario y los orígenes de operaciones permitidas, definirán las acciones que dicho usuario puede efectuar sobre la entidad en particular. Por ejemplo para que un usuario pueda crear una instancia de una entidad, el mismo deberá poseer los permisos de creación y además, la entidad deberá permitir dicha operación y el origen desde el cual se intenta realizar la operación también deberá estar habilitado. 
+ Inicialmente, los orígenes de operaciones permitidas serán los siguientes: 
+ ✓ 
+ Alta directa: desde este origen, el usuario podrá seleccionar todas las acciones, salvo cuando el medio de realización sea “Web service” no estará permitido la “Restauración”. 
+ ✓ 
+ Transformación: desde este origen, sólo se permitirá seleccionar la acción de creación. 
+ ✓ 
+ Regla de negocio: desde este origen, el usuario podrá seleccionar las acciones “Creación”, “Modificación” y “Habilitación/Inhabilitación”. 
+ ✓ 
+ Vista de información: desde este origen, el usuario podrá seleccionar todas las acciones. 
+ ✓ 
+ Exportación: desde este origen, sólo se permitirá seleccionar la acción de consulta. 
+ ✓ 
+ Importación: desde este origen, el usuario podrá seleccionar todas las acciones, salvo la acción “Restauración”. 
+ ✓ 
+ Imprimir: desde este origen, sólo se permitirá seleccionar la acción de consulta. 
+ ✓ 
+ Enviar por email: desde este origen, sólo se permitirá seleccionar la acción de consulta. 
+ Además, los orígenes “alta directa” y “transformación” agrupan los siguientes medios de realización: 
+ ✓ 
+ Formulario. 
+ ✓ 
+ Web Service. 
+ ✓ 
+ Tarea Programada. 
+ De manera predeterminada, al crear una nueva entidad todas las operaciones permitidas aparecerán habilitadas. Respecto de los orígenes de operaciones permitidas al crearse cada nuevo origen se determinará sus valores predeterminados. En función de los determinados en este documento vendrán todos. 
+ Cabe aclarar que, para el caso de la grilla de operaciones permitidas, el checkbox podrá asumir dos estilos diferentes. Si la acción presenta todos los orígenes activados, el checkbox aparecerá activado normalmente. En cambio, si sólo están activados algunos de los orígenes, el checkbox de la operación se presentará con un estilo diferente. Inicialmente, dicho estilo consistirá en un color de fondo grisáceo. 
+ Inicialmente, en el primer release la lista de orígenes permitidos será provista por NeuralSoft y no será expandible por el usuario. En futuras versiones el usuario podrá crear sus propios subconjuntos de orígenes, por ejemplo, separando procesos de compra con procesos de venta. 
+ Para el caso de las entidades paramétricas, la única operación que se podrá configurar es modificación por los siguientes orígenes: formulario, ws, rn, gdi e importación. Las demás operaciones no se pueden configurar, ya que no se permiten para las paramétricas. 
+ 

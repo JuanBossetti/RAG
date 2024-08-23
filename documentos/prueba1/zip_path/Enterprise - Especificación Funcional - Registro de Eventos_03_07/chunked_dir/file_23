@@ -1,0 +1,38 @@
+4.7.1 Registro de preparación 
+ Se accede desde el registro de versionado. Las instancias se van creando para mostrar el progreso de las distintas publicaciones. Se va filtrando la información según el registro de versionado donde el usuario se posiciona. 
+ Al iniciar una publicación se crean las instancias en Registro de preparación, siguiendo un orden preestablecido. Son el publicador y el sincronizador los encargados de generarlas y mostrarlas al usuario. 
+ Existe una instancia con Paso = “Ejecución de scripts para actualizar estructuras”. La misma tiene completos los atributos: Totales, Procesadas, Terminadas OK, Terminadas con error. Estos atributos refieren a la cantidad de entidades y acumulador que deben actualizarse en la publicación. Si la cantidad de Terminados con error no es 0, en el fragmento se visualiza un formulario que muestra todas las instancias erróneas y en qué tabla se produjo el error. Esta información es provista por el Registro de errores de preparación. 
+ Por cada entidad donde se haya configurado una expresión de conversión y/o compatibilidad, se creará una instancia de “Actualización inicial de instancias existentes”, con la cantidad de instancias totales, procesadas, etc. en los atributos numéricos. También en este caso, análogamente al paso de “Ejecución de scripts para actualizar estructuras”, si la cantidad de errores no es 0, al cliquear el campo se despliega el mismo fragmento para analizar los errores. 
+ Es posible que se necesite otra etapa de actualización de instancias, posterior a la inicial. En ese caso, se creará una instancia con “Actualización final de instancias existentes” que se comporta como la actualización inicial, sólo que para las instancias que se actualizan en este paso. 
+ Los atributos de este registro son: 
+ • 
+ Versionado: Corresponde a la instancia de versionado que dio origen a esta instancia. 
+ • 
+ Acción: Indica la acción que se realiza: Preparación/Publicación/Correcciones de datos/Preparación de estructuras/Preparación de datos/Ejecución de correcciones de modelos vinculados. 
+ • 
+ Etapa: Nombre de la etapa de preparación. Indica la etapa que se realiza, por ejemplo: Acciones iniciales de preparación o Actualización de entidades paramétricas. 
+ • 
+ Paso: Indica el paso que se realiza, dentro de la etapa de preparación. Por ejemplo: Dentro de la etapa Preparación de datos, tenemos el paso Ejecución de correcciones de modelos vinculados o Inicialización de registro. 
+ • 
+ Estado: Estado en el que se encuentra la preparación. Los valores posibles son: Ok/En Progreso/Pendiente/Error/Finalizado con inconsistencias 
+ • 
+ Entidad: Solo está visible cuando el paso es Actualización inicial de instancias existentes, Actualización final de instancias existentes o Ejecución de scripts para actualizar estructuras y contiene la Entidad que fue actualizada. 
+ • 
+ Acumulador: Es el acumulador que fue actualizado. 
+ • 
+ Transformación: Es la transformación afectada por la actualización. 
+ • 
+ Imputación: Es la imputación afectada por la actualización. 
+ • 
+ Totales: Cantidad de instancias totales de la entidad 
+ • 
+ Procesadas: Cantidad de instancias procesadas 
+ • 
+ Terminadas OK: Cantidad de instancias procesadas exitosamente 
+ • 
+ Terminadas con error: Cantidad de instancias procesadas con error 
+ • 
+ Tiempo transcurrido: Tiempo desde que se inició la acción de preparación 
+ • 
+ Tiempo restante: Tiempo que se estima que resta de la acción. 
+ 

@@ -1,0 +1,24 @@
+4.4 Registro de consumo 
+ Registra todos los eventos que generan un consumo y/o transacción en la aplicación. Los eventos pueden darse por la ejecución de actividades, ejecución hacia sistemas externos (Consumos de web services) y ejecución por IFDE. 
+ El objetivo de este registro es conocer en forma centralizada el consumo de cada dominio para tarifar a los usuarios de dominios de clientes por consumo a través de acuerdos comerciales y también lograr obtener estadísticas para analizar mejoras de optimización de FastPrg. 
+ La información se clasifica según si es un consumo de categoría Transaccion, Consulta o Web Service lectura o escritura y qué tipo de instancia es: primaria para aquellas que son el origen inicial de la operación o secundarias para las que se dan como consecuencia de la instancia primaria (por ejemplo, movimiento de stock al realizar un remito). Se registra en megabytes de lecturas y escrituras y también se guarda la cantidad de las instancias procesadas que se registraron en una operación. 
+ Cada vez que un usuario realice la acción de un evento origen sobre una actividad se crea una instancia de consumo con la información de la categoría, actividad ejecutada, tipo de actividad ejecutada, fecha, el usuario que realizo la acción, el tipo de usuario, cantidad de instancias procesadas, cantidad total de megabytes escritos y/o leídos y link a la instancia origen. En ciertos casos, como en las actividades de múltiples instancias o GDI, las lecturas no están relacionadas con una única instancia origen, por lo tanto, no se registra dicha información. 
+ Dentro de este log se registra información acerca de los siguientes procesos: 
+ • 
+ Ejecución de actividades. Se identifica y se registra si el consumo fue realizado al ejecutar una actividad, ya sea por interfaz de usuario, tarea programada o por la invocación de una actividad por web service. 
+ • 
+ Ejecución hacia sistemas externos. Se registra el consumo realizado mediante web service al ejecutar actividades. En estos casos queda almacenado el web service, el servicio y la operación sobre la cual se está registrando el consumo. 
+ • 
+ Ejecución por IFDE. Se registra la Tarea programada, el Plan de integración y la Tarea de integración. 
+ 4.4.1 Actividades de única instancia 
+ Al ejecutar actividades de única instancia, en la entidad de Registro de consumo queda almacenada una instancia con los siguientes datos: total de instancias procesadas, segmentadas entre instancias principales y secundarias. En este último caso encontramos las que se crean indirectamente cómo pueden ser: las instancias de Movimiento de clientes al crear una factura. Con respecto a los Megabytes a registrar, tenemos la lectura que se realiza sobre los atributos que componen la instancia y la escritura de todas las instancias que realiza la operación. Por último, se tiene el link a la instancia creada o editada. 
+ Ejemplo de comportamiento en una actividad de única instancia 
+ Un usuario crea una instancia de una factura desde la actividad de única instancia. Se puede visualizar que, al confirmar la operación, se generan instancias en las siguientes entidades con clasificación de usuario: 
+ Adicionalmente se crean instancias en siguientes entidades con otro tipo de clasificación, dentro de las cuales, algunas son colas de diferentes procesos. 
+ En este último caso todas las entidades son entidades de sistema, por ende, no serán parte del cobro a nivel comercial, pero se registrarán en la instancia de consumo generada como instancias de tipo sistema. 
+ A partir de la factura creada, en la entidad de Registro quedan persistidas: 
+ • 
+ Un registro por el total de escrituras y lecturas realizadas, en este caso Factura, quedando en ella adicionalmente la información de los consumos realizados por instancias secundarias. 
+ • 
+ Un registro por cada operación de servicio web ejecutado. En el ejemplo actual, se generan 4 registros de consumo debido a que al crear una factura se ejecutan cuatro operaciones de servicios web. 
+ 

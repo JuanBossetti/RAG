@@ -1,0 +1,24 @@
+Página de Inicio 
+ La primera vez que un usuario se autentica en un dominio, se conecta a alguna aplicación en donde posea permiso de acceso en el ambiente producción, en algún sitio en el cual tenga permiso de acceso, el idioma predeterminado y con el tema predeterminado. En este momento se validará que dicho usuario posea los permisos necesarios para ejecutar la aplicación. 
+ Si el usuario no tiene permisos en el ambiente de producción, se intentará loguear al mismo en el ambiente de testing y si no tiene permisos en este ambiente, en el de desarrollo. Si no tiene permisos en desarrollo, se informará mediante un usuario al usuario y quedará registrado en el Log de Seguridad. 
+ Es importante aclarar que para que un usuario acceda efectivamente a un modelo y a un ambiente, debe tener estos 2 permisos (ambos permitidos): 
+ • 
+ Permiso de acceso a un modelo (este permiso se configura por ambiente). 
+ • 
+ Permiso de acceso a un ambiente de un modelo. 
+ En el primer login del usuario en un modelo, se usa el idioma preferido del usuario. 
+ Cada vez que se autentica el usuario, el idioma en el que acceda será el idioma preferido del usuario. 
+ Es importante aclarar que las preferencias de usuario son distintas en cada dominio, es decir, si el usuario accede a un modelo de un Dominio de autenticación, tendrá otras preferencias. 
+ Luego de su primera autenticación, siempre se le presentará la pantalla tal como la dejó la última vez que la estaba utilizando. En el caso de que no se pueda presentar la última pantalla (cambio de permisos en el usuario, eliminación de un modelo, etc.), el usuario verá nuevamente la pantalla inicial como si fuera su primer login. 
+ Además siempre se evaluará si el mismo tiene licencia para utilizar dicha aplicación en dicho ambiente. De no ser así, se le informará que no tiene acceso por falta de licencias. 
+ Tal como se detalla en Estándares UI, luego de que el usuario se autentique podrá visualizar y cambiar desde la barra de título: el modelo, la versión, el ambiente y el sitio. En el caso de que el usuario no posea permisos de ingresar a otro modelo, versión, ambiente o sitio, no se visualizará la flecha para desplegar el combo y cambiar lo seleccionado. 
+ Dentro de la lista de los modelos se encuentran: 
+ • 
+ Editor de Dominio: sirve para administrar las definiciones del dominio, de sus usuarios, grupos, sitios, políticas de seguridad, los vínculos de seguridad con otros dominios, etc. 
+ • 
+ Administrador de Modelos: sirve para administrar los diferentes modelos, la herencia entre los mismos, etc. 
+ • 
+ Editor de Market Place: sirve para administrar el Market Place, los modelos que se publican en él, el costo de las licencias, las formas de pago, etc. 
+ • 
+ Etc. 
+ 

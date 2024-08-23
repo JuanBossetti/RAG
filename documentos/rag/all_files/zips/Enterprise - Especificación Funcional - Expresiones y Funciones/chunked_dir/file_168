@@ -1,0 +1,5 @@
+Ejemplos: 
+ Máximo(Factura.Items de comprobante;Total; Total > 500) 
+ Se traduce automáticamente en: 
+ en Factura.Items de comprobante máximo Total cuando Total > 500 
+ 

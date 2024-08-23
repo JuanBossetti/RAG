@@ -1,0 +1,4 @@
+3.7 Solapa “Web Service” 
+ Una Actividad se podrá publicar como web service (WS) activando la ópción “Automática por servicio web” en la Actividad y configurando sus características. De seleccionarse dicha opción, se visualizará la solapa “Web service” mediante la cual se podrá configurar la interfaz del mismo. 
+ Un Web Service de una Actividad se podrá invocar mediante un link determinado, por usuarios específicos del dominio para uso exclusivo de web services. 
+ 

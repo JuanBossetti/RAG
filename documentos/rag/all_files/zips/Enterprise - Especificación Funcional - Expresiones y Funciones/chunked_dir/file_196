@@ -1,0 +1,4 @@
+Ejemplos: 
+ TRUNCAR(655; -2) retorna 600. 
+ TRUNCAR(655,348; 2) retorna 655,340. 
+ 

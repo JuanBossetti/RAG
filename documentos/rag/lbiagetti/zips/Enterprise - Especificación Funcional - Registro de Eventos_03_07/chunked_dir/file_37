@@ -1,0 +1,74 @@
+4.16 Registro de sesiones compartidas 
+ El Registro de sesiones compartidas se encarga de almacenar el registro de las peticiones de solicitud de pantalla y control de pantalla en las que intervienen usuarios del dominio actual y externos. Cada vez que se inicia una sesión se crea una instancia en esta entidad, la cual almacena los datos sobre los fecha y tiempo de duración de la sesión, usuarios participantes y las acciones que se realizan en el transcurso de la sesión. 
+ Estructura de la información que se almacena en el registro: 
+ • 
+ Inicio: Fecha y hora en la que se inicio la sesión compartida. 
+ • 
+ Fin: Fecha y hora en la que finalizó la sesión compartida. 
+ • 
+ Duración: Duración representada en minutos de la sesión compartida. 
+ • 
+ Usuarios: Conjunto de usuarios que participan de la sesión compartida. 
+ o 
+ Usuario externo: Para aquellos usuarios que no pertenecen al dominio actual, nombre de usuario dentro del dominio al cual pertenece. 
+ o 
+ Dominio: Nombre de dominio al cual pertenece el usuario. 
+ o 
+ Usuario local: Para aquellos usuarios que pertenecen al dominio actual, referencia al usuario. 
+ o 
+ Inicio: Fecha y hora en la cual el usuario se unió a la sesión. 
+ o 
+ Fin: Fecha y hora en la cual el usuario se retiró de la sesión. 
+ o 
+ Duración: Duración representada en minutos del tiempo que el usuario participó de la sesión. 
+ o 
+ Usuario: Combina el nombre de dominio y nombre de usuario que esta participando de la sesión compartida. 
+ • Acciones realizadas. 
+ o 
+ Solicitante: Usuario que solicito una acción en la sesión compartida. 
+ o 
+ Acción: Acción que realizó el usuario en el transcurso de la sesión, a continuación, se mencionan los tipos de acciones. 
+ ▪ 
+ Solicitar pantalla. 
+ ▪ 
+ Compartir pantalla. 
+ ▪ 
+ Ceder control. 
+ ▪ 
+ Tomar control. 
+ ▪ 
+ Aceptar solicitud de pantalla. 
+ ▪ 
+ Aceptar compartir pantalla. 
+ ▪ 
+ Salir de la sesión compartida. 
+ ▪ 
+ Agregar usuario. 
+ ▪ 
+ Rechazar solicitud de pantalla 
+ ▪ 
+ Rechazar toma de control 
+ ▪ 
+ Rechazar compartir pantalla 
+ o 
+ Autorizante: Usuario que responde a la petición realizada por el usuario solicitante. 
+ o 
+ Fecha: Fecha y hora en la que se realizó la acción. 
+ o 
+ Motivo: Describe el motivo por el cual se realizó una acción en la sesión. Este atributo se completa cuando las acciones realizadas sean Solicitar Pantalla, Compartir pantalla o Agregar usuario. 
+ Comportamiento 
+ Cada vez que inicie una sesión compartida se crea una instancia de este registro en todos los dominios participantes. Por cada acción que se realice en la sesión, se modifica la misma actualizando las acciones realizadas. También se actualiza cuando se finaliza la sesión o un usuario sale de la sesión. 
+ A continuación, veamos un ejemplo práctico: 
+ 1. 
+ El usuario A del Dominio X le solicita la pantalla al usuario B del dominio Y. 
+ 2. 
+ El usuario B acepta la solicitud. 
+ 3. 
+ El usuario B le pide control de la sesión al usuario A. 
+ 4. 
+ El usuario A acepta la solicitud de control de sesión. 
+ 5. 
+ Usuario B finaliza la sesión compartida. 
+ A partir de este ejemplo, las acciones realizadas quedan de la siguiente manera: 
+ En el registro, la colección Usuarios queda de la siguiente manera: 
+ 

@@ -1,0 +1,72 @@
+3.16 Actores 
+ Un Actor es un agrupador de elementos con características comunes dentro de un mismo proceso de negocio. Cada actor podrá tener asociado usuarios o grupos de usuarios. A su vez, los actores serán anidables, es decir que un actor podrá contener a otros actores, y así sucesivamente. 
+ De existir actores, una actividad pertenecerá a un único actor. 
+ Existirá una opción en el Ribbon, la cual permitirá alternar la orientación de los actores de horizontal a vertical y viceversa, modificando la ubicación de las actividades según corresponda. 
+ Además, mediante la funcionalidad de drag & drop se podrá tanto redimensionar el tamaño del actor desde las líneas delimitadoras, como cambiar la ubicación del mismo dentro del área de trabajo desde el encabezado donde se encuentra el nombre de dicho actor. 
+ Al mover un actor a una ubicación ocupada por otro actor, los mismos cambiarán su posición en el diagrama. 
+ Tanto al redimensionar un actor como al cambiarlo de ubicación, los objetos contenidos seguirán ocupando la misma posición dentro del mismo. Si se redimensiona el actor, achicándolo, se deberá respetar un ancho mínimo predefinido. Si se redimensiona un actor, se desplazarán los demás actores de forma tal que los que se encuentren al lado, sigan estando de manera adyacente. 
+ En el caso en que algún objeto contenido quede afuera del tamaño nuevo del actor, se redistribuirán los objetos uniformemente. 
+ Estándares de interfaz de usuario 
+ Además, como se detalla en para este tipo de componentes (andariveles), se podrá cambiar el color de cada Actor, la fuente, etc. mediante ciertas funcionalidades. El color de los Actores se presentará con un cierto contraste de colores, necesaria para visualizar correctamente el resto de los componentes. 
+ Para agregar un nuevo actor, podrá hacerse de las siguientes maneras: 
+ ✓ 
+ Arrastrando el actor desde el ribbon hasta la posición que se desee. 
+ ✓ 
+ Creando uno nuevo desde el menú contextual del área de trabajo. En este caso el actor se ubicará en la posición del área de trabajo en la que se haya hecho clic alternativo. 
+ ✓ 
+ Desde el menú contextual de un actor existente. 
+ Los actores presentarán las siguientes solapas: 
+ ✓ 
+ General: contendrán el nombre (obligatorio), una descripción opcional y una documentación opcional. 
+ ✓ 
+ Estándares de interfaz de 
+ usuario
+ Historial de versiones: de acuerdo a lo definido en el documento . 
+ ✓ 
+ Seguridad: se presentarán los mismos ítems de seguridad para actores, que en la ACL definida para la seguridad del PN. Además, algunos de los permisos se podrán definir explícitamente para cada uno de los diferentes ambientes del modelo. Es decir: 
+ o 
+ Administrar actor: 
+ ▪ 
+ Consultar (disponible en los 3 ambientes). 
+ ▪ 
+ Modificar. 
+ ▪ 
+ Eliminar. 
+ o 
+ Administrar actividades contenidas: 
+ ▪ 
+ Crear. 
+ ▪ 
+ Consultar (disponible en los 3 ambientes). 
+ ▪ 
+ Modificar. 
+ ▪ 
+ Eliminar. 
+ ▪ 
+ Ejecutar (disponible en los 3 ambientes). 
+ o 
+ Traducir. 
+ o 
+ Administrar permisos (disponible en los 3 ambientes) (Consultar, Modificar). 
+ ✓ 
+ Estándares de interfaz de usuario
+ Documentación: de acuerdo a lo definido en el documento . 
+ Inicialmente los actores se mostrarán de manera horizontal, como se muestra a continuación: 
+ "-$-Nombre del Sistema -vx. Y.Z -Entomo Procesos de Negocio --c=JŁ[EJ Actividad Subproceso A:ctor D Ł::!Łiadenantes x) Ł Todo [8J Diccionario de dates V Procesos de negocio le, Procesos de Negocio -le, Venta Mostrador -B Despacho D Orden de Despa D Orden de Despa D Remito D Venta Cuenta Corriente 0 Solicitud de Credfo D D D 12:, Actividades lŁ D [8J Reglas de negocio t8J Mapa estrati:gico X General I Reglas de Negocio J Historial dŁ Versiones I Seguridad I Documentaci6n I v" ------------·, ------------\ lB B j Actividad9 --·----Actividad7 EntidadB Entidad7 \._ I I I I <II [fs) Actividad6 Entidad6 J l® Actividad2 j Entidad2 lB Actividad8 J Entidad8 -It Nombre del Usuario T • •-I Espariol (Argentina) e) Propiedades del Area de Trabajo Para agregar un e/emento en el Proceso de Negocio, selecci6nelo desde el ribbon o desde el panel de H 1JlJ11egoci611 y amistrelo al 9rea de diseiio, o bien hoga clic altemativo en el Orea de dise1io y seleccione el elemento que desee agregar. "' Vista panoramica 
+ Ł XI General I Reglas de Negocio I Historial de Versiones I Seguridad I Docurnentaci6n I 'v Prop1edades del Actor General I Historial de Versiones I Segundad I Docuri1lrillo I Nornbre del Actor 101 [B B J Nombre(1) Actividad9 Actividad7 -------I 101 Entidad8 Entidad7 Descnpc1on I I I I 6 lf:p Actividad6 J I u Entidad6 [® J Actividad2 Entidad2 [B Actividad8 ] Entidad8 Ł Vista panoramica 
+ Como puede verse, el primer actor que se agregue al PN, ocupara la totalidad del mismo. 
+ Al agregar otros actores, se ira dividiendo el total del mismo, coma se muestra a continuaci6n: 
+ Nombre del Sistema -vX. Y.Z -Entomo x) [8j Todo C8J Diccionario de dates • Procesos de negocio Le, Procesos de Negocio -tc, Venta Mostrador -Lc, Despacho D Orden de Despa D Orden de Despa D Remfo □ Venta Cuenta Corriente □ Solicitud de Credito D D D B' Actividades l� D C8J Reglas de negocio � Mapa estrategico 25 de Enero de 2012 -11:37 -GMT-03 Procesos de Negocio --□�□ Actividad Subproceso �or D �::!��adenantes Espariol (Argentina)(") H [81 X ----------------------------------------,1 General I Reglas de Negocio I Historial de\Versiones I Seguridad I Documentaci6n I "7 .-,--------\------------Propiedades del Area de Trabajo I . Para agregor Ull elemel)to en el Proceso de Negocio, I I [8 8 J selecciimelo desde el ribbo11 o desde el panel de I Actividad9 ---�----Actividad7 navegaciOn y arr.istrelo al area de diseiio, o bien haga clic I Entidad8 Entidadl I aftemativo en el Orea de dise1io y seleccione el e/eme11to ' I I que desee agregar. I I I I I I .. , [f!i} Actividad6 J 01 �I Entidad6 4) I------------------------11 [® J Actividad2 Entidad2 0 l8 Actividad8 J EntidadB "' Vista panoramica 
+ En caso de arrastrar una actividad desde un actor hacia otro, la misma siempre se presentará ubicada por completo en un actor. Es decir que una misma actividad no podrá presentarse contenida parcialmente en un actor y parcialmente en otro. Cuando pase más de la mitad del área de la actividad al otro actor, dicha actividad se moverá por completo al área correspondiente a este último 
+ Por último, se podrá cambiar la forma de visualizar los actores desde el menú contextual en el área de trabajo o desde el ribbon, como se muestra a continuación: 
+ -.:J Procesos de Negocio fiŁ!ŁŁ•!!i!!ib---------------Ł========================,-1 Ł [8:j Ł Ł Ł::!Ła:adenantes Espariol (Argentina)(Ł) I v I -Actividad c;-ubpr oceso Actor 181 ,c General Reglas de Negocio Historial de Versiones 5 Actividad9 Seguridad Documentaci6n B Actividad7 'U [B -------] <( Entidad8 'ii "C 4) ... .!:l E z 5 'U <( 'ii "C 4) [© ] ... .!:l Actividad2 E 0 Entidad2 z 5 'U <( 'ii "C [B ] 4) Actividad8 ... .!:l Entidad8 E z -.J Procesos de Negocio lJ!!I !!1.11!! Entidad7 I I I I I • [E,z} Actividad6 Entidac/6 ] 1/) Q) "C I'll "C Q) 'ii 0 ... a. 
+ Ł[8:lŁŁCl -Actividad Subpr oceso Actor ,c Mostrar desencadenantes General Reglas de Negocio Historial de Versiones Seguridad Documentaci6n Nombre del Actor Nombre del Actor [B Actividad8 l [© Actividad2 l Entidad8 E11t1dad2 Nombre del Actor [B l[!,z} Actividad6 B ---Entidad6 Espafiol (Argentina)(•) Actividad9 l Entidad8 I I I I I • 1/) J Q) Actividad7 "C I'll Entidad7 K "C Q) 'ii a. 
+ Si se elimina un actor, no se eliminarán las actividades que el mismo contenga. 
+ Si en el PN existe un solo actor, las actividades seguirán ubicadas en la misma posición. 
+ Si en el PN existen varios actores, las actividades que estaban contenidas en el actor que se elimina, se ubicarán en el actor ubicado debajo del eliminado, o en el de la derecha (en el caso visualizar los actores verticalmente). 
+ Con respecto a la Seguridad, al eliminarse un actor: 
+ ✓ 
+ Las propiedades de las actividades que heredaban del actor, pasarán a heredar del nuevo actor en donde están contenidas, o del PN, en el caso de no existir actores. 
+ ✓ 
+ Las propiedades que no heredaban del actor eliminado, ya que cuentan con una configuración particular, mantendrán dicha configuración sin herencia. 
+ 

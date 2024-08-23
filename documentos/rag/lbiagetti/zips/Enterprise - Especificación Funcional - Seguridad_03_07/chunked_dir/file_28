@@ -1,0 +1,31 @@
+3.9 Agentes 
+ En el dominio pueden crearse agentes, estos generan instaladores que vinculan el agente al host donde se instala y permiten el uso de impresoras u otros dispositivos. 
+ En la solapa General se definen las siguientes propiedades: 
+ ✓ 
+ Nombre: Permite definir un nombre del agente a crear. El mismo debe ser único en el sistema, en cada idioma, además, será pasible de internacionalización. Este dato es obligatorio. 
+ ✓ 
+ Descripción: Permite ingresar un texto donde se describe más en detalle el agente la cuenta a crear. Este campo será pasible de internacionalización. 
+ Una vez completas las propiedades requeridas anteriores y confirmada la instancia, se habilita el botón “Descargar”, esta acción genera el agente correspondiente e inicia la descarga del mismo para que el usuario pueda instalarlo. 
+ Cuando se genera el agente se incluyen las credenciales (token, certificado, o las que correspondan) en el instalador que luego descarga el usuario. 
+ La instalación del agente permite vincular el host donde se instala con el agente dado de alta. Una vez que se encuentra vinculado el agente, se visualizan otros campos informativos en solo lectura: estado, fecha instalación, última fecha de conexión. 
+ También se visualiza una grilla con todos los periféricos (dispositivos) detectados que reconoce el agente. Por cada uno se visualiza: 
+ • 
+ Nombre detectado: es el nombre del dispositivo que reconoce el agente. 
+ • 
+ Nombre en el dominio: se completa con el nombre de dispositivo vinculado, en caso que se corresponda con alguno de los dispositivos agregados al dominio. 
+ • 
+ Estado: es “Habilitado” si el agente está vinculado y se detecta el dispositivo o “Inhabilitado”, si el agente ya no está vinculado, y se dejó de detectar el dispositivo. 
+ En caso que el agente haya sido descargado e instalado, en el botón en vez de la opción “Descargar” se visualiza la opción “Desvincular agente”, si se selecciona esta opción se notifica al usuario con una advertencia que se anulará el agente instalado y que los dispositivos vinculados a ese agente dejarán de prestar servicios no quedando disponibles. Se vuelve a visualizar la opción “Descargar” y en la grilla se visualizan los dispositivos detectados pero ahora con estado “Inhabilitado”. 
+ Cuando se vuelve a vincular el agente (descargar e instalar), se actualiza la grilla con la lista de dispositivos nuevos detectados, si tienen igual nombre que los anteriores detectados tendrá estado “Habilitado” y si además corresponde con uno de los dispositivos vinculados del dominio, el mismo ya disponible para su uso, sino puede ocurrir que alguno de los dispositivos vinculados del dominio quede inválido porque cambiaron los dispositivos detectados, en este caso se notificará el error en tiempo de ejecución cuando se quiera consumir el dispositivo. 
+ Por ejemplo, se creó y configuró el Agente X, que reconoce a los dispositivos: HP LaserJet Pro MFP M127fn, HP Color Laser Jet CP2025dn, Lector Código Barras Dynapos Laser Usb Synhh10b. También se configuraron los dispositivos en el dominio, visualizándose en el Agente X la siguiente grilla de dispositivos. 
+ Luego se vuelve a instalar el Agente X anulando el anterior y cuando vuelve a detectar los dispositivos conectado reconoce los siguientes: HP LaserJet Pro MFP M127fn e Impresora Multifunción Epson L220. 
+ Pudiéndose mostrar una de las siguientes opciones: 
+ 1) 
+ 2) 
+ El dispositivo Impresora Administración definido en el dominio podrá seguir utilizándose sin inconvenientes. 
+ Pero los dispositivos Impresora Remitos y Lectora Despacho (los inhabilitados) dejarán de ser válidos y si por ejemplo se elige la impresora Remitos para enviar a imprimir un comprobante se notificará el error al usuario. 
+ El sistema registra la fecha y hora en que el usuario realiza las acciones anteriores, descarga, vinculación o desvinculación del agente para auditorias futuras. 
+ A continuación se visualiza el caso en que el agente ya se encuentra instalado: 
+ Si luego de descargado el agente, sin haberlo instalado, se vuelve a seleccionar la opción “Descargar”, el agente descargado anteriormente se anula notificando tal situación al usuario, descargando un nuevo agente con un nuevo certificado. 
+ Además, un agente sólo puede instalarse una única vez. Si se quiere instalar en una nueva computadora, se mostrará un mensaje de error informando dicho error. 
+ 

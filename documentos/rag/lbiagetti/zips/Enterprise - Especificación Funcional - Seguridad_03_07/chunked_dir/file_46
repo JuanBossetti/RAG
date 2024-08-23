@@ -1,0 +1,16 @@
+Mensajes de error relacionados al ingreso de contraseña: 
+ La contraseña debe contener al menos ${MINIMUM_PASSWORD_LENGH} caracteres. (Definido en las políticas de cada dominio) 
+ La contraseña debe contener al menos 3 de las siguientes características: 
+ • 
+ Una letra mayúscula 
+ • 
+ Una letra minúscula 
+ • 
+ Un número 
+ • 
+ Un caracter especial 
+ La contraseña no puede contener parte del nombre de usuario. 
+ La contraseña nueva es igual a la anterior. (En este punto se define en las políticas de dominio en la cantidad de contraseñas anteriores inutilizables) 
+ No posee permisos para cambiar la contraseña. 
+ La contraseña actual es incorrecta. (Luego de la cantidad de intentos que definan para cada dominio el usuario quedará bloqueado por la cantidad de minutos establecido en las políticas) 
+ 

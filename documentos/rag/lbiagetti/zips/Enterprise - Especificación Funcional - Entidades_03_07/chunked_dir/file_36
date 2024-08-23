@@ -1,0 +1,6 @@
+Configuración básica de un acumulador por expresión 
+ Al momento de definir los atributos de un acumulador podemos seleccionar el Tipo de agregación: “Expresión” para poder posteriormente seleccionar el retorno y la expresión. La configuración de un 
+ acumulador mediante expresiones es similar a un acumulador por atributos, pero dentro del atributo del acumulador en lugar de seleccionar un atributo de agregación y una función de agregación, se eligen: 
+ Retorno de la expresión: Indica el tipo de atributo resultante de la expresión. 
+ Expresión de agregación: Es la expresión que es evaluada y cuyo valor resultante impacta en el valor del atributo. 
+ 

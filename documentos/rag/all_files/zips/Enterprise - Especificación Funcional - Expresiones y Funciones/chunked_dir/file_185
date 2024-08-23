@@ -1,0 +1,3 @@
+Obtener rangos de logro( Json) 
+ Esta función recibe un texto en formato JSON y devuelve una colección de rangos de logro. Su objetivo es poder decodificar los rangos de logro almacenados en los acumuladores en formato Json y devolver una colección de rangos de logro que será utilizada por "Interfaz de usuario" como parte de la información necesaria para mostrar los gráficos con el desempeño de los objetivos. 
+ 

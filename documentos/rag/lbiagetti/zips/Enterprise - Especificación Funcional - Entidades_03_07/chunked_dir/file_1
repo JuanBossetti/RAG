@@ -1,0 +1,14 @@
+Descripción del Documento 
+ En el presente documento se describe la funcionalidad del editor de Entidades. El mismo permite definir en un entorno integrado y simple el modelo de datos del negocio y su comportamiento, junto con las características lógicas de los datos que se utilizarán en el sistema. Dentro del documento se detallan definiciones básicas de los elementos que componen el Editor de Entidades como así también el conjunto de funcionalidades de cada componente y su relación con el resto del sistema. 
+ http://innovacion:26607/EnterpriseFuncional/Estándares%20de%20Interfaz%20de%20Usuario/Enter 
+ prise%20-%20Especificación%20Funcional%20-
+ Deberá tenerse como guía el documento de estándares de interfaz de usuario, ubicado en 
+ %20Estándares%20de%20interfaz%20de%20usuario.docx 
+ 1.1 Definiciones y Acrónimos 
+ |    | Término                    | Definición                                                                                                                                                                                                                                                                                                                               |
+|---:|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | Alta lógica                | Es una acción sobre una entidad consistente en la creación física de una instancia particular.                                                                                                                                                                                                                                           |
+|  1 | Baja lógica                | Es una acción sobre una instancia de una entidad consistente en marcar a dicha instancia como eliminada, manteniendo físicamente los datos de la misma. Aquellas instancias que hayan sufrido una baja lógica permanecerán almacenadas, pero no podrán ser accedidas por el usuario final.                                               |
+|  2 | Modificación lógica        | Es una acción sobre una instancia de una entidad que ocurre cuando se desea modificar los valores de un conjunto de atributos. En dicho caso, se marcará a dicha instancia como no disponible y se creará físicamente una nueva instancia, la cual copiará los valores de la anterior, salvo aquellos que hayan sido modificados.        |
+ Introducción 
+ 

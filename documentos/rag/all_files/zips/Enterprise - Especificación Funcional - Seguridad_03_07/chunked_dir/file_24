@@ -1,0 +1,19 @@
+3.8 Cuentas de notificación 
+ Se definen en una misma entidad las cuentas para notificaciones mediante envío de correo electrónico o mensajería instantánea. 
+ En la seguridad de las cuentas se podrán configurar los siguientes permisos: 
+ • 
+ Crear 
+ • 
+ Consultar 
+ • 
+ Modificar 
+ • 
+ Eliminar 
+ • 
+ Restaurar 
+ • 
+ Traducir 
+ • 
+ Administrar permisos (consultar, modificar). 
+ Adicionalmente, se cuenta con un ABM Cuentas de notificación, al cuál puede accederse desde el acordeón, mediante la sección de Dominio. 
+ 

@@ -1,0 +1,6 @@
+Ejemplos: 
+ Calcular feriados({09/03/2023};{14/03/2023};(en Calendario de trabajo primer Esta instancia cuando Obtener traducción(Nombre;'es') = 'Calendario estándar')) Retorna: 0 
+ Calcular feriados({09/03/2023};{31/03/2023};(en Calendario de trabajo primer Esta instancia cuando Obtener traducción(Nombre;'es') = 'Calendario estándar')) Retorna: 1 
+ Calcular Fecha(Fecha, Cantidad de días hábiles, Calendario) 
+ Suma una determinada cantidad de días hábiles a una fecha, teniendo en cuenta un calendario dado. Nota: Se tienen en cuenta las horas disponibles y la cantidad de días se multiplica por 24. 
+ 

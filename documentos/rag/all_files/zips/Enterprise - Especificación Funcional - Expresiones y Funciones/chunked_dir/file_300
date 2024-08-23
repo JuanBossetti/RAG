@@ -1,0 +1,5 @@
+Ejemplos: 
+ Usuario().Nombre de usuario retorna jperez 
+ Usuario().Nombre + ' ' + Usuario().Apellido retorna Juan Perez 
+ Usuario().Tipo de usuario retorna Editor 
+ 

@@ -1,0 +1,24 @@
+Instancias a imputar(Entidad base de imputación) 
+ Esta función retornará las instancias que están en memoria cuando un usuario las seleccione dentro de una actividad de imputación, es decir, retornará una referencia a la entidad base que tenga la imputación. 
+ Para invocarla se definirá de la siguiente manera: 
+ Instancias a imputar(entidad) 
+ Siendo "entidad" una entidad que contiene una imputación. 
+ Ejemplos: 
+ 1- Se modela una entidad "Pago" la cual a su vez desencadena en la entidad "Movimiento de proveedores". 
+ 2- En Movimiento de Proveedores se agrega una imputación. 
+ 3- Seguidamente, se crea una actividad de única instancia con imputación llamada "Pago con imputación". 
+ 4- Se define una Regla de negocio para crear ítems en una colección con los comprobantes seleccionados para imputar el pago. 
+ 5- Entonces, se podrá definir como expresión de asignación de valores: 
+ Instancias a imputar(Movimiento de proveedores) 
+ Esta expresión retornará la referencia a las instancias seleccionadas en la actividad de única instancia con imputación al momento de crear e imputar el pago. 
+ Además, se deberán tener en cuenta las siguientes observaciones:   
+ 1- Si se utiliza esta función en un lugar que no sea una actividad de imputación retornará nulo. Es decir, siguiendo con el ejemplo anterior, esto ocasionará que: 
+ • 
+ Si se crea el Pago por una actividad de única instancia no se asigne ningún valor en el atributo. 
+ • 
+ Si se crea el Pago por la actividad de única instancia con imputación, en este caso si retornará las instancias seleccionadas al momento de imputar. 
+ 2.
+ - Al utilizar esta función aunque devuelva una referencia no se puede acceder a otro atributo de esa instancia mediante el uso de pathfield, es decir, no se podrá utilizar expresiones como: Instancias a imputar(movimiento proveedores).fecha. 
+ 3.
+ - En caso de necesitar obtener el valor de otro atributo de la referencia obtenida en memoria se deberá usar una expresión de En buscar, por ejemplo, “En Movimiento de proveedores buscar fecha cuando esta instancia = instancias a imputar(Movimiento de proveedores)”. 
+ 

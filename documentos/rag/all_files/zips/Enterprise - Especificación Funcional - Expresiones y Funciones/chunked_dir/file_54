@@ -1,0 +1,13 @@
+3.6 Parámetros 
+ Los parámetros son un conjunto de elementos que se reciben al momento de invocar a la función. Son los que definen el contexto de las expresiones utilizadas en Condición y en Expresión. 
+ Al invocar la función, los argumentos se separan con el Separador de lista definido en la configuración regional del dominio para el idioma del usuario. Además, los parámetros que se pasan, pueden ser cualquier elemento que contiene valor (Atributos, Acumuladores, literales, valores devueltos de Funciones y Expresiones). El tipo de datos del parámetro debe coincidir exactamente con el tipo de atributo definido en la función, para ese parámetro. 
+ Por cada parámetro se podrá especificar: 
+ ✓ 
+ Nombre: es el nombre del Parámetro. Deberá ser único para una misma Función y debe ser internacionalizable. 
+ ✓ 
+ Tipo: Es el Tipo de dato del Parámetro. Los parámetros pueden ser de cualquier tipo simple, no pueden ser colección. 
+ ✓ 
+ Descripción: permitirá indicar una breve descripción del Parámetro. La misma es internacionalizable. 
+ El orden de los parámetros para la función se obtiene del orden en la grilla (el primer parámetro en la grilla, el de más arriba, es el primer parámetro de la función). 
+ Si se recibe como parámetro, un dato tipo referencia, es posible acceder a los atributos de cabecera de la instancia referenciada pero NO recorrer sus colecciones. 
+ 

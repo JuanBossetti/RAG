@@ -1,0 +1,32 @@
+4.15 Registro de códigos de restablecimiento de contraseña 
+ Este log registra los pedidos de restablecimiento de contraseña y el restablecimiento efectivo de la misma en una entidad de sistema. En este registro se guarda qué usuario lo pidió, desde qué ip, a qué hora, código enviado (el hash), si el código ya se usó (así no se puede reutilizar), etc. y cuando el usuario ingresa la nueva contraseña, se valida en este log que el código sea correcto (es decir, que el link desde donde se cambió la contraseña corresponda al usuario que pidió restablecerla). 
+ Este log NO tiene los campos comunes en todas las colas y logs. Este log tiene los campos: 
+ • 
+ Nivel de detalle: Indica si es informativo, advertencia, error o evento crítico. Siempre tiene algún valor. 
+ • 
+ Usuario: Indica el usuario que solicitó restablecer la contraseña. Siempre tiene algún valor. 
+ • 
+ Código enviado: Id interno de petición de restablecimiento. Se guarda como un hash. Caduca en un tiempo (inicialmente 1 hora) y es válido una única vez, no se re-utiliza. El link que se le manda al usuario utiliza este código. 
+ • 
+ Fecha y hora: Indica la fecha y hora en la que se registró el evento. Ver documento de internacionalización por el impacto de la zona horaria. Este campo siempre tiene algún valor. 
+ • 
+ Cantidad de peticiones del usuario en el día: Hay un límite en la cantidad de códigos que un usuario puede solicitar por día (inicialmente 3). 
+ • 
+ Cantidad de peticiones del usuario en la semana: Hay un límite en la cantidad de códigos que un usuario puede solicitar por semana (inicialmente 5). 
+ • 
+ Servidor: Indica en qué servidor se generó el evento. 
+ • 
+ Dominio: Indica en qué dominio de seguridad se generó el evento. Este campo sirve más que nada para el Log centralizado. 
+ • 
+ Browser: Incluye el detalle del Sistema operativo, versión del navegador, dirección IP, Zona geográfica etc. 
+ • 
+ Cantidad de peticiones de la misma ip en la hora: Hay un límite en la cantidad de códigos por IP por hora. 
+ • 
+ Cantidad de peticiones de la misma ip en el día: Hay un límite en la cantidad de códigos por IP por día. 
+ • 
+ Cantidad de peticiones de la misma ip en la semana: Hay un límite en la cantidad de códigos por IP por semana. 
+ • 
+ Utilizado: Indica si el código ya fue usado por el usuario para restablecer la contraseña. Este campo inicialmente está en falso, pero luego cuando el usuario desea restablecer su contraseña, se marca como verdadero. 
+ Además en el log de seguridad se loguea las solicitudes de restablecimiento de la contraseña, el restablecimiento efectivo, si el usuario pidió el restablecimiento más veces de las permitidas, si intentó usar el mismo link para restablecer la contraseña más de una vez, o con otro usuario, etc. Esto es independiente de la entidad que tiene los códigos que se generaron. 
+ Ejemplos: 
+ 

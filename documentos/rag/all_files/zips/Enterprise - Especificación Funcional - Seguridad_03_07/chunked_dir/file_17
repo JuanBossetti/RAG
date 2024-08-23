@@ -1,0 +1,38 @@
+3.1 Unidades organizacionales (OU) 
+ Las unidades organizacionales (OU) son contenedores que se utilizan para organizar objetos dentro de un dominio. Podrán contener cuentas de usuarios, grupos de usuarios, dispositivos y otras OU. Esto permitirá administrar las políticas de seguridad. Una OU podrá contener referencias a usuarios y grupos de usuarios de otros dominios. Se podrán definir OU por departamentos jerárquicos, por zonas geográficas, etc. 
+ ✓ 
+ Un dominio de seguridad se podrá dividir en n unidades organizacionales. 
+ ✓ 
+ Una unidad organizacional podrá tener ninguno, uno o varios usuarios administradores de seguridad. 
+ ✓ 
+ Un administrador de seguridad podrá administrar una o varias unidades organizacionales. 
+ ✓ 
+ Una unidad organizacional podrá contener n objetos. 
+ ✓ 
+ Una unidad organizacional podrá contener n unidades organizacionales. 
+ ✓ 
+ Un objeto podrá pertenecer a una única unidad organizacional. 
+ El administrador de seguridad podrá administrar las políticas de seguridad de una o varias OU (dar de alta usuarios, definir la contraseña, etc.), y además podrá configurar los permisos y denegaciones de los objetos dentro de estas OU. Esto se especificará en la solapa Seguridad de las mismas. Dicho usuario sólo podrá ver las OU que administra. 
+ Al crear un usuario dentro de una OU, el mismo heredará las políticas de seguridad de dicha OU. También se podrán crear usuarios dentro del dominio. En este caso, los usuarios obtendrán las políticas configuradas en el mismo. Luego se podrán redefinir las políticas para cada usuario. 
+ Cada vez que se cree un dominio, AI creará la OU raíz y la OU raíz de sitios. La primera contendrá usuarios, grupos de usuarios, dispositivos, puestos de trabajo y otras OU; y la segunda contendrá sitios, grupos de sitios y otras OU de sitios. Ambas OU tendrán ciertas limitaciones, como por ejemplo, no se podrán eliminar ni que hereden de otra OU (siempre serán padres de otros objetos, nunca hijos). 
+ Cada Unidad Organizacional tendrá las siguientes propiedades: 
+ ✓ 
+ tabla 
+ Estándares 
+ de interfaz de usuario
+ General: ubicación, nombre, descripción, calendario, los dispositivos predeterminados (para imprimir, para numerar, para escanear, etc.), idiomas preferidos de UI y de datos para autenticación de usuarios (hereda del dominio) y políticas de seguridad (ver de políticas de seguridad). Inicialmente, cada OU heredará el calendario, los dispositivos, los idiomas y las políticas de seguridad de la OU padre. Estas propiedades podrán redefinirse, respetando lo detallado para herencia en el documento . 
+ ✓ 
+ Estándares de interfaz de usuario
+ Historial de Versiones: se podrá mantener un historial de versiones de cada OU, de acuerdo a lo definido en el documento . 
+ ✓ 
+ tabla 
+ Seguridad: contiene la lista de permisos y denegaciones de los usuarios y grupos de usuarios sobre la OU (ver de solapa “Seguridad”). 
+ ✓ 
+ Documentación: contendrá la documentación específica de la OU. 
+ Siempre se validará que el idioma preferido sea uno de los que se encuentran seleccionados en la lista de idiomas disponibles en el dominio. 
+ La única propiedad obligatoria será nombre. Las OU podrán tener el mismo nombre si se encuentran en diferentes ubicaciones. No se podrá crear ni arrastrar una OU en una ubicación, si existe otra OU con el mismo nombre. 
+ La administración de usuarios y grupos de usuarios hará referencia tanto a los que se encuentren localizados en dicha OU, como así también a los localizados en las OUs que contenga la misma. 
+ A continuación, se muestra la creación de la OU “Zona Norte” y las diferentes propiedades de dicha OU ubicadas en solapas. 
+ Se deberá tener en cuenta que un usuario podrá pertenecer a una OU y los grupos de usuarios a los que pertenezca este usuario, podrán estar en OU diferentes. 
+ Todos los elementos que se deben incluir en una OU y se copian por modelos vinculados, deben incluirse en la OU general. 
+ 

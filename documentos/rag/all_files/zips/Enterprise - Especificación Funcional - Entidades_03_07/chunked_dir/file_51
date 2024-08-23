@@ -1,0 +1,6 @@
+Duplicar colección 
+ Si la entidad destino contiene un atributo de categoría colección, se presentará un ícono sobre el elemento contenido por dicha colección. Este ícono permite duplicar el elemento de dicha 
+ colección. Todos los elementos de la colección presentarán un ícono que permitirá eliminarlos, salvo que exista un único elemento. 
+ La necesidad de esta duplicación es para casos de uso como el siguiente: En los asientos contables, se debe contar con una o varias definiciones para el debe y una o varias para el haber. 
+ Un ejemplo sencillo puede ser asignar distintas expresiones a distintas cuotas: 
+ 

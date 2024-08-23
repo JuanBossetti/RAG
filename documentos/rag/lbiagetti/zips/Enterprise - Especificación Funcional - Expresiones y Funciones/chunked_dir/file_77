@@ -1,0 +1,5 @@
+Ejemplos: 
+ Minúscula("NeuralSoft") retorna neuralsoft 
+ Minúscula('NEURALSOFT') retorna neuralsoft 
+ Minúscula('neuralsoft') retorna neuralsoft 
+ 

@@ -1,0 +1,14 @@
+Al activar un agrupamiento, en el resto de los atributos simples dentro del compuesto se deben definir Funciones de Agregación. 
+ En el ejemplo anterior, los ítems de la factura se agrupaban por producto y sus cantidades se sumaban y se precio se promediaba, dando como resultado los 2 ítems detallados en dicho ejemplo. 
+ Los atributos que tienen la opción de Función de Agregación son los atributos de la entidad destino que cumplen las siguientes características: 
+ . 
+ • 
+ Es de categoría simple y además pertenece a un tipo de atributo Numérico o Fecha que permite operaciones de agregación de acuerdo a lo definido en Capa Base. 
+ • 
+ Está dentro de una colección de compuesto (en cualquier nivel) que contiene un atributo con el ícono de agrupamiento activo, es decir, hay alguna agrupación. 
+ • 
+ No tiene el ícono de agrupación activo, ya que, un atributo no podrá tener seleccionado al mismo tiempo el ícono de agrupación y tener asignada una función de agregación. 
+ De manera predeterminada, no tendrá ninguna función de agregación definida, pero se puede configurar alguna de las disponibles en el tipo de atributo. 
+ Es importante aclarar que en el caso de seleccionar las funciones de agregación: Promedio o Desvío Estándar (o una operación cuyo resultado tenga decimales), el valor resultado se redondeará a la cantidad de decimales que tenga el atributo al cual se asigna dicho valor. Entonces, cuando el usuario seleccione alguna de estas funciones de agregación, se le mostrará una advertencia indicándole que el valor resultante será redondeado. 
+ En el caso de definir algún agrupamiento dentro de una colección de compuesto, el resto de los atributos dentro del compuesto que sean de categoría simple y tengan funciones de agregación definidas en capa 2, deben tener seleccionada una de estas funciones. 
+ 

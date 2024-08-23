@@ -1,0 +1,18 @@
+4.4.4 Transformaciones 
+ El comportamiento es análogo al de actividades de múltiples instancias. No existe una relación directa entre la cantidad de lecturas realizadas y aquellas instancias que se transformen. Es por esto que se independizan los consumos de lectura de los de escritura realizados. Es decir, en este tipo de actividades se generan: 
+ • 
+ Un registro por el total de lecturas realizadas en la actividad. 
+ • 
+ Un registro por cada instancia destino creada. La información registrada por este consumo, es análoga a la de actividades de única instancia. 
+ Según el tipo: 
+ • 
+ Transformaciones automáticas. La transformación queda registrada como instancias de usuario secundaria. 
+ • 
+ Transformaciones manuales. Se genera un registro por el total de lecturas realizadas en la operación y otro registro por cada entidad destino que representa la escritura realizada, esta última tendrá el link. 
+ Ejemplo al transformar 
+ En caso de ejecutar una transformación que transforma una Factura a una Nota de crédito. Finalizado el proceso de transformación, en la entidad de Registro consumo queda persistido: 
+ • 
+ Un registro por el total de lecturas realizadas en la actividad. Similar al registro generado en actividades de múltiples instancias. 
+ • 
+ Un registro por cada entidad destino creada que representa la escritura realizada, con el link a la instancia creada. 
+ 

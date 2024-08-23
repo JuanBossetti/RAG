@@ -1,0 +1,16 @@
+4.9 Registro de exportaciones e importaciones 
+ Contiene el registro de todos los archivos importados al sistema o exportados desde el sistema. Este registro es muy importante para mantener el resguardo de la información y en caso de pérdida o ingreso inadecuado de la misma, es posible detectar el usuario que llevó a cabo la acción. 
+ Las exportaciones pueden ser a un archivo tipo json, pdf o xlsx. Las importaciones se realizan a partir de un Json. El registro se persiste siempre, tanto en los casos de acciones exitosas como erróneas. 
+ atributos comunes a todos los registros
+ En el registro se guarda, además de los , la siguiente información: 
+ • 
+ Origen: Indica si el archivo fue generado mediante una importación o una exportación. 
+ • 
+ Archivo Json: Contiene el archivo que se importó o exportó. 
+ • 
+ Resultado: Código de evento de web service que indica si la importacón o exportación se realizó exitosamente o si ocurrió algún error en la ejecución. 
+ • 
+ Detalle del resultado: Información detallada del resultado de la operación. 
+ • 
+ Archivo generado: Archivo generado al ejecutar la exportación. 
+ 

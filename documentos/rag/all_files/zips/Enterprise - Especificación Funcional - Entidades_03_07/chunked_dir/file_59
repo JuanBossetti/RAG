@@ -1,0 +1,6 @@
+Caso 6: Crear varias instancias de la entidad destino, una por cada resultado de una expresión/función que devuelve una colección 
+ Se tiene una Factura, la cual se abona en cuotas, y se desea generar un registro en la Cuenta Corriente del cliente para cada una de dichas cuotas. 
+ El modelo contiene a la entidad Factura y a la entidad Cuenta Corriente, la cual presenta un atributo “Fecha de Vencimiento” al que se le asigna una colección obtenida a partir de una expresión o función. 
+ Para este caso se hace necesario generar tantas instancias de la entidad Cuenta Corriente como elementos contenga la colección de Fechas de Vencimiento. 
+ Generalizando, este caso es similar al (<>)Caso 1, con la única diferencia que la colección que se asigna al atributo de la entidad destino proviene de una expresión o función. 
+ 

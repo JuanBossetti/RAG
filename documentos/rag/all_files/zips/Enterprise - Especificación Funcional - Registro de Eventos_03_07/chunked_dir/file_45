@@ -1,0 +1,25 @@
+5.3 Cola de dispositivos 
+ Incluye el detalle de todas las solicitudes enviadas desde el sistema a dispositivos para su consumo. Se registra tanto el evento de cuando se solicita el consumo del dispositivo, así como cuando se realiza el consumo definitivamente realizando la acción deseada o se produce algún error durante la solicitud. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Dispositivo: Indica en qué dispositivo se invoca la acción. 
+ • 
+ Controlador: Indica que driver es utilizado por el dispositivo. 
+ • 
+ Operación: Operación del driver que fue invocada desde el dispositivo. 
+ • 
+ Comandos: Conjunto de comandos de la operación del driver que ejecuta el dispositivo. 
+ o 
+ Comando: Comando específico de la operación. 
+ o 
+ Parámetros de ejecución: Conjunto de datos de entrada de los comandos ejecutados por el dispositivo a consumir. 
+ o 
+ Parámetros de respuesta: Conjunto de datos de respuesta de los comandos ejecutados por el dispositivo consumido, lo que devolvió el dispositivo al consumirse (se completa luego de invocada la acción). 
+ Ejemplos: 
+ • 
+ El usuario obtiene el código de producto para registrarlo en el listado a través del lector de código de barras. 
+ • 
+ El usuario crea una factura y la envía a la impresora fiscal. 
+ 

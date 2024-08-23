@@ -1,0 +1,5 @@
+2 Proceso de negocio 
+ La norma internacional ISO-9001 define un Proceso cómó “una actividad que utiliza recursós, y que se gestiona con el fin de permitir que lós elementós de entrada se transfórmen en resultadós”. Un proceso es un conjunto de tareas lógicamente relacionadas que existen para conseguir un resultado bien definido dentro de un negocio; por lo tanto, toman una entrada y le agregan valor para producir una salida. 
+ En el caso de este producto, deberá tenerse en cuenta que la definición del proceso se hará posible mediante la especificación del modelo definido en el Diccionario de Datos (Desencadenantes, Transformaciones, Imputaciones, etc.), además de elementos propios del PN. Dichos elementos se describirán a continuación. 
+ La gran ventaja de este enfoque es que la mayor parte del comportamiento se define por comprensión en el modelo de datos, siendo de esta forma mucho más simple la evolución de los procesos, ya que se mantiene la consistencia y se minimizan los errores a lo largo de toda la aplicación. Por ende, se produce una dramática reducción de costos y del tiempo requerido para efectuar cada cambio. 
+ 

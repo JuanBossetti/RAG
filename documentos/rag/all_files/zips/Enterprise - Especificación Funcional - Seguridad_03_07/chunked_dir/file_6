@@ -1,0 +1,239 @@
+2.3.3 Objetos compartidos 
+ Al establecer un vínculo de seguridad entre dos dominios, el mismo podrá aplicar tanto a todos los objetos como a un subconjunto de los mismos (por ejemplo, aquellos usuarios pertenecientes a un grupo determinado). 
+ Se informará al dominio accesible los cambios en los objetos locales que forman parte de un vínculo de seguridad y que afecten al vínculo, ya sea de forma directa o indirecta. 
+ En cualquier escenario en el cual se presente en un vínculo de seguridad, los objetos de acceso cumplirán las siguientes restricciones: 
+ • 
+ Usuarios: se copiarán al principio, y estarán disponibles para asignarles permisos dentro del dominio accesible. Cuando se comparte el usuario, también se comparte el grupo personal. 
+ o 
+ Datos que se copian: foto, nombre de usuario (dominio/nombre de usuario), nombre, apellido. Estos datos no se pueden modificar en el dominio destino. 
+ o 
+ Al compartir un usuario, el tipo de usuario inicialmente es ‘aplicación’, pero se puede modificar a ‘editor’. 
+ o 
+ Al compartir un usuario, el dominio externo se completa con el dominio de autenticación y no se puede modificar. 
+ o 
+ Datos que NO se copian: OU padre, contraseña, idioma de UI, idioma de datos, dominio local (pasa a ser el dominio actual), correo electrónico, teléfono, dirección, ciudad, provincia, país, descripción, y documentación. Todos estos datos quedarán vacíos en el dominio externo, heredando las configuraciones 
+ de la OU raíz del dominio externo (o de la OU padre del usuario, si también se selecciona como objeto de acceso). 
+ o 
+ Políticas: 
+ ▪ 
+ Relacionadas a la autenticación: no se copian, no se pueden modificar en el dominio destino: 
+ • 
+ Métodos de autenticación 
+ • 
+ Forzar cambio de contraseña 
+ • 
+ Requiere completar datos personales en primer acceso 
+ • 
+ Habilitar cambio de contraseña 
+ • 
+ Rango horario permitido 
+ • 
+ Direcciones IP permitidas 
+ ▪ 
+ Relacionadas con la cuenta del usuario: no se copian, no se pueden modificar en el dominio destino: 
+ • 
+ Tiempo de expiración de la cuenta 
+ • 
+ Rango de fecha de validez de la cuenta 
+ • 
+ Cantidad de reintentos 
+ • 
+ Tiempo de bloqueo de cuenta 
+ • 
+ Cuenta bloqueada 
+ ▪ 
+ Relacionadas con la jerarquía en el organigrama: las opciones en las siguientes políticas son todos, pares y subordinados, subordinados o ninguno. No se copian, se heredan de la OU donde se agrega y se pueden modificar en el dominio destino. En el dominio destino deberán agregar el usuario en un organigrama para que tenga validez las opciones de pares y subordinados. 
+ • 
+ Delegación de actividades (inicialmente no definido en la ou) 
+ • 
+ Consulta de actividades delegadas (inicialmente no definido en la ou) 
+ • 
+ Delegación de hallazgos (inicialmente no definido en la ou) 
+ • 
+ Visualizar instancias en edición (inicialmente todos en la ou) 
+ • 
+ Permitir toma de sesión (inicialmente todos en la ou) 
+ • 
+ Permitir invitación a sesión (inicialmente todos en la ou) 
+ • 
+ Permitir monitoreo (inicialmente ninguno en la ou) 
+ • 
+ Permitir conferencia (inicialmente todos en la ou) 
+ ▪ 
+ Otros: 
+ • 
+ Cuenta inhabilitada: se copia, no se puede modificar. 
+ • 
+ Grupos de ejecución permitidos (colección de referencias a grupo). No se copia, se puede modificar. 
+ • 
+ Formato de página: no se copian, se pueden modificar. 
+ • 
+ Tiempo de expiración del token para servicio web: no se copia, no se comparten usuarios web service. 
+ o 
+ Opciones disponibles en dominios de acceso: 
+ ▪ 
+ Asignación de permisos. 
+ ▪ 
+ Agregado a otros grupos de usuarios (locales, no externos) 
+ ▪ 
+ Agregado a OU padre (local) 
+ ▪ 
+ Agregado del usuario a los organigramas 
+ ▪ 
+ Delegación de actividades y hallazgos 
+ ▪ 
+ Cambio de algunas políticas 
+ • 
+ Grupos: se copiarán al principio tanto el grupo como los usuarios y grupos contenidos en él. Sólo se podrá asignar permisos al grupo compartido y no a los objetos (usuarios y grupos) que se encuentren dentro. Los usuarios contenidos en el grupo compartido o 
+ en algunos de los grupos que se encuentren dentro, heredarán estos permisos asignados al grupo compartido. No se podrán compartir roles. 
+ o 
+ Datos que se copian: nombre. Estos datos no se pueden modificar en el dominio destino. 
+ o 
+ Al compartir un grupo, el dominio externo se completa con el dominio de autenticación y no se puede modificar. 
+ o 
+ Datos que NO se copian: OU padre, dominio local (pasa a ser el dominio actual), rol para dominios hijos, descripción, documentación. Todos estos datos quedarán vacíos en el dominio externo, heredando las configuraciones de la OU raíz del dominio externo. 
+ o 
+ Opciones disponibles en dominios de acceso: 
+ ▪ 
+ Asignación de permisos sólo al grupo compartido. 
+ ▪ 
+ Agregado a otros grupos de usuarios padres (locales, no externos) 
+ ▪ 
+ Agregado a OU padre (local) 
+ ▪ 
+ No se puede agregar usuarios (externos o locales) al grupo compartido 
+ o 
+ Si se comparten un usuario y un grupo a otro dominio, se mantendrá la relación entre estos en el dominio destino. 
+ o 
+ No se podrá seleccionar un grupo externo dentro del modelo, por ejemplo en los permisos de ejecución de una RN, una TP o una TI. 
+ • 
+ OU: se copiarán al principio tanto la OU como los objetos contenidos, que pueden ser usuarios, grupos, dispositivos u otras OU. Para cada caso: 
+ o 
+ Datos que se copian: nombre, descripción, documentación. 
+ o 
+ Al compartir una OU, el dominio externo se completa con el dominio de autenticación y no se puede modificar. 
+ o 
+ Datos que NO se copian: OU padre, versión y build del modelo, incluir nuevo dominio, dominio local (pasa a ser el dominio actual), dispositivos predeterminados. 
+ o 
+ Políticas: 
+ ▪ 
+ Relacionadas a la autenticación: no se copian, no se pueden modificar en el dominio destino: 
+ • 
+ Métodos de autenticación 
+ • 
+ Métodos de recuperación de contraseña 
+ • 
+ Forzar cambio de contraseña 
+ • 
+ Habilitar cambio de contraseña 
+ • 
+ Requiere completar datos personales en primer acceso 
+ • 
+ Tiempo de expiración de contraseña 
+ • 
+ Tiempo de validez del enlace para restablecer contraseña 
+ • 
+ Tiempo de validez de enlace para introducir contraseña 
+ • 
+ Rango horario permitido 
+ • 
+ Direcciones IP permitidas 
+ • 
+ Validación adicional ante autenticación para un nuevo dispositivo 
+ ▪ 
+ Relacionadas con la cuenta del usuario: no se copian, no se pueden modificar en el dominio destino: 
+ • 
+ Tiempo de expiración de la cuenta 
+ • 
+ Tiempo sin acceso antes de deshabilitar la cuenta 
+ • 
+ Rango de fecha de validez de la cuenta 
+ • 
+ Cuenta inhabilitada 
+ ▪ 
+ Relacionadas con la jerarquía en el organigrama: las opciones en las siguientes políticas son todos, pares y subordinados, subordinados o ninguno. Se copian y se pueden modificar. 
+ • 
+ Delegación de actividades 
+ • 
+ Consulta de actividades delegadas 
+ • 
+ Delegación de hallazgos 
+ • 
+ Visualizar instancias en edición 
+ • 
+ Permitir toma de sesión 
+ • 
+ Permitir invitación a sesión 
+ • 
+ Permitir monitoreo 
+ • 
+ Permitir conferencia 
+ ▪ 
+ Otros: 
+ • 
+ Notificación ante autenticación de un nuevo dispositivo (email, telegram). No se copia?, se puede modificar. 
+ • 
+ Tiempo de inactividad para cierre automático de sesión. No se copia, se puede modificar. 
+ • 
+ Tiempo de expiración del token para servicio web: no se copia, no se comparten usuarios web service. 
+ o 
+ Dudas: 
+ ▪ 
+ Estereotipo: OU u OU de sitios, se pueden compartir ou de sitios? 
+ o 
+ Opciones disponibles en dominios de acceso: 
+ ▪ 
+ Agregado a OU padre (externa o local) 
+ ▪ 
+ Agregado de otros objetos (externos o locales) a la OU compartida 
+ ▪ 
+ Cambio de algunas políticas 
+ • 
+ Dispositivos: se copiarán al principio y estarán disponibles para asignarles permisos dentro del dominio accesible. 
+ o 
+ Datos que se copian: nombre, descripción, documentación, 
+ o 
+ Datos que NO se copian: OU padre, dominio local (pasa a ser el dominio actual), dominio externo (dominio origen), sitio local, sitio, dirección ip, puerto de comunicación. 
+ o 
+ Dudas: 
+ ▪ 
+ Tipo de dispositivo: es una referencia a una entidad paramétrica (Impresora de documentos, Terminal punto de venta, Impresora fiscal, test. esa entidad dice si requiere controlador), el tipo de conexión (puerto serie, ethernet). 
+ ▪ 
+ Colección de agentes: referencia a agente y a periférico. Qué pasa con el agente? Debe tenerlo instalado? Qué pasa sino? 
+ ▪ 
+ Colección de controladores para modelo: referencia a modelo y a controlador. 
+ o 
+ Opciones disponibles en dominios de acceso: 
+ ▪ 
+ Agregado a OU padre (local) 
+ ▪ 
+ Consumo de dispositivo desde RN y funciones 
+ No se podrán compartir agentes, controladores, protocolos, puestos de trabajo, sitios ni OU de sitios. 
+ Ejemplo: 
+ Dominio accesible: Dominio A. 
+ Dominio de autenticación: Dominio B. 
+ Objetos de acceso que comparte Dominio B: 
+ • 
+ Usuarios: Jimena, Emmanuel. 
+ • 
+ Grupos: Funcional (contiene a los usuarios Diego, Leandro y Jimena) y Desarrollo (contiene a usuario Emmanuel). 
+ • 
+ Dispositivos: Impresora4. 
+ • 
+ OU Rosario que contiene: 
+ o 
+ Usuario Luis. 
+ o 
+ OU Administración: contiene el usuario Zulema, el grupo Jefas de administración (que contiene los usuarios Zulema y Cintia) y el dispositivo Impresora20. 
+ o 
+ Grupo Enterprise: contiene grupo Funcional (contiene a los usuarios Diego, Leandro y Jimena) y al grupo Arquitectos (contiene los usuarios Luis, Leandro y Diego) 
+ En este color: objetos a los que Dominio A le puede asignar permisos directamente. 
+ En este color: dispositivos a los que se puede dar seguridad. 
+ En este color: objetos que se copian en Dominio A pero no se les puede asignar permisos directamente. 
+ En este color: OUs que se copian. No se asignan permisos a una OU. 
+ En forma gráfica, el ejemplo sería: 
+ OU Administracion Grupo Jefas de Administración Impresora 20 Grupo Enterprise Grupo Funcional Grupo Arquitectos Diego Jimena OU Rosario Luis Zulema Cintia LuisLeandro Diego Grupo Desarrollo Emmanuel Impresora 4 
+ Objetos a los que Coca-Cola le puede asignar permisos directamente 
+ Dispositivos a los que se puede dar seguridad 
+ En negrita los objetos que se establecieron a la hora de crear el vínculo de seguridad 
+ 

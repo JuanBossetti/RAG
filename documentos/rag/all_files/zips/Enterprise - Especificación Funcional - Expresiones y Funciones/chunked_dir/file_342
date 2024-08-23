@@ -1,0 +1,6 @@
+Generar reporte(Referencia a Reporte por bandas) 
+ Función utilizada para generar un reporte por bandas a partir de la instancia desde la cuál se invoca la función. 
+ Parámetros que recibe: 
+ • 
+ Reporte por bandas: indica el reporte por bandas que se va a generar como resultado de la función. 
+ 

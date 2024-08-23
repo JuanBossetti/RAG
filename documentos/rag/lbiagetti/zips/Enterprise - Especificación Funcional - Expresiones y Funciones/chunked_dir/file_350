@@ -1,0 +1,3 @@
+Cambios a comunicar para vínculos de seguridad() 
+ Determina si se modificaron datos en objetos de vínculos de seguridad que deben ser comunicados a los dominios que confían. 
+ 

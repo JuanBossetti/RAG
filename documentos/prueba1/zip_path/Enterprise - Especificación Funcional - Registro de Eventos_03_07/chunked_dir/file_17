@@ -1,0 +1,56 @@
+4.4.9 Sincronización de información con Marketplace 
+ La sincronización de registros se encarga de enviar el resumen de los datos sobre los consumos diarios de los dominios hacia Marketplace, con el fin de centralizar allí los datos de los consumos de todos los dominios y los procesos de IFDE y Web services que se ejecutan en todos los dominios. 
+ La sincronización se realiza únicamente en consumos de modelo Editores y ambiente de Produccion. Para realizarla se consultan los acumuladores modelados. Independientemente del fin de cada uno de los acumuladores, la información que se envia a nivel general es: 
+ • 
+ Evento origen. 
+ • 
+ Tipo de operación. 
+ • 
+ Categoría 
+ • 
+ Fecha. 
+ • 
+ Dominio. 
+ • 
+ Modelo. 
+ • 
+ Ambiente. 
+ • 
+ Actividad ejecutada. 
+ • 
+ Actividad por servicio web ejecutada. 
+ • 
+ • 
+ Tipo de usuario que realizó el consumo. 
+ • 
+ Tarea de integración que se ejecutaron. 
+ • 
+ Grupo de Servicios web que se consumió. 
+ • 
+ Total de Megabytes enviados al servicio web que se consumió. 
+ • 
+ Total de Megabytes recibidos del servicio web que se consumió. 
+ • 
+ Cantidad de veces que se ejecutó el servicio web. 
+ • 
+ Cantidad de instancias principales de tipo clasificación de usuario. 
+ • 
+ Cantidad de instancias secundarias de tipo clasificación de usuario. 
+ • 
+ Total de Megabytes leídos de instancias principales y secundarias de tipo clasificación de usuario. 
+ • 
+ Total de Megabytes escritos de instancias principales y secundarias de tipo clasificación de usuario. 
+ especificación funcional de 
+ AAS 
+ Para más información de la estructura de almacenamiento de los datos dirigirse a la en la sección Registros se encuentran las subsecciones Consumo por dominio, Tarea de integración por dominio y Servicio Web por dominio. 
+ Ejemplo de sincronización 
+ Un usuario final en un día realizo las siguientes acciones dentro del sistema: 3 facturas y abrió 2 GDIS para consultar información. Por el consumo realizado por el usuario al sincronizar se envía a Marketplace: 
+ • 
+ 1 instancia por confirmar la instancia de las 3 facturas realizadas con el total de Megabytes escritos de clasificación de usuario y la cantidad de instancias procesadas de clasificación de usuario. 
+ • 
+ 1 instancia por cerrar la actividad donde se instanciaron las 3 facturas. 
+ • 
+ 1 instancia por los 3 servicios web consumidos con los totales acumulados de Megabytes enviados y Megabytes recibidos. 
+ • 
+ 1 instancia por cerrar los 2 GDIs que se consultaron con el total acumulado de Megabytes leídos de clasificación de usuario. 
+ 

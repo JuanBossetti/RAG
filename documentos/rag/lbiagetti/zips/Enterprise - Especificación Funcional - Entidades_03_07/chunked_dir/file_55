@@ -1,0 +1,6 @@
+Caso 2: Crear una sola instancia de la entidad destino con una colección con tantos ítems como tenga la colección de entrada 
+ Se tiene una “Factura” y se desea generar el asiento contable correspondiente en la entidad “Asiento Contable”. El mismo estará compuesto, entre otros, por un conjunto de movimientos, cada uno de los cuales estará asociado a la cuenta contable de cada uno de los productos que se encuentran en la Factura. 
+ El modelo contiene a la entidad Factura y a la entidad Asiento Contable. Esta última contiene una colección de Movimientos, y cada movimiento tiene una referencia a la colección “Ítems de Factura” de la entidad Factura. 
+ Para el caso presentado, se hace necesario generar un elemento de la colección de Movimientos por cada uno de los productos facturados. 
+ Generalizando, este caso presenta una situación similar al (<>)Caso 1, con la particularidad que el atributo de la entidad destino al cual se asigna el valor se encuentra dentro de una colección, por lo que por cada instancia de la entidad origen se creará una única instancia de la entidad destino y múltiples elementos de la colección mencionada. 
+ 

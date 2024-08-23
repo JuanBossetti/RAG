@@ -1,0 +1,9 @@
+A imputar() 
+ Esta función retorna sólo aquellos valores que entraron en tolerancia o en saldo de conversión de los elegidos para imputar. 
+ Se distinguen los siguientes casos: 
+ 1- En el caso de que se pida el valor de un atributo (que no es el imputable) de la cabecera o de una colección que no es la que contiene el atributo imputable, retorna el valor correspondiente del atributo solicitado de la instancia que entro en tolerancia o en saldo de conversión. 
+ 2- En el caso de que se pida el valor de un atributo que no es el imputable, pero pertenece a la colección del atributo imputable o una de un nivel inferior, retorna el valor del atributo solicitado pero solo de los ítems que entraron en tolerancia o saldo de conversión según corresponda. 
+ 3- En el caso de que se pida el valor del atributo imputable se deberá retornar el valor que entro en tolerancia o saldo de conversión según corresponda. Si el atributo imputable estaba en una colección se deberá retornar una colección con el valor que entro en tolerancia o saldo de conversión según corresponda. 
+ Solamente se usa en la grilla de definición de reglas de cancelación en imputaciones. 
+ Ejemplo: En una factura con colección de productos, donde el atributo imputable es Item.Cantidad pero entro en tolerancia sólo 2 productos de toda la colección o saldo de conversion, se puede utilizar la expresión Aimputar(Items.producto) para utilizar sólo los ítems de productos que entraron en tolerancia o saldo de conversión. 
+ 

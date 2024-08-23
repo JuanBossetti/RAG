@@ -1,0 +1,4 @@
+Traducciones pendientes (texto internacionalizable) 
+ Al recibir un atributo de tipo internacionalizable, indica si el mismo tiene pendiente de aprobar alguna traducción. 
+ Esto permite a un traductor ingresar a un GDI para poder visualizar si existen traducciones pendientes para ajustarlas. Por el momento la definición es que se puedan volcar a un GDI las entidades a revisar y en base a esto se muestren los pendiente, no está en el alcance del requerimiento actual tener un lugar centralizado que indique todas las traducciones pendientes del sistema 
+ 

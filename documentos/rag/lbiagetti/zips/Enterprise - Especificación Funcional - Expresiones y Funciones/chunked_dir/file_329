@@ -1,0 +1,3 @@
+Noesnulo(Atributo) 
+ Devuelve falso si el valor del atributo es nulo, y verdadero si el atributo tiene algún valor. 
+ 

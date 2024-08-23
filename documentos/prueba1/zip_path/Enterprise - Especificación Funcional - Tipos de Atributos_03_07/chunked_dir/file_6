@@ -1,0 +1,6 @@
+3.1.4 Tipo de atributo Referencia a Elemento de colección 
+ Esta categoría de tipo de atributo permitirá establecer una referencia a un elemento de una colección de una instancia de una entidad. Por ejemplo, una referencia a una de las direcciones de un cliente, ingresados en la colección “Direcciones” definida en la entidad “Cliente”. 
+ Los tipos Referencia a Elemento de Colección se definen implícitamente al crear una colección en una entidad. 
+ Esta categoría de referencias apuntarán a un elemento de colección de una instancia y una versión particular de la instancia. 
+ Las referencias son bidireccionales, es decir que desde el elemento referenciado se deberá poder acceder a la instancia de una Entidad, o elemento de una Colección que lo referencie. 
+ 

@@ -1,0 +1,15 @@
+Referencia a Elemento de una Colección 
+ La siguiente imagen presenta el caso en que el atributo seleccionado pertenezca a un tipo de atributo de categoría Referencia a Elemento de una Colección: 
+ En este ejemplo: 
+ • 
+ Previamente, en la entidad Cliente se creó un atributo de categoría Colección llamado “Direcciones”. Automáticamente, se creó el tipo Referencia a Elementos de una Colección con el nombre “Referencia a Direcciones de Cliente”. 
+ • 
+ En la entidad Factura se creó un atributo referencia llamado “Cliente de la Factura”. Este atributo hace referencia a la entidad Cliente. 
+ • 
+ En la pantalla anterior, en la entidad Factura se crea un atributo referencia a elemento de colección llamado “Dirección de entrega”. Este atributo hace referencia a la colección Direcciones de la entidad Cliente. La “referencia asociada” de este atributo es “Cliente de la Factura”. 
+ • 
+ Al persistir una instancia de una Factura, en el atributo “Dirección de entrega” se almacenará una referencia a un ítem de direcciones de una instancia de la entidad Cliente, junto con la versión de la instancia de Cliente que existía en el momento que se creó la Factura. 
+ • 
+ Desde cada dirección de un cliente, se puede acceder a las instancias de Factura que referencien dicha dirección. 
+ Para crear un atributo de tipo referencia a elemento de colección, deberá existir un atributo de tipo referencia simple a una Entidad para luego definir un atributo de tipo referencia a elemento de colección de dicha Entidad. 
+ 

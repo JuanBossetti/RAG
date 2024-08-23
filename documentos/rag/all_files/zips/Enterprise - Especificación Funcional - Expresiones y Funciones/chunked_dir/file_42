@@ -1,0 +1,13 @@
+2.12 Seguridad 
+ Existen 2 momentos en cualquier expresión, un primer momento donde se define la misma y otro donde se ejecuta obteniendo un resultado. Ese primer momento lo llamamos definición de una expresión y aplica tanto a la definición inicial como a la modificación de una expresión. La seguridad que se evalúa en este momento es la siguiente: 
+ • 
+ Por cada atributo, se evalúa si tiene permiso de consultar atributos en la entidad [seguridad de modelado] O si tiene permiso de consulta en el atributo en algún ambiente [seguridad de atributo]. En el caso de los pathfields, se valida la seguridad en cada atributo del camino. 
+ • 
+ Por cada entidad, se evalúa si el usuario tiene permiso de consultar [seguridad de entidad]. 
+ • 
+ Por cada función, se evalúa si el usuario tiene permiso de consulta en algún ambiente. 
+ • 
+ Por cada acumulador, se evalúa si el usuario tiene permiso de consulta de acumulador en cualquier dimensión [seguridad de instancias en el acumulador] o permiso de consulta de acumuladores en seguridad de la entidad [seguridad de entidad]. 
+ Si el usuario NO tiene permiso en algún elemento dentro de la expresión, NO puede ver la expresión ni editarla. 
+ Por otro lado, los permisos que se validan en la ejecución de las expresiones varían dependiendo de dónde se encuentren. 
+ 

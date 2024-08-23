@@ -1,0 +1,3 @@
+Doble factorial(Número) 
+ Devuelve el doble factorial de un número. EL producto de todos los enteros desde el 1 hasta un entero no-negativo n que tiene la misma paridad (pares o impares) que n. 
+ 

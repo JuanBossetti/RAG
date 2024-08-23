@@ -1,0 +1,3 @@
+Año de la semana (Fecha) 
+ Dada una Fecha o Fecha hora devuelva el Año al cual pertenece su Semana. El resultado no siempre será igual al Año de la Fecha o Fecha hora que se pasa como parámetro. 
+ 

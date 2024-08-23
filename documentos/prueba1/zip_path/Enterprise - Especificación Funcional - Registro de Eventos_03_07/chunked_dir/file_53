@@ -1,0 +1,27 @@
+5.10 Cola de confirmación diferida 
+ Formularios
+ La cola de confirmación diferida incluye el detalle de todas las confirmaciones diferidas (es decir, que se ingresaron con una fecha y hora futura respecto al momento del registro, para que se confirmen en dicha fecha y hora) que se configuraron tanto en las aplicaciones como en los editores. Para más detalle, ver la sección Confirmación del formulario durante el alta de una instancia en . 
+ El registro en esta cola, debe realizarse dentro de la misma transacción en la que se genera la tarea programada mediante la cual se realiza la ejecución de la tarea que se confirmó de manera diferida. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Fecha y hora confirmación: Indica en qué fecha y hora se confirma la instancia. 
+ Por ejemplo, si un usuario indica que emitir una factura de manera diferida, se genera una entrada en la cola completando todos los campos comunes que correspondan y los específicos de esta cola, como la siguiente: 
+ ✓ 
+ Nivel de detalle: Informativo 
+ ✓ 
+ Tipo de origen: Actividad 
+ ✓ 
+ Entidad: Factura 
+ ✓ 
+ Fecha y hora de solicitud de la confirmación diferida: 27/01/2014 15:00:55 
+ ✓ 
+ Fecha confirmación: 31/01/2014 23:59:59 
+ ✓ 
+ Usuario que solicitó la confirmación: Antonio Vidal 
+ ✓ 
+ Detalle: se emitirá una factura a nombre de Perla Reyes en concepto del servicio de internet banda ancha del mes de enero. 
+ ✓ 
+ Conversación: 
+ 

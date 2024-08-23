@@ -1,0 +1,4 @@
+Ejemplos: 
+ Texto a fecha ("29/12/2020","dd/MM/yyyy") retorna {29/12/2020} 
+ Texto a fecha ("13/09/23","dd/MM/yy") retorna {13/09/2023} 
+ 

@@ -1,0 +1,11 @@
+4.14 Registro de búsquedas globales 
+ Este log incluye todas búsquedas realizadas desde el campo de búsqueda global, ubicado en la parte superior del acordeón. 
+ atributos predefinidos
+ Además de los , el log está compuesto por los siguientes campos: 
+ • 
+ Texto de búsqueda: Almacena el texto ingresado por el usuario en el campo de búsqueda. 
+ • 
+ Resultados: Almacena la cantidad de resultados devueltos por el proceso de búsqueda. 
+ • 
+ Duración: Almacena el tiempo total que llevó la búsqueda con el motor elasticsearch. El tiempo se contabiliza desde el inicio del proceso hasta que arroja resultados a nivel motor de búsqueda; no hasta que el usuario visualiza los mismos en pantalla. 
+ 

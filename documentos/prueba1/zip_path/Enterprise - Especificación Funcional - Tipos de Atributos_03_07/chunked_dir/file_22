@@ -1,0 +1,35 @@
+4.1.4 Categoría de tipo de atributo Referencia a instancia 
+ Al seleccionar la categoría de tipo de atributo como Referencia, los campos son diferentes a las que se habilitaban al elegir categoría simple(<>) (Pantalla 4). 
+ En la solapa “General” se incluye campos los cuales tienen las mismas funcionalidades que las que se describió para categoría simple. 
+ • 
+ Nombre 
+ • 
+ Descripción 
+ • 
+ Categoría 
+ • 
+ Tipo padre 
+ • 
+ Formato 
+ • 
+ Filtro de modelo: es una expresión para filtrar instancias a mostrar. Es una propiedad editable. Este filtro se heredará desde el tipo padre, y luego en los atributos asociados al tipo y en los combos para seleccionar la referencia a la instancia. 
+ • 
+ Valor inicial 
+ • 
+ Validaciones 
+ • 
+ Evalúa seguridad de entidad referenciada: En caso de estar activa, indica que se evalúa el permiso de consulta sobre las instancias de la entidad a la que hace referencia, además de los permisos definidos sobre la entidad donde se utilice este tipo de atributo, es decir, al evaluar la seguridad para consultar las instancias, cuando se utilice este tipo de atributo en una entidad, además de la seguridad de instancias definida sobre dicha entidad se evalúa si el usuario tiene permisos de consultar el valor de la referencia visualizada para determinar finalmente si el usuario puede visualizar la instancia. 
+ Por defecto, esta propiedad se encuentra inactiva y el valor configurado en los tipos de atributos se hereda al atributo de la entidad permitiendo redefinirse en esta última. 
+ Los permisos a evaluar sobre la entidad referenciada dependerán de la clasificación de seguridad que posea la entidad, presentándose los siguientes casos: 
+ ✓ 
+ Referencia a entidad con Seguridad de elemento: en este caso los permisos que se evaluarán al consultar las instancias donde se utilice la referencia será la consulta del elemento. Por ejemplo, se configura esta propiedad en el tipo de atributo Sitio referencia a la entidad Sitio como verdadero, entonces al consultar las instancias donde se utilice este atributo, solo podrán visualizarse las correspondientes a los sitios que el usuario pueda consultar (seguridad sobre el sitio). 
+ ✓ 
+ Referencia a entidad con Seguridad de instancias: en este caso los permisos que se evaluarán al consultar las instancias donde se utilice la referencia será la consulta de instancias de la entidad referenciada. Por ejemplo: se configura esta propiedad en el tipo de atributo Cliente referencia a la entidad Cliente como verdadero, entonces al consultar las instancias donde se utilice este atributo, solo podrán visualizarse las correspondientes a los clientes que el usuario tenga permisos de consultar (seguridad de instancias o seguridad de instancias condicional según se configure). 
+ A continuación se muestra una imagen de la solapa que se acaba de describir: 
+ Pantalla 6 
+ Podemos ver, además, que se presentan las solapas Historial de versiones, Seguridad y Documentación. Las tres últimas, conservan las mismas funcionalidades que para la categoría simple. 
+ Los tipos Referencia que se definen implícitamente podrán ser visualizados mediante el Editor de Tipos pero no se podrá cambiar su definición, por lo tanto se visualizará en sólo lectura. 
+ Como la referencia es una identificación interna que apunta a una instancia dentro de la entidad, su visualización dentro de un atributo de dicho tipo no será representativa del valor de la instancia referenciada, es por ello que cuando se utiliza un atributo de Tipo Referencia el usuario en realidad visualizará el primer Atributo Descriptivo de la Entidad referenciada. Por ejemplo, si en la entidad Facturas se crea un Atributo de Tipo Referencia a Clientes, y en la entidad Clientes el primer Atributo Descriptivo es el “Nombre del Cliente”, el usuario de la aplicación modelada visualizará el “Nombre de Cliente” dentro del atributo de Tipo Referencia a Clientes en la entidad Facturas 
+ El Atributo Descriptivo que se utilizará en un Tipo de atributo Referencia será automáticamente seleccionado por el sistema, eligiendo siempre el primer atributo de la entidad que tenga como tipo de atributo uno que herede de un Tipo de Atributo provisto por NeuralSoft con la propiedad de “Tipo de Atributo Descriptivo” activada. Dicha propiedad podrá ser modificada por el usuario modelador, como se puede observar en el siguiente prototipo. 
+ En el caso de que en una Entidad Referenciada no se definiera ningún atributo que herede de un Tipo de Atributo con la propiedad “Tipo de Atributo Descriptivo” activada, el sistema no permitirá usarlo en la visualización de un formulario 
+ 

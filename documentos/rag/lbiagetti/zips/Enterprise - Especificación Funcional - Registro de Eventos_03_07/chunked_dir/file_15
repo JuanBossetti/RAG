@@ -1,0 +1,15 @@
+4.4.7 Tarea programada o IFDE 
+ Al ejecutarse una tarea programada o IFDE en Registro de consumo se crea una instancia de Registro la cual tiene los siguientes datos: Las referencia a la Tarea programada, Plan o Tarea de Integración que se ejecutó, los megabytes de escritura en entidades destino, en cantidad de instancias secundarias queda persistida la totalidad de instancias procesadas correctamente y el link a la instancia de Cola de integración de datos externos. 
+ En las tareas de integración cuando la acción de integración realizada es Actualización ignorada o Eliminada dentro de las instancias procesadas con éxito, no se registra como instancia de consumo. 
+ No se cobra por el peso de los archivos en caso de exportación o importación. 
+ Ejemplo al ejecutar una tarea o plan de Integración 
+ Al ejecutar de forma manual una tarea de integración que importa los clientes desde un sistema, la cual consume un servicio web del servicio del sistema externo, finalizado el proceso de importación, en la entidad de Registro consumo queda persistido: 
+ • 
+ Un registro por la operación del servicio web consumido, similar al comportamiento de servicios web. 
+ • 
+ Un registro con la referencia a la tarea o plan de integración ejecutada, y en cantidad de instancias procesadas queda persistido las instancias procesadas correctamente. El link es a la instancia creada en la Cola de integración de datos externos. 
+ Ejemplo de comportamiento al ejecutar una tarea de programada 
+ Al ejecutarse la tarea programada que actualiza la fecha de las solicitudes de ventas pendientes de autorizar, se guarda: 
+ • 
+ Un registro que indique la referencia a la tarea programada ejecutada, y en cantidad de instancias quedan persistidas las instancias procesadas correctamente como secundarias. 
+ 

@@ -1,0 +1,11 @@
+3.17 Subproceso 
+ A efectós de facilitar la visualización, determinadas partes de un PN pódrán marcarse cómó “Subproceso”, encapsulándose en un único elemento y pudiendo ampliarse mediante la funcionalidad de zoom. 
+ Para agregar un subproceso, primero se deberá arrastrar el mismo desde el ribbon o agregarlo desde el menú contextual del área de trabajo, y luego se podrán seleccionar las actividades y/o subprocesos que deban formar parte del mismo, tal como se muestra a continuación: 
+ El subproceso podrá mostrarse contraído como se muestra a continuación: 
+ Un subproceso podrá contener varias actividades y/o subprocesos, pero una actividad podrá estar en un solo subproceso. En caso de arrastrar una actividad desde un subproceso hacia otro, la misma siempre se presentará ubicada por completo en un subproceso o por completo en el área de trabajo. Es decir que una misma actividad no podrá presentarse contenida parcialmente en un subproceso. Cuando pase más de la mitad del área de la actividad al otro subproceso, dicha actividad se moverá por completo al área correspondiente a este último. 
+ Un subproceso podrá pertenecer a más de un actor de un mismo PN. En este caso, al contraerse el mismo, se presentará del tamaño mínimo pero ocupando un espacio dentro de cada actor donde se encuentra. 
+ Un subproceso no podrá estar en más de un PN. Es decir, un subproceso será de uso exclusivo en el PN donde se creó. 
+ Podrán existir subprocesos anidados. 
+ Un subproceso podrá configurarse desde el panel de propiedades, como se muestra a continuación: 
+ Si se elimina un subproceso que contiene una o más actividades, sólo se eliminará dicho subproceso. Las actividades quedarán ubicadas en la misma posición que si el subproceso estaría expandido. 
+ 

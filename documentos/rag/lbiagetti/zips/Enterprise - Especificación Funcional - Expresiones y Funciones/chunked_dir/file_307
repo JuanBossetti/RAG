@@ -1,0 +1,3 @@
+Ambiente() 
+ Devuelve una referencia a la instancia de Ambiente que está siendo ejecutada. Utilizando esta referencia se puede llegar a cualquier atributo del ambiente. 
+ 

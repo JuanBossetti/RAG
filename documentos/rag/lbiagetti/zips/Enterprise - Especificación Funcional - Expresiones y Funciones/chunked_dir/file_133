@@ -1,0 +1,3 @@
+Semestre(Fecha) 
+ Devuelve el semestre del año para la fecha, en el rango de 1 a 2. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

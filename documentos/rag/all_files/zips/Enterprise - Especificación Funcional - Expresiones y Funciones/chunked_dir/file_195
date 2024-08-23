@@ -1,0 +1,3 @@
+Truncar(Número, Dígitos) 
+ Trunca un número a la cantidad de dígitos especificada. El número de dígitos especificado puede ser positivo (después de la coma o punto decimal) o negativo (antes de la coma o punto decimal). 
+ 

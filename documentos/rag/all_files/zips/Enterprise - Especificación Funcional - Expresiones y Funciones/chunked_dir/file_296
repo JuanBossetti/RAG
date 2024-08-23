@@ -1,0 +1,3 @@
+Ejemplos: 
+ EntidadPrincipal() como valor calculado en un atributo de tipo referencia a entidad, retorna la entidad en la que se está ingresando una nueva instancia. 
+ 

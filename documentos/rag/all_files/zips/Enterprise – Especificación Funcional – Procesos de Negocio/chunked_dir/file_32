@@ -1,0 +1,22 @@
+3.7.10 Editar el modelo mediante ws 
+ Es posible ejecutar operaciones en entidades de sistema mediante ws, por ejemplo, crear entidades, eliminar actividades, modificar tipos de atributos, etc. Estas actividades se diferenciarán por el nombre de la misma (no se deberá ingresar un parámetro extra). 
+ Los métodos son iguales pero en los parámetros de entrada se debe incluir lo que AI requiere según el caso, por ejemplo: 
+ • 
+ Que se acepten los chekboxs de impactos para confirmar el cambio de usuario. 
+ • 
+ Que se ingresen expresiones de conversión/compatibilidad/valor inicial instancias anteriores. 
+ • 
+ Que se corrijan expresiones. 
+ Alta de entidad: 
+ .json{ “process”: ”Editors default”, “activity”: ”New entity”, “web service”: “NewEnt”, “api version” : 1, “action” : “add”, “data”: { “name”: [ {“EN” : “Customer”} , {“ES”: “Cliente”} ], “type”: “master”, “atributtes”: [ { “name”: [ {“EN” : “surname”} , {“ES”: “apellido”} ], “type”: “name = text 500”, “unique value”: “no” 
+ } ] }, “impact”: { “create default activity”: “yes”, “create reference type”: “yes” } } 
+ 3.7.10.1 Creación de valores únicos mediante Web Service 
+ Para crear un valor único a nivel de entidad, es necesario contextualizar el json de entrada en el modelo de editores a través de la própiedad {“módel”: “editóres”}, a continuación, se detalla un ejemplo para crear un valor único en la entidad Cliente con la estructura de json de entrada. 
+ { "action": "update", "activity": "Entidad", "api version": 1, "data": { "Valores únicos": [ { "action": "addItem", "data": { "Nombre": "Alias unico", "Mensaje": "No se puede repetir Alias", "Atributos": [ { "action": "addItem", "data": { "Atributo": { "Nombre":"Alias" } } } ] } } ] }, "model": "Editores", "process": "libi", "web service": "Entidades CRUD ", "where": "obtener traducción(nombre;'es') = 'Cliente'" 
+ } 
+ 3.7.10.1.1 Atributos con misma denominación 
+ En caso de que el nombre de atributo se repita dentro de la entidad, independientemente del nivel en el que se encuentre, se deberá modificar la estructura agregando la descripción del atributo para que Web Service pueda identificar cual atributo debe ser incluido entre los valores únicos. Por ejemplo, en la entidad Cliente dentró de lós atributós de cabecera se encuentra “Nómbre” y dentró de la cólección “Contactos” se halla otro con la misma denominación, en este caso se busca convertir en valor único el nombre dentro de la colección. 
+ { "action": "update", "activity": "Entidad", "api version": 1, "data": { "Valores únicos": [ { "action": "addItem", "data": { "Nombre": "Nombre unico", "Mensaje": "No se puede repetir Nombre", "Atributos": [ { "action": "addItem", "data": { "Atributo": { "Nombre":"Nombre" "Descripcion":"Nombre y apellido del contacto" } } } ] } } ] }, "model": "Editores", "process": "libi", "web service": "Entidades CRUD ", "where": "obtener traducción(nombre;'es') = 'Cliente'" } En el caso de que no diferenciemos el atributo al que estamos apuntando se mostrara el siguiente error: 
+ { "result": "error", "errors": [ { "error": "Operación: update.Operación addItem sobre la colección:&nbsp; Valores únicos.Operación addItem sobre la colección:&nbsp; Atributos.Sobre el atri buto Atributo no se encuentra referencia en la entidad Esta instancia con el filtro : {Nombre:Email}.La actividad de lectura en una instancia única devuelve más de una instancia." } ] 
+ } 
+ 

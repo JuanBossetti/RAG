@@ -1,0 +1,33 @@
+3.3 Categorías 
+ Luego de especificar las propiedades obligatorias de la Actividad (nombre y categoría), se podrá definir la sección “Configuración de la categoría” y “Tipo de Actividad” en la sólapa “General”, la especialización de validaciones y atributos en las solapas por cada Entidad Asociada y la configuración visual y no visual en las sólapas “Formularios”, “Tarea Programada” y “Web Service” (dependiendo del tipo de actividad seleccionado). 
+ Las opciones de configuración de la Actividad en la sección “Configuración de la categoría” dependerán de la categoría seleccionada. 
+ Si luego de definir una actividad el usuario cambia la categoría, el editor presentará una advertencia indicando que algunas configuraciones se perderán. Si no existen diferencias en algunas configuraciones entre la categoría anterior y la actual, dichas configuraciones se mantendrán. Por ejemplo, si una Actividad con categoría "Única instancia", se cambia a categoría "Múltiples instancias", se mantendrán las configuraciones de la entidad. La configuración referida al tiempo esperado de realización siempre se perderá al cambiar de categoría. 
+ En las categorías en las que se listen los atributos de una entidad para seleccionar algunos de ellos, no se presentarán las referencias inversas. Sin embargo, dichas referencias inversas podrán ser utilizadas y agregadas al formulario de la actividad de la misma forma que cualquiera de los atributos de la entidad, arrastrándolos desde el panel de navegación. Por ejemplo, si seleccionamos la entidad Cliente como base de una actividad, la lista de atributos no presentará la colección de facturas de dicho cliente, pero dicha información podrá agregarse al formulario. 
+ De la misma forma, podrá definirse para estas referencias inversas nuevos valores iniciales, los cuales se sumarán a los ya definidos en el diccionario de datos. 
+ A continuación, se presenta cada categoría con sus configuraciones. 
+ 3.3.1 Única instancia 
+ Una Actividad de categoría única instancia se utilizará para crear, consultar, habilitar, inhabilitar, modificar o eliminar una instancia de una Entidad. Dicha Actividad sólo podrá tener asociada una entidad. Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: se deberá definir la entidad sobre la que accionará la actividad. Dato obligatorio. 
+ ✓ 
+ Confirmación automática: esta propiedad se podrá configurar solo en caso de que la entidad asociada sea maestra. Al activarla, en los formularios de esta actividad se realizará la confirmación automática de instancias (pudiendo el usuario activar modo borrador). Si la propiedad no está activa, la confirmación de cambios dentro de esta actividad siempre será en edición (hasta que el usuario confirme). De forma predeterminada, estará activa. 
+ ✓ 
+ Duración prevista: se podrá definir tanto un valor como una expresión o función. Este dato heredará del tiempo esperado que haya sido definido en el DD para la entidad. Dato opcional. 
+ ✓ 
+ Tipo de actividad: de manera predeterminada cuando se crea una actividad de única instancia, viene configurada como: 
+ o 
+ Interactiva por formularios: puede ejecutarse manualmente. 
+ o 
+ Automática por tarea programada.: puede ejecutarse automáticamente mediante una TP. 
+ o 
+ Automática por servicio web: puede ejecutarse automáticamente mediante un web service. 
+ Adicionalmente, para la ejecución mediante servicio web, se creará un servicio web predeterminado con la siguiente estructura: 
+ • 
+ Nombre: nombre de la actividad. 
+ • 
+ Métodos: todos permitidos (Actualizar, Consultar, Crear, Habilitar, Deshabilitar, Restaurar, Eliminar, Sincronizar) 
+ • 
+ Tipo de retorno: Toda la operación. 
+ Todos los valores predeterminados, son modificables por el usuario que cuente con los permisos necesarios. 
+ La asignación de estos valores iniciales para las actividades de única instancia, se realizará a través de AI. 
+ 

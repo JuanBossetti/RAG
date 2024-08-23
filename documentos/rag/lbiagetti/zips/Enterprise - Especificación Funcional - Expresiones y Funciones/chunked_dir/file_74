@@ -1,0 +1,3 @@
+Repetir(Texto, Número) 
+ Repite el texto un número entero determinado de veces. Equivalente a REPEAT(string, number) = REPLICATE(string, number). 
+ 

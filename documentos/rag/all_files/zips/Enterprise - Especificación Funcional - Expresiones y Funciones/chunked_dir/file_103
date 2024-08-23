@@ -1,0 +1,3 @@
+Obtener Traducción de texto enriquecido (Texto enriquecido internacionalizable, Idioma) 
+ Devuelve un texto enriquecido en un idioma específico a partir de un texto enriquecido con características de internacionalización. El valor del parámetro Idioma sólo aceptará literales de los idiomas configurados en el dominio. 
+ 

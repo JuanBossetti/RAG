@@ -1,0 +1,3 @@
+Duración a Minutos (Duración) 
+ Convierte una duración a un número entero (este número es la cantidad de minutos). Solo funciona para atributos duración que tienen minutos, horas, días y/o semanas. 
+ 

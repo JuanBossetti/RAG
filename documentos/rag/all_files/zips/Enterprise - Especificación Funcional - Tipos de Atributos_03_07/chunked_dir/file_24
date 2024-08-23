@@ -1,0 +1,97 @@
+4.1.6 Categoría de tipo de atributo Colección 
+ Al seleccionarse el tipo de categoría Colección para un tipo de atributo, se presentará la siguiente pantalla (Pantalla 9): 
+ En la solapa “General” se incluyen campos, los cuales tienen las mismas funcionalidades que las que se describió para categoría simple. 
+ • 
+ Nombre 
+ • 
+ Descripción 
+ • 
+ Categoría 
+ • 
+ Tipo padre 
+ • 
+ Condición de visibilidad y edición 
+ • 
+ Valor inicial 
+ • 
+ Validaciones 
+ Aquí podemos observar la incorporación de nuevos campos, tales como Tipo a contener, Cantidad de elementos mínimo y Cantidad de elementos máximo, como también las nuevas solapas Historial de versiones, Seguridad y Documentación. 
+ A continuación, se describe las funcionalidades de estos nuevos campos y solapas. 
+ En la solapa general, la funcionalidad de los nuevos campos es la siguiente: 
+ • 
+ Tipo a contener: permitirá detallar el tipo de atributo que se estará conteniendo dentro de la colección. Este campo contará con la funcionalidad de búsqueda como también la de búsqueda avanzada. Este campo no podrá estar vacío. 
+ • 
+ Cantidad de elementos mínimo: cantidad mínima de elementos que puede contener el tipo de atributo. De manera predeterminada, este campo presentará el valor cero (0), pudiendo ser modificado por el usuario, pero no permitiendo que el mismo quede en blanco o vacío. 
+ • 
+ Cantidad de elementos máximo: cantidad máxima de elementos que puede contener el tipo de atributo. De manera predeterminada, este campo presentará el valor 9999, pudiendo ser modificado por el usuario, pero no permitiendo que el mismo quede en blanco o vacío. El sistema deberá validar que el valor de este campo sea mayor igual que el valor definido en el campo “Cantidad de elementos mínimo”. Además, el valor máximo permitido por este campo será 999999.  
+ Es importante aclarar que, si un tipo de atributo hereda de un tipo de atributo Colección, la cantidad de elementos mínimo y máximo sólo se puede acotar. Por ejemplo, si el tipo padre tiene cantidad mínima 3 y cantidad máxima 8; el tipo hijo hereda dichas definiciones pudiendo sólo redefinir la cantidad mínima en un valor mayor a 3 y la cantidad máxima en un valor menor a 8. El mismo comportamiento ocurre cuando un atributo es de un tipo colección, la cantidad mínima y máxima sólo se puede acotar. 
+ • 
+ Tipo navegación: Esta propiedad será utilizada para determinar el modo en que se deberá realizar la navegación a través de los fragmentos de una pantalla. Los valores posibles de esta propiedad serán despliega detalle / No despliega detalle / automático. 
+ o 
+ Automático. En función de la complejidad de la colección, el sistema establecerá por defecto el valor para la colección, siendo estos del siguiente modo: 
+ ▪ 
+ Colección compleja. Se propondrá como valor por defecto la propiedad en ‘Despliega detalle’. 
+ ▪ 
+ Colección simple. Se propondrá como valor por defecto la propiedad en ‘No despliega detalle’. 
+ o 
+ Despliega detalle. Despliega el detalle del ítem seleccionado en un nuevo fragmento. 
+ o 
+ No despliega detalle. No despliega detalle del ítem seleccionado en un nuevo fragmento. 
+ Por otro lado, en la parte inferior de la ventana se mostrarán las solapas “Elementos iniciales”, “Validación”, “Ordenamiento”, y “Formato”. 
+ En la solapa “Elementos iniciales” se definirán aquellas instancias del elemento contenido en la colección que se presentarán como valor inicial del atributo definido por este tipo de atributo. Estos valores iniciales podrán ingresarse a través de una expresión, o bien, de manera explícita por parte del usuario. En el último caso, el usuario deberá seleccionar la opción “Valor inicial mediante valores explícitos” dentro de la lista desplegable denominada “Definir valor inicial como”. Para esta selección se presentará la siguiente interfaz de la solapa mencionada: 
+ Entidades
+ Como se puede ver, al seleccionar esta opción se presentará una condición y una grilla, que es igual a la grilla para valores iniciales de un atributo colección, cuya funcionalidad se describe en el documento . 
+ Por otro lado, si dentro del atributo mencionado se selecciona la opción “Valor inicial mediante una expresión”, el usuario deberá ingresar una única expresión la cual retorna un atributo del tipo contenido en la colección, o bien, una colección del mismo tipo que la que se define. En caso de que en el momento de creación de la instancia de una entidad que usa este tipo de atributo, el resultado de la expresión retorne una cantidad de instancias mayor a la permitida por el tipo de atributo (o en atributo, si es que se redefine este valor), se presentará un error indicando que la cantidad de instancias que se quiere dar de alta en la colección supera el valor máximo permitida en la misma. A continuación, se presenta la interfaz de esta opción: 
+ Aclaración: los ítems iniciales generados por el valor inicial pueden no cumplir con la cantidad mínima y máxima de elementos definidas para el tipo. Por ejemplo, la colección de Teléfonos debe tener de 2 a 5 elementos y su valor inicial genera solo 1 item. Luego cuando se cree una instancia y haya una colección de Teléfonos, los usuarios deberán ingresar otro ítem manualmente para poder confirmar (respetando que haya de 2 a 5 teléfonos). 
+ Desde la solapa “Valores Iniciales”, el usuario puede setear ciertas propiedades de los atributos de tipo colección. 
+ El usuario puede setear las siguientes desde el tipo de atributo : 
+ • 
+ Agrupaciones expandidas, 
+ • 
+ Mostrar totales, 
+ • 
+ Acciones permitidas, 
+ • 
+ Activar selección múltiple. 
+ Al crear el tipo de atributo colección, la solapa de "Valores iniciales" muestra dichas propiedades. 
+ Este es un compuesto, que contiene: 
+ • 
+ Dos atributos de tipo booleano (mostrar totales, activar selección múltiple), 
+ • 
+ Un atributo numérico de tipo Entero 2 (agrupaciones expandidas) 
+ • 
+ Un atributo compuesto (acciones permitidas) 
+ A continuación, se presenta la solapa “Validación”: 
+ En la solapa “Validación” (Pantalla 9) se definirán las validaciones que aplicarán sobre el tipo de atributo que se está editando. Cada una de estas validaciones recibirá un nombre único (es decir que dentro de la misma colección no podrán existir validaciones con el mismo nombre), contendrá una fórmula y, además, especificará el mensaje de error que se mostrará cuando el tipo de atributo creado no cumpla con dicha validación. Este mensaje de error será un texto enriquecido internacionalizable. Para esta funcionalidad se utilizará el editor de texto enriquecido. 
+ Pantalla 8 
+ En la solapa “Ordenamiento” (<>)(Pantalla 8) se definirá el criterio de ordenamiento que se utilizará para presentar las instancias de una colección. Dicha solapa utilizará el patrón de lista doble definido en el documento de estándares de interfaz de usuario. La lista de elementos seleccionados (titulada “Elementos a ordenar”), permitirá al usuario seleccionar el criterio de ordenamiento para cada elemento particular (ascendente o descendente); dicho criterio estará representado por un ícono (flecha ascendente o descendente) y podrá cambiarse su estado seleccionando el mencionado ícono. 
+ Los elementos por los que podrá ordenarse la colección serán los tipos de atributo simples pertenecientes a la misma, los tipos de atributo que compongan un tipo compuesto, y los atributos que se obtengan por referencia. En este último caso, podrán tomarse como criterio de ordenamiento todos los atributos accesibles desde la referencia, sin importar su nivel de anidamiento. 
+ Pantalla 9 
+ En la solapa “Formato” (<>)(Pantalla 9) se definirá el formato de presentación textual de la colección, útil cuando se desean mostrar de forma concatenada las instancias contenidas en la colección. En dicha solapa se definirán: 
+ o 
+ El iniciador y finalizador de grupo. Los valores predeterminados serán “[“ y “]”, respectivamente. 
+ o 
+ El separador de grupos. El valor predeterminado será “;”. 
+ o 
+ El separador de elementos dentro de una instancia. El valor predeterminado será “,”. 
+ o 
+ Los elementos a mostrar para cada instancia. 
+ • 
+ Además se mostrará un cuadro de texto con un ejemplo de aplicación del formato sobre los elementos seleccionados. 
+ No se mostrarán los separadores para el último elemento de cada grupo ni para el último grupo de la colección. 
+ Por ejemplo, si el iniciador fuera “(“, el finalizador “)”, el separador de grupos “;”, el separador de elementos “,”, y se mostraran los elementos “elemento1” y “elemento5”, el resultado sería: 
+ (elemento11,elemento51);(elemento12,elemento52);(elemento13, elemento53);…; (elemento1n,elemento5n) 
+ Tal como puede verse, no se muestra una “,” después de cada elemento5, ni un “;” al final de la colección. 
+ Al igual que para la solapa “Ordenamiento”, los elementos de la colección que podrán utilizarse en el formato serán los tipos de atributo simples, los tipos de atributo que compongan un tipo compuesto, y los atributos que se obtengan por referencia. En este último caso, se incluirán también todos los atributos accesibles desde la referencia, sin importar su nivel de anidamiento. 
+ Finalmente, se presentarán las solapas de Historial de versiones, Seguridad y Documentación las cuales tendrán el mismo comportamiento que para los tipos de atributos de la categoría simple. 
+ Es importante aclarar que cada atributo que tenga asignado un tipo de atributo de categoría colección, tendrá ciertas propiedades predefinidas, independientemente del tipo de atributo contenido de la colección: 
+ • 
+ Id de ítem: para identificar el ítem dentro de la colección. 
+ • 
+ Id de la colección padre en donde están contenidos los ítems. 
+ • 
+ Id de la instancia en donde se encuentra la colección. 
+ • 
+ Número de orden: es un número secuencial que almacena el orden en que se fueron creando los ítems. Si un ítem se elimina, queda un número inutilizado. Esta propiedad no será visible para los usuarios. Inicialmente, las grillas que tengan colecciones de ítems estarán ordenadas por esta propiedad. En el caso de que un usuario arrastre un ítem y lo mueva de lugar, cambiará el número de orden de dicho ítem y de sus sucesivos ítems. Luego el usuario podrá ordenar los ítems por otra propiedad. 
+ Estas propiedades son independientes del tipo de atributo de la colección, por ejemplo, si es una colección de simples, aparte de los 4 atributos detallados anteriormente, cada ítem va a contener un atributo de tipo simple. 
+ 

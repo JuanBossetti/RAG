@@ -1,0 +1,10 @@
+2 Descripción del Documento 
+ Se describe en este documento el alcance funcional del editor de tipos de atributo como así también se detalla la interfaz de usuario del mismo. 
+ 2.1 Definiciones y Acrónimos 
+ |    | Término                    | Definición                                                                                                                                                                                                           |
+|---:|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | UI                         | Interfaz de usuario                                                                                                                                                                                                  |
+|  1 | TdA                        | Tipos de Atributo                                                                                                                                                                                                    |
+|  2 | Semántica                  | Implica dotar a un elemento de significado, de forma tal que el sistema “comprenda” qué rol cumple dicho elemento en un contexto dado.                                                                               |
+|  3 | Tipo de dato simple        | Es un valor, variable o campo que sólo puede tener un valor en un cierto momento; en comparación, están los conceptos de array, lista u Objeto, que pueden tener almacenado en su estructura más de un valor.        |
+ 

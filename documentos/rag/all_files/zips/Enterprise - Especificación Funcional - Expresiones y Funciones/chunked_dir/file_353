@@ -1,0 +1,5 @@
+Descargar blob desde URL(URL) 
+ Descargar blob desde URL externa. La imagen queda en la entidad Binario. 
+ Ejemplos: 
+ Descargar blob desde URL('https://www.neuralsoft.com/wp-content/uploads/2023/04/IsologotipoNeuralSoft-Final-2048x537.png') retorna 
+ 

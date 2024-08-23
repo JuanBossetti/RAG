@@ -1,0 +1,5 @@
+Ejemplos: 
+ Se tiene un calendario de media jornada con horario de 4 horas diarias de lunes a viernes. 
+ A partir de una fecha dada, se calcula la fecha para 1 día (equivalente a 24hs). Entonces, se consideran 6 días hábiles (lunes a viernes, excluyendo feriados) y se obtiene la fecha calculada. 
+ Ahora bien, la misma cantidad de días, en una fecha donde hay feriados, queda de la siguiente manera: 
+ 

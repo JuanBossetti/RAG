@@ -1,0 +1,3 @@
+Minutos(Fecha) 
+ Devuelve los minutos de una fecha/hora dada, en el rango de 0 a 59. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

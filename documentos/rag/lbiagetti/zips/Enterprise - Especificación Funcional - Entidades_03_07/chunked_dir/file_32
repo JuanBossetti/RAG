@@ -1,0 +1,13 @@
+Solapa General 
+ La primera solapa se denominará “General” y en ella se definirán los siguientes campos: 
+ o 
+ Nombre: es el identificador del acumulador. El sistema validará que el mismo sea único para la entidad en edición y para el idioma en el que se está modelando; y que además no exista ningún atributo en dicha entidad con el mismo nombre. El mismo será pasible de internacionalización. En caso de que, al realizar la traducción automática, en algún idioma el nombre del acumulador se repita, el sistema deberá buscar un sinónimo de dicho nombre para el idioma en conflicto. Dato requerido. 
+ o 
+ Se hace referencia en este punto a los atributos de tipo expresión Título e Icono de la sección 1.3 Definición de atributos en entidades - Solapa General de este documento funcional. 
+ o 
+ Descripción: permitirá indicar una breve descripción del acumulador. La misma será pasible de internacionalización. 
+ o 
+ Contexto de evaluación: se debe elegir el contexto donde aplicará el acumulador definido. Este puede ser “Entidad” o “Colección”. Si se elige “Colección” se habilita el combo para elegir que colección de la entidad actual. Luego en el apartado Atributos se le permitirá seleccionar atributos de la entidad o atributos de la colección según la opción seleccionada en contexto de evaluación. Dato requerido. 
+ o 
+ Condición para acumular: expresión mediante la cual se definirá el criterio que deben cumplir las instancias o ítems para participar en el cálculo del acumulador (similar al WHERE de SQL). Por acumulador se permite una sola condición. El contexto de evaluación de cada condición será la entidad o la colección seleccionada, dependiendo el contexto de evaluación elegido en la solapa general del acumulador. Si algún atributo utilizado en la condición para acumular no tiene valor cuando se confirma la instancia/ítem, no impactará en el acumulador, es decir, no se tendrá en cuenta en el valor final del acumulador. Si la condición está vacía, se acumula siempre. 
+ 

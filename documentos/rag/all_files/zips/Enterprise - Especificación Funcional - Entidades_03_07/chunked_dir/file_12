@@ -1,0 +1,184 @@
+Solapa “General” 
+ A continuación, se observan una serie de imágenes de la interfaz del editor de atributos de una entidad, con la solapa “General” seleccionada. 
+ En la solapa “General” se ingresará las siguientes propiedades de un atributo: 
+ • 
+ Nombre: es el identificador del atributo de la entidad. El nombre del atributo deberá ser único para una misma entidad y para el idioma en el que se está modelando. En el caso de que el atributo esté dentro de un atributo compuesto, el nombre deberá ser único dentro del compuesto, pero podrá ser igual a otro atributo de la entidad o a otro atributo dentro de otro compuesto de la entidad. En general, el nombre de un atributo deberá ser único para una misma Entidad o para un mismo Compuesto, dependiendo del lugar donde se encuentre el atributo. En caso de que al realizar la traducción automática, en algún idioma el nombre del atributo se repita para la Entidad. Además, deberá ser internacionalizable. Adicionalmente se deberá validar lo siguiente: 
+ o 
+ Deberá comenzar por un carácter alfabético. 
+ o 
+ Sólo podrá contener caracteres alfabéticos (incluye los especiales como el acento, eñe, etc.), espacios, dígitos decimales y signos de subrayado. Esto implica que no 
+ pueden incluirse símbolos cómo %$#”!?’ pero si caracteres de otros alfabetos como griego, chino, japonés, árabe, etc. 
+ o 
+ El nombre tendrá un límite de 250 caracteres y la ruta completa no debe tenerlo o ser exageradamente grande. 
+ o 
+ El nombre no podrá coincidir con ninguna de las palabras clave reservadas (por ejemplo nombre de operadores o instrucciones en el mismo idioma). 
+ o 
+ Dentro del nombre de un Atributo no se permitirá que contenga una palabra reservada en el mismo idioma soportado seguida o precedida por un espacio. Es decir, que dentro del nombre este “espacio <palabra reservada>”, o “<palabra reservada> espacio”. 
+ o 
+ No se distinguirá entre mayúsculas y minúsculas. Es decir que cuando existan dos nombres cuya única diferencia sean letras mayúsculas o minúsculas, el sistema los interpreta como el mismo nombre 
+ El usuario tiene la posibilidad de ingresar, además del nombre identificador del atributo, un título que desea que adopten los distintos widgets al momento de presentar la información en todo el sistema. 
+ Para este fin, el usuario cuenta con dos atributos de tipo expresión, con la siguiente finalidad: 
+ • 
+ Título: Expresión que permite al modelador establecer el título que debería aparecer en los widgets, por ejemplo 'Importe ' + en moneda primer símbolo. El resultado de esta expresión debe ser un texto internacionalizable. 
+ • 
+ ícono: Expresión que permite establecer el ícono adicional que se desea presentar en el título. Por ejemplo 'En país primer bandera'. Debe tenerse en cuenta que los valores que cualquier usuario puede ingresar para el atributo ícono, debe ser correspondientes a entidades de Editores. 
+ Se deja a continuación el comportamiento que debe adoptar el título de un componente visual en función de las distintas combinaciones establecidas por el modelador: 
+ Es decir, el comportamiento adoptado es el siguiente: 
+ - 
+ Si solo está completo el nombre del atributo, el widget debe adoptar este nombre. 
+ - 
+ Si está completa la expresión de título, el widget debe adoptar este valor. 
+ - 
+ Si esta completa adicionalmente la expresión de ícono, el widget debe adoptar el valor de forma que se presente el título + ícono. 
+ Adicionalmente, se debe tener presente que si estos atributos son utilizados en atributos de acumuladores, se debe adoptar el mismo comportamiento. 
+ • 
+ Descripción: permitirá indicar una breve descripción del atributo. La misma deberá ser pasible de internacionalización. Se va a heredar la descripción del tipo de atributo. Solo para los atributos de tipo referencia, va a heredar la descripción de la entidad o de la colección a la que haga referencia. 
+ • 
+ Documentación: permitirá indicar una explicación más amplia del atributo. La misma deberá ser pasible de internacionalización. Se va a heredar la documentación del tipo de atributo. Solo para los atributos de tipo referencia, va a heredar la documentación de la entidad o de la colección a la que haga referencia. 
+ • 
+ Tipo de atributo: es el tipo de datos del atributo. El mismo debe ser un tipo de atributo de usuario. En el caso de que el tipo seleccionado este basado en un tipo que sea reversible se deberá indicar esta situación mediante un icono y un tooltip aclaratorio. 
+ • 
+ Formato
+ Formato: Permite definir las condiciones de formato para el atributo en edición. Por ejemplo, podría definirse que un atributo no se muestre en pantalla siempre o si no se cumple una condición dada, o bien, que se muestre de determinada manera si se cumple otra condición. Para más detalle, ver sección . 
+ • 
+ Atributo Requerido: si está activado, indica que no puede crearse una instancia de la entidad cuando el atributo no tiene un valor asignado. Esta configuración estará disponible siempre que el tipo de atributo definido no sea un atributo de tipo colección o compuesto. 
+ • 
+ Atributo de valor único: si está activado indica que el atributo no puede presentar valores iguales en diferentes instancias/ítems de la entidad/colección. En caso contrario, el valor del atributo puede duplicarse en diferentes instancias/ítems de la entidad/colección. Por ejemplo, el atributo “DNI” de la entidad Cliente debe ser único para cada instancia. Por defecto, este campo se presentará desactivado. Esta configuración no tendrá en cuenta los valores nulos. Este atributo heredará de lo definido dentro del tipo de atributo. Esta propiedad solo estará disponible para entidades maestras, no así para las entidades transaccionales ni paramétricas. 
+ Los atributos en donde se podrá activar esta propiedad serán los de tipo: 
+ o 
+ Simple: no se repite el valor dentro del contenedor (entidad o colección). Por ejemplo, si aplica a un atributo DNI de la entidad Cliente, no se repetirá el mismo DNI entre distintos clientes. 
+ o 
+ Secuencia: no se repite el valor del secuenciador dentro del contenedor. 
+ o 
+ Referencia/Referencia a ítem: no se repite la instancia/ítem referenciado dentro del contenedor (entidad o colección). Por ejemplo, si aplica a un atributo referencia a cliente, no se podrá referenciar 2 veces al mismo cliente. 
+ En todos los casos mencionados anteriormente, al momento de evaluar si el valor es único, el sistema no tendrá en cuenta valores nulos. 
+ Tipos de atributos 
+ Se deben tener en cuenta las propiedades “Ignorar tildes” e “Ignorar mayúscula minúscula”. Para más detalle ver documento de 
+ • 
+ Sólo editable al crear: al activar este checkbox, el valor del atributo sólo podrá editarse mientras que la instancia de la entidad no haya sido confirmada. 
+ • 
+ Tipos de atributos
+ Formato visual: conjunto de propiedades entre las cuales se incluye: condición de visibilidad y edición, ancho y alto predefinido de los campos, formato visual global y por condiciones; y en caso de ser el contexto colección permite agregar ítems y permite eliminar ítems. Para más detalles, ver documento . 
+ • 
+ Zona horaria requerida: los atributos fecha/hora tendrán esta propiedad para indicar si cuando se utilice un campo fecha y hora en la aplicación, la zona horaria se deberá tomar del sitio donde se encuentre logueado el usuario (de la sesión) o si el usuario deberá elegir la zona horaria manualmente. Este dato se hereda del tipo. 
+ • 
+ Valor inicial: es el valor que se asignará al atributo en el instante de creación de una instancia. El valor inicial deberá considerarse como un valor sugerido y, como tal, podrá ser modificado. El resultado de la expresión de valor inicial será recalculado luego de cada cambio siempre que la instancia esté en edición, a menos que el usuario modifique el valor. Entonces, cuando se modifique el valor de un atributo luego de confirmar la instancia, no se recalculará el valor inicial. Aunque hay una excepción: cuando cambia el valor de un atributo y otros atributos dependen de él, entonces, se volverán a recalcular los valores iniciales de estos, aunque el usuario los haya modificado. Por ejemplo: si hay un atributo referencia a cliente que se muestra con un combo en donde se elige la razón social y otros 2 atributos que muestran nombre y apellido del cliente con valor inicial cliente.nombre y cliente.apellido respectivamente, entonces nombre y apellido dependen de la razón social. Si luego de confirmar la instancia, se edita la razón social, se recalcularán los valores iniciales de nombre y apellido, aunque el usuario los haya modificado anteriormente. 
+ o 
+ Recalcular si cambia alguna instancia referenciada desde la expresión: indica si el resultado de la expresión de valor inicial debe recalcularse cuando cambia algún dato de una instancia a la que se llega por referencia utilizada dentro de la expresión (NO aplica el recalculo si cambia el resultado de un EN BUSCAR o similar). Esta propiedad estará disponible para configurarse solo si el valor inicial posee alguna expresión y si el tipo del atributo NO es colección (Simple, Secuencia, Referencia, Referencia a Colección y Enumerado). De forma predeterminada, el checkbox no estará tildado. Ejemplo: el costo de un producto se inicializa en base a otros costos y se recalcula si cambia alguno de los mismos, pero el usuario podría cambiarlo manualmente quedando fijo. Entonces el si cambia alguno de dichos costos, se recalculará el costo de los productos, a excepción de los productos en los que el usuario editó el valor del costo ingresando un dato manualmente. Esta propiedad se configura solo en las entidades y no se hereda en actividades ni formularios, aunque el valor inicial si es una expresión que se hereda pudiendo modificarse. Cuando se produce un cambio en una instancia que implica recalcular un valor, se visualizará el recalculo de las instancias correspondientes en la vista previa de los formularios (si la instancia se cambia dentro de un GDI, no se visualizará la vista previa). 
+ • 
+ Valor calculado: permite ingresar una expresión de cálculo, la cual podrá involucrar tanto funciones del sistema como valores de otros atributos. Los atributos calculados serán siempre de sólo lectura, y su valor se actualizará automáticamente mientras se estén 
+ editando los atributos de esa instancia. Al momento de finalizar la edición de una nueva instancia se debe persistir en la base de datos para que nunca más sea recalculado. Es importante aclarar que en el caso que un atributo posea valor inicial y valor calculado, tiene más peso el valor calculado. Como buena práctica, se recomienda ingresar valor inicial o valor calculado, no ambos. La diferencia es que el valor calculado no se puede modificar por los usuarios y el valor inicial si. 
+ o 
+ Recalcular si cambia alguna instancia referenciada desde la expresión: indica si el resultado de la expresión de valor calculado debe recalcularse cuando cambia algún dato de una instancia a la que se llega por referencia utilizada dentro de la expresión (NO aplica el recalculo si cambia el resultado de un EN BUSCAR o similar). Esta propiedad estará disponible para configurarse solo si el valor calculado posee alguna expresión y si el tipo del atributo es Simple, Referencia o Referencia a colección. De forma predeterminada, el checkbox no estará tildado. Ejemplo: si el valor calculado del enumerado “condición de IVA” en Factura es “cliente.condicion de IVA”, y se configura como recalculado, entonces cuando un usuario edita un cliente y cambia la condición de IVA, se recalcula la “condición de IVA” y todos los valores de las facturas de ese cliente. Esta propiedad se configura solo en las entidades y no se hereda en actividades ni formularios, aunque el valor calculado si es una expresión que se hereda pudiendo modificarse. Cuando se produce un cambio en una instancia que implica recalcular un valor, se visualizará el recalculo de las instancias correspondientes en la vista previa de los formularios (si la instancia se cambia dentro de un GDI, no se visualizará la vista previa). . 
+ Duda 1: Recalcular una instancia, implica que pasa por el ciclo de core? Se recalculan los desencadenantes, las rn, etc? Esto quiere decir que si la instancia fue transformada, imputada, etc. no se podría recalcular y esto quizá no es lo esperado. Ejemplo: si cambia la cotización del dólar, cambian los precios de los presupuestos. Si los presupuestos se transformaron a facturas, nunca se podría cambiar la cotización del dólar? O qué hacemos en estos casos? Incluso puede ser que cuando se quiera recalcular se incumpla con una validación, y también hay que ver con los permisos de que usuario se hace el recalculo?, o se hace irrestricto? 
+ Duda 2: ¿Qué pasa si se cambia esta propiedad de un build a otro? ¿si cambia de true a false, a partir de ese momento se dejan de recalcular todas las instancias, o solo las nuevas? ¿si cambia de false a true, se recalculan todas las instancias viejas, o solo las nuevas a partir de ese momento? 
+ • 
+ Referencia al valor original: cuando sea necesario mostrar un dato que se acceda por referencia, puede ser necesario mostrar la última versión del mismo o la versión que existía cuando se creó la referencia. Al activar este checkbox, siempre se mostrará la instancia/el elemento de la colección de la entidad referenciada, tal cual como estaba en el momento en que se genera la instancia de la entidad actual. Esta opción es sólo para visualización de la instancia/elemento de colección referenciada/o, tanto en formularios de única instancia como dentro de grillas de múltiples instancias, pero no afecta la consistencia. Por ejemplo, en la entidad Factura, el atributo Referencia “Domicilio de Cliente” hará referencia a uno de los domicilios del cliente al cual se le generó la instancia de factura, tal como se encontraba 
+ al momento de emitir dicho comprobante. De manera predeterminada, este checkbox aparecerá desactivado. 
+ Estándares de interfaz de usuario 
+ Para funcionamiento de la propiedad en actividades, consultar la documentación funcional de Punto 22.25 Filtro asociativo con Referencia a valor original 
+ • 
+ Permite referencia a elementos eliminados: Si esta propiedad esta activa, la referencia podrá apuntar a una instancia de la entidad referenciada que se encuentre eliminada o a un elemento de una colección que se encuentre eliminado (si la categoría es referencia a un elemento de colección). Si es una referencia a una instancia paramétrica o una colección de una paramétrica, esta referencia siempre admite eliminados. 
+ Cuando un atributo tenga configurado que admite referencia a elementos eliminados y esa instancia a la que referencia se elimine se presentará el siguiente comportamiento: 
+ ✓ 
+ En el atributo se seguirá observando el valor de la instancia referenciada aunque ésta se encuentre eliminada. 
+ ✓ 
+ Si esta instancia se transforma, desencadena, crea una instancia por reglas de cancelación de imputaciones, o se crean instancias por web service, es decir, mediante procesos del sistema y uno de los valores que se copian a la nueva instancia es este atributo y a momento de ejecutar el proceso la instancia referenciada se encuentra eliminada, igualmente deberá copiarse este valor a la otra entidad, siempre y cuando en la entidad destino el atributo también admita referencia a elementos eliminados. 
+ o 
+ Si el atributo de la entidad destino no admite referencia a elementos eliminados, deberá presentarse un error de integridad referencial en la ejecución informando al usuario que la instancia se encuentra eliminada. 
+ Nota de arquitectura: 
+ El valor inicial para este booleano (21-07-2020 es un booleano, no tiene las 3 opciones) es Falso si el modelo es el de editores. Si el modelo no es el de editores, será verdadero. 
+ • 
+ Permitir instancias inhabilitadas al crear / Permitir elementos de colección de una instancia inhabilitada al crear: si esta propiedad está activa, la referencia podrá apuntar a una instancia de la entidad referenciada que se encuentre inhabilitada (o elemento de colección de una instancia inhabilitada. Esta propiedad sólo está disponible cuando la entidad referenciada es maestra (ya que sólo las instancias de entidades maestras tienen la opción de habilitar/inhabilitar). Esta propiedad se evalúa al crear la instancia/ítem a la que pertenece este atributo. No se evalúa al momento de inhabilitar la instancia referenciada. 
+ • 
+ Referencia asociada: permite definir a qué atributo referencia está asociada un atributo de tipo “referencia a elemento de colección”. Se podrá elegir una opción de una lista desplegable, cuyas opciones incluyen “a sí misma” para indicar que es una referencia la misma entidad, las referencias definidas en la entidad hacia otras entidades, y las referencias definidas hacia otras colecciones. En este combo sólo se presentarán atributos del mismo nivel y de niveles superiores. Ejemplo: Entidad1 
+ Att0 (ref a Instancia) 
+ Att1 (colección) 
+ Att1.1 (ref a instancia) 
+ Att2 (colección) 
+ Att2.1 (ref a Instancia) 
+ Att2.2 (colección) 
+ Att2.2.1 (ref a instancia) 
+ Att2.2.2 (referencia a colección) La referencia asociada puede ser 
+ 2.2.1, 2.1 y 0 pero no 1.1. 
+ Es importante aclarar que cuando hay atributos vinculados por una referencia asociada, si cambia el valor del atributo principal, se blanquea el valor del atributo dependiente. 
+ Por ejemplo: 
+ La entidad Ciudad, está formada por los siguientes atributos: 
+ ✓ 
+ Nombre: Texto. 
+ ✓ 
+ País: Referencia a entidad País. 
+ ✓ 
+ Provincia: Referencia a entidad Provincia, además se configura una Referencia asociada a País. 
+ Supongamos que se crea una instancia de ciudad, donde se selecciona como País Argentina y Provincia Santa Fe: 
+ Pero luego se modifica el País, se debe blanquear el campo estado: 
+ Además, cuando se crean instancias mediante cualquier proceso, es decir, no solo desde un formulario, por ejemplo, mediante WS los atributos que tienen referencias asociadas deben quedar consistentes, en caso de quedar inválida la referencia, se deberá presentar un error. 
+ • 
+ Filtro de modelo: es una expresión para filtrar instancias/ítems a mostrar. Este filtro se hereda desde el tipo y luego se hereda en los combos para seleccionar la referencia a la instancia/ítem. Solo aplica cuando el tipo del atributo es referencia o referencia a ítem. Es una propiedad editable. 
+ Al igual que lo definido para las referencias asociadas, cuando un atributo tiene definido un filtro de modelo, si el atributo que tiene el filtro deja de ser válido para el resultado de la evaluación del filtro, se debe blanquear el valor del atributo. Por ejemplo: 
+ En la entidad Orden de compra en el atributo Lista de precios se agrega un filtro de modelo, para mostrar solamente las listas de precio disponibles para el proveedor seleccionado: 
+ Entonces, si una vez seleccionado el proveedor y una lista de precios, se cambia el Proveedor, se debe blanquear el valor seleccionado anteriormente en el atributo Lista de precios. 
+ En este caso, el comportamiento con respecto a la asignación de valores mediante procesos, debe ser igual al definido en referencias asociadas. 
+ • 
+ Tipos de atributos
+ Evalúa seguridad de entidad referenciada: para atributos de tipo referencia a instancia o colección, en caso de estar activa, indica que se evalúa el permiso de consulta sobre las instancias/ítems según sea el caso de la entidad a la que hace referencia, además de los permisos definidos sobre la entidad donde se utilice este tipo de atributo, esta propiedad se hereda desde el tipo de atributo y puede redefinirse. Para más detalle ver documento de . 
+ Además de lo definido anteriormente, al consultar los registros de acumuladores, transformaciones, imputaciones y autorizaciones también se evalúa la seguridad referenciada para determinar si el usuario visualiza la instancia o no. Por ejemplo, si sobre la entidad Factura existe un atributo referencia a Empresa y en la seguridad de la Empresa el usuario solo puede consultar la Empresa NeuralSoft, se presentarían los siguientes comportamientos: 
+ ✓ 
+ Dado un acumulador de la entidad Factura donde se visualiza el Total facturado por empresa (tiene como dimensión Empresa - Referencia a empresa), al arrastrarlo a un GDI, solo visualizará las instancias donde la empresa sea NeuralSoft. 
+ ✓ 
+ Dada una transformación de Factura a Remito al abrir la actividad de transformación el usuario solo visualizará las Facturas pendientes de transformar donde la empresa sea NeuralSoft. 
+ ✓ 
+ Dada una imputación sobre Movimiento de clientes (sobre Movimiento de clientes desencadena Factura) al consultar las instancias pendientes de imputar solo visualizará las instancias donde la empresa sea NeuralSoft. 
+ ✓ 
+ Dada una autorización sobre Factura si al usuario le corresponde autorizar la instancia solo la visualizará para autorizar si la empresa es NeuralSoft. 
+ • 
+ Cantidad mínima de elementos: cantidad mínima de elementos que pueden contener la colección. Por defecto, este campo presentará el valor definido para el tipo de atributo que se seleccionó. Además, como este valor es obligatorio para la categoría Colección, también deberá estar definido para los atributos de esta categoría, es decir, que no se podrá dejar este campo en blanco o vacío. 
+ • 
+ Cantidad máxima de elementos: cantidad máxima de elementos que pueden contener la colección. Por defecto, este campo presentará el valor definido para el tipo de atributo que se seleccionó. Además, como este valor es obligatorio para la categoría Colección, también deberá estar definido para los atributos de esta categoría, es decir, que no se podrá dejar este campo en blanco o vacío. 
+ • 
+ Tipo navegación: Esta propiedad será utilizada para determinar el modo en que se deberá realizar la navegación a través de los fragmentos de una pantalla. El valor por defecto de esta propiedad. Los valores posibles de esta propiedad serán despliega detalle / No despliega detalle. 
+ documento
+ Aplicará solo con atributos de tipo colección y por defecto este valor será heredado desde el tipo de atributo, pero el usuario podrá modificarlo. (ver ). 
+ • 
+ Ubicación: esta propiedad no se verá cuando el atributo sea de categoría Colección. En el caso de que no sea una colección, se presentará un combo con 3 valores posibles: 
+ o 
+ Formularios 
+ Automático: es la opción por defecto. Indica si el atributo se ubica de acuerdo al documento de 
+ o 
+ Cabecera: indica si el atributo se colocará en la cabecera. 
+ o 
+ Pie: indica si el atributo se ubicará al pie del formulario, en el último renglón 
+ • 
+ Renglón: esta propiedad será visible para todos los atributos. Se desplegará un combo con 3 opciones: 
+ o 
+ Automático: es la opción por defecto. Indica si el atributo se ubica en el mismo renglón que el anterior. 
+ o 
+ Exclusivo: indica si el atributo tendrá un renglón exclusivo en el formulario. Se genera un nuevo renglón para este componente y el próximo generaría otro renglón 
+ o 
+ Nuevo: indica si para la ubicación de este atributo se generará un nuevo renglón en el formulario. El próximo componente se ubicaría en este renglón recién generado (si su configuración es Automático) 
+ Ejemplo del funcionamiento 
+ • 
+ Además, sólo para las entidades paramétricas, y sin importar el tipo de atributo, se tendrá la propiedad “Copiar valor en otros ambientes o modelos”, esta propiedad indica si al copiar las instancias en otros modelos se incluye o no el valor del atributo, por defecto la opción se encuentra seleccionada. En caso que sí se copie el valor, también se visualiza la propiedad “Editable en otros ambientes o modelos”, este es un check box que por defecto se encontrará seleccionado, e indica si el valor del atributo puede ser modificado en otros ambientes distintos que en que fue creada la instancia. La siguiente imagen presenta este caso: 
+ • 
+ Formulario
+ Restringir foco: En el formulario a nivel atributo de la entidad, se encuentra una propiedad de tipo booleano denominada "Restringir foco" que impacta en el formulario de la actividad. Para más detalles sobre esta funcionalidad, consultar el Documento funcional de , punto 5.3.2 Restringir foco. 
+ • 
+ Representación gráfica 
+ Selección gráfica. Indica que el atributo permite ser seleccionado gráficamente desde la representación. En caso de estar activo, es necesario indicar el camino del atributo desde el cual se desea filtrar la representación. En el ingreso de datos del atributo aparece un ícono que abre una ventana emergente con la representación desde la cual se pueden seleccionar elementos. Tiene comportamiento análogo a la búsqueda avanzada. Ver más detalles en el documento 
+ • 
+ Camino del atributo. Se visualiza únicamente si se está activo el atributo Selección gráfica. Permite filtrar la o las representaciones a visualizar para seleccionar el o los elementos. Por ejemplo, cuando se desea seleccionar una ubicación se debe indicar que la representación se debe obtener del atributo depósito seleccionado en el comprobante. 
+ • 
+ Agrupaciones expandidas: En el Formulario a nivel atributo de la entidad, se encuentra una propiedad de tipo numérico entero denominada "Agrupaciones expandidas" que tiene el siguiente comportamiento aplicado a Colecciones e ítems de la colección: permite indicar la cantidad de agrupaciones que se visualizan desplegadas al abrir la grilla. Es el número de agrupaciones máximo 
+ que se visualizan expandidas en una grilla por defecto. Para grillas cubo, la funcionalidad aplica a agrupaciones por filas. Si la grilla posee un número de agrupaciones superior al definido, se muestra expandido hasta dicho número y el resto de las agrupaciones se visualizan colapsadas. Por defecto, el atributo va a tomar el valor 0. 
+ Por ejemplo, si la cantidad de Agrupaciones expandidos es 2, al abrir la grilla cubo se muestran hasta las dos primeras filas agrupadoras desplegadas. En el siguiente ejemplo, se visualiza para la grilla de Flujo de fondos, la propiedad Agrupaciones expandidas con un valor 4, con lo cual se muestra al abrir el GDI Flujo de fondos General, hasta 4 agrupaciones por filas expandidas por defecto. Las agrupaciones por columnas no se muestran expandidas, pero el usuario puede desplegarlas si lo desea. 
+ El atributo se hereda desde la entidad y se puede redefinir la propiedad tanto en la Actividad como en el Formulario. 
+ paramétrica 
+ Por defecto, los campos “Formato”, “Valor inicial”, “Atributo obligatorio”, “Sólo editable al crear”, “formato visual”, “Cantidad mínima de elementos”, y “Cantidad máxima de elementos” heredarán el valor del tipo de atributo, pudiendo el usuario cambiar estos valores. Además, se permitirá volver al valor predeterminado por el tipo de atributo a través de una opción del menú contextual. 
+ Por otro lado, al modificar propiedades como “atributo obligatorio”, “atributo de valor único”, “Permitir selección múltiple”, “validaciones”, etc. No se validarán las instancias anteriores de esa entidad. La configuración actual de la entidad aplicará para la creación de instancias nuevas y los cambios en las instancias anteriores. 
+ En el caso de que se cambie el Tipo de Atributo se deberá proceder de la misma forma que lo explicado para el cambio de un Tipo Padre en un Tipo de Atributo según lo explicado en el Documento de Tipos de Atributos, en el punto “Eliminación y modificación de tipos de atributo”.  Esto incluye el ingreso de Expresiones de conversión y de compatibilidad cuando el nuevo Tipo de Atributo no es compatible con el anterior. En cuanto a los prototipos para el ingreso de las expresiones de conversión se presentará la misma ventana que la indicada para los Tipos de Atributo, con la excepción de que en el texto donde habla de tipo de atributo Padre deberá hablar sólo del Tipo de Atributo. 
+ En el caso de que se elimine un Atributo de una Entidad, se deberá solicitar una Expresión para compatibilidad con versiones anteriores. Dicha Expresión se utilizará al igual que en el caso de un cambio de tipo de atributo, para que cuando se creen nuevas instancias en una versión posterior se genere un valor para el atributo eliminado. 
+ La visualización de las propiedades que se presentan en la solapa “General” estará basada en la categoría del tipo seleccionado. Por ejemplo, las propiedades de un atributo de categoría simple se presentarán de la misma manera tanto si el mismo es un atributo de la entidad como si pertenece a un atributo de categoría compuesto el cual está dentro de la entidad. 
+ El ingreso de todas las propiedades de cada uno de los atributos de la entidad podrá hacerse desde la grilla o bien, desde el formulario que se observa en la solapa “General”. 
+ Al modificar una propiedad predeterminada del tipo de atributo, la modificación sólo afectará al atributo de la entidad en edición, sin cambiar los valores para el tipo de dicho atributo. Por ejemplo, al cambiar el valor inicial del atributo “Fecha de Emisión” de la entidad “Factura”, el cual tiene como tipo de atributo a “Fecha”, el nuevo valor inicial sólo se aplicará para el atributo mencionado de la entidad en edición y no para todos aquellos atributos que tengan como tipo a “Fecha”. 
+ Tal como se define en el documento de Estándares de Interfaz de Usuario, a aquellos atributos creados por el usuario se les asignará automáticamente un número secuencial que permitirá identificar su orden relativo dentro de la entidad. Dicho número será el que inicialmente se muestra en la columna del extremo izquierdo de la grilla de atributos. 
+ 

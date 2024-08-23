@@ -1,0 +1,3 @@
+Es Fecha (Texto, Máscara) 
+ Comprueba si un texto se puede convertir a una fecha, considerando la máscara (se debe utilizar formato mediano). Si la conversión es posible, la función devuelve verdadero; si no, falso. Si el argumento es nulo, devuelve falso. 
+ 

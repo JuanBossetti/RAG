@@ -1,0 +1,11 @@
+Ejemplos: 
+ Si la entidad origen de la transformación es la entidad factura y la factura pendiente de transformar tiene una colección de entregas y dentro una colección de ítems de factura: 
+ Colección de Entregas: 
+ 10-may san martin 2054 Items de factura: 
+ mesa 1 silla 6 
+ 10-jun ov lagos 880 Items de factura: 
+ escritorio 2 
+ Si el usuario ingresa para transformar 1 mesa, 1 silla y 1 escritorio, el resultado en los ítems en la entidad destino será: 
+ Colección de Entregas: 
+ 10-may san martin 2054 Items de factura: mesa 1 silla 1 10-jun ov lagos 880 Items de factura: escritorio 1 
+ 

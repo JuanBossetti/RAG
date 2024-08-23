@@ -1,0 +1,3 @@
+3.8 Solapa “Reglas de negocio” 
+ Desde la sólapa “Reglas de Negocio”, se pódrán visualizar las RN activas para la actividad en edición. Dicha solapa se presentará de la misma manera que la definida para el PN, pero sólo se visualizarán las RN activas para las entidades asociadas a la actividad, para el PN, y para la actividad en edición. En el caso de las Autorizaciones, no se visualizará la solapa de RN, debido a que las RN no aplican a una autorización, sino que la autorización está definida por una única RN. 
+ 

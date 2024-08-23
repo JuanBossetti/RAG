@@ -1,0 +1,12 @@
+4.7.2 Registro de errores de preparación 
+ Registra información vinculada a todos los errores a la hora de preparar un build con el fin de que un usuario modelador pueda tener auditoría. Se accede desde el registro de versionado, en el registro de preparación, para los casos en los que el estado de la preparación es Error. 
+ Los datos a registrar por cada evento son los siguientes: 
+ • 
+ Registro de preparación: Indica la etapa y el Paso de la preparación que se realizaba cuando ocurrió el error. 
+ • 
+ Evento: Código de evento del error. 
+ • 
+ Mensaje de excepción: Contiene la causa del error de preparación. 
+ • 
+ Stack de excepción: Stack de la excepción que causó el error de preparación. 
+ 

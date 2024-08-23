@@ -1,0 +1,62 @@
+1.1 General 
+ La solapa “General” permitirá definir las características generales de la entidad, a saber: 
+ • 
+ Nombre de la entidad: es el nombre de la entidad a crear. El sistema validará que no se haya definido otra entidad con el mismo nombre para el idioma en el que se está modelando. En caso de que al realizar la traducción automática, en algún idioma el nombre de la Entidad se repita, el sistema deberá buscar un sinónimo de dicho nombre para el idioma en conflicto. Adicionalmente se deberá validar lo siguiente: 
+ o 
+ Deberá comenzar por un carácter alfabético. 
+ o 
+ Sólo podrá contener caracteres alfabéticos (incluye los especiales como el acento, eñe, etc.), espacios, dígitos decimales y signos de subrayado. Esto implica que no 
+ pueden incluirse símbolos cómo %$#”!?’ pero si caracteres de otros alfabetos como griego, chino, japonés, árabe, etc. 
+ o 
+ El nombre tendrá un límite de 250 caracteres y la ruta completa no debe tenerlo o ser exageradamente grande. 
+ o 
+ El nombre no podrá coincidir con ninguna de las palabras clave reservadas (por ejemplo nombre de operadores o instrucciones en el mismo idioma). 
+ o 
+ Dentro del nombre de una Entidad no se permitirá que contenga una palabra reservada en el mismo idioma soportado seguida o precedida por un espacio. Es decir, que dentro del nombre este “espacio <palabra reservada>”, o “<palabra reservada> espacio”. 
+ o 
+ No se distinguirá entre mayúsculas y minúsculas. Es decir que cuando existan dos nombres cuya única diferencia sean letras mayúsculas o minúsculas, el sistema los interpreta como el mismo nombre. 
+ • 
+ Descripción: permitirá indicar una breve descripción de la entidad. 
+ • 
+ Tipo de entidad: es el tipo de la entidad a crear. Se presentarán todos los tipos de entidad predefinidos (Maestra, Transaccional o Paramétrica), y el usuario no podrá crear tipos de entidad personalizados. 
+ • 
+ Categoría de la entidad: Permite indicar una naturaleza por la cual agrupar la entidad con otras dentro del acordeón. Por ejemplo: naturaleza de la entidad = Ventas, podría utilizarse para agrupar las entidades involucradas en el proceso de ventas. 
+ • 
+ Procesos de Negocio
+ Actividad predeterminada: en este campo se visualizará el nombre de la actividad predeterminada que se aplicará para dar de alta instancias de la entidad. Este campo es obligatorio y las opciones posibles son siempre actividades de única instancia definidas para esa entidad. Para más detalles, consultar con el documento . 
+ • 
+ Duración estimada: permite definir el tiempo esperado para crear o dar de alta una instancia de esta entidad. Este tiempo podrá definirse tanto mediante un valor constante como una expresión o función, pero siempre utilizando el editor de expresiones y funciones. Este dato será de carácter opcional y será medido en segundos. Por ejemplo, cuanto tiempo le lleva al usuario final dar de alta una factura. 
+ • 
+ Permite crear instancias en modelos hijos: sólo para las entidades paramétricas. Esta propiedad indica si en los modelos hijos se pueden crear instancias o no. 
+ • 
+ Tipo navegación: Esta propiedad será utilizada para determinar el modo en que se deberá realizar la navegación a través de los fragmentos de una pantalla. El valor por defecto de esta propiedad será despliega detalle. Los valores posibles de esta propiedad serán despliega detalle / No despliega detalle. 
+ El sistema propondrá por defecto ‘Desplegar detalle’ para esta propiedad. 
+ • 
+ Tamaño mínimo de un fragmento. Es el tamaño mínimo que puede adoptar un fragmento. 
+ • 
+ Tamaño máximo de un fragmento [opcional]. Es el tamaño máximo que establece con algún criterio el modelador, un fragmento no podrá medir más que esto. 
+ • 
+ Ancho deseado de fragmento. Este valor se deberá establecer en porcentaje. Establecerá la proporción del área disponible dentro de una actividad que ocupará un fragmento. 
+ • 
+ Cantidad de fragmentos. Enumerado. Se permitirá seleccionar la cantidad de fragmentos por defecto que se verán simultáneamente en pantalla. El sistema proveerá, además, una imagen que represente cada uno de los casos. 
+ Los posibles valores que podrá seleccionar el usuario serán: 
+ o 
+ Un fragmento. En este caso el sistema propondrá de manera predeterminada en la propiedad ‘Ancho deseado de fragmento’ de la entidad y en cada uno de los atributos de tipo colección el valor 100%. 
+ o 
+ Dos fragmentos. En este caso el sistema propondrá de manera predeterminada en la propiedad ‘Ancho deseado de fragmento’ de la entidad y en cada uno de los atributos de tipo colección el valor 50%. 
+ o 
+ Tres fragmentos. En este caso el sistema propondrá de manera predeterminada en la propiedad ‘Ancho deseado de fragmento’ de la entidad y en cada uno de los atributos de tipo colección el valor 33%. 
+ o 
+ Cuatro fragmentos. En este caso el sistema propondrá de manera predeterminada en la propiedad ‘Ancho deseado de fragmento’ de la entidad y en cada uno de los atributos de tipo colección el valor 25%. 
+ El sistema propondrá de manera predeterminada el valor ‘dos fragmentos. 
+ • 
+ Una sección de validaciones a nivel de la entidad en general, en la cual se definirán: 
+ o 
+ Nombre de la validación, los cuales deberán ser únicos. Es un dato obligatorio. 
+ o 
+ Un área destinada al ingreso de la fórmula de validación. Para esto se utilizará el editor de Expresiones y Funciones, donde se ingresará una expresión que al evaluarse debe ser verdadera para que el usuario pueda confirmar la instancia. En caso que se evalúe la expresión y de falsa se mostrará al Usuario el mensaje de error que se defina en el área correspondiente. Es un dato obligatorio. 
+ o 
+ Un área destinada al ingreso del mensaje que se mostrará en caso de que la validación no se cumpla. Este mensaje de error será texto enriquecido internacionalizable. Para esta funcionalidad se utilizará el editor de texto enriquecido. Es un dato obligatorio. 
+ En esta sección se podrán realizar todo tipo de validaciones a nivel de instancia de una entidad, como por ejemplo, la validación que un conjunto de valores de atributos son únicos para esa entidad (los valores de los atributos “Tipo de Documento”, “Número de Documento” y “País” deben ser únicos como conjunto para que se pueda crear una nueva instancia en la Entidad “Cliente”). 
+ Ł FACTURA x Entidad Nombre • Factura Descripci6n Duraci6n estimada Oocumentacion Ł B/.'liiil(ll!l TIpo de eotidad Ł EffB Transaccional Categoria de la eotidad q. TIpo de navegacion Mostrar detalle -------------------------------------------------------------------------------------------------------------------------------------Ł At11butos Va!idaciooes ,/' Valores Lmicos Expresi6n Transformaciooes lmputaciooes Mensaje Desencadenantes ActMdad predeterrmnada Acumu1adores Cantidad de fra,;;.snemos Dos fragmen1os Reglas de negocio -+ 
+ 

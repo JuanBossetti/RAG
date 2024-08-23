@@ -1,0 +1,14 @@
+2) DESDE UN ATRIBUTO DE UNA COLECCIÓN DE PRIMER NIVEL 
+ Por ejemplo: Producto, Precio, Cantidad, Total de la colección Ítems de la factura 
+ Puedo hacer referencia a la instancia completa con "Esta instancia". 
+ Puedo hacer referencia al valor de cualquier atributo de cabecera con "Esta instancia.NombreDelAtributo". Por ejemplo “Esta instancia.Cliente”. 
+ Puedo hacer referencia al ítem completo con “Este ítem”. 
+ Puedo hacer referencia al valor de cualquier otro atributo de la misma colección, simplemente por su nombre. Por ejemplo ”Producto”. 
+ NO puedo hacer referencia directa al valor de ningún atributo de la colección contenida (en este ejemplo, “Descuentos del ítem”). 
+ NO puedo hacer referencia directa al valor de ningún atributo de otra colección (en este ejemplo, “Descuentos del comprobante”). 
+ Puedo hacer búsquedas (en... primer, en...sumar, etc) sobre cualquier colección: 
+ en .Esta instancia.Items de la factura CONTAR ... (recorre todos los ítems de la factura) 
+ en .Esta instancia.Items de la factura.Descuentos del ítem SUMAR ... (recorre todos los descuentos de todos los ítems) 
+ en .Descuentos del ítem SUMAR ... (recorre los descuentos del ítem actual) 
+ en .Esta instancia.Descuentos del comprobante PRIMER ... 
+ 

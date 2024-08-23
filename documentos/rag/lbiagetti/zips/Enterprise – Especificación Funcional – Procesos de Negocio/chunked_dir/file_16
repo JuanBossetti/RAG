@@ -1,0 +1,40 @@
+3.3.9 Vista de información 
+ Una Actividad de categoría vista de información se utilizará para visualizar o modificar una vista configurada en el GDI o un reporte por bandas. 
+ Las actividades que invoquen una vista de GDI o reporte por bandas se utilizarán tanto para generar el ítem de menú correspondiente, tareas programadas y/o web services, como para presentar un acceso rápido desde otra actividad asociada (en el sistema generado) y para documentar el PN. 
+ Una actividad de categoría vista de información, tendrá asociada la misma cantidad de entidades que las definidas para dicha vista en el Gestor Dinámico de Información. 
+ A diferencia de las demás categorías, la actividad asociada a una vista de información, no contará con una duración prevista, ni con formularios condicionales. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Tipo: permitirá si la actividad está asociada a un GDI o un reporte por bandas. Dato obligatorio. 
+ ✓ 
+ Estándares de interfaz de usuario
+ Gestor dinámico de información: sóló se visualiza si tipó es ‘Vista de infórmación dinámica’. Permitirá definir el GDI asociado a la Actividad. Dato obligatorio. Desde el menú contextual sobre el nombre de la Vista, se podrá invocar la configuración de la misma en el GDI, tal como se detalla en . 
+ ✓ 
+ Estándares de 
+ interfaz de usuario
+ Reporte por banda: sóló se visualiza si tipó es ‘Repórte pór banda’. Permitirá definir el repórte asociado a la Actividad. Dato obligatorio. Desde el menú contextual sobre el nombre del reporte, se podrá invocar la configuración de la misma en el GDI, tal como se detalla en . 
+ ✓ 
+ Título: será el título de la vista que se le presentará al usuario final. De manera predeterminada será igual que el nombre de la vista. Podrá redefinirse ya sea con un valor determinado, o invocando al Editor de Expresiones y Funciones e ingresando una expresión sintácticamente correcta. Este campo será opcional. 
+ ✓ 
+ Entidades asociadas a la vista: se visualizarán en forma de sólo lectura las entidades asociadas a la vista de GDI. 
+ ✓ 
+ Confirmación automática: Al activarla, se realizará la confirmación automática de instancias dentro del GDI (pudiendo el usuario activar modo borrador). Si la propiedad no está activa, la confirmación de cambios dentro de esta actividad siempre será en edición (hasta que el usuario confirme). Esta propiedad aplicará a todas las solapas dentro de la vista. De forma predeterminada, estará activa. 
+ ✓ 
+ Filtro de instancias: se podrá configurar un filtro que se aplicará cuando la vista se invoque desde dicha Actividad. De manera predeterminada, este filtro estará vacío. Dato opcional. 
+ ✓ 
+ Actividades asociadas: actividades desde las que se podrá invocar la vista con un acceso rápido. Las actividades que estarán disponibles para ser asociadas a la vista deberán estar definidas en el PN en edición y cumplir las siguientes condiciones: deberán ser interactivas con el usuario y sus entidades asociadas deberán pertenecer a las entidades de la vista en el GDI. Inicialmente, una actividad de GDI se presentará sin actividades asociadas. 
+ Además, este tipo de categoría presenta las siguientes particularidades: 
+ ✓ 
+ Al tildar “interactiva por formulario”, nó se visualizará una sólapa extra, ya que nó se deberá configurar nada adicional. 
+ ✓ 
+ Las entidades asociadas a la vista no se visualizarán en el área de trabajo. 
+ ✓ 
+ No contará con una solapa por Entidad asociada. 
+ Una actividad de categoría vista de información, además de las formas ya detalladas, se puede crear desde el panel de navegación en la sección “Gestór dinámicó de infórmación”, arrastrandó la vista hacia el diagrama, como se muestra a continuación: 
+ Al seleccionar una “Actividad asociada” a la Actividad en edición, se representará el acceso rápido mediante una flecha puntuada azul, tal como se muestra a continuación: 
+ Además, desde las actividades de categoría vista de información, se podrán representar las transformaciones de las entidades asociadas a la Vista que no se encuentren previamente diagramadas en el área de trabajo, como se muestra a continuación. 
+ Como puede verse, se visualizarán las transformaciones no diagramadas desde las entidades relacionadas con la vista de GDI, de la misma forma que las demás actividades, pero agrupándolas por entidad. 
+ Gestor dinámico de información
+ En tiempo de ejecución, desde las actividades de categoría vista de información, se podrán ejecutar aquellas acciones que las entidades asociadas tengan definidas en el Diccionario de Datos (transformaciones, imputaciones, etc.), de acuerdo a lo especificado para vistas de información en el dócumentó “”. 
+ Las vistas de GDI son dinámicas, pero a diferencia de las Actividades de categoría Autorización, no se crean automáticamente. 
+ 

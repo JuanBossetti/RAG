@@ -1,0 +1,90 @@
+Contenedor: Duración 
+ |    | Tipo de dato          | Numérico          | Texto          | Booleano          | Fechas                 | Duración          |
+|---:|:-----------------------|:-------------------|:----------------|:-------------------|:------------------------|:-------------------|
+|  0 | Numérico              | 6                 | 3              | 3                 | 3                      | 6                 |
+|  1 | Texto                 | nan                | 7              | 3                 | 3                      | 7                 |
+|  2 | Booleano              | nan                | nan             | 3                 | 3                      | 3                 |
+|  3 | nan                    | nan                | nan             | nan                | 1 para la resta        | nan                |
+|  4 | Fechas                | nan                | nan             | nan                | 3 para la suma         | 3                 |
+|  5 | Duración              | nan                | nan             | nan                | nan                     | 1                 |
+ ✓ 
+ Comportamiento 1: Se realiza la operación sin efectuar conversiones. 
+ ✓ 
+ Comportamiento 2: En el caso de que la operación implique un resultado que puede tener una mayor precisión decimal que la que soporta el contenedor (por 
+ ejemplo, una división o multiplicación entre números con decimales), se marca con error la operación y se sugiere un listado de funciones de redondeo. Adicionalmente, en caso de que la operación no sea una suma, se deberá evaluar si el contenedor soporta la cantidad de dígitos a la izquierda de la coma. Para ello se deberá suponer el peor escenario y marcar un error que obligue al usuario a utilizar un contenedor que soporte una mayor escala. Para el cálculo del peor escenario se deberá asumir que en las Entidades hay 10000 millones de instancias, y en las colecciones será obligatorio que se indique la cantidad máxima de elementos. En cambio, en los acumuladores o en el gdi, inferir un tipo con la capacidad necesaria. 
+ En caso contrario se realiza la operación sin realizar conversiones. 
+ ✓ 
+ Comportamiento 3: En el caso de que la incompatibilidad sea con el contenedor se marca con error toda la operación, y en el caso de que la incompatibilidad sea entre los operandos se marca con error cada operando, indicando que hay una incompatibilidad de tipos de dato. De ser posible, se sugerirán las funciones de conversión apropiadas, para el primer caso la función estará aplicada a toda la operación, y para el segundo caso se presentarán dos sugerencias una para cada operando. 
+ ✓ 
+ Comportamiento 4: Se marca con error el operando incompatible, y se sugiere un listado con las funciones existentes de conversión desde el tipo incompatible a texto. Luego de que el usuario lo convierte a Texto se debe validar el comportamiento 8. 
+ ✓ 
+ Comportamiento 5: Se marca con error toda la operación, y se sugiere un listado con las funciones existentes de conversión desde el tipo incompatible a texto. Luego de que el usuario lo convierte a Texto se debe validar el comportamiento 8. 
+ ✓ 
+ Comportamiento 6: Se marca con error el operando incompatible, y se sugiere un listado para indicar la unidad que expresa el Número. Por ejemplo, días, meses, años, horas, minutos, segundos, etc. 
+ ✓ 
+ Comportamiento 7: Se marca con error la operación y se sugiere un listado de funciones para convertir el valor en el tipo de dato del contenedor. 
+ ✓ 
+ Comportamiento 8: Se debe validar si el resultado de la operación puede ser almacenada dentro del contenedor. Para ello se plantea el peor escenario en cuanto a la cantidad de caracteres que puede dar como resultado la operación y se valida si entra en el contenedor. En el caso de que el resultado pueda ser de un número mayor de caracteres que los que entran en el contenedor se deberá marcar con error la operación y sugerir una función para truncar el resultado a la cantidad de caracteres del contenedor. 
+ El listado anterior sólo tiene en cuenta los casos que pueden producirse por incompatibilidad por operaciones entre distintos tipos de datos; por lo tanto, no están incluidos los casos de incompatibilidad de operaciones entre operandos con el mismo tipo de dato. Por ejemplo, para la operación de división entre dos operandos de tipo texto, no se detalla esta incompatibilidad en el listado anterior pero deberá producir un error. 
+ Consideraciones en cuanto a los contenedores 
+ Para los casos en los que el contenedor es de tipo Texto y el resultado de una expresión es un número, al notificar la incompatibilidad de tipos, además de las funciones de conversión existentes se presentará la función de conversión de números a letras ("literal"). 
+ Para los casos en los que el contenedor es de tipo Texto y el resultado particularmente es un número de punto flotante, al notificar la incompatibilidad de tipos se presenta un diálogo donde se sugiere funciones que permitirán especificar el formato de conversión de dicho número a texto (redondeo, decimales, etc.). 
+ En el caso de que la incompatibilidad se deba a que el contenedor espera un valor de categoría simple y el resultado es una colección se deberá sugerir que en la expresión indique una función de agregación. 
+ Consideraciones para atributos basados en tipo fecha 
+ En particular para las operaciones entre los diferentes tipos de Fecha (Solo Fecha, Solo Hora, Fecha y Hora, Instante, Duración) para la suma: 
+ |    | Unnamed: 0           | Instante            | Fecha Y Hora          | Solo Fecha          | Solo Hora           | Duración            |
+|---:|:---------------------|:---------------------|:-----------------------|:---------------------|:---------------------|:---------------------|
+|  0 | Instante            | No permitido        | No permitido          | No permitido        | No permitido        | OK                  |
+|  1 | Fecha Y Hora        | nan                  | No permitido          | No permitido        | No permitido        | OK                  |
+|  2 | Solo Fecha          | nan                  | nan                    | No permitido        | No Permitido        | OK                  |
+|  3 | Solo Hora           | nan                  | nan                    | nan                  | No Permitido        | No Permitido        |
+|  4 | Duración            | nan                  | nan                    | nan                  | nan                  | OK                  |
+ Para el caso de la resta se tendrán las siguientes operaciones permitidas: 
+ |    | Unnamed: 0           | Instante                    | Fecha Y Hora                | Solo Fecha                  | Solo Hora           | Duración                    |
+|---:|:---------------------|:-----------------------------|:-----------------------------|:-----------------------------|:---------------------|:-----------------------------|
+|  0 | Instante            | OK       (duración)        | OK       (duración)        | OK       (duración)        | No permitido        | OK       (instante)        |
+|  1 | Fecha Y Hora        | OK       (duración)        | OK       (duración)        | OK       (duración)        | No permitido        | OK (fecha y hora)           |
+|  2 | Solo Fecha          | OK       (duración)        | OK       (duración)        | OK       (duración)        | No Permitido        | OK (sólo fecha)             |
+|  3 | Solo Hora           | No Permitido                | No Permitido                | No Permitido                | No Permitido        | No Permitido                |
+|  4 | Duración            | No Permitido                | No Permitido                | No Permitido                | No Permitido        | OK       (duración)        |
+ De las tablas anteriores se deberá tener en cuenta las siguientes consideraciones: 
+ ✓ 
+ Para el caso de la suma o resta de Instante, Fecha y Hora, Solo Fecha con una Duración se deberá validar que la Duración tenga una unidad compatible con la operación. Es decir la Duración deberá tener una unidad mayor que el tipo con el que se hace la operación (Entendiendo que la unidad mayor es el año y la unidad menor es el nanosegundo). Por ejemplo, a un Instante se le puede sumar o restar una Duración con cualquier unidad, pero a un Fecha y Hora no se le podrá sumar o restar una Duración que está en milisegundos, o a un Solo Fecha no se le podrá sumar o restar una Duración que está en Horas. 
+ ✓ 
+ Para el caso de operaciones de suma o resta entre Duraciones, las mismas podrán no tener la misma unidad de medida, siempre que ambas duraciones 
+ se encuentren en uno de los siguientes grupos y el resultado es siempre la unidad de medida menor: 
+ o 
+ Grupo 1: Semana o inferior: las unidad de tiempo posibles son semana, día, horas, minutos o segundos. Ejemplo válido: {2 días} - {4 horas} devuelve {44 horas}. Ejemplo inválido: {4 meses} + {2 días} no se puede realizar porque no se sabe cuántos días tiene cada mes. Lo mismo ocurre con la cantidad de días de un año. 
+ o 
+ Grupo 2: Mes o superior: las unidad de tiempo posibles son mes o año. Ejemplo válido: {1 año} + {4 meses} devuelve {16 meses}. Ejemplo inválido: {2 años} – {14 minutos} no se puede realizar por el mismo motivo (la cantidad de días varía de mes a mes y de año a año). 
+ ✓ 
+ Para el caso de la resta entre Instantes, Fecha y Hora, Solo Fecha: 
+ o 
+ En los casos de que la operación sea entre diferentes tipos se supondrá que la información faltante en el tipo de menor precisión es cero. Por ejemplo, si resto a un Instante un Solo Fecha, se supondrá que para el Solo Fecha el valor de la Hora, Minutos, Segundos, Milisegundos, Nanosegundos es cero. Y luego se supone que la operación se hace entre dos operandos del tipo de mayor precisión. 
+ ✓ 
+ El resultado entre la resta de dos Solo Fecha será en días. Adicionalmente, se podrá utilizar una función para indicar en qué unidad se desea el resultado, siendo válidas unidades menores a días (horas, minutos, segundos, milisegundos o nanosegundos). Por ejemplo, {10/10/2013} – {01/07/2013} devuelve {101 días}. En el caso de querer calcular la cantidad de horas entre las dos fechas se deberá especificar la unidad del resultado: horas ({10/10/2013} – {01/07/2013}). 
+ ✓ 
+ El resultado entre la resta de dos Fecha y Hora será en segundos. Adicionalmente, se podrá utilizar una función para indicar en qué unidad se desea el resultado, siendo válidas unidades menores a segundos (milisegundos o nanosegundos). 
+ ✓ 
+ El resultado entre la resta de dos Instantes será en nanosegundos. 
+ En cuanto a la compatibilidad de los resultados de las operaciones entre Fecha con el contenedor se deberá evaluar si el tipo del resultado es compatible y en caso de que no lo sea sugerir funciones de conversión. Por ejemplo, si sumo un “Solo Fecha” con una duración en días, y el contenedor es un “Fecha y Hora”, se deberá sugerir funciones de conversión de “Solo Fecha” a “Fecha y Hora” para toda la expresión. 
+ Para el caso de que el contenedor sea una duración, se devolverá el valor en la unidad de medida del contenedor, siempre y cuando el contenedor y el resultado de la expresión pertenezcan ambos a uno de los grupos detallados anteriormente (Grupo 1: Semana o inferior y Grupo 2: Mes o superior).. 
+ Para el caso de las operaciones de comparación (<, >, >=, <>, etc) estarán permitidas para los siguientes casos: 
+ ✓ 
+ Entre dos Duraciones las mismas tendrán que tener la misma unidad, o unidades inferiores a la semana, o una unidad en años y otra en meses. En caso contrario se deberá sugerir funciones de conversión. 
+ ✓ 
+ Entre Instante, Solo Fecha, y Fecha y Hora en cualquier combinación de ellos. Para los casos que se usan tipos diferentes se supondrá que la información faltante en el tipo de menor precisión es cero. 
+ ✓ 
+ Entre dos Solo Hora. 
+ Si la unidad de medida es “fecha y hora”, las operaciones de comparación permitidas son: 
+ |    | Unnamed: 0                                                                                                                                                                       | Literal de       fecha/hora sin ZH Ejemplo: {3/1/2015 18:30}          | Literal de fecha/hora con ZH       Ejemplo: {5/1/2015       12:00 GMT       -3}          | Atributo de tipo fecha/hora sin considerar ZH       Ejemplo: FechaCompra          | Atributo de tipo fecha/hora considerando su       ZH       Ejemplos: ConsiderarZona Horaria(FechaCo mpra)       ConvertirZonaH oraria(FechaCo mpra, “GMT-3”)          |
+|---:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | Literal de fecha/hora       sin ZH Ejemplo: {1/1/2015 15:00}                                                                                                                   | OK sin ZH)                                                             | No Permitido                                                                                | OK (sin ZH)                                                                        | No Permitido                                                                                                                                                             |
+|  1 | Literal de fecha/hora con ZH Ejemplo: {10/1/2015       10:12:22 Europe/London}                                                                                                 | No Permitido                                                           | OK (con ZH)                                                                                 | No Permitido                                                                       | OK (con ZH)                                                                                                                                                              |
+|  2 | Atributo de tipo fecha/hora sin considerar ZH       Ejemplo: FechaVencimiento                                                                                                  | OK (sin ZH)                                                            | No Permitido                                                                                | OK (sin ZH)                                                                        | No Permitido                                                                                                                                                             |
+|  3 | Atributo de tipo fecha/hora considerando su ZH       Ejemplos: ConsiderarZonaHorar ia(Fecha Vencimiento)       ConvertirZonaHoraria (FechaVencimiento,       “GMT-3”)        | No Permitido                                                           | OK (con ZH)                                                                                 | No Permitido                                                                       | OK (con ZH)                                                                                                                                                              |
+ Para los casos de conversión de Fecha a Texto, las funciones de conversión tendrán dos parámetros: 
+ 1- El primer parámetro permitirá indicar un formato de fecha con el cual realizar la conversión: Corta, Media, Larga, o Completa. Estos formatos podrán definirse en la configuración regional de cada usuario, y adicionalmente deberán definirse a nivel de todo el sistema y se podrá especificar un formato particular para cada empresa o sucursal, así como para otros elementos, como por ejemplo formularios. 
+ 2- El segundo parámetro indica si se tomará el formato de la fecha definida para el usuario, o la definida para el sistema. En este último caso, la búsqueda del formato deberá efectuarse de lo particular a lo general. Por ejemplo, primero en el formulario, luego en la configuración general, etc. En caso de no estar definido 
+ en alguno de los elementos, se deberá utilizar la configuración definida en el elemento jerárquicamente superior. 
+ 

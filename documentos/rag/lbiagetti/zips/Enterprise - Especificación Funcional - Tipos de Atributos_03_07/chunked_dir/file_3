@@ -1,0 +1,5 @@
+3.1 Categorías de tipos de atributo 
+ La categoría del tipo de atributo es la herramienta a través de la cual se determinarán las propiedades para el tipo de atributo. Un tipo de atributo deberá pertenecer a una única categoría. Las mismas serán: 
+ 3.1.1 Tipo de atributo Simple 
+ Será atómico, y estará asociado a un tipo de dato escalar. 
+ 

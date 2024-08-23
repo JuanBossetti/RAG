@@ -1,0 +1,3 @@
+Sustituir(Texto, Texto Buscado, Texto Nuevo) 
+ Sustituye texto nuevo por texto antiguo en una cadena de texto. Sustituye todas las ocurrencias que encuentra del texto antiguo, por el texto nuevo. Equivalente a REPLACE(original-string, search-string, replace-string) = STR_REPLACE(originalstr, searchstr, replacestr). 
+ 

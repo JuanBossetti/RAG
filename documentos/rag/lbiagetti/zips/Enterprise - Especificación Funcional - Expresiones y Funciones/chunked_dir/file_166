@@ -1,0 +1,5 @@
+Ejemplos: 
+ Mínimo(Factura.Items de comprobante;Total; Total > 500) 
+ Se traduce automáticamente en: 
+ en Factura.Items de comprobante mínimo Total cuando Total > 500 
+ 

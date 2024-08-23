@@ -1,0 +1,3 @@
+Año(Fecha) 
+ Devuelve el año para una fecha dada. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

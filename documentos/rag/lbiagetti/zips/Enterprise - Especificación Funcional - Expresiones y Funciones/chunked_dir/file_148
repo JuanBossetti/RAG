@@ -1,0 +1,5 @@
+Ejemplos: 
+ Considerar Zona Horaria (Ahora()) Retorna {16/08/2023 11:28 GMT -3} 
+ Calcular feriados(Fecha inicio, Fecha fin, Calendario de trabajo) 
+ Devuelve la cantidad de feriados entre dos fechas estipuladas. Valor de retorno: Cantidad de feriados. 
+ 

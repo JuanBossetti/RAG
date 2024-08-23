@@ -1,0 +1,5 @@
+Ejemplos: 
+ Primer(Factura.Items de comprobante;Total; Total > 500;Total DESC) 
+ Se traduce automáticamente en: 
+ en Factura.Items de comprobante primer Total cuando Total > 500 Ordenar Total DESC 
+ 

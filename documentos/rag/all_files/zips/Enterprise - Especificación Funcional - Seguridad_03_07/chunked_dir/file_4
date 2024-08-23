@@ -1,0 +1,8 @@
+2.3 Vínculos de seguridad 
+ 2.3.1 Introducción 
+ Existen casos en donde los usuarios de un dominio necesitan acceder a los recursos de otro dominio. Para esto existen los Vínculos de Seguridad. 
+ Un Vínculo de Seguridad es una relación entre dos dominios, en donde hay un Dominio Accesible y un Dominio de Autenticación, es decir una dirección de confianza. 
+ El “Dominio de autenticación” es el dominio de origen de los usuarios y grupos compartidos. En este, se valida la correcta autenticación de los mismos. 
+ El “Dominio de Acceso” es el dominio destino al cual los usuarios compartidos podrán acceder. 
+ De esta manera, un mismo usuario podrá acceder a diferentes dominios. 
+ 

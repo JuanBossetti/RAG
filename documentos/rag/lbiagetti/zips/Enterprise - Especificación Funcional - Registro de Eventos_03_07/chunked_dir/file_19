@@ -1,0 +1,38 @@
+4.6 Registro de web service 
+ El sistema genera por cada operación de Servicio Web que se ejecuta un registro donde quedan almacenados todos los datos obtenidos a partir del consumo de servicio web. Se guardan los Json tanto de entrada como de respuesta. Y en el código de evento es posible detectar si la ejecución fue exitosa o resultó una operación inválida. 
+ Por ejemplo, si consumimos un web service para consultar la fórmula de los productos que se obtienen desde otra aplicación, en este registro quedan guardados la petición enviada y la respuesta recibida, ya sea correcta o errónea. 
+ Cuando fue existosa, tenemos un json con {"result":"OK"}. En los otros casos, tendremos el código de error para poder revisarlo. 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Código de evento: Evento de web service que puede tomar los siguientes valores: 
+ o 
+ Resultado exitoso 
+ o 
+ Json inválido 
+ o 
+ Token inválido 
+ o 
+ Operación inválida 
+ o 
+ Más de una instancia 
+ o 
+ Falló la ejecución 
+ • 
+ Json de entrada: Conjunto de datos del Json de entrada de la ejecución (información enviada). 
+ • 
+ Json de respuesta: Conjunto de datos del Json de respuesta de la ejecución (información recibida). 
+ • 
+ Web service de la ejecución: Indica el Web service de la ejecución. 
+ • 
+ Versión de API de la ejecución: Indica la versión de API de la ejecución. 
+ • 
+ Permiso de ejecución: Permisos mediante los cuales se ejecutó el web service. 
+ • 
+ Dominio: Dominio de seguridad donde fue ejecutado el web service. 
+ • 
+ Modelo: Modelo desde donde se ejecutó el web service. 
+ • 
+ Tamaño de Json devuelto: Tamaño en bytes del json devuelto en la ejecución. 
+ Ejemplos: 
+ 

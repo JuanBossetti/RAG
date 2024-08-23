@@ -1,0 +1,3 @@
+Piso(Número) 
+ Devuelve el primer número entero igual o menor que el número real enviado por parámetro. O sea devuelve el entero más próximo por defecto. (Ej: Piso(-2,4) devuelve el valor -3; Piso(1,5) devuelve al valor 1). 
+ 

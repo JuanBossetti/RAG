@@ -1,0 +1,5 @@
+Ejemplos: 
+ Suponiendo que tenemos un atributo de tipo texto internacionalizable llamado texto a traducir que contiene el valor hola. 
+ Obtener traducción(texto a traducir;'es') retorna hola 
+ Obtener traducción(texto a traducir;'en') retorna hello 
+ 

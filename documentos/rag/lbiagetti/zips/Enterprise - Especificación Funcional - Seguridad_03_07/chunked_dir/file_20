@@ -1,0 +1,28 @@
+3.4 Usuarios y grupos de usuarios predefinidos del sistema (roles) 
+ Existirán -conjuntamente con los grupos de usuarios y usuarios definidos por los usuarios- grupos de usuarios y usuarios definidos en el sistema. 
+ Un rol definido por el usuario es un grupo de usuarios con la propiedad Rol para dominios hijos. Los roles definidos por el usuario se crean en los dominios nuevos (donde haya algún modelo hijo del modelo actual). 
+ La funcionalidad de estos roles, es que al crear un usuario o grupo, tan sólo agregándolo a uno de estos roles, ya podrá realizar todas las operaciones que el rol tiene permisos para realizar, sin la necesidad de dar los permisos uno por uno. 
+ 6 De acuerdo a las mejores prácticas, se recomienda no usar la denegación en los grupos. 
+ El único usuario predefinido será el administrador del dominio o “administrador”. Se podrán modificar sus datos como nombre, apellido, usuario, contraseña, etc. para mayor seguridad. 
+ documento 
+ A continuación, se detalla los roles predefinido del sistema y los permisos predeterminados en todos los elementos:, se encuentra en el siguiente 
+ • 
+ Usuario final del dominio: el objetivo es que ingrese a todos los modelos de un dominio, en el ambiente de producción, sin configurar nada extra. Sólo tiene permiso de acceder a producción. 
+ • 
+ Usuario avanzado del dominio: el objetivo es que use todos los modelos de un dominio y realice configuraciones mínimas, en los ambientes de producción y prueba, sin configurar nada extra. Tiene permiso de acceder a producción y prueba, ejecutar las actividades, realizar todas las operaciones en las instancias de entidades y en todas las herramientas dinámicas. 
+ • 
+ Editor del dominio: el objetivo es que programe dentro de los modelos de un dominio, en los ambientes desarrollo, prueba y producción. Tiene permiso de acceder a todos los ambientes, realizar todas las operaciones en las instancias de entidades, en todas las herramientas dinámicas y los editores. 
+ • 
+ restablecer credenciales 
+ Administrador del dominio: el objetivo es que administre los permisos sobre todos los elementos de los modelos de un dominio, en todos los ambientes. Tiene permiso de acceder a todos los ambientes, realizar todas las operaciones en las instancias de entidades, herramientas dinámicas, editores y en el dominio (usuario, grupo, etc). Además, tiene habilitada la opción para en el usuario. 
+ • 
+ Administrador de dispositivos: el objetivo es que administre los dispositivos en todos los modelos de un dominio, en todos los ambientes. Tiene permiso de acceder a todos los ambientes y todos los permisos en dispositivo, agente, controlador, protocolo y tipo de dispositivo. 
+ Al crear un usuario, se configura su tipo: Editor, Aplicación o WS. 
+ • 
+ Si se crea un usuario editor, se agrega al rol Editores del dominio. 
+ • 
+ Si se crea un usuario de aplicación, se agrega al rol Usuarios finales del dominio. 
+ Esta pertenencia se podrá modificar. 
+ cl Adrrnmstradores de Segundad X >----------------------------------------General Historial de Versiones Seguridad Documentaci6n Ubicaci6n: dominio.com > Roles Nombre ( l fAdministradores de Seguridad Di=scr 1pc1on Grupo predefinido de los administradores de seguridad de dominio Imagen Ob1etos contenidos 
+ Iii Adm1rnstradores de Segundad XI>--------------------------------------------< General I Historial de Versiones I Segundad l>-=D�o�cu�rn�•�nt�a�c�i6�n�I>-___________________________� Defin1r la segundad para los usuanos y grupos de usuanos: Haga cllc en la l1sta o arrastre usuanos/grupos desde el panel de navegac1on a la l1sta s1gu1ente Q. UsuanolGrupo Perm1so Permitir Denegar � -�--T Adrninistrar grupo predefinido □ □ Consuttar □ □ Consuttar permisos efectivos □ □ Modificar documentaci6n □ □ Modificar objetos contenidos □ □ Adm1n1strar perm1sos □ □ T Administrar grupos de usuarios contenidos □ □ Consuttar □ □ Consuttar permisos efectivos □ □ T Administrar usuarios contenidos □ □ Consuttar □ □ vJ 
+ 

@@ -1,0 +1,11 @@
+3.4 Funciones de agregación asociadas a Tipos de Capa Base 
+ Algunos tipos de capa base tendrán un conjunto de funciones de agregación asociadas, las cuales permitirán automatizar funcionalidad en componentes tales como grillas, Visualizador Dinámico de Información, etc, al momento de agrupar datos. 
+ Las funciones de agregación son: 
+ • 
+ Para todos los tipos base (exceptuando colección y compuesto): Conteo de instancias. 
+ • 
+ Para tipos numéricos y de duración: Desvío estándar, Máximo, Mínimo, Promedio, Sumatoria, varianza, primera instancia, última instancia. 
+ • 
+ Para tipos fecha y fechahora e instante: Máximo, Mínimo 
+ Cada Tipo tendrá definido una función de agregación predeterminada, la cual podrá ser alguna de las descriptas anteriormente, o se podrá indicar que no tendrá función de agregación. En este último caso no se mostrarán información agregada en los diferentes componentes, por ejemplo, en una Grilla en los Totales no se mostrará ningún valor en una columna en la cual se muestra el dato de un atributo que está basado en un Tipo que no tiene definida Función de agregación. 
+ 

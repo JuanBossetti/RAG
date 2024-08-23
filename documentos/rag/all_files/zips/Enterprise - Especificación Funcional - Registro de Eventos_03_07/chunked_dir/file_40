@@ -1,0 +1,4 @@
+4.19 Registro de modelos vinculados 
+ En esta entidad se registran las actualizaciones recibidas por modelo actual, de los modelos padres. 
+ Cuando se crea un Modelo a partir de uno existente, el nuevo Modelo quedará vinculado al Modelo desde el cual se creó. Al Modelo nuevo lo llamamos Modelo Hijo, y al modelo existente lo llamaremos Modelo Padre. 
+ 

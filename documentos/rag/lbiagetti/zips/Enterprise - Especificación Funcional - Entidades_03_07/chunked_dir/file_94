@@ -1,0 +1,121 @@
+1.12.1 Seguridad de instancias 
+ En la solapa “Seguridad de Instancias” se podrán definir qué acciones pueden realizar ciertos usuarios/grupos de usuarios sobre todas las instancias de la entidad en edición. Es importante aclarar que la solapa “Seguridad de instancias” será accesible desde todos los ambientes. En la siguiente imagen se presenta la interfaz definida para la solapa: 
+ En la primera grilla se definirán los usuarios/grupos a los cuales se les definirá seguridad de acceso a las instancias. Para cada usuario/grupo que se añada a esta grilla, se podrá otorgar o denegar explícitamente los permisos de creación, consulta, modificación, eliminación (reversión, en caso de entidades transaccionales), restauración y habilitación/inhabilitación (solo para entidades maestras) de instancias de la entidad contenidos en la segunda grilla y además el permiso de administrar permisos (consultar y modificar) la seguridad de instancias, que incluye administrar permisos de instancias y de atributos. 
+ Los permisos se visualizarán para cada uno de los ambientes definidos para el sistema y para cada una de las operaciones permitidas para esa entidad, definidas en la solapa “Operaciones”. 
+ Operaciones
+ Las opciones de la columna “Permisos y operaciones permitidas” dependerán de lo definido en la solapa “”. Ejemplos: si se define que la única operación permitida por Transformaciones es crear instancias, entonces sólo se va a poder asignar este permiso a usuarios/grupos, no los demás (consultar, modificar, etc.). Si se define que no hay operaciones permitidas por GDI, entonces no aparecerá esta operación en la columna “Permisos por operación”. Tener en cuenta que las entidades de tipo transaccional, no contarán con la operación “habilitación/inhabilitación”, pero en las entidades maestras se podrá definir quién puede habilitar 
+ e inhabilitar instancias (siempre que la operación esté activa). Con respecto al permiso de administrar permisos (consultar y modificar), el único origen disponible será formularios. 
+ Si la entidad es paramétrica la Seguridad de Instancias tiene en cuenta que sólo se pueden modificar instancias desde los formularios de la actividad, y no a través de otras operaciones, por lo tanto la grilla de permisos se visualizará sin operaciones por permiso. 
+ Los permisos de creación de instancias no aplican a los desencadenantes. Si el desencadenante de A a B está creado, se sobreentiende que cualquier usuario con permisos de creación en A, puede crear instancias en B. 
+ A continuación, se enumeran todos los permisos y operaciones por cada uno: 
+ • 
+ Crear 
+ o 
+ Creación directa 
+ ▪ 
+ Formulario 
+ ▪ 
+ Tarea programada 
+ ▪ 
+ Servicio Web 
+ o 
+ Regla de negocio 
+ o 
+ Vista de información 
+ o 
+ Importación 
+ o 
+ Transformación 
+ ▪ 
+ Formulario 
+ ▪ 
+ Vista de información 
+ ▪ 
+ Servicio web 
+ • 
+ Consultar 
+ o 
+ Vista de información 
+ o 
+ Exportación 
+ o 
+ Importación 
+ o 
+ Creación directa 
+ ▪ 
+ Servicio Web 
+ ▪ 
+ Formulario 
+ ▪ 
+ Tarea programada 
+ o 
+ Imprimir 
+ o 
+ Envío de correo electrónico 
+ • 
+ Actualizar 
+ o 
+ Regla de negocio 
+ o 
+ Vista de información 
+ o 
+ Importación 
+ o 
+ Creación directa 
+ ▪ 
+ Formulario 
+ ▪ 
+ Servicio Web 
+ ▪ 
+ Tarea programada 
+ • 
+ Restaurar 
+ o 
+ Vista de información 
+ o 
+ Creación directa 
+ ▪ 
+ Formulario 
+ ▪ 
+ Tarea programada 
+ ▪ 
+ Servicio Web 
+ • 
+ Eliminar o Revertir (las entidades de tipo maestras mostraran la opción de eliminación y las transaccionales la de reversión) 
+ o 
+ Vista de información 
+ o 
+ Importación 
+ o 
+ Creación directa 
+ ▪ 
+ Formulario 
+ ▪ 
+ Servicio Web 
+ ▪ 
+ Tarea programada 
+ • 
+ Habilitar/Inhabilitar: Sólo para entidades maestras. Una instancia inhabilitada podrá modificarse, eliminarse, etc. tal cual una instancia habilitada. La única diferencia es que se podrían configurar las referencias para que permitan referenciar a instancias habilitadas y a inhabilitadas no. 
+ o 
+ Regla de negocio 
+ o 
+ Vista de información 
+ o 
+ Importación 
+ o 
+ Creación directa 
+ ▪ 
+ Formulario 
+ ▪ 
+ Servicio Web 
+ ▪ 
+ Tarea programada 
+ • 
+ Ejecutar todas las actividades 
+ o 
+ Formulario 
+ o 
+ Servicio Web 
+ o 
+ Tarea programada 
+ 

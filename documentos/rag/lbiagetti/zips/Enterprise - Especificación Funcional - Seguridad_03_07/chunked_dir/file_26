@@ -1,0 +1,57 @@
+3.8.1.1 Cuentas para envío de mensajería instantánea 
+ En el dominio se podrán definir cuentas para el envío de mensajería instantánea en diferentes plataformas, cada una exige diferentes datos. 
+ Lo primero que se deberá definir en cada cuenta es: 
+ • 
+ Nombre, obligatorio. 
+ • 
+ Descripción, opcional. 
+ • 
+ Tipo de cuenta. En este caso se darán las opciones de seleccionar si la cuenta será utilizada para correo electrónico, telegram, IM, etc. Dato obligatorio. 
+ Luego de definir la plataforma, se presentarán las configuraciones de acuerdo a la misma. 
+ 3.8.1.1.1 Telegram 
+ Telegram es una de las plataformas permitidas para envío de IM dentro de FastPrg. En el dominio se podrán dar de alta muchas cuentas Telegram para enviar mensajes. Para llevar a cabo la configuración de la cuenta de notificación antes debemos registrarnos en Telegram utilizando cualquier aplicación por ejemplo descargando la aplicación en nuestro teléfono celular y luego registrarnos en la API de Telegram. 
+ 3.8.1.1.1.1 Registro en la API de Telegram 
+ La API permite crear clientes propios de Telegram de manera personalizada. 
+ Cada cuenta de notificación debe crear una aplicación de Telegram, es decir, registrar una nueva sesión de tu cuenta. Al registrarnos en la API obtenemos un API ID que es la puerta de entrada para la comunicación por este medio. Cada número de teléfono registrado puede tener un API ID conectado. 
+ A continuación, el paso a paso de este proceso: 
+ 1. 
+ https://my.telegram.org 
+ Iniciar sesión en 
+ 2. 
+ Acceder a Herramientas de desarrollo y completar el formulario. 
+ Una vez realizado este paso obtendremos el API_ID y API_HASH que serán los datos necesarios para la autorización del usuario y el registro de la cuenta de notificación en FastPrg. 
+ 3.8.1.1.1.2 Registro de cuenta de notificación en FastPrg 
+ Cada cuenta de Telegram tendrá su configuración detallada y contará con los siguientes atributos: 
+ ✓ 
+ Número de teléfono: Atributo del tipo “Teléfono celular”. El número tiene que estar en formato internacional de celular. (Por ejemplo +543413722918) 
+ ✓ 
+ Identificador de aplicación: Atributo tipo “Entero 9”. Número de identificación brindado por la aplicación. (API_ID) 
+ ✓ 
+ Hash de aplicación: Algoritmo matemático brindado por la aplicación. Es un atributo del tipo “texto medio”. (API_HASH) 
+ ✓ 
+ Hash de autorización del teléfono: Algoritmo matemático de autorización brindado por la aplicación. También es un atributo del tipo “texto medio”. 
+ ✓ 
+ Código de autorización del teléfono: Código de autorización brindado por la aplicación y emitido al número de teléfono celular. Es un atributo del tipo “Texto 100” 
+ ✓ 
+ Data center de telegram: Tipo de atributo “Texto 100”. Es visible solo en el modelo Editores, aquí se almacena el código provisto por Telegram mediante el mismo permite conectarse a los servidores de Telegram. 
+ ✓ 
+ Clave de autorización: Tipo de atributo “Texto 500”. Es visible solo en el modelo Editores, aquí se almacena el código provisto por Telegram mediante el cual se posibilita la conexión a los servidores. 
+ ✓ 
+ Respuesta de Telegram: Json de respuesta de Telegram, almacena la información necesaria al momento de iniciar sesión por cada cuenta de notificación para el servicio de Telegram. El valor de este campo es modificado a través de las funciones (Solicita código de autorización de Telegram, Inicia sesión en Telegram). Tipo de atributo Texto ”10000”. Este campo es visible únicamente en el modelo editores. 
+ Para poder realizar la validación de la cuenta, primero se deberán ingresar el número de teléfono, el ID de aplicación y hash de aplicación. En este momento se habilitará un botón denominado “Solicitar código” que completará automáticamente el hash de aplicación y enviará un código por Telegram que deberá ingresarse en el campo Código de autorización. 
+ Finalmente, veremos otro botón “Validar código” que al presionarlo concluirá la autorización, se guardará la cuenta y se habrá realizado el Sign In. 
+ El código una vez validado muestra el textbox deshabilitado y con: ******* 
+ Si se cambia algún dato (por ejemplo, hash de autorización) y se blanque el código recibido por SMS, el usuario deberá volver a enviar el código y luego validarlo para que la cuenta sea válida nuevamente. 
+ Para el caso de que el tipo de cuenta sea SMS, se presentarán las siguientes configuraciones: 
+ ✓ 
+ Tipo de Gateway: existen 2 formas de mandar SMS: por medio de un Gateway propio o por medio del Gateway de Neuralsoft. Si se elige el Gateway de Neuralsoft, se deberá abonar un costo. En el caso de querer usar su propio Gateway, se deberá configurar: 
+ o 
+ Forma de envío. El SMS se puede enviar por medio de un web service o por medio de un email. 
+ ▪ 
+ Si la forma de envío es WS, se deberá configurar mediante qué cuenta de WS se realizará y qué método del mismo se invocará. Además, en la cuenta de WS se configuran los parámetros de cada método, por lo tanto, en la cuenta IM de SMS se debe elegir qué parámetro se usa para número destinatario y qué parámetro se usa para mensaje. El valor del número de teléfono y el valor del mensaje sólo se configuran en la RN y son obligatorios. 
+ ▪ 
+ Si la forma de envío es Email, se deberá configurar mediante qué cuenta de Email se realizará (antes era más usado este tipo de envío de SMS, se puede poner el número en el asunto o en el “para”, y el mensaje en el cuerpo de email). 
+ Luego de validada la cuenta, se podrá usar en acciones de RN para IM. 
+ En caso de copiarse la cuenta de mensajería instantánea en otros modelos vinculados, distintos de donde se creó la misma, se copiará sólo las propiedades Nombre y Descripción, el resto de las propiedades quedan en blanco en el modelo vinculado teniendo que especificarse luego. 
+ Si la cuenta es utilizada faltando definir propiedades obligatorias, dará una excepción en tiempo de ejecución en la cola de mensajería instantánea mostrando al usuario un mensaje y logueando el error en el log correspondiente. 
+ 

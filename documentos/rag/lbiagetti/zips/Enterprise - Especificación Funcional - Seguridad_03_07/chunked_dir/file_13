@@ -1,0 +1,26 @@
+2.5 Seguridad del Dominio 
+ En la solapa Seguridad del dominio se asignarán permisos y denegaciones a todos los usuarios y grupos de usuarios del dominio con una Lista de Control de Acceso (ACL). Esta ACL tendrá los permisos generales que harán referencia a las acciones disponibles en el dominio (crear usuarios, dispositivos, etc.) como así también a las acciones disponibles en el administrador de modelos (crear, modificar modelos, etc.): 
+ ✓ 
+ Administrar dominio: 
+ o consultar/modificar/administrar políticas de seguridad/administrar vínculos/traducir/administrar permisos. 
+ ✓ 
+ Administrar modelos: 
+ crear/consultar/modificar/eliminar/restaurar/ejecutar/publicar/desvincular de padre/modificar modelos de dispositivos disponibles/traducir/administrar permisos (consultar y modificar). 
+ ✓ 
+ Administrar cuentas de notificaciones: 
+ crear/consultar/modificar/eliminar/restaurar/traducir/consultar seguridad/actualizar seguridad 
+ ✓ 
+ Administrar empresas: 
+ crear/consultar/modificar/eliminar/restaurar/consultar/consultar seguridad/actualizar seguridad 
+ ✓ 
+ Administrar agentes: 
+ crear/consultar/modificar/eliminar/restaurar/consultar/consultar seguridad/actualizar seguridad 
+ ✓ 
+ Administrar controladores y protocolos: 
+ crear/consultar/modificar/eliminar/restaurar/consultar/consultar seguridad/actualizar seguridad 
+ Seguridad 
+ de objetos
+ El detalle de los permisos en cada objeto de seguridad se encuentra en la sección “”. 
+ Aclaración: dentro del permiso “Administrar permisos” de cada elemento existirá la posibilidad de consultar, y la de modificar. 
+ Los usuarios que tengan el permiso “Administrar permisos” de una sección, podrán tanto otorgar como denegar los permisos de esa sección a otros usuarios. Sin embargo, esto no implica que el usuario Administrador cuente con los permisos que otorgue o deniegue. Por ejemplo, si un usuario admin tiene habilitada la modificación de permisos pero tiene denegado Administrar vínculos, de todas formas admin podrá otorgar permisos a otros usuarios para Administrar vínculos, aunque no tenga ese permiso habilitado. También podrá permitir administrar permisos de dicha sección a otros usuarios. 
+ 

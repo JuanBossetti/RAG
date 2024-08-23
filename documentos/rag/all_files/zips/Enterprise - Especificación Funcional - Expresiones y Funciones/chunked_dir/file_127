@@ -1,0 +1,3 @@
+Segundos(Fecha) 
+ Devuelve los segundos de una fecha/hora, en el rango de 0 a 59. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

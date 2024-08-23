@@ -1,0 +1,48 @@
+Métodos de autenticación adicionales 
+ Los “métodos de autenticación adicionales” definidos en el dominio se tienen en cuenta para la interfaz de la pantalla inicial. En la primera pantalla de autenticación siempre se visualizan los campos para ingresar usuario y contraseña: 
+ Además, cuando el usuario se encuentre ingresando texto en mayúsculas, la pantalla indicará que la tecla “Bloq Mayús” está activa. 
+ En el caso de seleccionarse un método que se asocie a una aplicación OTP, en la pantalla de autenticación, se presentará un link “Extravié mi dispositivo XXX” que al presionarlo, se presentará un formulario para solicitar un nuevo dispositivo. 
+ Dentro de la política “Métodos de autenticación adicionales” se pueden definir más métodos en las OU y en los usuarios, por lo tanto, luego de que se ingresan las credenciales (usuario y contraseña) correctamente en la pantalla inicial, si el mismo tiene definido más métodos de autenticación, se presenta una segunda pantalla con el/los método/s correspondiente/s. 
+ Si hay varios métodos de autenticación adicionales definidos para un usuario, este debe ingresar todos correctamente para autenticarse en la segunda pantalla, luego de ingresar correctamente la contraseña. Por ejemplo, si se solicitan código OTP, Telegram y email: 
+ Aplicación OTP 
+ Si el usuario aún no tiene una cuenta de Microsoft Authenticator asociada, luego de ingresar correctamente las credenciales, se presenta una pantalla que contiene: 
+ • 
+ un QR para asociar la cuenta de Microsoft Authenticator 
+ • 
+ un enlace en donde se visualiza el instructivo pasa asociar la cuenta 
+ • 
+ en el caso de ingresar por un dispositivo móvil, se dará la opción de copiar un texto asociado al QR 
+ Opción para restablecer credenciales (sólo para 
+ administrador de dominio
+ Luego de asociar correctamente la cuenta de Microsoft Authenticator, el usuario siempre debe ingresar el código brindado por esta aplicación para poder ingresar. Es importante mencionar que por seguridad, un usuario NO puede desasociar su cuenta. Esto lo puede realizar únicamente un usuario con rol administrador de dominio mediante la opción “Restablecer credenciales” detallada en el punto “)” de este documento. 
+ En el caso de que el usuario ingrese el código de manera incorrecta, se mostrará error indicando que el código es inválido y el campo para ingresar el código otp nuevamente. Si supera la cantidad de reintentos inválidas antes de bloquear cuenta definida como política, se bloqueará el usuario. 
+ Email 
+ Luego de ingresar correctamente sus credenciales, si el usuario tiene configurado como método de autenticación adicional “email”, recibirá un email en su correo personal con un código de 6 dígitos, el cual deberá ingresar en una segunda pantalla de login para acceder finalmente al sistema. 
+ El formato del email es el siguiente: 
+ La pantalla de autenticación donde debe ingresar el código enviado por email es la siguiente: 
+ El código será válido por única vez, no pudiendo reutilizarse, y quedará sin efecto luego de 5 minutos. Esto se visualiza un contador en la pantalla. Pasado este tiempo, se visualizará la opción para ‘Reenviar código’. 
+ La cantidad de intentos permitidos para ingresar el código serán las definidas en la política de reintentos de acceso inválidos antes de bloquear cuenta. Luego de eso, se bloqueará el usuario de la misma manera que cuando ingresa mal sus credenciales. En este caso deberá esperar el tiempo definido para el desbloqueo e ingresar nuevamente las credenciales, luego se le reenviará un nuevo código. El bloqueo del usuario evento queda registrado en el log de seguridad. 
+ Telegram 
+ Luego de ingresar correctamente sus credenciales, si el usuario tiene configurado como método de autenticación adicional “Telegram”, recibirá un mensaje en su aplicación Telegram con un código de 6 dígitos, el cual deberá ingresar en una segunda pantalla de login para acceder finalmente al sistema. 
+ El formato del mensaje es el siguiente: 
+ La pantalla de autenticación donde debe ingresar el código enviado por Telegram es la siguiente: 
+ El código será válido por única vez, no pudiendo reutilizarse, y quedará sin efecto luego de 5 minutos. Esto se visualiza un contador en la pantalla. Pasado este tiempo, se visualizará la opción para ‘Reenviar código’. 
+ La cantidad de intentos permitidos para ingresar el código serán las definidas en la política de reintentos de acceso inválidos antes de bloquear cuenta. Luego de eso, se bloqueará el usuario de la misma manera que cuando ingresa mal sus credenciales. En este caso deberá esperar el tiempo definido para el desbloqueo e ingresar nuevamente las credenciales, luego se le reenviará un nuevo código. El bloqueo del usuario evento queda registrado en el log de seguridad. 
+ • 
+ Dispositivo Smart Card: 
+ • 
+ Dispositivo llave USB 
+ • 
+ Verificación biométrica 
+ o 
+ Reconocimiento de voz 
+ o 
+ Lectura de huella digital 
+ o 
+ Reconocimiento facial 
+ o 
+ Lectura de iris/retina 
+ Sólo aparece un mensaje indicando lo que debe realizar el usuario. 
+ • 
+ Certificado digital: esta política no modifica la pantalla de login. El certificado digital se toma del navegador. 
+ 

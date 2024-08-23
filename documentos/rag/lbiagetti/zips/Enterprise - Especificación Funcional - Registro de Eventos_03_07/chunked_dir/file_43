@@ -1,0 +1,11 @@
+5.1.1 Reenvío de correos fallidos 
+ Solo para los casos donde falle el envío de correo porque el destinatario es inválido, se permite editar directamente en la cola de envío de correo electrónico las direcciones de correo de las grillas: 
+ • 
+ Destinatarios. 
+ • 
+ Destinatarios CC. 
+ • 
+ Destinatarios CCO. 
+ Una vez confirmado el cambio, el correo se envía a todos los destinatarios que se encuentren incluidos en estos atributos. 
+ Para estos casos, se evalúa la seguridad de instancias configurada para la cola de correos y se determina si el usuario puede o no editar las mismas. 
+ 

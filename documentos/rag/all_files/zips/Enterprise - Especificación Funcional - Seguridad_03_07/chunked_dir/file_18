@@ -1,0 +1,55 @@
+3.2 Sitios 
+ Un sitio es una categorización que servirá para distinguir geográficamente a distintos sectores de la organización. Un grupo de sitios servirá para agrupar sitios con una propiedad en común. Por ejemplo, un grupo llamado Unión Europea que contiene los sitios: Alemania, Italia y Francia. 
+ Existirá un sitio predefinido, pudiendo modificarse luego dicha configuración. Siempre deberá existir al menos un sitio dentro de un dominio dado. 
+ Un dominio deberá contener como mínimo un sitio. Si sólo existe un sitio, será válido para todos los usuarios. Si existe más de un sitio en el dominio, se deberá configurar cada usuario o grupos de usuarios con el/los sitio/s o grupos de sitios a los que podrá acceder (esto se configura en la solapa Seguridad de cada sitio y grupo de sitio). 
+ ✓ 
+ Un dominio podrá contener n sitios. 
+ ✓ 
+ Un dominio podrá contener n grupos de sitios. 
+ ✓ 
+ Un usuario podrá acceder a n sitios o grupos de sitios. 
+ ✓ 
+ Un grupo de usuarios podrá acceder a n sitios o grupos de sitios. 
+ ✓ 
+ Un dispositivo deberá estar localizado en un único sitio. 
+ ✓ 
+ Un dispositivo podrá ser accedido desde n sitios o grupos de sitios. 
+ ✓ 
+ Un grupo de sitios podrá contener n sitios o grupos de sitios. 
+ ✓ 
+ Un sitio o grupo de sitios podrá pertenecer a n grupos de sitios. 
+ Cada sitio tendrá las siguientes propiedades: 
+ ✓ 
+ General: ubicación (dentro del dominio), nombre, descripción, país, provincia/estado, ciudad, domicilio, teléfono, zona horaria, empresa, los dispositivos predeterminados (para imprimir, para numerar, para escanear, etc.). objetos que tienen acceso a dicho sitio, grupos de sitios a los que pertenece. 
+ ✓ 
+ Estándares de interfaz de usuario
+ Historial de Versiones: se podrá mantener un historial de versiones de cada sitio, de acuerdo a lo definido en el documento . 
+ ✓ 
+ tabla 
+ Seguridad: contiene la ACL (Lista de Control de Accesos) sobre el sitio. Se podrá definir cuáles usuarios/grupos de usuarios podrán administrar el sitio y cuáles podrán administrar accesos de usuarios o grupos de usuarios dentro del mismo (ver de solapa “Seguridad”). 
+ ✓ 
+ Documentación: contendrá la documentación específica del sitio. 
+ Cada grupo de sitios tendrá las siguientes propiedades: 
+ ✓ 
+ General: ubicación, nombre, descripción, país, provincia/estado/región, ciudad, objetos que tienen acceso a los sitios de dicho grupo, grupos de sitios a los que pertenece y sitios/grupos contenidos. 
+ ✓ 
+ Estándares de interfaz de usuario 
+ Historial de Versiones: se podrá mantener un historial de versiones de cada grupo de sitios, de acuerdo a lo definido en el documento 
+ ✓ 
+ tabla 
+ Seguridad: contiene la ACL (Lista de Control de Accesos) sobre el grupo de sitios. Se podrá definir cuáles usuarios/grupos de usuarios podrán administrar el grupo y cuáles podrán administrar accesos de usuarios o grupos de usuarios dentro del mismo (ver de solapa “Seguridad”). 
+ ✓ 
+ Documentación: contendrá la documentación específica del grupo. 
+ Las propiedades obligatorias de cada sitio son: nombre, zona horaria, domicilio, provincia/estado/región y país. La propiedad obligatoria de un grupo de sitios es el nombre. No podrá existir más de un sitio o grupo de sitios con el mismo nombre. Adicionalmente, un sitio no podrá tener el mismo nombre que un grupo de sitios y viceversa. 
+ Se podrán agrupar los sitios y grupos en unidades organizacionales de sitios para mejor visualización. Estas OU sólo contendrán sitios y grupos de sitios, y sus propiedades serán: 
+ ✓ 
+ General: ubicación, nombre, descripción y los dispositivos predeterminados (para imprimir, para numerar, para escanear, etc.). 
+ ✓ 
+ Estándares de interfaz de usuario. 
+ Historial de Versiones: se podrá mantener un historial de versiones de cada OU de sitios, de acuerdo a lo definido en el documento 
+ ✓ 
+ tabla 
+ Seguridad: contiene la lista de permisos y denegaciones de los usuarios y grupos de usuarios sobre la OU de sitios (ver de solapa “Seguridad”). 
+ ✓ 
+ Documentación: contendrá la documentación específica de la OU de sitios. 
+ 

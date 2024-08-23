@@ -1,0 +1,3 @@
+3.1.5 Tipo de atributo Referencia Dinámica 
+ Esta categoría de tipo de atributo permitirá establecer una referencia sin indicar en su definición a qué entidad o a qué elemento de una colección hace referencia. Se podrá definir en tiempo de ejecución a qué entidad/colección referencia. 
+ 

@@ -1,0 +1,5 @@
+7.1 Primera autenticación 
+ Al crear un usuario, se pedirá el email del mismo para su primer ingreso. 
+ Al confirmar la creación del usuario nuevo, se procederá al envío de un link a la dirección de e-mail del usuario. Dicho link se podrá utilizar para acceder a un formulario de cambio de contraseña. El link será válido por única vez, no pudiendo reutilizarse, y quedará sin efecto luego de 1 hora. 
+ Al ingresar al link, el usuario aparecerá en sólo lectura y se requerirá ingresar 2 veces la misma contraseña para poder ingresar: 
+ 

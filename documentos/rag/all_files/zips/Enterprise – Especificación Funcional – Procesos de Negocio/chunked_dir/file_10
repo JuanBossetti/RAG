@@ -1,0 +1,48 @@
+3.3.3 Transformación 
+ Una Actividad de categoría transformación se utilizará para realizar las transformaciones definidas en el Diccionario de Datos. Dicha Actividad podrá tener asociada múltiples entidades, si las mismas se encuentran definidas en el DD para la transformación seleccionada. 
+ La Actividad tendrá como entidades asociadas a aquellas que sean destino de la transformación seleccionada. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: se deberá definir la entidad origen de la transformación. Dato obligatorio. 
+ ✓ 
+ Transformación: se deberá definir la transformación a la que hace referencia la Actividad. Dato obligatorio. 
+ ✓ 
+ Entidades a generar: se deberá definir las entidades destino de la transformación, sobre las que accionará la actividad. Dato obligatorio. De manera inicial, se encuentran todas seleccionadas en la lista doble. 
+ ✓ 
+ Definición de la Transformación: se visualizará en forma de sólo lectura todos los campos definidos en la Transformación, exceptuando los siguientes que se heredarán de la transformación pero se podrán editar, rompiendo la herencia: 
+ o 
+ Valor de tolerancia (si permite transformar más de lo pendiente): sólo se permite ingresar un valor menor que el heredado. 
+ o 
+ Valor de tolerancia (si permite transformar menos de lo pendiente): sólo se permite ingresar un valor menor que el heredado. 
+ o 
+ Entidad de destino predeterminado 
+ o 
+ Criterio de generación de instancias 
+ o 
+ Atributos para la agrupación. 
+ ✓ 
+ Filtro de instancias: igual que ló descriptó para “Múltiples instancias”, peró este filtro será de instancias a transformar. 
+ ✓ 
+ Duración prevista: igual que ló descriptó para “Única instancia”. En este caso, heredará del tiempo esperado que haya sido definido en el DD para la entidad. 
+ La Entidad Origen deberá tener definida una transformación en el DD, la cual a su vez deberá tener como destinos a las Entidades a generar por la Actividad. Las própiedades “Entidad Origen”, “Transfórmación” y “Entidad/es a generar” serán objetos relacionados. Es decir, al seleccionar alguno de ellos, se filtrarán las opciones disponibles para los demás. Por lo tanto, los datos seleccionados siempre serán consistentes. Además, la primera ópción de cada lista desplegable será “[Seleccione una opción]”. 
+ Si sólo se selecciona una Entidad a Generar o Entidad Destino, y existen transformaciones múltiples que contengan a dicho destino, el resto de los destinos quedarán disponibles para poder seleccionarlos. En el caso en que se encuentre definida una Entidad a Generar y luego se seleccione una transformación múltiple, se agregarán los destinos de dicha transformación faltantes en la Actividad. Lo mismo ocurrirá para el caso en que la Actividad tenga varias entidades asociadas pero no la totalidad de los destinos de la transformación múltiple. 
+ A continuación, se muestran algunos ejemplos de Actividades de categoría transformación: 
+ ✓ 
+ Transformación simple desde la Entidad Origen Factura, hacia la Entidad a generar Remito, con un filtro de instancias a transformar. 
+ General I Reglas de Negocio I Historial de Versiones I Seguridad I Documentaci6n I Transformar Factura a Remito Remito ) Propredades de la Actrvrdad General I Entidades a generar I Formularios I Reglas d�r-b Nombre c�) I Transformar Factura a Remito Descripci6n Categorfa (�) I Transformaci6n IV I Actividad Padre l�----------�1_··� @%11·111¥1il·l,1·5MJl4·1·1■f En est a secci6n, se podriln configurar las propiedades de la actividad que dependen de la categorfa seleccionada. Entidad Origen (�) Transformaci6n (�) Descripci6n Atributo principal I Factura lvl I Factura a Remito Transf 1 IV I � remito se genera para.. IOI �mito. Cantidad Prod B Seleccione las entidades a generar. Estas entidades son los destinos que estariln disponibles en la actividad. Entidades destino Cl EJ EJ r-1 Entidades a generar Remito Vista panoramrca L 
+ Ł XI General I Reglas de Negocio I Historial de Versiones I Seguridad I Docurnentaci6n I [j Transformar Factura a Remito Remito Propiedades de la Actividad General I Entidades a generar I Formularios I Reglas dalr-bi Entidades destino Cl EJ EJ EntIdades a generar Remrto □ Descripci6n LJ,1 rem1io -�e ruwera ;,a,.i.}g] Atributo identificador (') Items Fact. Items. ProductoB Transforrnar instancias previas con la versi6n con la que fueron creadas Tipo de transformaci6n Parcial □ Atributo principal (') Items Fact.Items. Cantidad I v Permite transformar mils de lo pendiente CZ] Tipo de tolerancia Porcentual Valor de tolerancia Permite transformar menos de lo pendiente □ Vista panoramica 
+ ✓ 
+ Transformaci6n multiple desde la Entidad Origen Factura, hacia las Entidades Destina Remito y Nata de Credito. 
+ ✓ 
+ Se indicará la relación entre la Actividad que tenga asociada la Entidad Origen de una transformación y que tenga como categoría alguna de las relacionadas con alta de instancias (única instancia o múltiples instancias) con la Actividad asociada a la transformación con una flecha de guiones en color verde, si las mismas se encuentran en el diagrama, como se muestra a continuación: 
+ Como puede verse, la flecha de guiones en color verde indica que existe una transformación que tiene como origen a Factura y como destino a Recibo y a Nota de Crédito, y su dirección indica el sentido de la transformación. 
+ ✓ 
+ Una transformación también se podrá diagramar partiendo de una Actividad existente asociada instancias), desde el botón . Las ópciónes se visualizarán de la fórma “Nómbre de Entidades a la Entidad Origen y a alguna categoría de alta de instancias (única instancia o múltiples Destino – Nómbre de Transfórmación” cómó se muestra a cóntinuación. 
+ Al hacer clic en el ícono desde una Actividad, se podrá acceder a aquellas transformaciones que tengan como origen a la entidad asociada a la Actividad y que todavía no se encuentren en el diagrama. Una vez seleccionada una transformación, se creará automáticamente una Actividad (a la derecha de la actividad asociada a la entidad origen), inicialmente dentro del mismo Actor, la cual tendrá categóría “Transformación”, y estará asociada a la transformación seleccionada y a las entidades origen y destino de la misma. Si todas las transformaciones se encuentran graficadas en el diagrama, dicho botón se presentará inhabilitado. 
+ entidades a generar
+ Además, se podrá quitar del diagrama una entidad destino asociada a la actividad de la transformación múltiple desde la sólapa “” detallada más adelante. 
+ Para el caso de una transformación con más de un destino, la misma podrá presentarse tanto en Actividades separadas como en una única Actividad, mediante la funcionalidad de arrastrar y soltar. Esto no aplicará a actividades cuyas entidades asociadas no sean destino de una transformación múltiple. 
+ Al separar una transformación con 2 destinos en 2 actividades, el formulario de cada actividad se generará aplicando la plantilla de transformación a la entidad asociada. Luego, se podrán volver a unir estas las actividades, aplicando nuevamente la plantilla: 
+ No se podrá unir actividades, cuyas entidades asociadas no sean destino de la misma transformación múltiple. 
+ Las actividades de tipo transformación inactivas/eliminadas, sólo se visualizarán en un ambiente si existen instancias pendientes de transformar en esa actividad en dicho ambiente. 
+ 

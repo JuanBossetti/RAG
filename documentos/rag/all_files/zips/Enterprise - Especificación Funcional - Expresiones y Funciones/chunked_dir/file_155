@@ -1,0 +1,5 @@
+Ejemplos: 
+ Siguiendo con los mismos ejemplos de las funciones anteriores, tenemos: 
+ Nueva fecha(Año, Mes, Día) 
+ Esta función construye una fecha, a partir de un año, mes y día que recibe como parámetros. 
+ 

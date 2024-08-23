@@ -1,0 +1,9 @@
+7.4 Personalización visual en pantallas de autenticación 
+ Dentro de la pantalla de login hay 2 secciones: 
+ o 
+ Sección superior: contiene datos del dominio/modelo: 
+ Se puede personalizar logo, agregar textos, cambiar tema de colores, agregar imagen de fondo, mover campos, agregar iconos con links (por ejemplo, para acceder a Facebook), no se puede eliminar el campo de idiomas. 
+ o 
+ Sección inferior: contiene datos del login configurado en el dominio: 
+ Se puede agregar textos, cambiar tema de colores, agregar imagen de fondo, mover campos de login pero no eliminarlos ni agregar nuevos. 
+ 

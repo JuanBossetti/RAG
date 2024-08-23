@@ -1,0 +1,4 @@
+7.7 Ingreso al sistema 
+ Si el usuario tiene activa la política  “Forzar cambio de contraseña en el próximo acceso”, luego de autenticarse correctamente, visualizará la siguiente pantalla y no podrá ingresar a ninguna aplicación hasta confirmar una contraseña nueva y válida: 
+ Luego de que el usuario se autentique correctamente, el idioma será el que tenga como “idioma preferido” dicho usuario en sus preferencias. 
+ 

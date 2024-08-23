@@ -1,0 +1,9 @@
+3.1.7 Tipo de atributo enumerado 
+ Se utiliza para representar valores de texto predefinidos, los cuales tienen código, descripción y opcionalmente condición de visibilidad e imagen asociada. 
+ Permite selección múltiple de valores, es decir que, si el tipo de atributo enumerado tiene el booleano activo “Permitir selección múltiple de valores”, en la selección del contenido del atributo puede seleccionar uno o varios valores. En caso contrario, debe elegirse uno de los elementos definidos para el tipo. 
+ En forma predeterminada, los valores se presentan en el orden que están en la solapa valores de tipo enumerado, el modelador tiene la posibilidad de configurar un orden alfabético respecto al primer atributo descriptivo con el booleano “Orden alfabético” 
+ Ejemplo: 
+ Un tipo de enumerado de nombre “Días” que contiene los días de la semana, permite la selección de un único día, o varios, sin necesidad de definir dos tipos diferentes, con los mismos valores. Asimismo, los atributos se muestran en el orden deseado por el modelador: [Domingo, Lunes, Martes, Miércoles, jueves, Viernes] 
+ Un tipo de enumerado de nombre “País”, ordenado alfabéticamente con la opción de seleccionar solo un valor. 
+ Un tipo enumerado de nombre “Sexo”, cuyos valores de texto serán “Masculino” y “Femenino”, cuyos códigos serán “M” y “F”, y cuyas imágenes asociadas serán ♂ y ♀ , respectivamente. 
+ 

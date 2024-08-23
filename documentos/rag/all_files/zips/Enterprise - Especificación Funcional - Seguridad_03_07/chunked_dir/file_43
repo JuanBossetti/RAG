@@ -1,0 +1,6 @@
+Notificación ante una autenticación en un nuevo dispositivo. 
+ El objetivo de esta política es brindar mayor seguridad a los usuarios de la aplicación. 
+ Si hay algún método de notificación ante una autenticación en un nuevo dispositivo, entonces debe verificarse primero la correcta autenticación del usuario con los métodos de autenticación definidos, y luego se evalúa si está queriendo ingresar desde un dispositivo en el cual el usuario no se haya autenticado anteriormente. De ser, así se procede enviar un e-mail para notificar tal situación. 
+ La interfaz de la notificación por e-mail será la siguiente: 
+ La notificación que se recibe contiene la lista de los últimos 3 dispositivos utilizados recientemente con su estado (habilitado, bloqueado). Desde dicha lista se podrá bloquear los dispositivos y habilitarlos. Bloquear un dispositivo implica inhabilitar el acceso del usuario en ese dispositivo y si hay un usuario autenticado, cerrar su sesión. 
+ 

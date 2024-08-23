@@ -1,0 +1,49 @@
+2.4 Contexto anterior, operador SUPER 
+ Imaginemos el siguiente escenario: estamos posicionados en el ítem de una factura y queremos insertar el precio declarado en la lista de precios. Una opción para modelar esto, y la que utilizaremos ahora, consiste en tener una entidad Lista de precios donde cada una de sus instancias sea el producto y su precio. Una operación muy sencilla. Pero como nos situamos en la colección de los ítems de factura, nuestro contexto es esta colección. Ahora bien, de entre todos los ítems de las listas de precios existentes, necesitamos obtener el valor cuyo producto sea igual a aquel sobre el cual estamos posicionados en este momento. Entonces, podemos escribir 
+ EN Lista de precios PRIMER Precio CUANDO Producto = ___ ? 
+ En este punto es válido preguntarnos ¿a qué es igual el producto? Sabemos que al producto sobre el cual estamos posicionados, sin embargo ¿cómo podemos expresar esto? Ya que con la frase EN Lista de precios nos movimos al contexto de la entidad Lista de precios. En cambio, el dato que necesitamos utilizar en la condición para la comparación -a saber, el producto de la factura- se encuentra en el contexto anterior, en los ítems de este tipo de comprobantes. Como una posible respuesta a esta situación, FastPrg cuenta con el operador SUPER, el cual nos permite volver al contexto anterior, o mejor dicho superior, de aquí su nombre. 
+ Para el ejemplo que planteamos, basta con escribir SUPER.Producto. A través de este operador regresamos a los ítems de la factura, esto es, el contexto anterior a la lista de precios; dicho de otro modo, el contexto inicial de la expresión. Allí, obtendremos el producto sobre el cual nos posicionamos al comenzar a escribirla. La expresión nos queda de la siguiente manera: 
+ EN Lista de precios PRIMER Precio CUANDO Producto = SUPER.Producto 
+ En lo que sigue, analizaremos el contexto en cada sección de la expresión, a los fines de poder enfatizar este nuevo concepto, que puede resultar complejo. Antes de empezar a escribir, nuestro contexto era donde estábamos posicionados, es decir, los ítems de la factura. 
+ Al tipear “EN Lista de precios”, tal como hemos visto, nos movimos a ese contexto. 
+ Luego, “PRIMER Precio” no lo altera y “CUANDO Producto =” tampoco, es decir, hasta esta parte, siempre nuestro contexto es el que elegimos para la expresión, es decir, la lista de precios. 
+ Seguidamente, a través del operador ”SUPER.” nuestro contexto vuelve a ser el de los ítems de la factura. Aquí podríamos escribir Precio, Subtotal, Cantidad o Producto; cualquiera de los atributos propios de esta colección. Sin embargo, para este ejemplo nos interesa conocer el producto. 
+ Entonces, esta expresión recorrerá la lista de precios y nos traerá el primer elemento al que esté asociado el producto igual al del ítem, donde nos posicionamos al escribirla. En otras palabras, nos devolverá, por ejemplo, el precio de las bujías cuando facturemos bujías, o el de los neumáticos cuando facturemos neumáticos. 
+ Veamos en detalle otra situación: estamos posicionados en un cliente y queremos saber el importe total de sus facturas. Para ello, debemos escribir 
+ EN Factura SUMAR Total CUANDO Cliente.Nombre = Super.Nombre 
+ En este caso, como nos situamos sobre el cliente, podemos acceder al nombre sin problemas. Entonces, al escribir Super. no tenemos que cambiar de contexto ni hacer nada para obtener el nombre. Otra forma de escribir esto puede ser 
+ EN Factura SUMAR Total CUANDO Cliente = Super.Esta instancia 
+ La diferencia aquí radica en que no estamos consultando clientes que tengan el mismo nombre. En el ejemplo anterior, buscábamos que coincida el nombre del cliente de la factura con el nombre del cliente donde estábamos calculando la suma. En contraste, en este caso nos interesa que sea el mismo cliente. Estamos comparando la instancia completa. Si tuviésemos dos clientes con el mismo nombre, en el caso anterior donde comparábamos justamente sus nombres, estaríamos sumando lo facturado por ambos clientes. Sería más conveniente, en este caso, utilizar la segunda expresión. 
+ Veamos ahora los contextos: El contexto inicial es la entidad Cliente 
+ Al escribir en la expresión En Factura, nos movemos al contexto de la entidad Factura 
+ Luego, al escribir SUPER. nuestro contexto vuelve a ser la entidad Cliente 
+ Supongamos, ahora, que necesitamos saber desde qué fecha le estamos facturando a un cliente. Para ello, podemos extraer en estos comprobantes, la fecha que coincida con la primera factura del cliente: 
+ EN Factura PRIMER Fecha CUANDO Cliente = Super.Esta instancia 
+ Los ejemplos son muy parecidos. Aquí aplica la misma distinción; estamos igualando instancias, no los nombres de clientes. 
+ También, podemos observar que, si estamos posicionados en Factura, raramente utilicemos EN Cliente PRIMER, o EN Cliente CONTAR, ya que desde este comprobante podemos acceder al cliente, de manera directa, con ” Cliente.”. 
+ De todos modos, si queremos obtener, en cada factura, el número de clientes que tienen la misma ciudad que el cliente de la factura, podemos escribir 
+ EN Cliente CONTAR Nombre CUANDO Ciudad = Super.Cliente.Ciudad 
+ ¿Qué sucede si en lugar de contar los clientes, queremos saber sus nombres? En ese caso solo debemos cambiar la operación CONTAR por BUSCAR. En efecto, esta expresión nos trae todos los nombres de los clientes que posean la misma ciudad que el cliente de nuestra factura. 
+ Hasta aquí, hemos indicado cómo obtener datos con nuestras expresiones. Operaciones bastante complejas, que incluyen búsquedas en instancias de otras entidades, sumas, conteos. Aun así, existe un caso particular, que especificaremos a continuación. 
+ Para ello, veamos la siguiente situación. Estamos posicionados en el atributo Total de la factura, que -supongamos un caso muy simple- es la suma de los subtotales de los ítems. A este total queremos asignarle un valor. Es decir, debemos recorrer los ítems de la factura y sumar sus subtotales. ¿Cómo 
+ podemos efectuar esto? ¿Podemos escribir EN Factura.Ítems SUMAR Subtotal? Nos traería los subtotales de todos los ítems de cada una de las facturas. 
+ ¿Y la siguiente opción es conveniente? EN Factura.Ítems SUMAR Subtotal cuando Esta instancia = super.Esta instancia 
+ Aquí, estamos recorriendo todas las facturas y sumando los subtotales de la factura actual, utilizando Esta instancia y el operador super. Sin embargo, esto no es posible ya que las búsquedas se realizan con los datos persistidos, y la factura no lo está aún, sino que se está creando en este momento. Para este caso particular, en FastPrg se implementa un uso más del operador “.”, a través del cual no solo podemos movernos entre contextos, sino también buscar en instancias no confirmadas todavía. 
+ ¿Cómo utilizamos este operador? Debe preceder al contexto actual. De esta manera, le indica a FastPrg que recorreremos una colección en memoria. Por ejemplo, en este caso podríamos escribir 
+ EN .Ítems SUMAR Subtotal. 
+ Así, estamos recorriendo la colección de ítems actual, la de esta factura que estamos creando. 
+ Supongamos, ahora, que queremos realizar una validación dentro de los ítems de factura para no comprar productos repetidos. Podemos hacerlo posicionándonos sobre cada artículo y contar cuántos productos son iguales a estos en la factura: el resultado en cada caso debería ser uno. 
+ Esta expresión, ahora, podemos escribirla, posicionados en el producto: 
+ EN . Esta instancia.Ítems CONTAR Producto CUANDO Producto = super.Producto 
+ Nos devolverá la cantidad de ítems iguales al producto actual, para cada producto de la factura. Ahora solo nos resta igualarlo a uno. 
+ (EN .Esta instancia.Ítems CONTAR Producto CUANDO Producto = super.Producto) = 1 
+ Vale recordar que siempre debemos escribir una colección luego del operador “.” cuando lo utilizamos de esta manera. En este caso, Ítems o Esta instancia.Ítems son colecciones. 
+ De esta misma manera, es posible utilizar super en otros lugares donde usamos expresiones. Veamos algunos ejemplos: 
+ • 
+ En una función, si utilizamos un en…buscar o en…contar, podemos utilizar Super para referenciar a los parámetros de la función. Por ejemplo, en una condición de la función utilizamos la siguiente expresión: esnulo((en Publicación por Comercio electrónico.Variaciones de la publicación primer Este ítem cuando Esta instancia = super.Publicación)) al posicionarnos con En… primer en Publicación por Comercio electrónico.Variaciones de la publicación cuando utilizamos super.Publicación nos referimos al parámetro de entrada de la función 
+ • 
+ En una Regla de negocio que asigna una especialidad a las tareas de mantenimiento, para realizar la asignación de valor al modificar ítem, se usa la siguiente expresión: en Tarea de mantenimiento primer Especialidad de mantenimiento cuando Esta instancia = 
+ super.Tarea 
+ De esta manera, super.Tarea refiere a la tarea por la que se activó la Regla de Negocio 
+ Así, podríamos seguir dando ejemplos de Super para Transformaciones, Desencadenantes, Reporte por bandas, Filtro de modelo, Planificación, etc. Debe tenerse en cuenta que siempre que necesitemos volver a un contexto anterior debemos utilizar la palabra reservada Super. 
+ 

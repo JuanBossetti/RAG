@@ -1,0 +1,20 @@
+Solapa Seguridad 
+ La última solapa será “Seguridad” y permitirá definir los permisos de distintos usuarios y grupos sobre las instancias que genere el acumulador. 
+ Dentro de esta solapa, habrá una sección para definir la seguridad de consulta de instancias del acumulador en todas las dimensiones y otra sección en donde se podrán definir diferentes condiciones y por cada una de estas, los permisos que aplican cuando se cumple dicha condición. Se 
+ podrán definir condiciones, pero sólo filtrando por dimensiones o por un atributo al que se llega a partir de una dimensión (pathfields, pero siempre partiendo desde una dimensión). Por ejemplo, si la dimensión del acumulador Total Facturado es Cliente, se podrán configurar distintos permisos para la condición: Cliente. Categoría = mayorista, y para la condición: Cliente. Categoría = minorista. 
+ En cuanto a la seguridad de instancias global del acumulador, de manera predeterminada, se tomarán los permisos definidos a nivel seguridad de instancias global de la entidad a la cual pertenece en acumulador, es decir, si el acumulador no tiene definido ningún permiso en la Seguridad de instancias, por defecto tendrá los mismos permisos definidos en la Seguridad de instancias de la entidad. Por ejemplo, en la entidad Factura existe un acumulador del “Total de ventas por cliente”, el grupo de usuarios “vendedores” tiene permitido consultar las instancias de la entidad Factura, pero en la seguridad de instancias dentro del acumulador no tiene nada definido, entonces, como permiso efectivo podrá consultar también las instancias del acumulador “Total de ventas por cliente”. 
+ En cuanto a la Seguridad de instancias condicional del acumulador no se toma en cuenta la Seguridad de instancias condicional de la entidad, solo se considera lo definido a nivel acumulador para mostrar los valores acumulados. 
+ Además, es importante aclarar que la seguridad de instancias del acumulador siempre pesa sobre la seguridad de instancias definida en la entidad, es decir, si en la seguridad de instancias del acumulador no hay nada definido, de manera predeterminada las instancias del acumulador tendrán los permisos definidos en la seguridad de instancias de la entidad a la cual pertenece el acumulador, pero si existen permisos definidos en la seguridad de instancias del acumulador, sólo se evaluarán estos últimos independientemente de lo que esté definido en la seguridad de instancias de la entidad. 
+ Los permisos dentro de estas solapas son: 
+ • 
+ Consultar instancias: para consultar todas las dimensiones o las que indique la condición. 
+ o 
+ Formulario: para consultar instancias de acumuladores desde un formulario. 
+ o 
+ Vista de información: para consultar instancias de acumuladores desde un GDI. 
+ o 
+ Reporte por bandas: para consultar instancias de acumuladores desde un reporte por bandas. 
+ Dichos permisos, se podrán configurar para todos los ambientes, o para cada uno de los mismos, tal como la solapa “Seguridad de Instancias” de la Entidad. 
+ En caso de que un usuario cree un nuevo acumulador que sea igual a otro ya existente creado por el sistema, se deberá renombrar este último en lugar de mantener ambos. 
+ Los acumuladores deberán permitir reflejar su valor considerando los datos en edición como así también sin considerarlos. En ambos casos, la información de un acumulador es compartida entre todas las instancias en ejecución del sistema generado y en la definición de cada actividad se deberá poder especificar si se considera el acumulador con los datos definitivos o con ambos. Por defecto, el cálculo del acumulador deberá hacerse sobre el total de los datos, es decir, incluyendo los datos en edición. 
+ 

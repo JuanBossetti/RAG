@@ -1,0 +1,4 @@
+Ejemplos: 
+ Obtener traducción(Sitio().Nombre;'es') retorna Rosario 
+ Nota: al ser el nombre un valor internacionalizable, es necesario utilizar la función de traducción para asignarlo en un atributo de texto. 
+ 

@@ -1,0 +1,43 @@
+Solapa Dimensiones 
+ La segunda solapa se denominará “Dimensiones” y permitirá definir opcionalmente bajo qué atributos se va a agrupar el acumulador. Esta pantalla estará compuesta por una lista doble mediante la cual se permitirá seleccionar los atributos de la entidad en edición o de aquellas entidades relacionadas a esta, a través de los cuales se desea agrupar los valores obtenidos mediante la aplicación de las distintas fórmulas. 
+ Como dimensión se podrá seleccionar cualquier atributo de la entidad/colección (dependiendo del contexto de evaluación) que sea de tipo: simple, enumerado, referencia, referencia a elemento de colección, secuencia y compuesto (todos salvo colección). En el caso de seleccionar un compuesto, se toman los atributos dentro del compuesto como dimensiones. Ejemplo: si se selecciona Dirección como dimensión que es un compuesto de 2 atributos simples: Calle y Número, en realidad las dimensiones serán Calle y Número. En el caso de que uno de los atributos dentro del compuesto sea de tipo colección, no se tendrá en cuenta para las dimensiones. En el caso de seleccionar un texto internacionalizable, las dimensiones son los textos en cada idioma. 
+ Además, si el contexto de evaluación es una colección, se podrán seleccionar atributos de los contextos superiores. 
+ Si el atributo seleccionado es de tipo fecha, al seleccionarlo en las dimensiones se habilitará un botón para configurar las agrupaciones. 
+ Desde el botón accede a la lista doble de agrupaciones: 
+ Cada agrupación de una fecha será una dimensión diferente y las posibles opciones para cada tipo son: 
+ Fechas: 
+ • 
+ Día 
+ • 
+ Día semana 
+ • 
+ Semana del año 
+ • 
+ Quincena 
+ • 
+ Mes 
+ • 
+ Semestre 
+ • 
+ Cuatrimestre 
+ • 
+ Trimestre 
+ • 
+ Bimestre 
+ • 
+ Año 
+ • 
+ Fecha 
+ Hora: 
+ • 
+ hora 
+ • 
+ minutos 
+ • 
+ segundos 
+ Fecha y hora 
+ la suma de las 2 listas anteriores teniendo además la opción de agrupar por fecha y hora. 
+ Si dos acumuladores tienen los mismos atributos, las mismas dimensiones, la misma fórmula, pero distintas condiciones, serán dos acumuladores diferentes. 
+ Si hay validaciones en el acumulador, en las dimensiones sólo se pueden poner atributos directos de la entidad/colección, y no atributos a los cuales se puede acceder por referencia. Esto restringirá la selección en la lista doble. Esto se debe a que si cambia el valor de una entidad relacionada a la cual se llega desde una dimensión, se debe recalcular el acumulador pero fuera de la transacción por el tiempo que puede insumir. 
+ Por ejemplo, si la entidad Factura tuviera una referencia a la entidad Cliente, un acumulador en Factura no podría tener ni en las condiciones ni en las dimensiones atributos de la entidad Cliente a los cuales se llegue por referencia. 
+ 

@@ -1,0 +1,9 @@
+Integración con otros permisos: 
+ Este permiso se suma al de ejecutar actividades en un proceso de negocio y a nivel modelo. Esto significa que: 
+ • 
+ Si un usuario posee al menos un permiso permitido a nivel modelo, PN, actor, actividad o entidad (“ejecutar todas las actividades”), el usuario puede ejecutar la actividad. 
+ • 
+ Si tiene denegado en algún nivel, no puede ejecutarla. 
+ • 
+ Si no posee ninguno de los permisos anteriores (permiso no definido), no puede ejecutarla. 
+ 

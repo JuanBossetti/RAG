@@ -1,0 +1,5 @@
+3.11 Funciones de consumo de servicios sincrónicos 
+ Las funciones que consumen dispositivos o servicios web realizan el consumo de forma sincrónica. Esto implica que, a diferencia de los consumos que tienen como origen la acción de una Regla de negocio, el mismo se efectúa por cada unidad de cambio. 
+ Una vez completados los datos básicos correspondientes al tipo de consumo, el sistema brinda la opción de completar cada uno de los parámetros de entrada/invocación con los que luego se realizará el consumo. 
+ Dichos parámetros se obtienen de los siguientes lugares: 
+ 

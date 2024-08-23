@@ -1,0 +1,5 @@
+Ejemplos: 
+ Suponiendo que tenemos un atributo de tipo texto multimedia internacionalizable llamado texto a traducir que contiene el valor hola ֎ꙮꚙ. 
+ Obtener traducción(texto a traducir;'es') retorna hola ֎ꙮꚙ 
+ Obtener traducción(texto a traducir;'en') retorna hello ֎ꙮꚙ 
+ 

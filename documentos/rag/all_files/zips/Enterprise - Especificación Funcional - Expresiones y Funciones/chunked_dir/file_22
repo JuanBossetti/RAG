@@ -1,0 +1,13 @@
+2.6.7 Buscar en almacén explícito 
+ En las expresiones utilizadas, opcionalmente podremos indicar el almacén desde el cual deseamos obtener la información. Los almacenes a los que se permite acceder son: 
+ Dependiendo del tipo de entidad sobre el cual se aplica, se podrá tener acceso a diferentes almacenes de datos. 
+ • 
+ Entidades maestras. En este tipo de entidades se podrá consultar sobre cualquiera de los almacenes mencionados anteriormente. En caso de no indicar el almacén, se aplicará por defecto la expresión sobre el almacén ‘Consolidado’. 
+ • 
+ Entidades transaccionales. En este tipo de entidades se podrá consultar solo a los almacenes ‘Definitivo’, ‘Edición’, ‘Edición Cancelado’. En caso de no indicar el almacén, se aplicará por defecto la expresión sobre el almacén ‘Definitivo’. 
+ Buscar(Cliente; ; teléfono COMIENZA CON “5”; Definitivo ) 
+ En Cliente Buscar Cuando teléfono COMIENZA CON “5” Desde almacen Definitivo 
+ Consideraciones al especificar un almacén de datos. 
+ Al crear una expresión, en caso de ser una entidad de tipo Transaccional sobre la cual se desea indicar el almacén de datos, deberemos evaluar que no se intenten utilizar los almacenes ‘Consolidado’, ’Consolidado Borrado’, ’Consolidado todo’ (en este caso no es posible utilizar Desde Consolidado, Consolidado borrado, Consolidado Todo). En caso de intentar utilizarlos, el sistema deberá informar la situación y solicitando la modificación de la expresión para poder continuar. 
+ Existe la posibilidad de luego cambiar el tipo de entidad y en este caso el sistema realiza determinadas validaciones. 
+ 

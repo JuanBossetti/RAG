@@ -1,0 +1,26 @@
+Ejemplos: 
+ Fecha Media: Fecha Completa: 
+ ✓ 
+ Idioma: Japonés. 
+ |    | Primer día de la semana                                        | Lunes                                    |
+|---:|:----------------------------------------------------------------|:------------------------------------------|
+|  0 | Primera semana del año                                         | Primera semana del año                   |
+|  1 | Separador decimal                                              | Punto                                    |
+|  2 | Separador de lista  (windows tiene Coma)                       | Punto y coma                             |
+|  3 | Separador de miles (Separador de agrupación de dígitos)        | Coma                                     |
+|  4 | Formato de Fecha – Por defecto                                 | Medio                                    |
+|  5 | Formato de Fecha – Corto                                       | yy/MM/dd                                 |
+|  6 | Formato de Fecha – Medio                                       | yyyy/MM/dd                               |
+|  7 | Formato de Fecha – Largo                                       | yyyy年MM月dd日                              |
+|  8 | Formato de Fecha – Completo                                    | Yyyy 年MMM月d 日dddd                        |
+|  9 | Formato de Hora - Por defecto                                  | Corto                                    |
+| 10 | Formato de Hora - Corto                                        | H:mm                                     |
+| 11 | Formato de Hora - Medio                                        | HH:mm                                    |
+| 12 | Formato de Hora – Largo                                        | HH:mm:ss                                 |
+| 13 | Formato de Hora – Completo (equivale a: tt hh:mm:ss)           | 午前 hh:mm:ss (am) 午後hh:mm:ss  (pm)        |
+| 14 | Formato Fecha y Hora - Por defecto                             | Corto                                    |
+| 15 | Formato Fecha y Hora - Corto                                   | yy/MM/dd H:mm                            |
+| 16 | Formato Fecha y Hora - Medio                                   | yy/MM/dd HH:mm                           |
+| 17 | Formato Fecha y Hora - Largo                                   | yyyy年MM月dd日HH:mm:ss                      |
+| 18 | Formato Fecha y Hora - Completo                                | Yyyy 年MMM月d日dddd午前hh:mm:ss               |
+ 

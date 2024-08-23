@@ -1,0 +1,10 @@
+4.18 Registro de editores 
+ El registro de editores incluye los eventos generados por tareas desde los editores durante el modelado de un sistema generado. Incluye eventos específico relacionados al Analizador de impacto, publicación de versiones, etc. 
+ En este registro se almacenan eventos tales como: 
+ • 
+ Cuando se pone una versión en producción 
+ • 
+ Cuando se crea un nuevo ambiente 
+ • 
+ Cuando se copian instancias entre ambientes 
+ 

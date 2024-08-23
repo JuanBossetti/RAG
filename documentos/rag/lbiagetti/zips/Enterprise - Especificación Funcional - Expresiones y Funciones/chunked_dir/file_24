@@ -1,0 +1,42 @@
+2.7.1 Tipos de operadores 
+ Existen distintos tipos de operadores; tenemos los operadores aritméticos (los podemos usar por ejemplo para asignar un valor inicial a un atributo numérico), tales como: 
+ |    | Operador          | Significado           | Ejemplo          |
+|---:|:-------------------|:-----------------------|:------------------|
+|  0 | +                 | Suma                  | 5 +6             |
+|  1 | –                 | Resta                 | 4 –2             |
+|  2 | *                 | Multiplicación        | 2 *3             |
+|  3 | /                 | División              | 5 /2             |
+|  4 | %                 | Porcentaje            | 21%              |
+|  5 | ^                 | Potenciación          | 9 ^3             |
+ Resaltamos que los operadores +,- podemos utilizarlos para sumar o restar números, fechas y duraciones. Por ejemplo, podemos sumarle a la fecha de una factura 30 días y así calcular un vencimiento. 
+ |    | Operador          | Significado          | Ejemplo                                                   |
+|---:|:-------------------|:----------------------|:-----------------------------------------------------------|
+|  0 | +                 | Suma                 | {10/10/2012} + {5 días}                                   |
+|  1 | –                 | Resta                | {10/10/2012} - {5 días} {10/10/2012} - {5/10/2012}        |
+ También el operador + se puede usar para concatenar textos, combinando varias cadenas en una sola. 
+ |    | Operador          | Significado                                                                    | Ejemplo                  |
+|---:|:-------------------|:--------------------------------------------------------------------------------|:--------------------------|
+|  0 | +                 | Concatena dos valores de texto para generar un valor de texto continuo.        | “Neural” + “Soft”        |
+ Otro tipo de operadores son los de comparación (muy utilizados en las validaciones). Entre estos tenemos <, >, =, >=, <>, <=. Estos operadores utilizan 2 operandos del mismo tipo y retornan un valor lógico: verdadero o falso. Podemos utilizarlos entre números y fechas. Por ejemplo Total>100 o Fecha<{25/12/2000} 
+ |    | Operador          | Significado              | Ejemplo                                  |
+|---:|:-------------------|:--------------------------|:------------------------------------------|
+|  0 | =                 | Igual a                  | Remito.Importe = Factura.Importe         |
+|  1 | >                 | Mayor que                | Remito.Importe > Factura.Importe         |
+|  2 | <                 | Menor que                | Remito.Importe < Factura.Importe         |
+|  3 | >=                | Mayor o igual que        | Remito.Importe >= Factura.Importe        |
+|  4 | <=                | Menor o igual que        | Remito.Importe <= Factura.Importe        |
+|  5 | <>                | Distinto de              | Remito.Importe <> Factura.Importe        |
+ Y, por último, tenemos los operadores lógicos, como O o Y, que toman dos valores lógicos y retornan otro lógico. Si deseamos aplicar un descuento para las facturas del mes de marzo del año 2001, por ejemplo, podemos escribir la expresión 
+ Fecha>={01/03/2001} y Fecha<={31/03/2001} 
+ |    | Operador            | Significado                                                                                                                                         | Ejemplo                                           |
+|---:|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+|  0 | Y                   | VERDADERO si ambos Operandos son       VERDADERO                                                                                                   | VERDADERO Y VERDADERO                             |
+|  1 | O                   | VERDADERO si algún Operando es       VERDADERO                                                                                                     | VERDADERO O FALSO       Retorna verdadero        |
+|  2 | EN                  | VERDADERO si el Operando es igual a uno dentro de la colección                                                                                      | “Neural” EN (“Neural”; “Soft”)                    |
+|  3 | CONTIENE            | VERDADERO si el Operando contiene con una cadena                                                                                                    | “NeuralSoft” CONTIENE “Neural”                    |
+|  4 | COMIENZA CON        | VERDADERO si el Operando comienza con una cadena                                                                                                    | “NeuralSoft” COMIENZA CON “Neural”                |
+|  5 | TERMINA CON         | VERDADERO si el Operando termina con una cadena                                                                                                     | “NeuralSoft” TERMINA CON “Soft”                   |
+|  6 | NO                  | Invierte el valor de otro Operando lógico                                                                                                           | NO FALSO       Retorna: VERDADERO                |
+|  7 | ENTRE               | VERDADERO si el Operando está dentro de un intervalo. Se incluyen los valores extremos como verdadero. Aplica para números, textos y fechas.        | 10 ENTRE 1 Y 20                                   |
+ La evaluación de las Expresiones lógicas es mínima. Es decir, solo se evalúa un segundo argumento en el caso de que el anterior no sea suficiente pare determinar el resultado. Por ejemplo, en una expresión en la que se deben cumplir dos condiciones separadas por el operador “Y”, en el caso de que no se cumpla el primero no se evalúa el resto de la operación. 
+ 

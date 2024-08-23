@@ -1,0 +1,3 @@
+Mayúscula(Texto) 
+ Pone el texto en mayúsculas. Equivalente a UPPER(s) = UCASE(str) 
+ 

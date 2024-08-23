@@ -1,0 +1,6 @@
+Ejemplos: 
+ Buscar(Factura; Importe total > 100 Y Cliente.Nombre CONTIENE “Pedro” Y Cliente.Limite de crédito > 100) 
+ Al ingresar dicha función, se traduce a: 
+ En Factura Buscar Esta instancia Cuando Importe total > 100 Y Cliente.Nombre CONTIENE “Pedro” Y Cliente.Limite de crédito > 100 
+ Buscar(Factura.Items de comprobante;Total; Total > 500) 
+ 

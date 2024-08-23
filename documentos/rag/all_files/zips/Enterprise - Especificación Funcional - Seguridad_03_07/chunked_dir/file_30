@@ -1,0 +1,69 @@
+3.11 Panel de Navegación 
+ La sección del panel de navegación (acordeón) llamada “Dominio” contendrá: 
+ • 
+ <Nombre Dominio Principal> 
+ o 
+ <Agentes> 
+ o 
+ “Dominios de autenticación” 
+ ▪ 
+ <Nombre Dominio A> 
+ • 
+ <Nombre Objetos compartidos> 
+ ▪ 
+ <Nombre Dominio B> 
+ ▪ 
+ … 
+ • 
+ <Nombre OU raíz> 
+ o 
+ <Usuarios> 
+ o 
+ <Grupos de usuarios> (incluye roles) 
+ o 
+ <Dispositivos> 
+ o 
+ <Puestos de trabajo> 
+ o 
+ <OU> 
+ ▪ 
+ <Usuarios> 
+ ▪ 
+ <Grupos de usuarios> 
+ ▪ 
+ … 
+ • 
+ <Nombre OU raíz de sitios> (el nombre puede ser “Sitios”) 
+ o 
+ <Sitios> 
+ o 
+ <Grupos de sitios> 
+ o 
+ <OU de sitios> 
+ ▪ 
+ <Sitios> 
+ ▪ 
+ <Grupos de sitios> 
+ ▪ 
+ <OU de sitios> 
+ • 
+ “Cuentas” 
+ o 
+ “Cuentas para envío de email” 
+ ▪ 
+ <Cuenta 1> 
+ ▪ 
+ <Cuenta 2> 
+ o 
+ “Cuentas para envío de mensajería instantánea” 
+ ▪ 
+ <Cuenta 1> 
+ ▪ 
+ <Cuenta 2> 
+ o 
+ “Grupos de servicios web” 
+ ▪ 
+ <Cuenta 1> 
+ ▪ 
+ <Cuenta 2> 
+ 

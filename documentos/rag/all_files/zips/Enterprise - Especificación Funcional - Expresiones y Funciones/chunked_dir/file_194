@@ -1,0 +1,4 @@
+Ejemplos: 
+ TECHO(123,45) retorna 124. 
+ TECHO (-123,45) retorna -123. 
+ 

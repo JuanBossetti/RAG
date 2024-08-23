@@ -1,0 +1,15 @@
+Estado de usuario(Usuario) 
+ Evalúa el estado del usuario según las políticas del sistema. Los posibles valores de retorno serán: 
+ • 
+ Bloqueado. El usuario se encuentra momentáneamente bloqueado, dependiendo de la configuración de políticas, se podrá desbloquear automáticamente o deberá realizarse de forma manual. 
+ • 
+ Inhabilitado. Se inhabilita el usuario por diferentes motivos: 
+ - 
+ Inhabilitación directa del usuario 
+ - 
+ Inhabilitación de una Unidad Organizacional a la que pertenece un usuario 
+ - 
+ Inhabilitación por políticas de inhabilitación con respecto a fechas de expiración 
+ • 
+ Activo. El usuario se encuentra habilitado para utilizar el sistema. 
+ 

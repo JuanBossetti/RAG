@@ -1,0 +1,13 @@
+3.3.2 Múltiples instancias 
+ Una Actividad de categoría múltiples instancias se utilizará para crear, consultar, habilitar, inhabilitar, modificar, eliminar o restaurar múltiples instancias de una Entidad. Dicha Actividad sólo podrá tener asociada una entidad. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: se deberá definir la entidad sobre la que accionará la actividad. Dato obligatorio. 
+ ✓ 
+ Confirmación automática: esta propiedad se podrá configurar solo en caso de que la entidad asociada sea maestra. Al activarla, en los formularios de esta actividad se realizará la confirmación automática de instancias (pudiendo el usuario activar modo borrador). Si la propiedad no está activa, la confirmación de cambios dentro de esta actividad siempre será en edición (hasta que el usuario confirme). De forma predeterminada, estará activa. 
+ ✓ 
+ Filtro de instancias: filtro de instancias de la entidad asociada a la Actividad. Este filtro aplicará de forma predeterminada a formularios, tareas programadas y web services que se configuren en la Actividad. Inicialmente, en este campó se visualizará será “Todas las instancias”. Dato opcional. 
+ ✓ 
+ Duración prevista: igual que lo descripto para “Única instancia”. En este caso, heredará del tiempo esperado que haya sido definido en el DD para la entidad. 
+ ✓ 
+ 

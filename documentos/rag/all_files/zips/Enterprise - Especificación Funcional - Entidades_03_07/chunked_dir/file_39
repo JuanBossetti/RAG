@@ -1,0 +1,9 @@
+Ejemplo de funcionamiento: 
+ Entidad: movimientos de stock 
+ Acumulador: stock 
+ Atributo: stock actual. Propiedad “Eliminar registros con valor 0” habilitada. 
+ Atributo: stock promedio. 
+ Dimensiones: producto, ubicación. 
+ Si desde una grilla accedo a este acumulador, los productos cuyo stock actual = 0 será eliminado. 
+ Aplica a los acumuladores generados por el usuario y creados por el sistema de manera automática. También a los recalculados en edición como a los acumuladores definitivos que se almacenan al confirmar. 
+ 

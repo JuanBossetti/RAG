@@ -1,0 +1,5 @@
+Ejemplos: 
+ Duración a días({15 minutos}) devuelve 0,0104 
+ Duración a días ({2 días}) devuelve 2. 
+ Duración a días ({3 semanas}) devuelve 21. 
+ 

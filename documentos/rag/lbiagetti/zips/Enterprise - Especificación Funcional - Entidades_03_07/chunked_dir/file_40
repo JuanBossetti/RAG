@@ -1,0 +1,6 @@
+Ejemplo de funcionamiento de un acumulador mediante expresión: 
+ Supongamos que un usuario intenta calcular el saldo de cada proveedor, pero expresado en dólares. Para esto, se define el acumulador ‘Saldo por proveedor’ de la entidad ‘Movimiento de proveedores’ que contiene la expresión ‘Importe moneda base * Cotización dólar(moneda base,hoy())’. En este caso, 'Cotización dólar' es una función que invoca un servicio web para obtener la cotización del dólar en una fecha específica. Por lo cual, cada vez que se cree, modifique, o elimine una instancia de la entidad Movimiento de proveedores, al momento de confirmar, se evalúa la expresión para aplicar el valor al atributo del acumulador. 
+ Nota de arquitectura: 
+ persistencia
+ Los resultados de la expresión se almacenan en una tabla intermedia. Para más información dirigirse a la especificación de . 
+ 

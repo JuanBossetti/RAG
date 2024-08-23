@@ -1,0 +1,5 @@
+2 Introducción 
+ La seguridad permitirá definir, tanto en tiempo de edición como en tiempo de ejecución del sistema generado, cuáles serán los diferentes permisos que podrán tener los usuarios del sistema, tanto del modelador como de los sistemas generados. 
+ Esta funcionalidad será transversal a todo el sistema, de forma tal que toda operación que desee realizar una persona en el sistema pasará previamente por una verificación de seguridad. De no cumplir con dicha verificación, la acción no podrá ejecutarse, notificándose a quien corresponda. 
+ A continuación, se presentan definiciones preliminares para comprender los conceptos de seguridad. 
+ 

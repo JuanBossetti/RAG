@@ -1,0 +1,4 @@
+Ejemplos: 
+ Piso(123,45) retorna 123. 
+ Piso(-123,45) retorna -124. 
+ 

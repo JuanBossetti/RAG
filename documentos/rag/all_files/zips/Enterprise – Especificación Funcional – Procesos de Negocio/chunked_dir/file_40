@@ -1,0 +1,10 @@
+3.14 Acciones sobre Instancias de Entidades que no forman parte de una Actividad 
+ Hasta ahora vimos que toda instancia de una entidad debe crearse/editarse/eliminarse desde una Actividad, pero hay ciertas circunstancias en las cuales se pueden realizar estas acciones sin tener en cuenta ninguna Actividad. Estas circunstancias son: 
+ • 
+ Alta/modificación/eliminación de instancias desde una grilla que el modelador agrego manualmente al formulario y por lo tanto no se creó automáticamente al generar el mismo. Tener en cuentas que las entidades transaccionales no se pueden editar dentro de una grilla. 
+ • 
+ “Alta ó módificación de instancias” desde una RN. 
+ En estos casos, solamente se tiene en cuenta la definición de la Entidad para determinar los valores iniciales, validaciones y otras configuraciones necesarias. 
+ Además, debe tenerse en cuenta que estas instancias creadas o modificadas en grillas que no pertenecían al formulario original, se deben confirmar en conjunto con la instancia de la actividad. Por ejemplo, si en una actividad de alta de factura se agregó una grilla con el listado de clientes, los cambios en la grilla se confirman cuando se confirme la factura. 
+ Por otro lado, si un usuario quiere ver o editar una instancia creada dentro de una grilla o RN, o que no fue creada por un formulario de única instancia, se visualizará con la actividad predeterminada de la entidad, dentro de la cual, se podrá visualizar la instancia y además, modificarla, aplicándose las definiciones de la Entidad. 
+ 

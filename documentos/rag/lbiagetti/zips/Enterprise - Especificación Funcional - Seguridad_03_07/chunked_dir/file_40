@@ -1,0 +1,3 @@
+Tiempo de inactividad máximo para cierre automático de autenticación 
+ La política “Tiempo de inactividad máximo para cierre automático de autenticación” no modifica la estructura de la pantalla, pero al cumplirse el tiempo definido en esta política, se vuelve a cargar la pantalla inicial de autenticación, sin las credenciales ingresadas por el usuario (inclusive si el usuario ingresó algunas credenciales correctamente y luego se le pidieron métodos extras). 
+ 

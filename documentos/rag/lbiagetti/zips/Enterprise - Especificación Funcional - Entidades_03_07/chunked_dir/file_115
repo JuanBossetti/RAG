@@ -1,0 +1,12 @@
+1.20 Instancias en Edición de transformaciones: 
+ Cuando un usuario recupere las instancias en edición desde una actividad de transformación, visualizará todas las instancias en el estado en que se guardaron en edición debido a que se almacena el estado de conversación de la actividad, persistiendo además el estado de los transient fields (ejemplo, cantidad a transformar) con el fin de poder recuperar el valor de los mismos, es decir, que al recuperar las instancias se visualizarán: 
+ • 
+ Las instancias seleccionadas para transformar. 
+ • 
+ Los valores ingresados como cantidad a transformar para cada una de ellas. 
+ Por ejemplo, supongamos que en una actividad de transformación “Confirmación de factura” se seleccionan varias instancias para transformar en Nota de crédito y tres de ellas no se transforman pero quedan seleccionadas con las cantidades a transformar en cada una de ellas: 
+ Así mismo, se guardan en edición para terminar de transformarlas al día siguiente. 
+ Entonces, al abrir nuevamente la actividad y seleccionar que se muestren las instancias en edición estás instancias se visualizarán en el estado que se guardaron: 
+ Además, en caso de que se generen instancias con estado confirmado en edición, si la instancia que quedó en este estado vuelve a estar en edición (es decir, no se confirma), se revierte la operación, y en consecuencia se va a recuperar la instancia para que quede nuevamente pendiente de transformar. 
+ Por ejemplo, siguiendo con el mismo caso, supongamos que las instancias que se transformaron anteriormente, al generar la Nota de crédito, consumían un web service que se comunica con el AFIP para aprobarla, y una de ellas fue rechazada porque el número de comprobante no correspondía con el próximo a autorizar, en consecuencia, al abrir la actividad con las instancias en edición esta última también se agregará y estará disponible para ser transformada nuevamente. 
+ 

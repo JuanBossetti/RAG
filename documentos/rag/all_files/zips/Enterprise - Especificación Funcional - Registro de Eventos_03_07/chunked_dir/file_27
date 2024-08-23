@@ -1,0 +1,3 @@
+4.10 Registro de Datos entrantes y procesados 
+ Es una clasificación que agrupa los registros resultantes de cada una de las operaciones de los grupos de Servicios Web. Tienen como objetivo que se pueda acceder a la información recibida y procesar datos, por ejemplo para asignarlos a través de una expresión a otras entidades. Se dividen en los siguientes tipos: 
+ 

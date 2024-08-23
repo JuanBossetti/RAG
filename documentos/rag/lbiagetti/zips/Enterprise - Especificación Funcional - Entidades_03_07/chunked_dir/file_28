@@ -1,0 +1,14 @@
+1.6 Filtros predefinidos 
+ Se deberán definir en esta solapa todas los filtros predefinidos para la entidad en edición. Cada búsqueda se identificará con un nombre y contendrá un conjunto de parámetros que permitirán filtrar los elementos de dicha entidad. 
+ Estos filtros permitirán aplicar de manera rápida y sencilla, un conjunto de filtros sobre las instancias de la entidad. Cada una de estos filtros se encontrará disponibles cuando se esté visualizando un conjunto de instancias de la entidad en cuestión. Por ejemplo, en un formulario de ABM de múltiples instancias, o en un GDI al visualizar dicha entidad en una grilla o en un gráfico, etc. Por ejemplo, en la 
+ entidad “Cliente” el usuario crea un filtro predefinido denominado “Mejores Clientes” y le configura como filtro que sólo le muestre los diez clientes que más compraron en el mes anterior al actual. Además, configura que quiere ver los atributos Nombre, Apellido y sumar(Cliente.Factura.Importe Total). Por lo tanto, cuando en un GDI esté visualizando una grilla con todos los clientes, tendrá disponible desde una opción en el panel de propiedades, la posibilidad de elegir la búsqueda “Mejores Clientes” y automáticamente la grilla le mostrará el resultado de esta búsqueda. 
+ La solapa de “Filtros predefinidos” estará dividida en dos sectores: 
+ • 
+ La parte superior, presentará una grilla en la cual se listarán todas los filtros definidos para la entidad en edición. 
+ • 
+ La parte inferior estará subdividida mediante un separador. Por encima del mismo se presentarán los campos Nombre, Descripción. Por debajo del separador, se presentarán dos solapas: 
+ o 
+ En la primera de ellas, denominada “Columnas”, se definirán que atributos de la entidad se mostrarán como columnas al presentar los resultados de la búsqueda y además, el orden de las mismas. Esto se realizará mediante el patrón de lista doble, con la incorporación de una columna extra que permitirá definir el orden de visualización de cada atributo. 
+ o 
+ En la segunda solapa, denominada “Filtros”, se definirán los filtros que se aplicarán a la entidad para realizar la búsqueda definida solo sobre un subconjunto de instancias 
+ 

@@ -1,0 +1,16 @@
+Enterprise – Especificación Funciónal – Editór de Prócesós de Negóció 
+ 1 Descripción del Documento 
+ Estándares de 
+ interfaz de usuario 
+ Seguridad
+ En el presente documento se detallarán las definiciones de los elementos que componen el Editor de Procesos de Negocio, como así también el conjunto de funcionalidades de cada componente y sus validaciones. Además, se especificarán los lineamientos a seguir para modelar los procesos de negocio desde dicho editor, teniendo en cuenta las definiciones descriptas para los y la . 
+ 1.1 Definiciones y Acrónimos 
+ |    | Término          | Definición                                  |
+|---:|:------------------|:---------------------------------------------|
+|  0 | PN               | Proceso de Negocio                          |
+|  1 | RN               | Regla de Negocio                            |
+|  2 | DD               | Diccionario de Datos                        |
+|  3 | UI               | Interfaz de Usuario (User Interface)        |
+|  4 | TP               | Tarea Programada.                           |
+|  5 | WS               | Web Service.                                |
+ 

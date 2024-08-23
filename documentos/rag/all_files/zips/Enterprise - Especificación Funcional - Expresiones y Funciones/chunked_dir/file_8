@@ -1,0 +1,9 @@
+1) DESDE UN ATRIBUTO DE CABECERA 
+ por ejemplo: Número, Fecha, Cliente, Moneda, Total 
+ Puedo hacer referencia a la instancia completa con "Esta instancia". 
+ Puedo hacer referencia al valor de cualquier otro atributo de cabecera simplemente por su nombre. Por ejemplo "Cliente". 
+ NO puedo hacer referencia directa al valor de ningún atributo de ninguna colección (en este ejemplo: “Items de la factura”, “Descuentos del ítem” ni “Descuentos del comprobante”). 
+ Puedo hacer búsquedas (en... primer, en...sumar, etc) sobre cualquier colección: 
+ en .Items de la factura CONTAR ... 
+ en .Items de la factura.Descuentos del ítem SUMAR ... (recorre todos los descuentos de todos los ítems) en .Descuentos del comprobante PRIMER ... 
+ 

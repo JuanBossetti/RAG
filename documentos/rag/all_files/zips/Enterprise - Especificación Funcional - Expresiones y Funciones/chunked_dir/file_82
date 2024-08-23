@@ -1,0 +1,3 @@
+Primeros(Texto, Número de caracteres) 
+ Devuelve los primeros caracteres de un texto. Equivalente a LEFT(str, number). 
+ 

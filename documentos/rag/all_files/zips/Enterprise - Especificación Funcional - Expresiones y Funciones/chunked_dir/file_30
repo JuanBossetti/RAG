@@ -1,0 +1,27 @@
+Acá vimos cómo es posible definir un desencadenante con contexto de colección. 
+ Ahora, especificaremos algunos casos a través de los cuales empleamos ciertas funciones que permiten pasar entre textos que sean internacionalizables y aquellos que no lo sean. Tomando como ejemplo la entidad “Producto”, encontramos dos atributos de texto: el “nombre”, que no es internacionalizable; y la “descripción”, que sí lo es. Aquí nos interesa que, como valor inicial de la descripción, se escriba el nombre. 
+ Esto sería imposible, dado que ambos tienen distintos tipos de datos. Ahora bien, si usamos la función “Traducir texto a idiomas” con sus parámetros, lo podremos conseguir. 
+ Para ello, nos posicionamos sobre el atributo al cual queremos asignarle un valor, es decir, la descripción. Especificamos la función junto con sus parámetros, de los cuales el primero es el texto a traducir, en este caso, el nombre del producto. Mientras que el segundo parámetro es el idioma al que lo estamos convirtiendo, en este caso, el español. 
+ Traducir texto a idiomas(nombre;’es’) 
+ Si en este momento intentamos cargar un producto, podremos notar cómo, al ingresar el nombre, se autocompleta la descripción. De todas maneras, al ser un valor inicial, tenemos la posibilidad de redefinirlo. 
+ Así, logramos convertir un texto no internacionalizable, como lo es el nombre, en uno que sí contenga esta característica. A continuación, realizaremos el proceso inverso. 
+ Supongamos que de una grilla de productos solo queremos visualizar aquellos pertenecientes al rubro “Repuestos”. Este atributo, esto es, el rubro de los artículos, es internacionalizable. En efecto, no podemos utilizar directamente la expresión Rubro = ‘Transporte’, sino que debemos incorporar, en la misma la función Obtener traducción, para tener la traducción en español: 
+ Obtener traducción(Rubro.Rubro;”es”) = ”Transporte” 
+ Para hacer filtros con expresiones con fechas, supongamos, que necesitamos filtrar todas las facturas de la última semana. Podemos lograrlo a través de la función HOY. Entonces, nos posicionamos sobre el filtro e indicamos que la fecha sea mayor a siete días. Es importante saber que siempre que escribamos una fecha, debemos hacerlo entre llaves. 
+ Fecha > Hoy() – {7 días} 
+ Otro ejemplo, si quisiésemos asignar un valor mediante una expresión en un reemplazo global, podemos hacerlo. En este caso, le asignamos la fecha al cierre de ciclo, por ejemplo, con la siguiente expresión: 
+ {31/12/2023} 
+ Ahora, hagamos de cuenta que queremos filtrar en la factura los descuentos asociados al cliente, es decir, contamos con una colección que los contenga. 
+ Para lograr esto, nos posicionamos sobre el atributo “descuento” de Factura y en el filtro de modelo, escribimos la expresión. 
+ Esta instancia EN (en .super.esta instancia.cliente.descuentos generales buscar descuento) 
+ Al estar posicionados en el filtro de modelo, “Esta instancia” hace referencia a aquella de descuento. La palabra reservada EN, aquí, está actuando como un “contiene”. Recordemos que A EN B retorna verdadero si A es un ítem de B. Y por último, tenemos la expresión .super.esta instancia.cliente.descuentos generales que retorna la colección de descuentos asociados al cliente de la cabecera. “Super”, en este caso, está indicando que queremos salir del contexto de la entidad del descuento, para ir al contexto de la colección de descuentos de la factura. Luego, nos movemos en la cabecera, al cliente y a su colección de descuentos asociados. Por su parte, el “.”, en este caso, nos indica que nos referimos a una colección. 
+ Muchas veces nos encontramos con la situación de que, al momento de crear una expresión, Fastprg nos muestra un mensaje de error. Se debe tener en cuenta que Fastprg no asume nunca un redondeo, entonces si el resultado de una expresión tiene más decimales que el tipo de dato esperado, entonces Fastprg muestra un error. 
+ Supongamos que se tienen definidos en el atributo de Subtotal 2 decimales y que precio y cantidad tienen 4 decimales. Al intentar realizar Precio * Cantidad para calcular el Subtotal, FastPrg detecta que el resultado tendrá mayor cantidad de decimales y, por lo tanto, no puede asignarlo al Subtotal que tiene 2 y nos muestra un mensaje que indica Tipos de datos no son compatibles. 
+ En este caso, se podría aplicar la función 
+ Redondear((Precio*Cantidad); 2) 
+ para poder llevarlo a la cantidad de decimales que se esperan en el Subtotal. 
+ Anexo I: 
+ Funciones del sistema
+ Esta es una opción, sin embargo, también se podría usar la función Truncar() o se podría redondear el precio antes de multiplicar. Podemos ver las funciones disponibles en el , en la sección de Funciones Matemáticas. 
+ Otra situación muy común es que Fastprg nos muestre el mensaje: Símbolo no encontrado. Esto en general se debe a que nos encontramos en otro contexto o bien que hay un error de tipeo al indicar, por ejemplo, un atributo. Entonces, si estamos posicionados en la colección de ítems e intentamos hacer referencia a un atributo de cabecera, al no estar en el mismo contexto, Fastprg no lo encuentra. Como vimos, para solucionar esta situación es necesario movernos a otro contexto, por ejemplo con esta instancia, este ítem, etc. 
+ 

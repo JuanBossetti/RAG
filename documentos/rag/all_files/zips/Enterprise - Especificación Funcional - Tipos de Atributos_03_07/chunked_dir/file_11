@@ -1,0 +1,18 @@
+3.1.9 Tipo de atributo Expresión Dinámica 
+ Este Tipo de Atributo permite la creación de Expresiones Dinámicas. El mismo está compuesto por 5 miembros, estos son: 
+ ➢ 
+ Tipo de contexto: Define si el contexto de la expresión proviene de una Entidad o Colección. 
+ ➢ 
+ Entidad: Referencia a la Entidad donde se encuentra la expresión. 
+ ➢ 
+ Colección: Se muestra solo si el tipo de contexto es Colección, en dicho caso se selecciona la colección de la Entidad previamente referenciada. 
+ ➢ 
+ Tipo de retorno: Es el Tipo de atributo que retornará la expresión, por ejemplo; "Cantidad" 
+ ➢ 
+ Expresión: Expresión que se guardará en la Instancia (No se puede editar hasta que se completen los demás campos). 
+ Expresiones y Funciones | Operadores | Operador Evaluar()
+ Este tipo de atributo es utilizado para generar expresiones en cualquier entidad que el usuario lo requiera. Al realizar este desarrollo, se permite al usuario configurar, diferentes formas de cálculo que pueden ser invocadas desde diferentes partes de la aplicación desarrollada sin necesidad de realizar una actualización del sistema. Luego, para poder utilizar estas expresiones dinámicas se deberá invocar a las mismas utilizando el operador Evaluar() en un campo de tipo expresión (ver ). 
+ Analizador de Impacto | 5.2.1. Expresiones 
+ Dinámicas
+ Se debe contemplar que Analizador de Impacto no valida la consistencia de estas expresiones, es decir que, si interviene un atributo el cual se cambia de tipo o se elimina, el sistema dará un fallo en ejecución al momento de evaluar la expresión (ver ). 
+ 

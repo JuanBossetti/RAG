@@ -1,0 +1,26 @@
+2.6.5 Limitar a 
+ La palabra reservada "Limitar a" permite al usuario especificar la cantidad de instancias que el sistema devuelve en las expresiones que contienen "Buscar" o "Buscar aleatorio". 
+ Sintaxis: 
+ en <Entidad> o <Colección> Buscar/Buscar aleatorio <Atributo> Limitar a <Número entero> Donde: 
+ - 
+ "Limitar a" es la palabra reservada que indica que se quiere limitar la cantidad de instancias que devuelve fastprg. 
+ - 
+ <Número entero> es un número entero que indica la cantidad de instancias que se desean obtener. 
+ Comportamientos: 
+ - 
+ En las expresiones que contengan un "Buscar" y no especifiquen el límite de instancias a traer, fastprg devolverá todas las instancias. 
+ - 
+ Al especificar un límite en la expresión, fastprg devuelve la cantidad de instancias especificadas por el usuario. 
+ - 
+ Si el límite especificado es mayor que la cantidad de instancias persistidas en la base de datos, fastprg devuelve todas las instancias. 
+ - 
+ Al utilizar la palabra reservada "Limitar a" siempre se debe indicar la cantidad de instancias a retornar, en el caso de que el usuario no lo indique, se debe dar un mensaje de error de sintaxis indicando que debe ingresar la cantidad de instancias. 
+ Ejemplos: 
+ En Cliente Buscar aleatorio Teléfono 
+ El sistema mostrara en el panel de mensajes un error de sintaxis en la expresión, ya que 
+ En Cliente Buscar Teléfono limitar a 5 
+ Devuelve cinco instancias del atributo "Teléfono" de la entidad "Cliente". 
+ Suponiendo que existen 50 instancias persistidas de la entidad "Cliente": 
+ En Cliente Buscar Teléfono limitar a 51 
+ Como la cantidad de instancias persistidas del atributo "Teléfono" en la entidad "Cliente" es menor que 51, el sistema devuelve todas las instancias. 
+ 

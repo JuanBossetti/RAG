@@ -1,0 +1,6 @@
+Caso 3: Crear una sola instancia de la entidad destino con una colección con tantos ítems como indique la definición del desencadenante 
+ Se tiene una Factura, y se desea crear el asiento contable correspondiente. El mismo estará compuesto por un movimiento asociado a la cuenta contable del cliente, un movimiento asociado a la cuenta contable IVA, y un movimiento asociado a la cuenta contable Ventas. 
+ El modelo contiene a la entidad Factura y a la entidad Asiento Contable. Esta última contiene una colección de Movimientos. 
+ Para el caso presentado se hace necesario, por lo tanto, generar tres elementos predefinidos dentro de la colección Movimientos en la entidad Asientos Contables, tal como se puede ver en la siguiente imagen: 
+ Generalizando, este caso presenta una entidad de destino, la cual contiene un atributo de categoría “Colección” a la cual se le puede prefijar una cantidad de elementos, donde cada uno de ellos puede tomar el valor de una expresión diferente. 
+ 

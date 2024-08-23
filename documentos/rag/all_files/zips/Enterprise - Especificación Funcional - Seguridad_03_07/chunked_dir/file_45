@@ -1,0 +1,6 @@
+Opción para restablecer credenciales (sólo para administrador de dominio) 
+ Los usuarios que tengan el rol ‘Administrador de dominio’ pueden restablecer las credenciales de cada usuario mediante un botón en la edición del usuario: 
+ Este botón se utiliza para restablecer las credenciales de todos los métodos de autenticación definidos para un usuario. Al presionar el botón, se le cerrará la sesión al usuario (si el mismo está autenticado) y no podrá volver a autenticarse si no ingresa correctamente sus credenciales. 
+ Es decir, si el usuario tiene como métodos de autenticación contraseña y OTP, dejará sin validez la contraseña y la asociación con la aplicación OTP. En este caso, le llegará un email al usuario (similar al que le llega en la primera autenticación para ingresar la contraseña por primera vez), y luego de restablecer su contraseña, podrá asociar la cuenta OTP mediante un QR que se muestra en la segunda pantalla de login (al igual que la primera vez que asocia la cuenta OTP con el usuario). 
+ Con respecto al Registro de eventos, cada vez que se restablezcan las credenciales se registrará en el Registro de Seguridad, por ejemplo: 
+ 

@@ -1,0 +1,126 @@
+Generación del log auxiliar de imputaciones 
+ Dadas dos instancias pendientes del log auxiliar de imputaciones, donde una de ellas será la instancia imputada y la otra será la instancia a imputar: 
+ Se aplicarán los siguientes pasos para generar el log auxiliar de imputaciones al efectuar el proceso de imputación: 
+ 1. 
+ Determinar si existe SALDO DE CONVERSIÓN: 
+ FCC(VA1) 
+ = Aplicación de la fórmula de conversión al crear a VA1. 
+ FCC(VA2) 
+ = Aplicación de la fórmula de conversión al crear a VA2. 
+ FCI(VA1) 
+ = Aplicación de la fórmula de conversión al imputar a VA1. 
+ FCI(VA2) 
+ = Aplicación de la fórmula de conversión al imputar a VA2. 
+ a. 
+ Si FCI(VA1) es distinto a FCI(VA2) se debe aplicar el siguiente criterio para definir el SALDO DE CONVERSIÓN: 
+ i. 
+ IIP (Instancia imputada parcialmente) = Instancia cuyo valor absoluto es mayor entre FCI(VA1) y FCI(VA2). 
+ IIT (Instancia imputada totalmente) = Instancia cuyo valor absoluto es menor entre FCI(VA1) y FCI(VA2). 
+ FCI(VAIIT) = menor valor absoluto entre FCI(VA1) y FCI(VA2). 
+ ii. 
+ A la IIP se la dividirá en dos partes. La primer parte es la que intervendrá en la imputación, y la segunda corresponderá con lo que quede pendiente de imputar. 
+ La parte imputable contendrá como valor de la fórmula de conversión al imputar el valor de aplicar dicha fórmula sobre IIT. Para dicha parte, se calcularán los siguientes valores: 
+ VA3 = Valor proporcional del atributo imputable de la instancia al valor de la parte dividida en este paso. 
+ FCC(VA3) = Aplicación de la fórmula de conversión al crear de la instancia correspondiente aplicada al valor VA3. 
+ iii. 
+ Una vez aplicado el paso anterior, se obtiene que para la primer parte FCI(VAIIT) es igual a FCI(VA3) y por lo tanto, se aplica el criterio descripto en el paso b, para estos valores. 
+ iv. 
+ Por otro lado se deberá evaluar si se entró en tolerancia, para ello se deberá realizar el siguiente cálculo: 
+ SALDO TOLERANCIA = FCI(VA1) - FCI(VA2) 
+ Se compara el valor obtenido en esta fórmula contra la tolerancia definida en la imputación. En caso de que el SALDO TOLERANCIA se encuentre dentro de los límites, se evaluarán las Reglas de Cancelación y se dispararán las acciones correspondientes. 
+ b. 
+ Si FCI(VA1) es igual a FCI(VA2), el SALDO DE CONVERSIÓN es igual al opuesto de la SUMA de FCC(VA1) y FCC(VA2). Si dicho saldo es diferente de cero, aplicar las reglas de cancelación y sus acciones correspondientes, lo cual puede generar un nuevo comprobante que por desencadenante salda esta diferencia de conversión. 
+ Para este caso, el SALDO TOLERANCIA será siempre igual a cero pues se obtiene el mismo resultado al aplicar la FCI a los valores del atributo imputable de cada comprobante. 
+ 2. 
+ Calcular el valor a imputar en unidad de medida base para el primer registro, para la fórmula de conversión al crear: 
+ VA1 
+ = Valor del atributo imputable de la parte imputada de la instancia imputada. 
+ FCC(VA1) 
+ = Aplicación de la fórmula de conversión al crear a VA1. 
+ VA2 
+ = Valor del atributo imputable de la parte imputada de la instancia a imputar. 
+ FCC(VA2) 
+ = Aplicación de la fórmula de conversión al crear a VA2. 
+ VIBC1 
+ = Mínimo entre los valores absolutos de FCC(VA1) y FCC(VA2) con signo opuesto al de VA1. 
+ 3. 
+ Calcular el valor del atributo imputable para el primer registro: 
+ VAR1 = VIBC1 * VA1 / FCC(VA1) redondeado a la máxima precisión del atributo imputable 
+ 4. 
+ Calcular el valor a imputar para el primer registro, para la fórmula de conversión al imputar 
+ FCI(VAR1) = Aplicación de la fórmula de conversión al imputar a VAR1. 
+ 5. 
+ Generar el primer registro de la imputación con la instancia imputada, el valor del atributo imputable VAR1, el valor en unidad de medida base VIBC1 y la instancia a imputar. 
+ Instancia Imputada 
+ Atributo imputable 
+ Atributo descriptivo 
+ Formula conversión al crear 
+ Formula conversión al imputar 
+ Instancia a Imputar 
+ Instancia1 
+ VA1 
+ Unidad1 
+ FCC(VA1) 
+ FCI(VA1) 
+ Instancia2 
+ VA2 
+ Unidad2 
+ FCC(VA2) 
+ FCI(VA2) 
+ Instancia generada por 
+ -( FCC(VA1) + FCC(VA2)) 
+ Unidad base 
+ -( FCC(VA1) + FCC(VA2)) 
+ saldo 
+ Instancia1 
+ VAR1 
+ Unidad1 
+ VIBC1 
+ FCI(VAR1) 
+ Instancia2 
+ 6. 
+ Calcular el valor a imputar en unidad de medida base para el segundo registro, para la fórmula de conversión al crear: 
+ VIBC2 = -VIBC1 
+ 7. 
+ Calcular el valor del atributo imputable para el segundo registro: 
+ VAR2 = VIBC2 * VA2 / FCC(VA2) 
+ 8. 
+ Calcular el valor a imputar para el segundo registro, para la fórmula de conversión al imputar: 
+ FCI(VAR2) = Aplicación de la fórmula de conversión al imputar a VAR2. 
+ 9. 
+ Generar el segundo registro de la imputación con la instancia a imputar, el valor del atributo imputable VAR2, el valor en unidad de medida base VIBC2 y la instancia imputada. 
+ Instancia Imputada 
+ Atributo imputable 
+ Atributo descriptivo 
+ Formula conversión al crear 
+ Formula conversión al imputar 
+ Instancia a Imputar 
+ Instancia1 
+ VA1 
+ Unidad1 
+ FCC(VA1) 
+ FCI(VA1) 
+ Instancia2 
+ VA2 
+ Unidad2 
+ FCC(VA2) 
+ FCI(VA2) 
+ Instancia generada por saldo 
+ -( FCC(VA1) + FCC(VA2)) 
+ Unidad base 
+ -( FCC(VA1) + FCC(VA2)) 
+ Instancia1 
+ VAR1 
+ Unidad1 
+ VIBC1 
+ FCI(VAR1) 
+ Instancia2 
+ Instancia2 
+ VAR2 
+ Unidad2 
+ VIBC2 
+ FCI(VAR2) 
+ Instancia1 
+ 10. 
+ En el caso de que se haya generado una instancia como consecuencia del SALDO CONVERSIÓN y/o del SALDO TOLERANCIA, se deberá imputar dicha instancia contra la instancia cuyo atributo imputable tiene signo opuesto al del saldo, siguiendo los lineamientos descriptos en los pasos 2 al 7. 
+ 

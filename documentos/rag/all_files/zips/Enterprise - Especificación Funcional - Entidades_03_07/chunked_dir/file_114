@@ -1,0 +1,18 @@
+1.19 Instancias en edición en una grilla 
+ Cuando un usuario este visualizando una grilla, ya sea desde un formulario o desde una vista de información, tendrá disponible una opción de menú contextual, denominada “Ver mis instancias en edición”, desde la cual se podrá indicar que se desea visualizar todas las instancias en edición generadas por el usuario autenticado en el sistema. Además, de tener habilitada la política que lo permite, existirá una segunda opción dentro de dicho menú contextual, denominada “Ver todas las instancias en edición” desde la cual se presentará al usuario todas las instancia en edición generadas por él como así también aquellas generadas por los demás usuarios en las cuales tenga acceso. Este menú contextual podrá accederse desde cualquier lugar de la grilla. 
+ Al seleccionar cualquiera de estas opciones de menú contextual, dentro del panel activo, se presentará en una nueva solapa la cual estará compuesta por una grilla en la que se listarán 
+ • 
+ Las instancias en edición de la entidad. 
+ • 
+ Las instancias en edición confirmadas en forma diferida. 
+ • 
+ Las instancias en edición confirmadas a la espera de dispositivo externo (estás no serán modificables). 
+ Estas 3 tipos de instancias se distinguirán por un ícono que diferenciará sus tipos. Además, hay un atributo en todas las entidades para saber el estado de la instancia (“espera controlador fiscal”, “espera de confirmación diferida”, etc.) Este atributo lo puede ver el usuario y usar en los filtros. 
+ Para continuar con la edición de alguna de estas instancias, el usuario deberá seleccionar la instancia que desea, y seleccionar la opción del menú contextual “Continuar edición”. Al seleccionar esta opción, se deberá reabrir la actividad correspondiente para permitir la edición de la instancia, considerando los aspectos detallados en (<>)“Las instancias “en edición” que no cumplan validaciones 
+ (<>)(ya sea por Diccionario de Datos, por Actividad, por RN, etc.) seguirán estando en edición, pero no (<>)tendrán habilitada la confirmación. 
+ (<>)Las instancias “en edición confirmada” que no cumplan validaciones (ya sea por Diccionario de Datos, (<>)por Actividad, por RN, etc.) se confirmarán igual (al llegar el tiempo programado en la confirmación (<>)diferida o luego de establecer la correcta comunicación con el dispositivo correspondiente), (<>)logueando las validaciones incumplidas. 
+ (<>)Instancias en edición de una actividad”.  
+ Es importante tener en cuenta que las instancias de entidades transaccionales no se pueden modificar dentro de una grilla. Para modificarlas, se deberán editar dentro de una actividad. 
+ Formularios
+ Las entidades maestras y paramétricas sí pueden editarse dentro de una grilla, una vez comenzada la edición desde el menú contextual tendremos la acción “Descartar” que descartará la instancia al igual que como se explica en el documento de . Todo usuario tiene disponible la acción en instancias en edición creadas por él mismo y si su seguridad lo permite también sobre instancias generadas por otros usuarios. 
+ 

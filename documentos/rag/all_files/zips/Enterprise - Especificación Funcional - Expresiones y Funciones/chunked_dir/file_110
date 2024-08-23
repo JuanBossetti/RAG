@@ -1,0 +1,3 @@
+Sin traducir(Texto) 
+ Dado un texto sin características de internacionalización, la función devuelve un texto con características de internacionalización, considerando que el texto ingresado no se traduce y se agrega como traducción en todos los idiomas disponibles. 
+ 

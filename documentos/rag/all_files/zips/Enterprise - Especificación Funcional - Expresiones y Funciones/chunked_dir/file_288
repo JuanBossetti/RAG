@@ -1,0 +1,3 @@
+Ejemplos: 
+ Convertir de base64 a archivo(‘prueba.pdf’; “QmllbnZlbmlkb3M=”) genera un archivo de tipo Texto con la metadata: Bienvenidos y el nombre del archivo es prueba.pdf 
+ 

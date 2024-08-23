@@ -1,0 +1,6 @@
+4.2.4 Impresión concomitante 
+ La expresión que se usa para asignar el dispositivo al secuenciador puede utilizar cosas del contexto. Esto permite que se asigne un dispositivo cuando ya se está editando el comprobante. 
+ El comprobante se va imprimiendo a medida que está en edición. Lo que está impreso queda sólo lectura ya que no se puede modificar. Se puede anular ítems si el dispositivo lo permite. También, si el dispositivo lo permite, se puede anular el comprobante. 
+ Si no se pueden anular comprobantes, se puede modelar una RN de validación que se ejecuta en las reversiones y controla si el driver del dispositivo permite anular el comprobante. Lo mismo para comprobantes electrónicos. 
+ Dentro de los parámetros del dispositivo se puede configurar si el mismo es concomitante, cada cuanto se va imprimiendo (por ejemplo: luego de cada ítem de una colección), etc. 
+ 

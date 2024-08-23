@@ -1,0 +1,5 @@
+1.2 Entidades 
+ Una Entidad es la representación de un objeto o concepto de negocio. La misma se describe mediante un conjunto de datos a almacenar y sus comportamientos e interacciones con el resto de las entidades., Ejemplos de Entidades serían Factura, Cliente, Stock, etc. 
+ Cada entidad está constituida por uno o más atributos que representan los datos asociados al objeto, es decir sus propiedades o características. Por ejemplo, la entidad "Cliente" podría tener los atributos: nombre, apellido, fecha de nacimiento, etc. 
+ Cada entidad puede contener infinitas instancias. Cada instancia de una entidad representa a cada uno de los elementos contenidos en la misma. Por ejemplo, en la entidad Cliente Juan Pérez es una instancia y María Vázquez es otra. 
+ 

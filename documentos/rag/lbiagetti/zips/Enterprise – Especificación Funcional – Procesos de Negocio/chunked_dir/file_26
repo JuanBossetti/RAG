@@ -1,0 +1,93 @@
+3.7.4 Documentación por WS 
+ Una de las acciones que podemos realizar por web services es recibir la documentación de una Actividad. Esto significa, que recibiremos en la respuesta del JSON todos los atributos existentes en la Entidad y también las características de cada uno de estos. La Entidad será a la que hace referencia la actividad. (Por ejemplo, si pedimós la dócumentación de la actividad “Factura” recibiremós lós atributós existentes en la entidad Factura”). 
+ Dentro de la documentación deben presentarse todos los atributos que se encuentran disponibles para un modelador dentro de un modelo de aplicación, es decir, solo no deben presentarse aquellos atributos que son de uso interno. En Dicha documentación, se muestran tags por cada parámetro e incluye: 
+ ▪ 
+ Por cada acción disponible: 
+ • 
+ Acción 
+ • 
+ Nombre de la actividad 
+ • 
+ Versión del API del WS. 
+ • 
+ Nombre del proceso de negocio 
+ • 
+ Nombre del WS 
+ • 
+ Where: filtro de búsqueda, utiliza una expresión de FastPRG 
+ • 
+ Limit: limita la cantidad de instancias de retorno 
+ • 
+ Order by: ordenamiento de las instancias, ascendente o descendiente 
+ • 
+ Distinct: omite instancias que tengan el parámetro especificado repetido, retornando solo la primera 
+ • 
+ Por cada atributo ubicado en la Entidad correspondiente (dentro de data en el JSON): 
+ o 
+ Descripción del atributo en el WS. 
+ o 
+ Categoría del tipo de atributo. 
+ o 
+ Nombre de tipo de atributo del atributo. 
+ o 
+ Si es simple: el tipo base. 
+ o 
+ Dato obligatorio u opcional. 
+ o 
+ Dato de valor único o no. 
+ o 
+ Si es calculado, indicar que no se podrá ingresar un valor manualmente ya es un dato que se calcula en el sistema. 
+ o 
+ Si es simple: 
+ ▪ 
+ Número: 
+ • 
+ Cantidad de enteros 
+ • 
+ Cantidad de decimales. 
+ ▪ 
+ Texto: 
+ • 
+ Longitud y si es internacionalizable, el nombre de la clave a utilizar en JSON en cada idioma posible, aclarando que se pueden ingresar en cualquier orden, pero los idiomas que falten se completarán con las traducciones automáticas tomando como idioma de origen el primer idioma en el JSON y un ejemplo. 
+ ▪ 
+ Texto enriquecido/Texto multimedia: 
+ • 
+ Si es internacionalizable. 
+ ▪ 
+ Fecha/Fecha y hora/Hora: formato de entrada en el idioma del ws. 
+ o 
+ Si es referencia: Referencia a entidad y los valores descriptivos para indicar los ítems que son descriptivos de tipo identificativo de la Entidad a la cual hace referencia. 
+ o 
+ Si es enumerado: 
+ ▪ 
+ Selección única o múltiple 
+ ▪ 
+ Código y descripción de cada valor. 
+ o 
+ Si es compuesto o colección: solo se muestra el detalle de cada atributo contenido. 
+ o 
+ Si es secuencia: No tendrá datos adicionales. 
+ o 
+ Valores Únicos (a nivel Entidad): 
+ ▪ 
+ Nombre 
+ ▪ 
+ Descripción 
+ ▪ 
+ Mensaje 
+ ▪ 
+ Atributo: Conjunto de atributos que conforman el valor único. 
+ En este caso, aplicarán las mismas restricciones que las detalladas para la solapa Entidad asociada, es decir para las validaciones de cada Entidad y para las propiedades de los atributos; por ejemplo, si la categoría es única instancia, el valor inicial de cada atributo se hereda y puede redefinirse. 
+ 3.7.4.1 JSON de retorno 
+ El JSON de respuesta a la hora de consumir una actividad por WS varia en su respuesta dependiendo si los datos retornados contienen o no Valores Únicos a nivel de Entidad. Es importante aclarar que si la actividad que se está consumiendo, en la Entidad donde aplica no existen Valores Únicos la respuesta no tendrá información sobre dicho valor único inexistente. 
+ A continuación, veremos las diferentes respuestas que podemos encontrarnos a partir de esta condición: 
+ 3.7.4.1.1 Web Service con un valor único 
+ .json { “Valores únicos” : [ { “Nombre”: “Serie única por producto”, “Descripción”: “Descripcion del valor único”, “Mensaje” : “Ya existe el producto en esta serie.”, “Modelo”:”Editores”, “Atributo” : { “Serie” : “<valor>”, “Producto” : “<valor>” } } ] 
+ } 
+ WS con un solo atributo como valor único 
+ .json { “Valores únicos: [ { “Nombre”: “Serie única por producto”, “Mensaje” : “Ya existe el producto en esta serie.”, “Atributo” : { “Serie” : “<valor>” } } ] 
+ } 
+ Un ejemplo de documentación para la actividad Alta de Factura y el método alta: 
+ .json{ “process”: ”Sales process”, “activity”: ”New invoice”, “web service”: “NewInvoiceWS”, “api version” : 1, “action” : “add”, “data”: { “date”: “<Enter here the date. Type: invoice date. Category: scalar. Basic Data Type: date. Mandatory data. Not of unique value. Format: yy-mm-dd>”, “invoice type”: “<Enter here the type. Type: invoice type. Category: enum. Mandatory data. Not of unique value. Values: RET: retail, WHO: wholesale>”, “customer”: “<Enter here the customer. Type: reference to customer. Category: reference to instance. Mandatory data. Not of unique value. Attribute identifier: CUIL>”, “invoice items”: [ { 
+ “product”: “<Enter here the product. Type: product name. Category: scalar. Basic Data Type: text. Mandatory data. Unique value. Length: 50. Internationalized. Possible languages: ES, EN, IT. Example: [ {“EN” : “<text1>”} , {“ES”: “<text2>”} ]. Can be entered in any order, but the missing languages will be completed with the automatic translations with the first language.”}>” … } ] } } 
+ 

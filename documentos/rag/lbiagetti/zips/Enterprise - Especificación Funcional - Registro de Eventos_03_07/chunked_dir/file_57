@@ -1,0 +1,134 @@
+6.2 Notificaciones sin procesar 
+ Este registro se utiliza cuando se tiene configurado un servicio web con callback, es decir que una aplicación externa deja registros en una URL donde avisa novedades. Cuando, por algún motivo, el procesamiento de esos avisos de novedades falla, quedan sin procesar en este apartado. Es muy útil para analizar el error y poder volver a procesar el aviso de novedades. 
+ Los campos de este registro son los siguientes: 
+ • 
+ Identificador de callback: Nombre del callback del servicio web. 
+ • 
+ Entidad: Registro de los datos del servicio web. 
+ • 
+ Web service: indica el servicio web dentro del grupo de servicios web que s. 
+ • 
+ Operación: indica la operación del servicio web que se consumió. 
+ • 
+ Mensaje: Contenido mensaje de error y/o mensaje de sistema resultado del procesamiento. 
+ • 
+ Mensaje de sistema: Stack de notificaciones sin procesar 
+ • 
+ JSon: Payload de notificaciones sin procesar callback 
+ • 
+ Usuario: Usuario que realizó la operación sobre la instancia 
+ • 
+ Sitio: Sitio o lugar geográfico en el que se realizó la operación. 
+ • 
+ Fecha hora de actualización: Fecha y hora en la cual se realizaron cambios sobre la instancia 
+ /' 
+ 11clw.n, 
+ Mi&511-IIIAl#,i ,fi, -,iiA 
+ nl,to0£0HlŁ MS 
+ Mtlt11ZŁlN&EOl.p(\lolllŁ lAttz601 pt'">MII 
+ ,zuss'6Sz,, Ł, Łll'oClff ......,,,. , 
+ i-us:>ttlilt5·K5.-.Sn-l•Sf:-t95£Etn ,,.--·-Ł-owa1US 111 PtlQo • 
+ (OOS.IIIIIYl••-..itt•Ł--,_.__SJ\)IU00(61Ł000,ZM)t ie,81(KlŁ.Ł-Ł'99C60H Jl)Oci,0,1")1,;1"Ł• 
+ OlpeflŁŁNl:jllO!ldlOŁŁWD:I 
+ Ł)IIUOpC!e:»:elUtf)IA:ŁIUGO••MllnJ 
+ JOW,IIH9!)owtflllJlllJ3 Cl'M.ŁŁ"'°"3 
+ uqi1opn,ew1191X1lleultc,u.opi,.as11-11J11U3 .... 
+ P!-.JlWf1J'lt-P!Łll9PIPIINCl!1Ł9jMl9 tPtolfP""W!Oopohu IP flh•Ł tolffl IICIŁ 
+ 9P "°61opum,ei3-.diifl8Zl'ESS96SZf'Ł Ull 
+ QPnWN"l'PIJ6wl"9""Ł'1>odn.61'P-,op9JP>N 
+ ŁIIPŁŁ•_,.--0 
+ •ŁU(lpe»d() 
+ 1-41ope:,,enŁ111 
+ --..do9c,111---•01tQ ,i,J 
+ J8Si:>OJd UIS S.t1Jot:>eom10N ♦ 
+ Ł-!JONU\l'X-IIIMaJI-IIDIIQ 
+ -"1113-IIIMIURJIWCIIQ 
+ Ull1ŁŁM 
+ _,_,_Ł_, I 
+ ~•"'-'!ION\Jl">f-lllMIWJIUII 
+ f:IIIIION'-'91>f-lllMIUQUOI 
+ lf'll!IOf,l..,._IICl...,... -a 
+ -Ł-IIINlll'--0 
+ ŁŁlllltlll'-IOll!Q 
+ e,qriŁŁI 
+ _,_llfl'fŁM 
+ _,_llfl'lil90Lfflll1 
+ l:NjqONU9':,S-IPM,.._f 
+ --.JU!IOtlU91:la-lPMIIJQU!Jl 
+ l:M,IIION!,(11:la-lPU._._t 
+ ID"J!IOf,l..,._IIIHIII'--0 
+ _,,J!JONUl'IX-IIISI..._IOIIQ 
+ _,ŁŁ.., 
+ ...,_,_Ł,.I 
+ ,_,..,__.., ....... 
+ -•:JIJ!ION'-'l'!>f_lP..,...,_• 
+ Wll,lllO...,._IIISlll,JI-IIDIIQ 
+ -.i-lal'fŁIUI 
+ l:JIIIION!a(ll>f-lPM,.._I 
+ -'IONUll'X-IIISflll'-tollQ 
+ >IJUJIONUjll:la-iOlilURJIWIIDIIQ 
+ WQ!'l-:llfl'llŁM 
+ Ulll-llfl'tŁIUI 
+ I-U91X-IPM._._I 
+ --.JlnONU91:la-llllia.,uuil 
+ ��IOMa,l.qut■alt(I 
+ MltlŁŁI 
+ l:!!pON"9r)UdOIPM._._t 
+ -!JON\Jl"-IIIWaJl--0 
+ ŁIJIIJ:>a-lllWlll'--0 
+ -, ŁŁ 
+ _,_lal'fŁJC>fM 
+ •:IIJ!ION\Jl"X-IPA,_.JIUII 
+ -1:vlQMU91>f_lll..,.,._I 
+ Ł...,..-111 ....... _a 
+ MltlŁŁ 
+ l:ll,IIIO"9f:>a-lPM._._I 
+ ŁUIIQl'-11111111'-IIDIIQ 
+ >l'l!,ll...,__IOM.,._IIDIIQ 
+ Ulll-llfl'tŁlll1 
+ Mlll-llfl'lŁa, I 
+ -13!1'10MU9'X-IIIH..... l 
+ -1:M.l<lOtU91»-IIIMIUUUII 
+ 'l:lalS-IICJ\OtŁŁŁŁ 
+ Wll,lllOIJ!lllf-lllMlll'-tol!Q 
+ ....,ŁŁI 
+ _,ŁŁM 
+ l"JllON._.,..-diolPA,.._f 
+ -1JWQNU91:la-lllWJ.IQl)II 
+ )f:)IJ!ION..,._HIN........ _Q 
+ Ml!"1ŁŁ1 
+ Mll-la!,Uljl,:JLa, 1 
+ t)WON"9':la-HIM..... 1 
+ ~•:JIJ!ION'-'l'l>f_lll_l 
+ ..,_,_Ł.,I 
+ f:ll,IIIO\Jl">f-lllMJJRllUII 
+ "-'J!ION\Jl"_IP___O 
+ !VtlllONUjll:la.llOOIIIMlll'-IIOIIQ 
+ ŁŁIONlll'-IIOIIQ 
+ _,Ł-ŁI 
+ _,_llfl'lŁM 
+ MlllŁŁIUI 
+ _,ŁŁIUI 
+ _,_,_Ł,.I 
+ l-""9';1t1'001PW,.._, 
+ -1JUIIONU91:la-lllN-I 
+ l:ll,IIIOŁIIIU._._t 
+ l"JllONUQIIX-IIIA..,._I 
+ -t:Jllll()'-'91>f-lPWJ.'Qllll 
+ 117,jJIOf,lŁIIIM.,._IIOIIQ 
+ Ul'l-llfl'tŁI 
+ l:lljqON\Jl"X-IPAlUl4UII 
+ _,_llfl'fŁM 
+ Ulll-l»WŁIUI 
+ 1-\Jl"X-IIINIUtJIUII 
+ lll,IIIOHU91:la-lllMa.,uull 
+ •.Q·, co,;_..,c,;, ....6....,1 O,·J!uŁ l; .,.-·. • ••Ł .... 
+ -
+ '-..:IUII-
+ Ł ŁJ gJ Ł -Ł • ,:, 
+ ·@:@ fl} Ł Ł (. 
+ . -·"··-·• 
+ "··""'"' "'· '"·' ,. 
+ . ....,,... ,,.,.,.,., ,,............ = %0 ....-......,,,, 
+ = 
+ 

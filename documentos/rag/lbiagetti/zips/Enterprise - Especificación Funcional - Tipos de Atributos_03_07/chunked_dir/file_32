@@ -1,0 +1,4 @@
+4.2 Editor de Secuenciadores 
+ El Editor de Secuenciadores (ver (<>)3.1.8.8) es una herramienta transversal (es decir que estará disponible tanto en tiempo de diseño como de ejecución), y que permitirá llevar a cabo la definición de los Secuenciadores presentes en el sistema. 
+ Las expresiones de los Secuenciadores pueden contener literales y expresiones que contengan atributos de sesión y del contexto. 
+ 

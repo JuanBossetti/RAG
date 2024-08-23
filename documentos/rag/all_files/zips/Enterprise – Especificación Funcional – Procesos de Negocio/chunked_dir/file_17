@@ -1,0 +1,32 @@
+3.4 Solapa por cada Entidad Asociada 
+ Dentro de las propiedades de una Actividad, luego de la solapa “General” se visualizará: 
+ • 
+ En las categorías “única instancia”, “múltiples instancias”, “única instancia cón imputaciónes”: una solapa para la entidad asociada a la actividad. El nombre de esta solapa es el nombre de la entidad. 
+ • 
+ En la categoría “transfórmación”: una solapa para los destinos de transformación que estará dividida en dos secciones. Una grilla donde se visualizan las entidades y en el segundo fragmento se podrán configurar sus propiedades. El nombre de esta solapa es “entidades a generar”. 
+ ✓ 
+ En la categoría “transfórmación cón imputaciónes”: una sólapa para lós destinós de transformación. En la grilla se visualizan las entidades destino y en el segundo fragmento se 
+ podrán configurar sus propiedades. Además, en la grilla se deberá especificar de manera obligatoria una de las entidades en donde desencadena cada destino de la transformación, y la correspondiente imputación a aplicar. Opcionalmente, se podrá definir un filtro de instancias a imputar en las imputaciones seleccionadas. Las imputaciones se presentarán dentro de un combo en la fila correspondiente a la entidad destino de la transformación que desencadena la entidad en donde se realizan las imputaciones. El nómbre de esta sólapa es “entidades a generar”. En esta categoría, al contrario que en la categóría “Imputaciónes” nó se visualizará la Definición de las Imputaciones. Sin embargo, sobre el menú contextual de cada imputación, se podrá acceder a la definición de la misma en el DD. Este comportamiento será el mismo en cualquier lado donde se visualice una imputación. 
+ • 
+ En las categorías “imputación cón cómpróbantes múltiples”: una sólapa para las entidades para los comprobantes similar a la anterior. El nombre de esta solapa es “Entidades de cómpróbantes”. 
+ Dentro de cada una de estas solapas, se podrán particularizar configuraciones de dichas Entidades en el DD, para una Actividad. 
+ Dentro de las solapas pertenecientes a las entidades asociadas se presentarán 2 solapas: 
+ ✓ 
+ General. 
+ ✓ 
+ Atributos. 
+ ✓ 
+ Validaciones 
+ Esto aplicará a todas las Actividades, menos a las entidades asociadas a las categorías: 
+ ✓ 
+ Vista de información: ya que no se podrá redefinir la configuración de las entidades en el DD. 
+ ✓ 
+ Imputación. 
+ ✓ 
+ Única Instancia con Imputaciones: no se presentarán las solapas correspondientes a las entidades seleccionadas para las imputaciones. 
+ ✓ 
+ Transformación con Imputaciones: no se presentarán las solapas correspondientes a las entidades seleccionadas para las imputaciones. 
+ ✓ 
+ Imputación con comprobantes múltiples: no se presentará la solapa correspondiente a la entidad seleccionada para la imputación. 
+ Por ejemplo, en la categoría Imputación con comprobantes múltiples, existirá una solapa para cada entidad asociada a un comprobante, no para la imputación. 
+ 

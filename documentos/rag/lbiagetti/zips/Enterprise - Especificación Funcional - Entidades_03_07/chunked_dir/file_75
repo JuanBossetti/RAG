@@ -1,0 +1,29 @@
+Cancelación por tolerancia: -límite superior <= pendiente de transformación <= -límite inferior 
+ Tanto el valor del atributo principal como el de los atributos informativos deberán calcularse mediante la fórmula de conversón y se registrarán en el log multiplicados por -1 cuando se persista una instancia de la entidad destino a partir de una transformación. De esta manera, se podrá determinar que valores del atributo principal de una entidad ya han sido transformados. 
+ Al anularse una instancia de una entidad destino creada a partir de una transformación, se insertará un nuevo registro en el log (tabla de doble entrada) correspondiente a dicha transformación, con el valor del atributo principal y de los atributos informativos multiplicados por -1. 
+ A continuación, se muestra un ejemplo para la tabla de doble entrada, en el caso de una transformación parcial desde la entidad Factura a la entidad Remito, cuyo atributo principal es Factura.Cantidad. Para el ejemplo se consideró que una Factura sólo contendrá dos productos. 
+ En los dos primeros registros de la tabla puede observarse el alta de la factura con una cantidad de 12 ítems para el producto silla, y 1 para el producto mesa, de los cuales solo el primero es afectado por una acción de autorización de Regla de Negocio. El tercer registro muestra que se transformaron en remito 6 ítems de los 12 facturados. En el cuarto registro se remitieron otros 6 ítems. 
+ Para ejemplificar la funcionalidad de tolerancia cuando se transforma menos de lo pendiente, se presenta el siguiente caso: 
+ Se tiene una transformación de Factura a Remito y a Nota de Crédito por Cantidad Pendiente. Se define como atributo principal a Factura.Cantidad. Además, se determinó una tolerancia absoluta de rango 1000. 
+ Se genera una Factura por 10000 unidades de un producto determinado. Al persistirla, en el log auxiliar de la transformación se crea un registro inicial con 
+ Factura.Cantidad = 10000. 
+ En un determinado momento, se desean remitir 7000 unidades. De acuerdo a lo especificado anteriormente, se valida que el acumulado del atributo principal menos el valor a remitir esté dentro del rango permitido, es decir que 
+ 0 <= 7000 <= 10000 + 1000 
+ 0 <= 7000 <=11000 
+ Al ser válida la condición, se verificará la condición de cancelación, es decir: 
+ -1000 <= 3000 <= 1000 
+ Al no ser válida la condición, no es posible la cancelación de los valores pendientes de transformación. Sin embargo, como la primera evaluación había sido válida, se persiste la instancia correspondiente de la transformación. 
+ En otro momento, se intentan remitir 5000 unidades. Se evalúa la condición 
+ 0 <= 5000 <= 3000 + 1000 
+ Dado que la condición no es válida, no se permite persistir la instancia correspondiente, notificando al usuario y permaneciendo en el formulario correspondiente. 
+ Finalmente, se intentan remitir 2000 unidades. Se evalúa la condición 
+ 0 <= 2000 <= 3000 + 1000 
+ Al ser válida la condición, se evalúa la condición de cancelación: 
+ -1000 <= 1000 <= 1000 
+ Al ser válida dicha condición, se efectúa la siguiente acción: 
+ • 
+ Si se definió a la cancelación como automática, se cancelarán los valores pendientes de remitir mediante una transformación a la entidad de destino predefinida. 
+ • 
+ Si se definió a la cancelación como manual, se notifica al usuario acerca de la situación, permitiéndosele confirmar o no la cancelación de la transformación. En caso de que el usuario conforme la cancelación, el mismo deberá seleccionar, además, mediante cuál de las entidades de destino posible desea cancelar los pendientes. En este caso, sólo podría seleccionar la entidad “Nota de Crédito por Cantidad Pendiente”. 
+ A continuación, se presenta un ejemplo de Log cuando la transformación es total: 
+ 

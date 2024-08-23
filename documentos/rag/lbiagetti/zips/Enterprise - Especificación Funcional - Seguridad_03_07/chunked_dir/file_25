@@ -1,0 +1,6 @@
+3.8.1 Cuentas de notificación personales. 
+ Al realizar la administración de usuarios o incluso en el momento que un usuario pueda acceder a sus preferencias, se permite configurar las cuentas de notificación personales que deben utilizarse para cada uno de ellos. Es decir, se permite ingresar la configuración de cada uno de los medios por los cuales Fastprg puede emitir una notificación en nombre de un usuario. 
+ Para esto, cuando accedemos al mantenimiento de un usuario, el formulario presenta una solapa por cada tipo de cuenta de notificación, por ejemplo, una solapa para configurar el correo electrónico otra solapa para configurar los datos de la cuenta de Telegram. 
+ Luego, este tipo de cuentas no podrán seleccionarse en forma explícita al enviar un correo electrónico o al notificar por telegram, sino que estas cuentas solo serán utilizadas cuando se indique que debe utilizarse la cuenta del usuario autenticado. 
+ Para más detalles de como completar la información según el tipo de cuenta, acceder en este mismo documento a la sección correspondiente al tipo de cuenta que desea configurar. 
+ 

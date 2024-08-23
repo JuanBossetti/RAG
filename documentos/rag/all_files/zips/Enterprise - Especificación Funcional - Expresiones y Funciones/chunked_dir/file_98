@@ -1,0 +1,4 @@
+Ejemplos: 
+ Existe carácter especial('123abcd é') retorna Verdadero 
+ Existe carácter especial('123abcd ') retorna Falso 
+ 

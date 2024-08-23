@@ -1,0 +1,21 @@
+7.2 Autenticación en un Dominio 
+ La interfaz de ingreso al sistema dependerá del dominio y de la configuración de sus políticas de seguridad. La autenticación en un dominio se realizará en una url: https://<dominio>. fastprg.com 
+ A continuación, se muestra un ejemplo de pantalla de autenticación. 
+ Desde aquí en adelante, todos los ejemplos y pantallas siguen como ejemplo esta pantalla de autenticación. 
+ El idioma de la página inicial será el mismo que el configurado en el navegador utilizado, pudiéndolo modificar el usuario desde la sección superior izquierda en la cual se visualizarán los idiomas disponibles. Si el idioma del navegador no se encuentra dentro de los idiomas disponibles de Neuralsoft, de manera predeterminada la pantalla de inicio se muestra en inglés. Tanto la lista de los idiomas disponibles de la página inicial, como la configuración regional de cada idioma serán definidas por Neuralsoft. 
+ Políticas de Seguridad
+ Para presentar la sección “Ingreso al sistema” se toman las definiciones de las siguientes políticas (detallas en la sección ): 
+ • 
+ Permitir mantener sesión iniciada. 
+ • 
+ Tiempo de inactividad máximo para cierre automático de autenticación 
+ • 
+ Métodos de autenticación adicionales 
+ • 
+ Validación extra ante una autenticación en un nuevo dispositivo 
+ • 
+ Notificación ante una autenticación en un nuevo dispositivo 
+ • 
+ Métodos de restablecimiento de contraseña 
+ Para la pantalla inicial se tomará lo que tenga definido cada política en el dominio. 
+ 

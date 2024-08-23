@@ -1,0 +1,3 @@
+4.4.6 Registros y colas 
+ Las instancias de entidades de registro que se crean como pueden ser las instancias en Registro de aplicación o Cola de servicio web, se registran como instancias procesadas de sistema en la instancia de Registro de Consumo. 
+ 

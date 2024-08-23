@@ -1,0 +1,23 @@
+Clasificación de entidades por su función 
+ En base a su función, las Entidades pueden clasificarse como Maestras, Transaccionales y Paramétricas. 
+ Entidades maestras 
+ Las Entidades Maestras son aquellas que almacenan datos básicos para la realización de operaciones o transacciones. 
+ Las Entidades Maestras están formadas por atributos, filtros predefinidos, operaciones permitidas, acumuladores, desencadenantes, transformaciones y seguridad. Cabe aclarar que no poseen imputaciones. 
+ Entidades transaccionales 
+ Las Entidades Transaccionales son aquellas que almacenan las transacciones en sí mismas (Ejemplos: Factura, Recibo). A las entidades maestras generalmente las mantiene el usuario en forma directa, en cambio las transaccionales generalmente son producto de una operación o transacción de negocios que las genera en forma automática. Están relacionadas a los comprobantes. 
+ Las Entidades Transaccionales están formadas por atributos, filtros predefinidos, operaciones permitidas, acumuladores, desencadenantes, transformaciones, imputaciones y seguridad. 
+ Entidades paramétricas 
+ Las Entidades Paramétricas son aquellas que proveen instancias que serán copiadas a otros ambientes, que permiten, parametrizar la aplicación o simplificar el mantenimiento (Ejemplos: Cuentas Contables a utilizar en asientos contables, Países, Monedas). 
+ Las Entidades Paramétricas están formadas por las solapas: general, operaciones permitidas, atributos, atributos referenciados, filtros predefinidos, historial de versiones, documentación y seguridad. Cabe aclarar que no poseen acumuladores, desencadenantes, transformaciones ni imputaciones. 
+ En este tipo de entidades se debe definir las instancias que serán copiadas a otros ambientes y los atributos que podrán ser modificados en otros ambientes 
+ • 
+ Definir en cada atributo si se puede ver o no en otros ambientes 
+ Si en el ambiente donde se crea una instancia paramétrica se decide eliminarla o desmarcarle la propiedad “Copiar a otros ambientes”, cuando se propaga a otros ambientes, el ambiente destino rompe el vínculo con el ambiente donde originalmente fue creada permitiendo eliminarla o modificarla. 
+ documento 
+ Para más información sobre el versionado de las instancias, consultar el 
+ Aclaración sobre referencias: cualquier entidad puede referenciar a una entidad paramétrica. Además, las entidades paramétricas pueden tener referencias hacia otras entidades (paramétricas o no). 
+ Si una entidad paramétrica referencia a una no paramétrica: cuando se copien las instancias de un ambiente a otro, la referencia a la no paramétrica quedará nula, ya que una instancia de una entidad no paramétrica pertenece a la db origen y no se encontrará en la db destino. Si el atributo referencia es modificable, en el ambiente destino se podrá referenciar una instancia de ese ambiente. 
+ Cuando una entidad cualquiera referencia a una instancia paramétrica, esta referencia nunca admite eliminados. 
+ Análisis de Impacto deberá controlar que no se formen ciclos de referencias entre entidades paramétricas. Ejemplos: si A y B son paramétricas y A referencia a B, B no podrá referenciar a A. Ni tampoco se pueden poner referencias a sí misma (A referencia a A). 
+ De aquí en adelante en el documento, cuando se hace referencia a entidades Maestras, dicha definición incluye las entidades Paramétricas, y en caso que haya una excepción se aclara en el apartado correspondiente. 
+ 

@@ -1,0 +1,19 @@
+Aplicación por categoría de actividad: 
+ • 
+ única instancia: aplica a la entidad base. 
+ • 
+ múltiples instancias: aplica a la entidad base. 
+ • 
+ única instancia con imputaciones: aplica a la entidad base de la única instancia. 
+ • 
+ Transformación: aplica a la entidad destino de la transformación. 
+ • 
+ Autorización: aplica a la entidad destino de la transformación o la entidad base de la autorización (si no hay transformación). 
+ • 
+ Transformación con imputaciones: aplica a la entidad destino de la transformación. 
+ • 
+ Imputación: aplica a la entidad destino de la imputación. 
+ • 
+ Vista de información: no aplica. 
+ Imputación con comprobantes múltiples ver en master 
+ 

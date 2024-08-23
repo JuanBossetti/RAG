@@ -1,0 +1,6 @@
+Caso 4: Combinación de Caso 2 y 3 
+ Se tiene una Factura, y se desea crear el asiento contable correspondiente. El mismo estará compuesto por un movimiento asociado a la cuenta contable del cliente, un movimiento asociado a la cuenta contable IVA, y un conjunto de movimientos asociados a las cuentas contables de cada uno de los productos de la Factura. 
+ El modelo contiene a la entidad Factura y a la entidad Asiento Contable. Esta última contiene una colección de Movimientos, y cada movimiento tiene una referencia a la colección “Ítems de Factura” de la entidad Factura. 
+ Para el caso presentado se hace necesario, por lo tanto, generar dos elementos predefinidos dentro de la colección Movimientos en la entidad Asientos Contables, así como un elemento por cada producto, tal como se puede ver en la siguiente imagen (por cuestiones de espacio, no se muestra el movimiento asociado a la cuenta de IVA): 
+ Generalizando, este caso presenta una combinación de los casos 2 y 3. Es decir que dentro de los elementos de una colección, algunos toman los valores de elementos simples de la entidad Destino, mientras que otros toman valores de una colección, por lo que deben generarse tantos elementos como los que tenga la colección de origen. 
+ 

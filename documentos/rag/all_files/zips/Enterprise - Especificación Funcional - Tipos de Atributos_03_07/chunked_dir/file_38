@@ -1,0 +1,20 @@
+4.2.6 Renumeración de secuencias 
+ En caso de ser necesario, se tendrá la posibilidad de renumerar los números de las instancias previamente generados por los secuenciadores. 
+ Para ejecutar esta funcionalidad, se invocará desde una actividad en la sección de Secuenciadores llamada Renumeración de secuencias. 
+ Dentro de esta actividad se visualizarán todos los secuenciadores sobre los cuales se tendrá la posibilidad de realizar renumeraciones, para determinar este comportamiento, en la definición del tipo de atributo cuando la categoría es Secuencia, se agregará una propiedad adicional llamada 
+ Permitir renumeración, al tildar este campo los usuarios (con los permisos necesarios) podrán ejecutar renumeraciones sobre los valores generados por los secuenciadores que utilicen este tipo de atributo. 
+ Una vez dentro de la actividad, para ejecutar la renumeración se tendrán las siguientes opciones de configuración: 
+ • 
+ Valor inicial: permitirá ingresar el valor inicial a partir del cual comenzará la renumeración, por ejemplo, se desean renumerar 10 instancias y se configura como valor inicial 5, entonces las instancias adquirirán los valores de 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 respectivamente. Atributo obligatorio. 
+ • 
+ Filtro: permitirá delimitar mediante una expresión el conjunto de instancias sobre las cuales se realizará la renumeración, por ejemplo, en caso de que solo se quieran renumerar las instancias de un mes específico, entonces se configura como filtro Mes(Fecha) = 10 y solo se aplicará la renumeración sobre aquellas instancias cuya fecha corresponda al mes de Octubre. 
+ • 
+ Atributos de orden: permitirá ingresar un conjunto de atributos para establecer el orden de las instancias en las cuales se aplicará la renumeración, por ejemplo, en una renumeración de instancias se puede establecer como orden el número de comprobante de manera ascendente, entonces, al aplicarse se irá ejecutando la renumeración en las instancias ordenadas por el número de comprobante en forma incremental. Se debe ingresar obligatoriamente al menos un atributo para establecer el orden. 
+ • 
+ Renumerar: check de selección que permitirá especificar que la renumeración se aplicará sobre dicho secuenciador. 
+ El sistema comenzará a ejecutar la renumeración cuando se seleccione el ícono de renumerar en la toolbar, cabe destacar, que la renumeración podrá realizarse sobre uno o múltiples secuenciadores, debido a que el usuario podrá ir seleccionando el check de selección sobre cada instancia que desee renumerar y luego se ejecutará cuando se confirme a nivel actividad. A medida que se vaya ejecutando la renumeración en cada secuenciador seleccionado se irá des tildando la instancia dentro de la actividad. 
+ Cuando termine el proceso de renumeración de un secuenciador, se realizará nuevamente la consulta y si se creó una instancia que cumpla con el criterio de filtro ingresado se deberá procesar nuevamente la renumeración, así sucesivamente hasta que no queden instancias por renumerar. 
+ Es importante mencionar que la renumeración solo estará disponible para secuenciadores que apliquen a una única entidad, en caso de que el secuenciador tenga más de una entidad asociada no podrá realizarse la renumeración. 
+ Seguridad: 
+ Existirá a nivel de dominio un rol de usuarios llamado “Administrador de secuenciadores” dicho grupo de usuarios será el único que tendrá permitido por defecto realizar renumeraciones de instancias, es decir, los miembros de este grupo serán los únicos que tendrán acceso a la actividad de renumeración de secuencias. 
+ 

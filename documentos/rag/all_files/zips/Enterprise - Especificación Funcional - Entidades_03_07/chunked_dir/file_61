@@ -1,0 +1,29 @@
+Dependencia cíclica en desencacenantes 
+ Se limita por cumplimiento de ciclo, en este caso si llega a ejecutar 30 ciclos. Por ejemplo: 
+ Creo una instancia en la Entidad A: 
+ • 
+ Entidad A desencadena en Entidad B. 
+ • 
+ Entidad B desencadena en Entidad A. 
+ O se presenta el siguiente escenario: 
+ • 
+ Entidad A desencadena en Entidad B. 
+ • 
+ Entidad B desencadena en Entidad C. 
+ • 
+ Entidad C desencadena en Entidad A. 
+ Entonces cuando se crea una instancia de A termina volviendo a crear una instancia de sí misma (esto sería un ciclo), por lo cual sólo si esta iteración supera las 30 ejecuciones se mostrará un mensaje de error. 
+ Es decir, que si por ejemplo: 
+ • 
+ Entidad A desencadena en Entidad B si no esnulo(atributo 1). 
+ • 
+ Entidad B desencadena en Entidad C siempre. 
+ • 
+ Entidad C desencadena en Entidad A si esnulo(atributo 1). 
+ → 
+ → 
+ → 
+ → 
+ → 
+ Y creamos una instancia de A con un valor del atributo 1 Desencadena en B B desencadena en C En la instancia de C el atributo 1 no tiene valor Desencadena en AEn la instancia de  A el atributo 1 es nulo por lo cual no vuelve a desencadenar en B, esto sería válido. 
+ 

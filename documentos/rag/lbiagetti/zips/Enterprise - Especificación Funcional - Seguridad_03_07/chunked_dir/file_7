@@ -1,0 +1,5 @@
+2.3.4 Rechazo o eliminación de un vínculo y eliminación de objetos compartidos 
+ Al rechazar un vínculo de seguridad, se eliminará toda la información referida a sus objetos de acceso y a la seguridad asignada a los mismos. De esta forma, si se crea un vínculo similar al rechazado, se deberán volver a definir los objetos de acceso. En el caso de que un objeto vuelva a ser definido como objeto de acceso, se deberán volver a otorgar los permisos correspondientes, quedando dichos permisos asociados al nuevo vínculo. 
+ Eliminación de un usuario perteneciente a un vínculo de confianza: Si un usuario se inhabilita/elimina en el dominio de origen, se notifica a los dominios de acceso y se inhabilita/elimina en estos también, efectuando las acciones pertinentes (por ejemplo, dar de 
+ baja los permisos específicos para dicho usuario o desconectarlo si se encuentra con una sesión activa). Si la referencia a un usuario se elimina en el dominio que validó el vínculo, entonces dicho usuario dejará de tener acceso a este dominio pero en el dominio de origen el usuario seguirá existiendo. 
+ 

@@ -1,0 +1,71 @@
+3 Actividades 
+ Una Actividad es el elemento principal de FastPRG, representa acciones sobre entidades. Utilizan las entidades y sus relaciones definidas en el Diccionario de Datos. Una actividad podrá estar asociada a una transformación, una imputación, un alta de instancias de una entidad, etc. 
+ Una actividad podrá ser interactiva (mediante formularios o vistas de GDI) y/o automática (mediante tareas programadas y provisión de Web Service). 
+ Las actividades deberán cumplir las siguientes restricciones: 
+ ✓ 
+ Un Proceso de Negocio podrá contener diferentes Actividades. 
+ ✓ 
+ Un Proceso de Negocio deberá contener al menos una Actividad. 
+ ✓ 
+ Una misma Actividad podrá utilizarse en diferentes PN. 
+ ✓ 
+ Una misma Actividad podrá utilizarse una única vez en un mismo PN. 
+ ✓ 
+ Una actividad siempre debe estar contenida en al menos un PN. 
+ ✓ 
+ Una misma Entidad podrá estar asociada a varias Actividades dentro de un mismo PN. 
+ ✓ 
+ Las Actividades se vincularán entre sí mediante las relaciones que existan entre las Entidades asociadas, previamente definidas en el Diccionario de Datos. 
+ ✓ 
+ Podrán existir Actividades que no posean relación con las demás. 
+ ✓ 
+ Una Actividad podrá tener asociada una Entidad o varias. Las Actividades que podrán tener varias Entidades asociadas serán las que tengan una categoría basada en múltiples entidades, por ejemplo, una actividad de categoría instancia única con imputaciones. 
+ Una Actividad con una única entidad asociada, se representará gráficamente de la siguiente manera: 
+ Dentro de cada PN, las actividades se visualizarán dentro del diagrama y desde el panel de navegación, agrupadas por subproceso (ver sección “Subprócesós”). 
+ El sistema permitirá la creación de un nueva Actividad desde: 
+ ✓ 
+ El ribbon, mediante la funcionalidad de drag & drop. En este caso, se arrastrará el elemento Actividad hasta la ubicación deseada. En este caso, se creará una nueva Actividad en blanco (esto es, sin nombre, sin categoría y sin entidad asociada). 
+ ✓ 
+ El menú contextual del área de trabajo del PN en edición. En este caso la actividad se ubicará en el mismo lugar donde haya accedido a dicho menú, es decir, en el área donde se haya hecho clic alternativo. En este caso, también se creará una nueva Actividad en blanco (esto es, sin nombre, sin categoría y sin entidad asociada). 
+ ✓ 
+ El panel de navegación en la sección “Entidades” o “GDI”, mediante la funcionalidad de drag & drop, arrastrando una entidad o una vista de información, respectivamente. La actividad quedará asociada al objeto que se haya arrastrado. En este caso, se arrastrará la entidad o vista de información hasta la ubicación deseada, en donde se situará la actividad. No se podrá arrastrar la entidad o vista de GDI dentro de una actividad existente en el diagrama. 
+ ✓ 
+ De la misma forma que cualquier otro elemento de FastPRG, una actividad puede ser creada mediante el botón (+) ubicado en la cabecera de la sección Actividades en el acordeón, o mediante la ópción ‘Crear actividad’ dispónible en el menú cóntextual de actividad existente. 
+ ✓ 
+ También se podrá crear una nueva actividad a partir del menú contextual de una Actividad existente, mediante la ópción: “Crear Actividad a partir de la actual”. En este caso, se tomará a la Actividad seleccionada como “Actividad Padre” de la nueva Actividad. 
+ ✓ 
+ Sólo para el caso de las transformaciones, se podrá crear desde la entidad origen, una actividad asóciada a la categóría “Transfórmación” y a la(s) entidad(es) destino. Esto se detalla en la sección correspondiente. 
+ En todos los casos, al crear una nueva actividad, el inicio predeterminado será interactivo, pudiendo esto ser modificado por el usuario que esté modelando el proceso. 
+ Para utilizar la misma Actividad en un PN diferente, deberá arrastrarse la misma desde el panel de navegación al diagrama del PN en donde se desea agregar, como se muestra a continuación: 
+ Se presentará un ícono en la parte superior derecha de la actividad para indicar que la Actividad se encuentra en más de un PN, y que un cambio en ella, se reflejará en todos los PN donde se encuentre. El tooltip sobre este ícono indicará los PN donde se utiliza la Actividad, y tendrá un acceso directo a cada uno: 
+ Una vez creada ó arrastrada la nueva actividad, se selecciónará autómáticamente el campó “Nómbre” de la Actividad, y el usuario podrá ingresar el nombre de la misma: 
+ Dado que se creó o se arrastró una actividad en blanco, inicialmente la misma no tendrá una entidad asóciada. Estó se indicará al usuarió mediante el textó “[Sin entidad]”. 
+ La selección de la entidad podrá efectuarse arrastrando la misma desde el Diccionario de Datos hasta la actividad o seleccionando la entidad desde el panel de propiedades de la Actividad. En este punto, la Actividad cuenta con: 
+ ✓ 
+ Un nombre. 
+ ✓ 
+ Una entidad asociada. 
+ ✓ 
+ Las reglas de negocio que apliquen a la actividad. 
+ Si el inicio asociado es interactivo mediante formularios o vistas del GDI, el usuario podrá interactuar con la Actividad. En este caso, el nombre de la actividad se utilizará como texto para generar el ítem de menú correspondiente. 
+ El comportamiento de las actividades dependerá del tipo de actividad, la categoría y la configuración propia de la Actividad, teniendo en cuenta las operaciones permitidas para la entidad asociada, según lo definido en el Diccionario de Datos. 
+ El menú contextual sobre una Actividad en el editor de PN y el ribbon contendrán las siguientes opciones: 
+ ✓ 
+ Ejecutar. 
+ ✓ 
+ Editar. 
+ ✓ 
+ Administrar seguridad. 
+ ✓ 
+ Quitar del PN (sólo para actividades que se encuentren en más de un PN). Esta opción sólo quitará la Actividad del PN que se encuentra en edición, no la eliminará de los demás procesos en donde se encuentre la misma. 
+ ✓ 
+ Eliminar. En este caso, se visualizará un cartel aclaratorio para indicar al usuario que se eliminará la misma de manera definitiva, de todos los PN donde se encuentre, siempre y cuando el usuario cuente con los permisos necesarios para eliminar la actividad en dichos PN. 
+ ✓ 
+ Estándares de interfaz de usuario. 
+ Cambiar formato visual. Se podrá cambiar el color de cada Actividad, el formato, etc. Estas funcionalidades se detallan en el documento 
+ ✓ 
+ Idioma de los datos (sólo en el ribbon): idioma en el cual se ingresarán los datos de las instancias. Es un cómbó de selección única en dónde se pódrá selecciónar “usuarió autenticadó”, “otro idioma” ó “expresión”. De manera predeterminada, será el idioma del usuario autenticado. En el casó de que se seleccióne “ótró idióma” se visualizará un combo de selección única para elegir cualquiera de los idiomas disponibles de datos definidos en el Modelo. En caso de que se seleccióne “expresión”, se visualizará un campo para ingresar una expresión que sólo puede devolver un idioma como máximo. En el caso de que cuando se evalúe, no devuelva ningún idioma, la actividad dará error y no se podrá realizar ninguna operación. 
+ ✓ 
+ Idioma de interfaz de usuario: (sólo en el ribbon): idioma en el cual se visualizará la interfaz de usuario (los datos del Modelo). Es un combo de selección única en donde se podrá seleccionar “usuarió autenticadó”, “otro idioma” ó “expresión”, cuyó detalle se explicó en idióma de lós datós. De manera predeterminada, será el idioma del usuario autenticado. 
+ Estas opciones estarán disponibles en el menú contextual y en el ribbon, sólo si el usuario cuenta con los permisos para realizar las mismas. 
+ 

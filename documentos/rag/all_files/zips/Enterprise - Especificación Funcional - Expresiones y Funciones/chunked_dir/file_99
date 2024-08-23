@@ -1,0 +1,4 @@
+Palabra sin caracteres especiales(Texto) 
+ Busca caracteres especiales dentro de una cadena y en el caso que la cadena contenga uno o más caracteres retorna una cadena vacía, de lo contrario retorna la misma cadena que fue recibida por parámetro. 
+ Se entiende como carácter especial a cualquier letra que no se encuentre en el rango [a-z], [A-Z] o [0-9]. Entre dichos caracteres se incluyen: ñ,á,é,í,ó y ú, espacio en blanco, entre otros. 
+ 

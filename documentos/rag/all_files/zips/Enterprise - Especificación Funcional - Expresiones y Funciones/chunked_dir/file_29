@@ -1,0 +1,7 @@
+En este caso vimos cómo crear una transformación con contexto entidad. 
+ Ahora, utilizaremos más expresiones, pero en este caso, para la definición de valores de un desencadenante con otro contexto. Imaginemos el siguiente escenario: tenemos las entidades “Remito” y “Movimiento de stock” y queremos generar un desencadenante desde “Remito”, para que cada uno de sus ítems se transforme en una instancia de “Movimiento de stock”. 
+ Posteriormente, podremos añadir un acumulador en “Movimiento de stock”, con el fin de tener consolidada la información. Entonces, cada compra aumenta el stock y cada remito lo disminuye. Al momento de crear el desencadenante desde “Remito”, establecemos a la colección de ítems de la entidad como contexto. 
+ De esta manera, estamos eligiendo el contexto de la Condición y de la definición de valores. Luego, procedemos a completar los valores. Recordemos que la cantidad debe estar en negativo ya que estamos restando stock, entonces la expresión en cantidad la indicamos: 
+ -1 * Cantidad 
+ En este punto, ya podemos crear un remito y observar cómo se añaden instancias en “Movimiento de Stock” desde la vista previa correspondiente. 
+ 

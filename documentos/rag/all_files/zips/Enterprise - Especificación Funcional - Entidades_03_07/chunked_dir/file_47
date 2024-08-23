@@ -1,0 +1,16 @@
+Algunas Consideraciones: 
+ 1) 
+ En Reglas de cancelación en imputaciones, el sistema deberá inferir y asignar los valores de los atributos de acuerdo a lo siguiente: 
+ o 
+ Si existe en el desencadenante que se definió sobre la entidad en edición, una relación directa entre los atributos de las entidades, deberá invertirse esta relación. Por ejemplo, si en el desencadenante definido de Nota de Crédito a Cuenta Corriente, el usuario determino que el cliente de la Nota de Crédito es el cliente de la Cuenta Corriente, el sistema deberá inferir que al atributo Nota de Crédito.Cliente se le asignará el atributo Cuenta Corriente.Cliente 
+ o 
+ Si existen atributos o colecciones de atributos que tengan el mismo nombre, tipo de atributo y jerarquía dentro de ambas entidades. 
+ 2) 
+ En Reglas de negocio de Modificación de instancia actual y modificación de instancia actual al confirmar, se presentan las siguientes excepciones donde no se aplicará la asignación de valores por defecto, debido a que tanto el origen como el destino tendrán la misma estructura de atributos y por ende se completarían todos los valores: 
+ ✓ 
+ Si la acción aplica a entidad. 
+ ✓ 
+ Si la acción aplica a colección actual. 
+ ✓ 
+ Si la acción a aplica a colección y el contexto origen de la regla de negocio es la misma colección seleccionada. 
+ 

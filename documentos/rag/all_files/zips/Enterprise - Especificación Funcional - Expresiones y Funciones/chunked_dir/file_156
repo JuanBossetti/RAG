@@ -1,0 +1,4 @@
+Ejemplos: 
+ Nueva hora(Colección, Atributo, Condición) 
+ Esta función construye un dato tipo hora, a partir de los parámetros recibidos correspondientes a la hora, los minutos y los segundos. 
+ 

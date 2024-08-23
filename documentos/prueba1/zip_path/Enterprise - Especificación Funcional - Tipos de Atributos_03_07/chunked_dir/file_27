@@ -1,0 +1,114 @@
+4.1.9 Formato visual 
+ Este formato aplicará a cualquier lugar en donde se visualice el valor de un atributo (dentro de una grilla, en un formulario, en una vista de GDI, etc.). Este dato se hereda primero del tipo (incluso del tipo padre si tuviera), luego en el atributo de la entidad, luego en el atributo de la actividad y por último en los formularios/GDIs, pudiendo redefinirse en cualquiera de los mismos. 
+ En el momento en que un usuario se encuentra editando el valor del atributo, aplicará el formato anterior (o ninguno si se está dando de alta), pero al cambiar de foco y salir del campo, se aplicará el formato nuevamente en base al valor escrito. 
+ A continuación, se presentará la pantalla para la edición del formato de un atributo. La misma permite definir una serie de formatos extras para diferentes condiciones. Dependiendo del tipo de atributo en la Capa Base del cual hereda el tipo de atributo de usuario, la pantalla de formato presentará determinadas propiedades. El detalle de que propiedades están disponibles para cada tipo de atributo en Capa Base será parametrizado por NS.  
+ La pantalla constará de los siguientes elementos: 
+ • 
+ Un campo donde se ingresará la condición que debe cumplirse para aplicar el formato. 
+ • 
+ Una vista previa de la visualización del campo con el formato aplicado. 
+ • 
+ Una serie de opciones para determinar el formato de a aplicar. Dentro de estas opciones se encuentran: 
+ o 
+ Formato del texto: tipo de letra, color, color de resaltado, negrita, cursiva, subrayado, tachado. 
+ o 
+ Alineado: a la izquierda, a la derecha, centrado, justificado, en la parte superior, en la parte inferior y en el medio. El alineado a la izquierda de idiomas RTL es equivalente al alineado a la derecha de idiomas LTR y viceversa. 
+ o 
+ Visible: checkboxs que indica si se visualizará o no el atributo en los formularios. De manera predeterminada, se encuentra tildado, es decir, visible. 
+ o 
+ Editable: checkboxs que indica si se editará o no el atributo en los formularios. Solo se podrá configurar si el atributo es visible. De manera predeterminada, se encuentra tildado, es decir, visible. 
+ o 
+ Para tipos basados en “Texto”, “Referencia”, “Referencia a colección”, “Secuencia” y “Enumerado”: 
+ ▪ 
+ Mayúscula. 
+ ▪ 
+ Minúscula. 
+ ▪ 
+ Primera mayúscula. 
+ o 
+ Para tipos basados en “Texto”: 
+ ▪ 
+ Máscara: se permite ingresar los siguientes caracteres: 
+ • 
+ 0: se debe ingresar un número del 0 al 9. 
+ • 
+ 9: se puede ingresar un número del 0 a 9, no es obligatorio. 
+ • 
+ #: se puede escribir un dígito, espacio, signo más o menos. Si se omite, se toma como un espacio en blanco. 
+ • 
+ L: se debe escribir una letra. 
+ • 
+ ?: se puede escribir una letra, no es obligatorio. 
+ • 
+ A: se debe escribir una letra o un dígito. 
+ • 
+ a: se puede escribir una letra o un dígito, no es obligatorio. 
+ • 
+ &: se debe escribir un carácter o un espacio. 
+ • 
+ C: se puede escribir caracteres o espacios, no es obligatorio. 
+ • 
+ >: convierte todos los caracteres que le siguen a mayúscula. 
+ • 
+ <: convierte todos los caracteres que le siguen a minúscula. 
+ • 
+ "": los caracteres que están entre comillas dobles se mostrarán literalmente. 
+ • 
+ ~: Solo permite el ingreso del signo más o menos. 
+ Para ingresar la máscara se presentará un tooltip con ayuda para la definición de la máscara. 
+ ▪ 
+ Separador de miles: si está activo el checkbox indica que cuando se muestra el valor, se muestra con el separador de miles definido en el Modelo y cuando no está activo, el número se muestra sin separador de miles. Al editar el valor, no se mostrarán los separadores de miles, solamente cuando el valor no está siendo editado, se aplicará el separador correspondiente. 
+ ▪ 
+ Máscara: se permite ingresar los siguientes caracteres: 
+ • 
+ 0: se debe ingresar un número del 0 al 9. 
+ • 
+ 9: se puede ingresar un número del 0 a 9, no es obligatorio. 
+ • 
+ #: se puede escribir un dígito, espacio, signo más o menos. Si se omite, se toma como un espacio en blanco. 
+ • 
+ "": los números que están entre comillas dobles se mostrarán literalmente. 
+ ▪ 
+ Cantidad decimales: 
+ Se puede definir la cantidad de decimales como parte del formato visual de los atributos de tipo numéricos. 
+ Se permite definir esto mediante una expresión que devuelve un valor entero. 
+ Este formato permite aplicarse tanto a nivel del tipo de atributo como a nivel del atributo. Es decir, la expresión es heredada desde el tipo de atributo al atributo. 
+ Por poner un ejemplo, supongamos que tenemos un atributo cuyo tipo de atributo tiene una longitud máxima de 10 enteros, 6 decimales: 
+ ▪ 
+ Si el resultado supera al máximo definido en el tipo de atributo (es decir, el resultado de la expresión es mayor a 6 decimales, por ejemplo, 8), muestra la cantidad que resulta de la expresión completando con 0 luego de los 6 decimales. 
+ ▪ 
+ Si el resultado está dentro del máximo, se presenta la cantidad de decimales obtenidas sin aplicar ningún redondeo de la información (8). 
+ ▪ 
+ Si devuelve un número igual a cero se presentarán sin decimales. 
+ ▪ 
+ Si devuelve un número negativos o nulo, es decir, cualquier resultado que sea diferente de un número entero muestra un mensaje de error informando la situación: 
+ ❖ 
+ Si devuelve un valor nulo, un mensaje de error advertirá al usuario que "No se pudo obtener la cantidad de decimales para establecer el formato del atributo". 
+ ❖ 
+ Si devuelve un valor negativo, un mensaje de error advertirá al usuario que "No se puede establecer el formato del atributo a una cantidad de {N} decimales. 
+ Para un mismo tipo de atributo de longitud máxima de 10 enteros y 6 decimales, pueden haber ingresados a nivel instancia/ítems de colección diferentes longitudes o precisiones. Dichos valores se presentarán encolumnados, alineados a la derecha para permitir una mejor visualización. 
+ o 
+ Para tipos basados en “Sólo Fecha”: 
+ ▪ 
+ formato (largo, corto, etc.). Inicialmente lo hereda del formato definido en el Tipo de Atributo. El valor de este formato (por ejemplo dd/mm/aaaa) se define en el Dominio. 
+ o 
+ Para tipos basados en “Sólo Hora”: 
+ ▪ 
+ formato (largo, corto, etc.). Inicialmente lo hereda del formato definido en el Tipo de Atributo. El valor de este formato (por ejemplo hh:ss) se define en el Dominio. 
+ o 
+ Para tipos basados en “Fecha y Hora”: formato de fecha y hora. 
+ o 
+ Para tipos basados en “Booleano”: 
+ ▪ 
+ Color de fondo. 
+ ▪ 
+ Alineaciones. 
+ o 
+ Formato para tipos “Textos” 
+ Formato para tipos “Numéricos” 
+ Formato para tipos “Sólo Fecha” 
+ Formato para tipos “Sólo Hora” 
+ Formato para tipos “Fecha y Hora” 
+ Formato para tipos “Lógico”, “Duración” e “Instante” 
+ Formato para tipos “Enumerados”, “Secuencias”, “Referencias” y “Referencias a colección” 
+ 

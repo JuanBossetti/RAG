@@ -1,0 +1,32 @@
+4.13 Registro de operaciones 
+ Incluye todas las operaciones de escritura en la base de datos. Se genera un nuevo registro por cada transacción realizada. Permite realizar una trazabilidad de todos los cambios realizados por cada operación. Este registro permite relacionar todas las inserciones que se hicieron para una operación dada. 
+ En el caso de que se necesite hacer una eliminación, una reversión u otra operación, mediante este registro de operaciones, se tendrá una forma de determinar exactamente los registros relacionados con una transacción sin importar la versión del sistema que las generó. 
+ atributos predefinidos
+ Además de los , el log está compuesto por los siguientes campos: 
+ • 
+ Entidades afectadas: Es el listado de entidades afectadas por la operación. 
+ • 
+ Inicio de la operación: Es la fecha y hora en la que se inició la transacción. 
+ • 
+ Duración de la transacción: Es el tiempo que demoró la transacción, este dato a diferencia del que se almacena en cada instancia de Entidad es el tiempo que demoró la base de datos. El tiempo de transacción se guarda sólo una vez en la operación principal. 
+ • 
+ Tipo de operación: Indica que operación lógica se realizó. Es una de las operaciones permitidas de la Entidades: Creación, Modificación, Eliminación o Reversión. 
+ • 
+ Cantidad de registros: Indica la cantidad de registros que se insertaron en la operación en todas las tablas. 
+ • 
+ Actividad: En el caso de que la instancia haya sido creada a partir de una Actividad. 
+ • 
+ Tipo de almacenamiento: Indica cómo se almacenó la operación. Puede ser:  en edición, confirmado en edición, edición modificada o definitiva. 
+ • 
+ Tipo de edición de confirmación: Indica el motivo por el cual la confirmación quedó en edición. Puede ser: Tiene dispositivo externo, Confirmación retrasada o Cola de servicio Web. 
+ • 
+ Fecha confirmación retrasada: Fecha y hora de confirmación retrasada de la operación. 
+ • 
+ Origen de la operación: Indica el origen de la operación. Puede ser: Única instancia vía formulario, Única instancia vía webservice, Única instancia vía tarea programada, Transformación vía formulario, Transformación vía webservice, Transformación vía tarea programada, Desencadenante, Regla de negocio, Vista de información, Exportación, Importación, Única instancia vía cliente interno, Impresión o Envío de correo electrónico. 
+ Ejemplo: 
+ Se genera una Factura que por desencadenante genera un Remito por cada grupo de productos (En la Factura hay 3 grupos de productos). Como resultado en el Log de Operaciones se generan 4 registros: 
+ • 
+ Uno por el alta de la Factura. 
+ • 
+ Tres registros por el alta de los Remitos (uno por cada grupo de productos). 
+ 

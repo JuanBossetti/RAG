@@ -1,0 +1,69 @@
+4.1.1 Categoría de tipo de atributo simple 
+ Al seleccionarse el tipo de categoría simple para un tipo de atributo, se presentará la siguiente pantalla (<>)(Pantalla 2): 
+ Pantalla 2 
+ Puede observarse aquí la incorporación de nuevos campos, tales como Descripción, Tipo padre, Formato, Valor inicial y Validación, como también las nuevas solapas Historial de Versiones, Seguridad y Documentación. A continuación, se describe la funcionalidad de estos nuevos campos y solapas. 
+ En la solapa general, la funcionalidad de los nuevos campos es la siguiente: 
+ • 
+ Descripción: permitirá indicar una breve descripción del tipo de atributo. 
+ • 
+ Tipo padre: permitirá detallar el tipo en el que se basará el tipo de atributo que se está creando. Este campo contará con la funcionalidad de búsqueda como también la de búsqueda avanzada. Este campo no podrá estar vacío. En el caso de que el tipo padre sea reversible deberá indicarse esto mediante un icono a la derecha del campo con un tooltip aclaratorio. 
+ • 
+ Propiedades 
+ particulares en base a la 
+ Dependiendo del tipo en capa de bajo nivel en el cual está basado el tipo padre, se presentarán distintos campos para definir las propiedades particulares de dicho tipo. Estas propiedades se detallan para cada tipo de capa de bajo nivel en el punto (<>)capa de bajo nivel. 
+ • 
+ Descriptivos: Indica que este atributo va a formar parte de la grilla que se despliega del combo, cuando se use una referencia a la entidad a la que pertenece este atributo, en cualquier otra entidad. Los descriptivos pueden ser de uno de los siguientes tipos: 
+ ▪ 
+ Identificadores -> Serán los atributos que se muestran en el combo cerrado o en la celda de una grilla. Además, se visualizarán como una columna en la grilla de búsqueda (dentro del combo), se usarán para filtrar el combo cuando se ingrese un texto de búsqueda y se volcarán al combo cuando haya una opción seleccionada. 
+ ▪ 
+ De búsqueda -> Serán los atributos de la grilla del combo, que se usarán para filtrar las instancias cuando se ingresa un texto de búsqueda en el combo. Pero al seleccionar una instancia, no se mostrarán en el combo cerrado ni en la celda de una grilla. 
+ Informativos -> Son los atributos de la grilla del combo, que solo sirven para aportar más información acerca de cada instancia. No se usarán para filtrar las instancias cuando se ingresa un texto de búsqueda en el combo. Tampoco se mostrarán en el combo cerrado ni en la celda de una grilla. 
+ Ejemplo de atributos descriptivos: dada una entidad FACTURA que tiene entre sus atributos uno de referencia a instancias de la entidad CLIENTE. 
+ Cada vez que se muestra el valor de un atributo referencia, se ven uno o varios atributos de la entidad referenciada, ya sea, por ejemplo, en el combo cerrado de 
+ una actividad de única instancia o en la celda de la grilla de una actividad de múltiples instancias. 
+ En nuestro ejemplo, cada vez que se muestra el dato CLIENTE en una FACTURA, se van a ver en el combo cerrado o en la celda de la grilla, por ejemplo, su nombre y apellido. 
+ A su vez, cada vez que se quiere ingresar o modificar el dato CLIENTE de una FACTURA, se puede desplegar el combo y el sistema muestra una lista en forma de grilla con uno o varios atributos del cliente, como ser: nombre, apellido, cuit y edad. 
+ Además, el operador puede ingresar un texto en el combo para buscar por ese texto el cliente que quiere seleccionar y el sistema va a ir filtrando la grilla del combo. La búsqueda la va a hacer solo por alguno de los atributos que se muestran. En nuestro ejemplo, se va a buscar solo en nombre, apellido y cuit. 
+ Entonces tenemos que, de los atributos de CLIENTE vamos a tener algunos que van a formar parte de la grilla que se despliega del combo, cuando se use una referencia a la entidad CLIENTE en cualquier otra entidad. 
+ A estos atributos llamaremos "Descriptivos para referencias". Cada atributo "Descriptivo para referencias", podrá ser de un "Tipo de descriptivo": 
+ En nuestro ejemplo tenemos: 
+ Atributos "Descriptivo para referencia": nombre, apellido, cuit y edad 
+ Identificadores -> nombre y apellido 
+ De búsqueda -> cuit 
+ Informativos -> edad 
+ • 
+ Formato visual: propiedades que aplican en los componentes visuales asociados a los atributos en formularios y GDIs. Las propiedades visuales se heredan desde el tipo de atributo al atributo y luego a los componentes visuales en formularios/GDIs. 
+ ▪ 
+ Condición de visibilidad/visualización: expresión que cuando sea verdadera indicará que el componente visual que representa el atributo estará visible en los formularios. Por ejemplo, si el cliente es mayorista, mostrar el campo descuento. Se debe tener en cuenta que, al definir una expresión de visibilidad en un atributo, el mismo por defecto no será mostrado en las grillas generadas por el sistema. De todas maneras, en caso de que el usuario lo requiera, podrá agregar dicho atributo a la grilla. 
+ ▪ 
+ Condición de edición: expresión que cuando sea verdadera indicará que el componente visual que representa el atributo estará editable en los formularios. Por ejemplo, si la fecha es hoy, el campo cantidad de mercadería pedida no se puede modificar. En este caso la expresión sería: fechaPedido <> hoy(). Son propiedades opcionales y si alguna expresión está vacía, el campo se encontrará visible/editable. Estas opciones sólo estarán disponibles en la edición de un formulario en desarrollo y no en su ejecución. En el caso de que un componente no esté visible, al editar un formulario en desarrollo el componente se visualizará con un formato distintivo, de forma de identificar que está oculto. 
+ ▪ 
+ Ancho y alto predefinido de los campos: tanto el ancho como alto de un componente puede ser “fijo” o “autoajustable”. De manera predeterminada, los tipos simples, enumerados, secuencias y referencias (nota de arquitectura: y expresiones) tendrán ancho fijo, y los tipos colecciones y compuestos ancho autoajustable. Si el tipo de ancho es fijo, se propondrá un ancho determinado en pixeles que dependerá del tipo de atributo. Si el tipo de ancho es autoajustable, se propondrá un ancho minimo que dependerá del tipo de atributo. El ancho predeterminado aplicará a todos los componentes visuales que se visualicen en formularios y GDIs, por ejemplo si en un formulario ABM hay una columna y un campo simple para representar el mismo atributo, ambos tendrán el mismo ancho de manera predeterminada. Además, en los tipos de atributos texto, texto 
+ enriquecido y texto multimedia se podrá configurar el alto predeterminado (nota de arquitectura: en los templates y expresiones). 
+ ▪ 
+ Formato
+ Formato: Invoca una ventana modal en donde se permite definir un formato visual (tipografía, colores, etc.) para el tipo de atributo en edición. Se pueden definir varios formatos, el primero aplica siempre y el resto aplica cuando se cumple una determinada condición. Dependiendo del tipo en la capa de bajo nivel (numérico, texto, etc.) las propiedades a definir varían. El detalle de lo que se puede configurar en cada tipo se define en . 
+ ▪ 
+ Tipo de widget por defecto: permite seleccionar el tipo de widget mediante el cual se visualizará el tipo de atributo dependiendo de la categoría del mismo, por ejemplo: si los tipos “fecha” se visualizan como calendario, se visualiza en forma de grilla, las colecciones de referencias como lista doble o una grilla, las imágenes en carrusel, la documentación como documento, etc. Esta propiedad se heredará de los tipos de atributo padres, pero será visible y modificable en los hijos. 
+ • 
+ Reversible: permite indicar que en caso de que se elimine o revierta un comprobante el valor almacenado en el atributo debe ser multiplicado por -1. Por ejemplo al anular una factura, en los ítems de la misma las cantidades de los productos deben ser reversibles, pero los precios unitarios de los mismos no se deben multiplicar por -1 al realizar la anulación, inicialmente esta propiedad estará disponible para los atributos numéricos y de tipo duración. 
+ • 
+ Valor inicial: Define el valor que aplicará inicialmente a todos los atributos cuyo tipo sea el que se está definiendo. El valor inicial puede ser ingresado mediante una formula e incluso tomar el valor de un atributo de una entidad referenciada. Por ejemplo, si el tipo de atributo condición venta se usa en la entidad Factura el mismo puede tener configurado como valor por defecto cliente.condicion venta. En el caso de que se lo utilice en la entidad cliente ignorará su valor por defecto ya que apunta a sí mismo. 
+ • 
+ Memoria de Cálculo: Al estar activo el check-box, las instancias que contengan este atributo permitirá al usuario acceder a la funcionalidad y lograr ver como fastprg le asigno valor a la instancia. Este atributo solo se puede configurar en los tipos de atributos que no sean de tipo colección o compuesto, además este valor se hereda hacia la entidad. Para más información ver el documento funcional EyF en la sección "Memoria de cálculo". 
+ • 
+ Validación: permitirá al usuario crear validaciones que aplicarán a los valores de los atributos del tipo que se está editando. Cada una de dichas validaciones deberá tener: 
+ ▪ 
+ Un nombre único 
+ ▪ 
+ Una fórmula de validación 
+ ▪ 
+ Un mensaje de error que se mostrará cuando el resultado de la fórmula sea falso. Este mensaje de error será un texto enriquecido internacionalizable. Para esta funcionalidad se utilizará el editor de texto enriquecido. 
+ Nota: En la fórmula de validación se permitirá utilizar “Este” que hace referencia al Nombre del Tipo que se está creando para expresar validaciones. Cuando dicho tipo sea asociado en un atributo de una entidad determinada, los nombres de tipos utilizados en las fórmulas de validación del tipo serán reemplazados por el nombre o camino del atributo en cuestión, es decir, se reemplazará por un camino válido para el atributo, quedando como fórmula de validación propia del atributo. Ej.: Si se desea que el tipo de atributo “Importe” contenga en una fórmula de validación una restricción que impida que sea mayor que 1000, deberá escribirse como “Este < 1000”; al crear un atributo “Precio Total” del tipo de atributo “Importe” la fórmula de validación se configurará como “Precio Total < 1000” en el atributo que se está creando. Esto se debe a que no puede evaluarse la expresión utilizando el nombre del tipo, para poder evaluarse en el sistema generado debe utilizarse el nombre del atributo que contendrá luego el dato. Es importante aclarar que las validaciones agregadas en los tipos de atributos al ser heredadas en los atributos de la entidad no podrán editarse. 
+ Todos los campos enumerados anteriormente salvo Descripción y Tipo padre contendrán en forma predeterminada los valores del tipo padre, tendrán una tipografía distintiva en caso de que se modifique sus valores según lo indicado en el documento de estándares de interfaz de usuario en la sección de “Propiedades de atributos heredados”. 
+ Se presenta a continuación de la funcionalidad de internacionalización de valores mencionada en el punto (<>)3.3 (<>)(Pantalla 3): 
+ Pantalla 3 
+ Para el caso en que la opción “Permite valores internacionalizables” esté seleccionada en una versión anterior del tipo de atributo y luego se modifique la propiedad, no permitiendo la internacionalización, se presentarán dos iconos junto al dato modificado, el primero tendrá un tooltip que indicará que se debe ingresar el idioma a utilizar. 
+ El segundo icono permitirá acceder a una ventana modal donde se debe configurar en qué idioma se dejan los datos anteriores que sí permitían internacionalización. 
+ Luego mediante el mismo icono se podrá volver a colapsar dicha ventana. 
+ 

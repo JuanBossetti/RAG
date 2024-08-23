@@ -1,0 +1,49 @@
+4.1 Registro de aplicación 
+ El Log de aplicación explica el porqué de los datos de cada instancia confirmada. Incluye los eventos producidos por el sistema. Este tipo de eventos siempre se genera en conjunto con alguna operación de persistencia de datos del modelo. Se usa para trazar la auditoría sobre por qué una instancia tiene los valores que tiene, si el usuario cambió un valor inicial (se guarda valor inicial y valor actual), si el usuario cambió un valor completado por una RN o por otro usuario en una versión anterior de la instancia ya confirmada, etc. 
+ Siempre se guarda en la misma transacción que la instancia principal, es decir, se persiste únicamente si se confirma la instancia. Por ejemplo, si un usuario generó una Factura, en el log se almacenará el detalle de los datos que fueron modificados por el usuario durante la generación de una nueva instancia, así como cuáles fueron modificados por reglas de negocio u otros componentes, de forma de tener una trazabilidad de cómo se llegó a los datos registrados en las instancias que finalmente fueron persistidas. El almacenamiento en base de datos de este registro se hace en la misma transacción que el almacenamiento de la instancia de la Factura. ¿Qué significa que se hace en la misma transacción? Que dentro del lote de entidades donde se guarda información por esa factura estará también este registro. De esta manera, se garantiza que, si por algún motivo no es posible guardar la factura, tampoco se guarda el log. 
+ Dentro de este log también se incluye: 
+ ✓ 
+ Las notificaciones enviadas a los usuarios. 
+ ✓ 
+ Advertencias enviadas al usuario. 
+ ✓ 
+ Asignaciones de tareas. 
+ atributos comunes 
+ Además de los en todos los registros, los específicos de éste son: 
+ • 
+ Mensaje: Conjunto de datos del detalle del evento generado. 
+ • 
+ Categoría de registro: Define la categoría del evento dentro del sistema. Algunos valores son: 
+ o 
+ Ejecución de la actividad. 
+ o 
+ Creación de instancia única. 
+ o 
+ Notificación. 
+ o 
+ Advertencia. 
+ o 
+ Condición. 
+ o 
+ Aprobación global o remota. 
+ • 
+ Código de evento de registro: Indica qué evento ocurrió. Algunos valores son: 
+ o 
+ Cambio de atributo por regla de negocio 
+ o 
+ Cambio de atributo de valor inicial por el usuario 
+ o 
+ Notificación exitosa 
+ o 
+ Advertencia aceptada 
+ • 
+ Comando de registro: Indica que comando ingresó el usuario. Algunos valores son: 
+ o 
+ Confirmación 
+ o 
+ Descarte 
+ o 
+ Eliminar instancia 
+ • 
+ Posición: Coordenadas geográficas junto con su precisión desde donde se generó el evento. 
+ 

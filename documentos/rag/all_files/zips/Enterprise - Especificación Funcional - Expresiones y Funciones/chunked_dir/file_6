@@ -1,0 +1,23 @@
+2.1 Definición y elementos 
+ Veamos ahora los elementos de una expresión y cómo estos influyen en su evaluación. Para esto, vamos a descomponer una expresión sencilla en partes y las analizaremos. 
+ Como se trata de un lenguaje de expresiones, FastPrg tiene sus propias reglas, y para que una expresión sea válida debe cumplirlas. 
+ Las expresiones permiten obtener un resultado a partir de la evaluación de una fórmula. A través de sus elementos, intentaremos ampliar un poco esta definición, pero antes de comenzar, necesitamos una estructura de datos con la que trabajaremos, que será la de una Factura. 
+ Podemos ver que tiene un número identificatorio, una fecha, un cliente a quien pertenece, un total y una colección de ítems (donde cada uno, a su vez, cuenta con un producto, un precio, una cantidad y un subtotal). 
+ Supongamos que queremos modelar una expresión simple, que calcule el subtotal de cada ítem de la factura 
+ Precio * Cantidad 
+ O el total de la factura en sí. 
+ En .Ítems Sumar Subtotal 
+ Ahora, desglosaremos la primera, la cual indica que, si compramos, por ejemplo, dos ítems, con un precio de dos mil quinientos cada uno, el subtotal es cinco mil. Si bien esta expresión es muy sencilla, nos alcanzará para comprender cada uno de sus elementos. 
+ Tal como señalamos anteriormente, las expresiones permiten obtener un resultado a partir de su evaluación, el cual, como todo en FastPrg, tiene un tipo de atributo asociado, llamado “Retorno”. En nuestro ejemplo de precio por cantidad, el tipo de dato esperado es el subtotal. 
+ Esta expresión se evaluará en cada uno de los ítems de la factura, tomará el precio de cada uno y lo multiplicará por la cantidad de ítems. A esto, lo llamamos contexto, es decir, nos indica qué elementos tenemos disponibles para la evaluación de la expresión. 
+ Según este último elemento que describimos, la sintaxis será correcta o incorrecta. Si quisiéramos usar esta misma expresión a nivel de cabecera, FastPrg nos marcaría que los atributos Precio y Cantidad no existen, ya que sí están en el contexto del ítem, pero no de la entidad. En nuestro ejemplo, el contexto de evaluación es el ítem de la factura. 
+ Pero para evaluar algo, necesitamos que exista, al menos, un componente que tenga valor. En este caso que estamos analizando, existen dos: precio y cantidad, y los llamamos Operandos. En otras palabras, estos son los elementos que contienen el valor para la evaluación de la expresión. 
+ Particularmente, nuestros operandos son atributos, pero también podrían ser números, fechas, textos, entre otros. Todo dependerá de qué queramos obtener con nuestra expresión. 
+ Entonces, ya vimos qué son los operandos, pero ahora necesitamos unirlos, combinarlos, de alguna manera. Y es aquí donde aparecen los operadores; elementos que realizan una operación (como cálculos, comparaciones o cualquier otra) entre uno o más operandos. En nuestro sencillo ejemplo de precio por cantidad, tenemos un único operador y es el de multiplicación, identificado con un asterisco. 
+ Podemos mencionar, ahora, la siguiente definición, más completa: una Expresión está formada por una serie de Operandos combinados con Operadores, con el objetivo de producir un determinado Tipo de Dato al evaluarse en un Contexto. 
+ Es importante destacar que internamente no será necesario guardar el formato con el que un usuario escribió los nombres de las Entidades, Atributos, Palabras reservadas, Funciones, etc. La expresión se visualizará directamente usando el formato original con el que fueron definidos. Por ejemplo, si un usuario crea la siguiente expresión: 
+ fActurA.imporTE > 10 
+ Cuando la vuelva a visualizar se verá: 
+ Factura.Importe > 10 
+ Suponiendo que en el Diccionario de Datos el nombre de la Entidad es “Factura” y el nombre del Atributo es “Importe”. 
+ 

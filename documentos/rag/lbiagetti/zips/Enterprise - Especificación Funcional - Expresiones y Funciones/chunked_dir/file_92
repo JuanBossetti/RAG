@@ -1,0 +1,3 @@
+Quitar espacios iniciales(Texto) 
+ Elimina todos los espacios en blanco del comienzo del texto. Equivalente a LTRIM(str). 
+ 

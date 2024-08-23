@@ -1,0 +1,3 @@
+Disponibilidad fecha hora(Fecha inicio, Fecha fin, Calendario de trabajo) 
+ Esta función devuelve la duración calculada sumando dos fecha hora. 
+ 

@@ -1,0 +1,46 @@
+3.7.11 Registro de web service 
+ Todas las transacciones ejecutadas por WS se registran en el Registro de web service del dominio. Los campos de este log son: 
+ • 
+ Código de evento: 
+ o 
+ Resultado exitoso 
+ o 
+ Json inválido (esto sólo se loguea si el token es válido) 
+ o 
+ Token inválido 
+ o 
+ Operación inválida 
+ o 
+ Más de una instancia (sólo para categoría única instancia) 
+ o 
+ Falló la ejecución 
+ • 
+ JSON entrada 
+ • 
+ JSON salida 
+ • 
+ PN 
+ • 
+ Actividad 
+ • 
+ WS 
+ • 
+ Versión de api 
+ • 
+ Permiso de ejecución 
+ • 
+ Modelo (es un dato de todas las entidades) 
+ • 
+ Cantidad de instancias retornadas. 
+ • 
+ Cantidad de operaciones ejecutadas 
+ • 
+ Tamaño (en bytes) de JSON devuelto 
+ • 
+ Ambiente 
+ • 
+ Dominio 
+ Este log se replicará en un log centralizado. 
+ En caso de presentarse un error del sistema, por ejemplo un error de protocolo, se generará una entrada en el log del WS. 
+ En caso de que el error no sea relacionado con el WS en sí, se generará una entrada en el log correspondiente. Cada tipo de error se deberá registrar en el log correspondiente. Por ejemplo: si se presenta un error en los permisos de un usuario o el token es incorrecto, se reportará dicho error en el log de seguridad o si se quiere confirmar una instancia inválida, en el log de sistema. 
+ 

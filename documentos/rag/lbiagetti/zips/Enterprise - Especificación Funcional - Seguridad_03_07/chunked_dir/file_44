@@ -1,0 +1,15 @@
+Métodos de restablecimiento de contraseña 
+ Si hay al menos un método de restablecimiento de contraseña definido, entonces en la pantalla inicial se presentará un link para poder realizarlo según el método configurado. 
+ Si el usuario hace click en “olvide mi contraseña”, se visualiza una segunda pantalla solicitando nombre usuario o email y un botón para proceder con el restablecimiento. 
+ Es importante aclarar que se tienen en cuenta todos los métodos configurados en las políticas ‘Métodos de restablecimiento de contraseña’ más los configurados en ‘Métodos de autenticación adicionales’. 
+ Por ejemplo, si un usuario tiene como método de autenticación adicional OTP y método de recuperación de contraseña Email, al restablecer su contraseña se enviará un link a su correo electrónico, y al ingresar al mismo se deberá ingresar el código OTP para poder restablecer contraseña correctamente. 
+ Si se utiliza la funcionalidad de reestablecer contraseña por Telegram, se procederá al envío de un link dentro de un mensaje de Telegram al número de celular del usuario. 
+ Si en la política se marcan los 2 métodos, le llegará el mismo link por los 2 medios. 
+ El link será válido por única vez, no pudiendo reutilizarse, y quedará sin efecto al cumplirse la fecha de vencimiento del mismo. Además, existirá un límite de cantidad de veces que un usuario podrá solicitar restablecer la contraseña por día (inicialmente 3) y por semana (inicialmente 5). Por último, también existirá un número máximo de cantidad de solicitudes por IP por día, por semana y por hora (faltan definir los valores iniciales de estos 3 números). 
+ Si un usuario se encuentra logueado en el momento en que solicita restablecer la contraseña, se abrirá la actividad para cambiar la misma y luego de confirmar se cerrará la sesión de dicho usuario para que pueda ingresar con su nueva contraseña. 
+ Si luego de solicitar restablecimiento de contraseña, el usuario intenta iniciar sesión se le informará el mensaje de “usuario o contraseña inválida”. 
+ Al ingresar al enlace enviado por e-mail, o Telegram, se podrá restablecer la contraseña como se muestra a continuación: 
+ Aclaración: aunque el usuario tenga la posibilidad de recordar la contraseña, en el restablecimiento de la misma, no se le dará esa posibilidad. 
+ Las pantallas de ingreso anteriores serán las predefinidas, pero desde el Dominio se podrán modificar el logo de la empresa, el tema elegido para la pantalla de autenticación, la imagen para fondo o marca de agua,  texto, etc. 
+ Es importante aclarar que si se define un método de restablecimiento, éste se sumará a los métodos de autenticación adicionales definidos para el usuario. Por ejemplo, si en los métodos de autenticación adicionales se configura OTP y el método de recuperación de contraseña es Email, se deberán ingresar correctamente ambos códigos para poder restablecer la contraseña. Si en ambas políticas está definido el mismo método, ejemplo email, sólo se solicitará una vez. 
+ 

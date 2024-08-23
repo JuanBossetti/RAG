@@ -1,0 +1,55 @@
+Editor de Entidades 
+ El editor de entidades contará con solapas, las cuales permitirán definir las diferentes características de una entidad, separando funcionalidades a fin de facilitar el modelado de la misma. Dichas solapas serán: 
+ 1. 
+ General 
+ 2. 
+ Operaciones 
+ 3. 
+ Atributos 
+ 4. 
+ Atributos Referenciados 
+ 5. 
+ Filtros predefinidos 
+ 6. 
+ Acumuladores 
+ 7. 
+ Desencadenantes 
+ 8. 
+ Transformaciones 
+ 9. 
+ Imputaciones 
+ 10. 
+ Seguridad de Instancias 
+ 11. 
+ Historial de Versiones 
+ 12. 
+ Seguridad 
+ 13. 
+ Documentación 
+ Para el caso de las Entidades Paramétricas, de las solapas recién mencionadas se cuenta solo con las siguientes: 
+ 1. 
+ General 
+ 2. 
+ Operaciones 
+ 3. 
+ Atributos 
+ 4. 
+ Atributos referenciados 
+ 5. 
+ Filtros predefinidos 
+ 6. 
+ Seguridad de instancias 
+ 7. 
+ Historial de versiones 
+ 8. 
+ Seguridad 
+ 9. 
+ Documentación 
+ Al ingresar al diseñador, se presentará la Ventana Principal descripta en el documento Estándares de Interfaz de usuario. Desde esta pantalla, la creación de una nueva Entidad se puede realizar seleccionando la opción correspondiente desde la barra de herramientas, como así también desde un menú contextual en el panel de navegación de elementos. 
+ Las funcionalidades disponibles dependerán si se realiza el clic sobre el agrupador de Entidades o si se lo hace sobre una Entidad en particular. En el primer caso, se permitirá crear una nueva Entidad. En cambio, si se presenta el segundo caso, las funcionalidades disponibles serán: Nueva Entidad, Modificar Entidad y Duplicar Entidad. Estas funcionalidades se sumarán con las funcionalidades estándares. 
+ Clic sobre agrupador 
+ Clic sobre una entidad particular 
+ Para el caso de Duplicar Entidad, la acción creará una entidad nueva con todas las mismas configuraciones que la entidad seleccionada (atributos, transformaciones, desencadenantes, etc.), sólo la estructura de la entidad y no las instancias de la entidad original. Inicialmente tendrán como nombre “Nombre Entidad + _n” donde n será un correlativo con valor inicial 1 y que se incrementará por cada duplicación. Por ejemplo, si se duplica Cliente, se crearía Cliente_1 si es la primera duplicación. 
+ Además, tal como se definió en los estándares de Interfaz de Usuario, al seleccionar una entidad en el panel de navegación se abrirá automáticamente el editor de la misma. 
+ Una vez que se seleccione cualquiera de las opciones que nos permiten crear una entidad se presentará una pantalla como la siguiente: 
+ 

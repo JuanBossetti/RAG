@@ -1,0 +1,5 @@
+Ejemplos: 
+ Encontrar('Neuralsoft Neuralsoft Neuralsoft';'soft';1) retorna 7 
+ Encontrar('Neuralsoft Neuralsoft Neuralsoft';'soft';10) retorna 18, corresponde a la posición de la 2da vez que está escrito soft. 
+ Encontrar('Neuralsoft Neuralsoft Neuralsoft';'soft';20) retorna 29, corresponde a la posición de la 3era vez que está escrito soft. 
+ 

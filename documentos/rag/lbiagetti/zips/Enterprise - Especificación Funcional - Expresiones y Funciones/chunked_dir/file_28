@@ -1,0 +1,5 @@
+En este caso, vimos cómo configurar un filtro de modelo. 
+ En el caso de que necesitemos emitir un remito a partir de una factura, podemos generar una transformación. Veamos qué valores tendrá este comprobante. Ingresamos a la entidad “Factura” y desde la solapa de Transformaciones, agregamos una, indicando el Nombre y la Descripción. 
+ El paso siguiente consiste en indicar el contexto “Entidad”, que configura el contexto de la transformación, como así también de la condición y de la definición de valores. 
+ Luego, completamos el resto de los campos requeridos y nos posicionamos sobre la definición de valores. Establecemos la fecha del remito, que es la actual (Hoy()), el cliente que es el mismo y, para cada ítem, tanto el producto, como el precio y la cantidad son los mismos. Es importante que el tipo de dato obtenido por la expresión sea el esperado, en este caso, una colección de productos, precios e ítems. El subtotal lo podemos dejar en blanco, ya que será calculado directamente en el remito. 
+ 

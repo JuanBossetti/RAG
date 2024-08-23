@@ -1,0 +1,42 @@
+2.4 Políticas de seguridad 
+ Las políticas de seguridad podrán configurarse en un dominio, en las unidades organizacionales y en los usuarios, pero sólo se aplicarán a las cuentas de usuario (salvo en los últimos 6 ítems, en los cuales se aplicarán al dominio). A continuación, se detalla cada política, su valor predeterminado y desde dónde se podrá configurar. 
+ 1 Tener en cuenta IPv4, IPv6. 
+ Por lo tanto, las cuentas de los usuarios pueden estar en uno de los siguientes estados: 
+ ✓ 
+ Activa. 
+ ✓ 
+ Inhabilitada. 
+ ✓ 
+ Bloqueada. 
+ Si deja de ser válida la sesión de un usuario en el sistema, tanto por un cambio en la configuración de una política de seguridad (por ejemplo, se inhabilita el usuario), como porque la política lo establece (por ejemplo, finaliza el rango de horas permitido), entonces se cerrará automáticamente su sesión. 
+ Si el usuario no cierra su sesión, sólo cierra el browser o apaga la PC, la sesión seguirá activa durante el tiempo de inactividad máximo configurado en sus políticas. 
+ Usuarios y grupos de usuarios
+ Las políticas de las cuentas y contraseñas de los usuarios de WS detallados en la sección , aplicarán cuando dichos usuarios se autentiquen en el sistema. Por ejemplo: permitir cambio de contraseña, sólo estará disponible desde el sistema, y no mediante un método de WS. 
+ Estándares 
+ de interfaz de usuario
+ El tooltip de cada política de seguridad se visualizará de acuerdo al documento de , por ejemplo: 
+ La contraseña deberá contener como mínimo tres de las cuatro categorías siguientes: minúsculas, mayúsculas, números y símbolos. Además, no deberán contener el nombre del usuario de la cuenta o parte del nombre completo del usuario que exceda de dos caracteres consecutivos. Por ejemplo, la contraseña del usuario juliamartinez no podrá contener “juli”. 
+ Si se establece un vínculo de seguridad con un Dominio de autenticación, automáticamente se agregará dicho dominio a la colección de dominios con permiso para tomar sesión, invitar a la toma de sesión, e invitar a coaching. Para que un dominio externo pueda realizar una monitorización sobre usuarios del dominio local, se deberá establecer obligatoriamente un vínculo de confianza. 
+ Una vez establecido un vínculo de confianza o una política de seguridad que indique que los usuarios de un dominio externo podrán supervisar a los usuarios del dominio local, se deberán especificar los permisos correspondientes en la seguridad de los usuarios externos para concretar dicha supervisión. 
+ Estándares de interfaz de usuario 
+ Se tendrá en cuenta el documento de para diferenciar los permisos de usuarios y grupos de usuarios -hijos- diferentes de aquellos definidos para el grupo al que pertenecen -padre- y para distinguir los permisos de los grupos de usuarios -padres- que contengan un objeto -hijo- con dicho permiso definido de otra manera. La interfaz para definir Políticas de Seguridad del Dominio será: 
+ El rango horario será por defecto de lunes a domingo en cualquier horario. Para restringirlo, se deberá hacer clic en , seleccionar la/s celda/s y definir si el acceso en ese rango estará permitido o denegado. La selección podrá realizarse mediante drag & drop o clic (o su equivalente en otras interfaces). Cada vez que se realice una selección, se invertirá el estado de la celda seleccionada. Además, desde el menú contextual sobre la grilla se presentará la opción “Configurar horario” para establecer un horario específico. Esta restricción se aplicará por defecto a todos los usuarios del dominio, así como a los usuarios de los dominios que hayan establecido un vínculo de seguridad. Cuando un usuario realice una correcta autenticación, se validará el rango horario permitido, junto con las demás políticas de seguridad, tomando como referencia la zona horaria del sitio al cual el usuario desee acceder. 
+ Horario de Acceso Definir el horario de acceso al sistema: Haga clic en elnos dials de la sernana y en el l1orario para perrnrrirldenegar el acceso. 0 1 2 3 4 5 6 7 8 9 1 0 11 1 2 1 3 1 4 15 1 6 17 1 8 19 20 21 22 3 Lunes Martes + + + + + + + Mi ere oles + + + + + + + Jueves + + + + + + Viernes + I-+ Sabado + I-+ Domingo D Acceso Perrnrrido D Acceso No Permrrido De lunes a domi11go, de O a 24 hs 
+ Horario de Acceso Definir el horario de acceso al sistema: Haga clic en elnos dials de la sernana yen el horario para perrnrrirldenegar el acceso. Lunes Martes Miercoles Jueves Viernes Sabado Domingo o I 1 12 3 I 4 I s s I 7 8 9 11 o 11 11211 3 14 1 s 1 s 1 7 18 1 9 20 21 22123 + + + + + + .. + + + + + + + D Acceso Perrnrrido + + + + .. + D Acceso No Perrnrrido De /u11es a domi11go, de O a 15 hs 
+ Horario de Acceso Definir el horario de acceso al sistema: Haga clic en elnos dials de la semana y en el horario para permrrirldenegar el acceso. Lunes Martes Miercoles Jueves Viernes Sabado Domingo 01112 31415 617 8 l I I I + + + + .. + + + + + + + + + 911011111211311415161718192021 22123 I I l T I I Configurar horario t + t + + t ' D Acceso Permrrido D Acceso No Permrrido De Junes a domingo, de O a 15 hs 
+ Las políticas de seguridad se podrán redefinir por unidad organizacional, y por usuario. Por ejemplo, si el rango horario definido en el dominio es de lunes a viernes de 9 a 18 hs, podrá redefinirse para una OU o para un usuario, otro rango. 
+ Estándares de 
+ interfaz de usuario
+ Estándares de interfaz de 
+ usuario
+ Cuando existan usuarios y OUs configurados con políticas diferentes a las definidas en el dominio y se modifique una política de seguridad en dicho dominio, esto no afectará a las políticas definidas individualmente en los usuarios y OUs, sino sólo a los nuevos objetos y a aquellos que no hayan cambiado dicha política. Se podrá restablecer una política a los objetos del dominio (usuarios y OUs), de acuerdo a lo definido en el documento de . Esto también aplicará para restablecer políticas en los objetos que pertenezcan a una OU. En este caso, los hijos serán los objetos contenidos (OUs y usuarios) y el padre será el objeto que contiene dichos hijos (podrá ser una OU o el dominio). A su vez, un objeto (OU) podrá ser padre e hijo al mismo tiempo. Si cambia una política en el padre, se restablecerá sólo en los hijos que no hayan modificado esta política. Los formatos de visualización de las políticas en cada caso, serán los detallados en . 
+ Cuando en un dominio se realice un cambio con respecto a las políticas de seguridad, por ejemplo, un cambio de la complejidad de la contraseña se presentará el siguiente comportamiento: 
+ 1) 
+ Todas las contraseñas de los usuarios almacenadas pasarán a ser consideradas como inválidas. Forzando al usuario a modificarla. 
+ 2) 
+ Se enviará un email de recuperación de contraseña al buzón de correo de los usuarios informando que deben realizar el cambio de contraseña. 
+ 3) 
+ El email enviado contendrá un link que al seleccionarlo re-direccionará al usuario a la ventana de login donde se mostrará el nombre del usuario en sólo lectura y los campos para ingresar la contraseña dos veces: uno para la nueva contraseña y otro para confirmarla. 
+ 4) 
+ En caso de realizar el cambio exitosamente se mostrará un mensaje al usuario indicando que el cambio fue realizado exitosamente y deberá autenticarse nuevamente introduciendo el usuario y la nueva contraseña. No se realizará el ingreso automáticamente. 
+ 

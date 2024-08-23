@@ -1,0 +1,11 @@
+3.5 Retorna colección 
+ Esta opción indica que, en lugar de devolver un valor del tipo de retorno, el resultado de la función será una colección de ese tipo. Tendrá un ítem por cada expresión cuya condición sea verdadera. 
+ Supongamos que, según la cantidad de productos de una compra, les daremos un regalo a nuestros clientes. Entonces, determinamos las siguientes condiciones: 
+ - 
+ Si tiene más de cinco productos, se lleva una lapicera. 
+ - 
+ Si supera los diez, obtiene, además, una agenda. 
+ - 
+ En caso de comprar más de veinte productos, aparte de la lapicera y la agenda, le regalamos una mochila. 
+ Para esta situación, podríamos modelar la función que calcula los obsequios de esta manera, con la propiedad activada, y como consecuencia, se sumarán aquellos regalos cuya condición se cumpla. Esta función devuelve una colección de obsequios. 
+ 

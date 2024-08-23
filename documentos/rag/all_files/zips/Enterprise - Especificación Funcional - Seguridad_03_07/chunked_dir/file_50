@@ -1,0 +1,5 @@
+7.5 Autenticación para usuarios externos 
+ En la página de autenticación de un dominio de manera predeterminada se cargarán los métodos de autenticación definidos en el dominio de la url a la que se accedió, pero se contemplará el acceso de usuarios externos al dominio, previo vínculo de seguridad establecido. 
+ Cuando un usuario externo desea ingresar a un dominio, deberá incluir el dominio local en sus credenciales. Esto se realizará dentro del campo usuario, con un símbolo particular: \ o @. 
+ Cuando el usuario termine de ingresar dominio (no hace falta que haya salido del campo usuario, a medida que va escribiendo se va detectando el dominio), primero se validará que el dominio sea uno de los Dominios de autenticación y luego, que el usuario sea uno de los objetos externos que pueden acceder. Si esto es válido, se mostrarán en pantalla los métodos de autenticación del dominio externo, ya que el usuario deberá ingresar las credenciales que posee en dicho dominio. 
+ 

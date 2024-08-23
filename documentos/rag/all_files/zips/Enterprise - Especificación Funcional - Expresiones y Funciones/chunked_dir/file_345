@@ -1,0 +1,3 @@
+Valor de tolerancia de imputación() 
+ Devuelve el valor de la diferencia al realizar una imputación cuando se entra en Tolerancia. Solo aplica para ser utilizada dentro de la solapa “Reglas de cancelación” en la edición de una imputación de una entidad. 
+ 

@@ -1,0 +1,8 @@
+3.9 Sin almacenar resultado 
+ En el modelo editores, adicionalmente se presenta la propiedad “Sin almacenar resultado”. En caso de estar activa, indica que el valor del resultado de la evaluación de la función no será “cacheable”, es decir, no se almacenará en cache. 
+ Inicialmente, solo se utilizará en las funciones: 
+ • 
+ Valor de tolerancia de imputación. 
+ • 
+ Valor residual de conversión de imputación. 
+ 

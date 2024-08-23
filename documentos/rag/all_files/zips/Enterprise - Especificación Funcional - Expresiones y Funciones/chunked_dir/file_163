@@ -1,0 +1,3 @@
+Sumar(Colección, Atributo, Condición) 
+ Devuelve la suma de los elementos de la colección. Si no hay elementos en la colección, devuelve null. 
+ 

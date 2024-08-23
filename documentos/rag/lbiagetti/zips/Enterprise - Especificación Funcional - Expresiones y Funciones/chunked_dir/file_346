@@ -1,0 +1,4 @@
+Identificador de JVM() 
+ Función de sistema que permite obtener en un proceso el identificador de la JVM que atendió el mismo. 
+ Esta información es utilizada como auditoría en muchos lugares del sistema como lo puede ser por ejemplo en el procesamiento de colas, para lograr identificar la JVM que atendió el procesamiento de cada una de las instancias de la misma. 
+ 

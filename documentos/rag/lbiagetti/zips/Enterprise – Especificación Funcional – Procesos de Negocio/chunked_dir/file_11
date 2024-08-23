@@ -1,0 +1,36 @@
+3.3.4 Autorización 
+ Al representar una transformación múltiple en el diagrama de PN que tenga definida una o varias autorizaciones, las mismas se presentarán automáticamente como Actividades de categoría “Autorización” y no podrán ocultarse. Una actividad de categoría Autorización se utilizará para realizar una autorización definida en una regla de negocio. 
+ Una actividad de categoría Autorización se creará automáticamente cuando se cree una acción de RN de tipo autorización, ya sea en los editores como en el sistema final. Pero NO ocurrirá con la eliminación: si eliminan la acción autorización, la actividad quedará disponible para autorizar las instancias pendientes. El resto de categorías de actividades sólo se podrán crear, editar y eliminar desde el ambiente desarrollo. 
+ Versionado 
+ Tal como se detalla en el documento en la sección “Asóciación al módeló de elementós de creación dinámica”, las RN són elementós dinámicós, pór ló tanto las Actividades de categoría Autorización tendrán el mismo comportamiento que las RN, es decir, serán elementos dinámicos. 
+ Por otro lado, la información propia de la Actividad de categoría Autorización (nombre, descripción, formularios, etc.), tendrá el mismo comportamiento que las demás Actividades. 
+ Inicialmente, estarán contenidas en el mismo actor que la Actividad relacionada con la Entidad Origen de la transformación, pudiendo el usuario modificarlo. 
+ Cada autorización corresponderá a una única acción, y cada RN puede tener una o varias acciones, por lo tanto podrán existir varias autorizaciones en una transformación múltiple que correspondan a una o a varias RN. Una acción de autorización se corresponderá con una actividad de categoría autorización, y viceversa. 
+ Esta Actividad tendrá como entidades asociadas a aquellas que sean origen y destino de la autorización. Dentro del diagrama de PN, se visualizará la Actividad de categoría Autorización de distinto color que el resto de las Actividades, y con las siguientes propiedades: nombre de la Actividad, ícono del Tipo de Actividad y nombre de la RN asociada (en lugar de la entidad como en las otras categorías). 
+ Ícono del tipo de actividad 
+ Nombre de la RN asociada Nombre de la Actividad 
+ Dentro de la solapa General se presentarán las siguientes particularidades: 
+ ✓ 
+ El nombre de la Actividad será de forma predeterminada el nombre de la acción autorización definida en la RN. 
+ ✓ 
+ La categoría se visualizará como sólo lectura. 
+ ✓ 
+ No tendrá la propiedad “Actividad Padre”, es decir, la Actividad de categoría Autorización no podrá heredar de otra Actividad. 
+ ✓ 
+ Dentro de la sección configuración de la categoría, se presentarán sólo las siguientes propiedades: 
+ o 
+ Duración prevista: igual que ló descriptó para “Única instancia”. En este caso, no heredará del tiempo esperado que haya sido definido en el DD. 
+ o 
+ Definición de la autorización: se visualizará en forma de sólo lectura la definición de la condición y de la acción correspondiente. 
+ ✓ 
+ Dentro de la sección Tipo de Actividad, sóló estarán dispónibles las ópciónes “Interactiva mediante Fórmulariós”, y “Autómática mediante Web Services”, debidó a que una Autorización no podrá ser disparada en base a un tiempo mediante una TP. 
+ Otras particularidades de este tipo de Actividad son: 
+ ✓ 
+ No contará con las solapas de las Entidades asociadas ni cón la sólapa “Reglas de Negocio”. 
+ ✓ 
+ En la solapa Seguridad, los únicos usuarios/grupos que tendrán activó el permisó “Ejecutar” serán los Autorizadores definidos en la acción, no pudiendo modificarse ni activar nuevos usuarios/grupos en este permiso; es decir, será de sólo lectura. Además, no tendrá el permiso “Eliminar”, debido a que ningún usuario podrá eliminar la Actividad de categoría Autorización. Por lo tanto, no heredará dichos permisos del PN donde se encuentre, ni del Actor (en caso de existir). 
+ Por ejemplo, se encuentran definidas 2 autorizaciones en la RN “Realizar órdenes de Próducción”, que se ejecutan ante distintas condiciones. Una de ellas tiene la siguiente configuración: 
+ Por lo tanto, en el diagrama de PN, se visualizarán las autorizaciones como se muestra a continuación: 
+ Además, si la actividad correspondiente a la transformación múltiple se encuentra dividida en varias actividades, se mostrará la actividad relacionada con la entidad origen, una línea hasta la autorización y luego la división en n líneas, una por cada actividad destino de la transformación. 
+ Las actividades de tipo autorización inactivas/eliminadas , sólo se visualizarán en un ambiente si existen instancias pendientes de autorizar en dicho ambiente. 
+ 

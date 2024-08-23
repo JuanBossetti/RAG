@@ -1,0 +1,55 @@
+3.6.1 Solapa “Tareas programadas” en cada categoría 
+ Además de los iniciadores de tiempo configurados en el Programador de Tareas, se deberán definir ciertas configuraciones que dependen de la categoría de la Actividad para que la TP se pueda ejecutar efectivamente. En dichas configuraciones aplicarán los siguientes criterios: 
+ ✓ 
+ Filtros de instancias/filtro de invocación: si la categoría cuenta con estos filtros, se podrán redefinir para las tareas programadas, sumándose a los filtros definidos en la Actividad. De manera predeterminada el filtro en la tarea programada será vacío para incluir todas las instancias. 
+ ✓ 
+ Validaciones por Entidad: se podrán agregar validaciones para cada Entidad asociada a la Actividad. Las validaciones de las Entidades en la TP se complementarán con las definidas en la Actividad y en el DD mediante una operación de intersección, es decir que todas las validaciones deberán cumplirse de manera simultánea. 
+ Inicialmente, se presentarán las validaciones definidas en la solapa de cada Entidad. 
+ ✓ 
+ Criterio de generación: si la categoría contiene una transformación, este criterio podrá redefinirse para la TP. 
+ ✓ 
+ Atributos: se deberán definir los valores de los atributos para generar nuevas instancias de cada Entidad asociada a la Actividad. En cada atributo obligatorio, se deberá definir obligatoriamente un valor o expresión. En los atributos opcionales, se podrá no definir este valor. 
+ Inicialmente, se presentarán los valores iniciales (o valores por omisión en caso de las transformaciones) y las validaciones de cada atributo definidas en la solapa de cada Entidad. Lós atributós selecciónadós cómó “nó dispónibles” en la Actividad nó pódrán ser agregadós en la TP. 
+ La “Duración prevista” cónfigurada en la Actividad no se podrá definir en las TP. 
+ Una Actividad Automática mediante tarea programada se utilizará para crear nuevas instancias, ya sea desde un alta simple o de una transformación, imputación, etc. Se podrán también consultar, habilitar, inhabilitar, modificar y eliminar instancias de una Entidad mediante una TP. 
+ A continuación, se presentan los prototipos para cada categoría: 
+ ✓ 
+ Única instancia: 
+ ✓ 
+ Múltiples instancias: 
+ ✓ 
+ Transformación: 
+ En las categorías relacionadas con una transformación, se presentará una grilla con las Entidades Destino de la transformación, ya que pueden ser varias las entidades asociadas a la Actividad. 
+ ✓ 
+ Imputación: 
+ ✓ 
+ Única instancia con imputación: para esta categoría se visualizarán: 
+ o 
+ Las solapas para personalizar configuraciones de la Entidad asociada. 
+ o 
+ La grilla de imputaciones seleccionada en la Actividad en sólo lectura, pudiendo redefinir solamente los filtros de instancias de cada imputación. 
+ ✓ 
+ Transformación con imputaciones: 
+ ✓ 
+ Imputación con comprobantes múltiples: Para esta categoría, se presentará: 
+ o 
+ Un filtro de instancias a imputar. 
+ o 
+ Una grilla con las entidades asociadas a los comprobantes. Dentro del detalle de cada entidad comprobante, se visualizarán las validaciones de la entidad y las propiedades de los atributos. 
+ ✓ 
+ Vista de información: para las actividades de esta categoría, se podrá configurar un filtro de invocación extra al definido en la Actividad, y se deberá definir qué acción realizará la TP con la vista asociada a la Actividad. Entonces, se presentará una lista para seleccionar una o varias acciones. Las acciones disponibles serán: 
+ o 
+ Envío de e-mail. 
+ o 
+ Impresión de GDI. 
+ o 
+ Envío de mensajería instantánea. 
+ o 
+ Generación de notificaciones. 
+ Será obligatorio definir al menos una de estas acciones. En tiempo de ejecución, la acción definida se ejecutará para la vista asociada a la Actividad. 
+ Reglas de Negocio
+ Estas acciones se encuentran detalladas en el documento: . 
+ Además, se deberá definir un Idioma de UI y un idioma de Datos. Ambos idiomas aplicarán a la vista de información. Si en la actividad se encuentra definidó “ótró idióma” ó “expresión”, el mismó se heredará en la tarea prógramada. Si en la actividad se encuentra definidó “usuarió autenticadó”, en la tarea prógramada se deberá seleccionar cualquiera de los idiomas disponibles definidos en el Modelo o ingresar una expresión. 
+ A continuación, un ejemplo de una tarea programada de envío de e-mail de una vista de GDI. 
+ De no cumplirse alguna de las características obligatorias detalladas anteriormente para cada categoría, se informará al modelador dicha situación para que la revierta y así, pueda ejecutarse la tarea en el momento correspondiente. 
+ 

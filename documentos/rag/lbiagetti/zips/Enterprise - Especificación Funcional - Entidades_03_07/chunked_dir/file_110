@@ -1,0 +1,22 @@
+Consideraciones sobre valores cíclicos en atributos de tipo referencia: 
+ • 
+ Cuando una entidad tiene atributos tipo referencia y que son referencia a la misma entidad (o miembro de un compuesto de colección que son referencia a la misma colección): 
+ o 
+ Para un atributo referencia a la misma entidad: Por código validar que no se den casos: 
+ ▪ 
+ A -> Referencia a A 
+ ▪ 
+ A -> Referencia a B y B -> Referencia a A 
+ ▪ 
+ A -> Referencia a A y B -> Referencia a C y C -> Referencia a A 
+ o 
+ Para un atributo referencia a la misma colección: Por código validar que no se den casos: 
+ ▪ 
+ Item 1 -> Referencia a Item 1 
+ ▪ 
+ Item 1 -> Referencia a Item 2 y Item 2 -> Referencia a Item 1 
+ ▪ 
+ Item 1 -> Referencia a Item 2 y Item 2 -> Referencia a Item 3 y Item 3 -> Referencia a Item 1 
+ • 
+ Además el combo correspondiente debe estar filtrado para no mostrar los valores que resultarían en casos no válidos. 
+ 

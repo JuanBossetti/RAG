@@ -1,0 +1,6 @@
+Apéndice: Instancias en edición 
+ Una de las bondades que brinda la herramienta de modelado y las aplicaciones desarrolladas con esta, es la posibilidad de manejar datos de instancias en edición, manteniendo dichos datos incluso después de cerrada la sesión del usuario. 
+ Además, esta posibilidad de manejo de datos en edición permitirá que otros usuarios continúen con tareas comenzadas por otros usuarios y que aún no han sido finalizadas. Otra opción que se encontrará disponible será la de descartar las tareas iniciadas por otro usuario. 
+ Las instancias que están en edición, se pueden seguir editando pero siempre con la misma actividad (conversación). Es decir, para continuar la edición de una instancia (ya sea del mismo usuario o de uno diferente) se deberá abrir la actividad con la que se inició el cambio. 
+ Por otro lado, este concepto de datos en edición entre múltiples usuarios permitirá brindar a cada uno de ellos cierta información y advertencias sobre validaciones que potencialmente no se cumplirían si se confirman todos los datos que se encuentran en edición. Por ejemplo, puede ser el caso de acumuladores que controlan la cantidad disponible en stock de un determinado producto. 
+ 

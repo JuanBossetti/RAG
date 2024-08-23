@@ -1,0 +1,33 @@
+1.15 Solapa Acciones 
+ Además de contar con una solapa que presenta las Reglas de Negocio, cada entidad cuenta con una solapa que detalla las acciones correspondientes a dichas reglas. Las acciones que se incluyen son las de las RN que tengan definida la entidad en cuestión en ‘Entidades donde aplica’. Es importante destacar que estas acciones se muestran en el orden en el que se ejecutan (en caso de que aplique, es decir, la condición sea verdadera, la operación sea la que se está ejecutando y la RN esté activa). 
+ Reglas de Negocio
+ Tal como se explica en el documento , sección ‘Orden de ejecución de las RN’, el orden de ejecución de las acciones depende de varios factores que se van evaluando en el siguiente orden: 
+ 1. 
+ Evento de ejecución de la RN: si se trata de una ejecución de tarea programada o alta de tarea programada, las acciones dentro de la Regla de Negocio se ejecutan primero. 
+ 2. 
+ Categoría de la acción: por ejemplo, aunque en la misma Regla de Negocio haya primero una acción de envío de correo electrónico (categoría proceso) y luego una acción de modificación de instancia actual (categoría datos), se ejecutará primero la modificación de datos y luego el envío del correo electrónico. 
+ 3. 
+ Prioridad: si hay más de una acción con el mismo evento de ejecución de la Regla de Negocio y categoría de acción, se ejecutará primero la de menor prioridad. 
+ 4. 
+ Fecha de creación: si hay más de una acción con el mismo evento de ejecución de la Regla de Negocio, categoría de acción y prioridad de la Regla de Negocio, se ejecutará primero la más antigua. 
+ Las columnas de la grilla de Acciones de RN que se visualizan en la solapa son: 
+ • 
+ Orden relativo: campo numérico que indica el orden de ejecución de la acción, de acuerdo a la categoría de la acción, por ejemplo, 2. 
+ • 
+ Categoría: la categoría de la acción, por ejemplo, ‘Datos’. 
+ • 
+ Tipo de acción: el tipo de la acción, por ejemplo, ‘Modificación de la instancia actual’. 
+ • 
+ Nombre de la acción: el nombre indicado en la acción, por ejemplo, ‘Agrega 10% al monto’. 
+ • 
+ Nombre de la Regla de Negocio: el nombre indicado en la RN, por ejemplo, ‘Facturación’. 
+ • 
+ Prioridad: campo numérico que indica la prioridad de la RN, por ejemplo, 9999. 
+ • 
+ Activo: indica si la Regla de Negocio está activa o no. 
+ • 
+ Fecha de creación: indica la fecha de creación de la Regla de Negocio. 
+ La grilla se ordena inicialmente por orden relativo de forma ascendente, seguido por la prioridad de la RN de manera descendente, y por último, por la fecha de creación de la RN de forma ascendente. Esto garantiza que las acciones se presenten en el orden exacto en que se ejecutan (si corresponde). Asimismo, las acciones correspondientes a RN inactivas se muestran con la fuente tachada para diferenciarlas del resto. 
+ Cabe mencionar que esta grilla es de sólo lectura, es decir, no se podrán editar acciones o RN, ni agregar/quitar acciones o RN a la entidad. Para llevar a cabo esta tarea o para ver más datos de la Regla de Negocio, la condición o la acción, se debe acceder la opción correspondiente mediante el menú contextual. 
+ Por último, es importante aclarar que con respecto a la seguridad, si un usuario tiene permisos para consultar la entidad, podrá visualizar las acciones asociadas a ella. Además, se tienen en cuenta los permisos de consulta en las RN para ese usuario. 
+ 

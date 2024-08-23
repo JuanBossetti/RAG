@@ -1,0 +1,32 @@
+Agrupación 
+ Sirve para agrupar ítems que poseen un mismo valor. Por ejemplo: 
+ |    | Atributos de la entidad destino          | Expresión de asignación          |   Agrupado        | Función de agregación          |
+|---:|:------------------------------------------|:----------------------------------|-------------------:|:--------------------------------|
+|  0 | Items de Remito (colección)              | nan                               |                nan | nan                             |
+|  1 | Item de Remito (compuesto)               | nan                               |                nan | nan                             |
+|  2 | producto (referencia)                    | Items de Factura.Producto        |                nan | nan                             |
+|  3 | cantidad (simple)                        | Items de Factura.Cantidad        |                nan | SUMA                           |
+|  4 | precio (simple)                          | Items de Factura.Precio          |                nan | PROMEDIO                       |
+ En este ejemplo, si en la factura hay 4 ítems: 
+ • 
+ Mesa, 2, $50 
+ • 
+ Silla, 6, $10 
+ • 
+ Mesa, 1, $50 
+ • 
+ Silla, 2, $10 
+ En el desencadenante se generarían 2 ítems, agrupando los productos iguales: 
+ • 
+ Mesa, 3, $50 
+ • 
+ Silla, 8, $10 
+ Los atributos que tienen la opción de Agrupación son los atributos de la entidad destino que cumplen las siguientes características: 
+ • 
+ Es de categoría simple, referencia, referencia a colección, o enumerado. 
+ • 
+ Está dentro de una colección de compuesto (en cualquier nivel). 
+ • 
+ Tienen la expresión de asignación completa. 
+ El ícono de agrupamiento constará dos estados: activo o inactivo . De manera predeterminada, estará desactivado con la posibilidad de activarlo. 
+ 

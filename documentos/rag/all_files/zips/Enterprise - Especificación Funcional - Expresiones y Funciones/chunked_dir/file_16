@@ -1,0 +1,14 @@
+2.6.1 Estructura 
+ Para comenzar a entender la sintaxis de las expresiones, imaginemos un caso particular: necesitamos conocer todos los nombres de los clientes argentinos de nuestra cartera, ordenados por su CUIT de menor a mayor. A los fines de cumplir este objetivo, en FastPrg podemos escribir: 
+ EN Cliente BUSCAR Nombre CUANDO Obtener traducción(País.Nombre;'es') = 'Argentina' ORDENAR CUIT asc 
+ En primer lugar, la palabra reservada EN seguida de Cliente. Esta parte es la que nos indica el nuevo contexto en el que evaluaremos la expresión. Recordemos que ya tenía un contexto y nos estamos moviendo hacia otro que, en este caso, es la entidad Cliente. 
+ Vemos, luego, la palabra BUSCAR, la cual constituye nuestra operación y señala que nos traerá todo lo que encuentre, pero ¿qué es lo que buscará exactamente? La respuesta es Nombres. ¿Cuáles? Los del nuevo contexto, es decir, los nombres de los clientes. 
+ Ahora, necesitamos saber si queremos todos los nombres de los clientes o solo algunos en particular. Como en nuestro ejemplo nos interesan los de clientes argentinos, entonces, podemos filtrarlo con una condición: Obtener traducción(País.Nombre;'es') es igual a 'Argentina'. Es importante aclarar que la palabra reservada CUANDO implica un filtro y es opcional. En caso de no querer usarlo, lo omitiremos. Por ejemplo, podemos establecer 
+ EN Cliente BUSCAR Nombre 
+ y, en efecto, obtendremos todos los nombres de todos los clientes. 
+ A CUANDO le sigue una condición, la cual filtrará todas las instancias que cumplan con ésta y debe retornar un tipo de dato lógico, ya sea verdadero o falso, cuyo contexto será aquel al que ya nos dirigimos, es decir, Cliente. Se buscará, por lo tanto, el nombre del País del cliente. 
+ Ya tenemos todos los datos que nos traerá FastPrg, ahora, nos queda ver cómo realizará esta operación. En la situación planteada, necesitábamos ordenarlos por CUIT, de menor a mayor. Para ello, podemos escribir, luego de la condición, la palabra reservada ORDENAR seguida del atributo por el que deseemos efectuar esta disposición. En este caso, es el CUIT y de forma ascendente. 
+ En conclusión, podemos afirmar que esta expresión ingresará a todos los clientes, buscará los nombres de los que sean argentinos y los ordenará de manera ascendente, por cuit. 
+ Es importante aclarar que estas operaciones también pueden escribirse en modo función y, al confirmar, el analizador de impacto las traduce al formato Operaciones de búsqueda. Por ejemplo: 
+ Buscar(Factura; Importe total > 100 Y Cliente.Nombre CONTIENE “Pedro” Y Cliente.Limite de crédito > 100) En Factura Buscar Esta instancia Cuando Importe total > 100 Y Cliente.Nombre CONTIENE “Pedro” Y Cliente.Limite de crédito > 100 
+ 

@@ -1,0 +1,6 @@
+Ejemplos: 
+ Semana({28/12/2025 11:40 }) retorna 52 
+ Semana({29/12/2025 11:40 }) retorna 1 
+ Semana({04/01/2026 11:40 }) retorna 1 
+ Semana({05/01/2026 11:40 }) retorna 2 
+ 

@@ -1,0 +1,24 @@
+4.3.2 Reemplazo de Tipos de Atributos 
+ Además de esto, deberá permitirse la funcionalidad de reemplazo de tipos de atributos. Por ejemplo, dado un tipo de atributo T1 y otro tipo T2, deberá permitirse al usuario la posibilidad de reemplazar total o parcialmente las ocurrencias de T1 con T2. La secuencia de pasos será la que se describe a continuación: 
+ 1. 
+ Se selecciona el tipo a ser reemplazado, el tipo que lo reemplazará, y los atributos a los que aplicará este reemplazo, aplicando el patrón de lista de selección definido en los estándares de UI (<>)(Pantalla 13). En la grilla se presentarán el nombre y la descripción de la entidad y el nombre y descripción de cada atributo. Para facilitar la visualización, el nombre de la entidad + su descripción aparecerán con la opción de agrupación de las grillas 
+ 2. 
+ El tipo de dato que lo reemplazará tendrá que ser 100 por ciento compatible o no se permitirá el reemplazo. No existen conversiones ni es necesario controlar las instancias de los datos. 
+ 3. 
+ Una vez definidos los datos mencionados en el punto 1, el usuario podrá efectuar el proceso de reemplazo mediante el botón (<>)(Pantalla 14). 
+ 4. 
+ Una vez finalizado el proceso, el sistema informará al usuario mediante una ventana de diálogo (<>)(Pantalla 15). Al cerrarse dicha ventana, el sistema volverá al panel de reemplazo, con todos los campos en blanco para permitir un nuevo reemplazo. 
+ Pantalla 13 
+ Pantalla 14 
+ Pantalla 15 
+ La política de reemplazo de elementos seleccionados pero no visibles (por ejemplo, si se seleccionaron elementos pero no están visibles debido a la aplicación de un filtro), será la definida para la lista de selección en el documento de estándares de UI. 
+ Si el nuevo tipo por el que se reemplaza no es compatible con el anterior, se deberán ingresar expresiones de compatibilidad y conversión atributo por atributo. 
+ Nota: se planteó el siguiente escenario como situación a definir: 
+ - 
+ Se requiere modificar un tipo de atributo de decimal(10,4) a decimal(10,2) 
+ - 
+ El analizador de impacto detecta instancias en el ERP en las cuales los dos últimos decimales no son 00 (cero cero). 
+ - 
+ El usuario tiene conceptualmente definida una función de conversión que ajusta los valores. 
+ Respuesta: Este cambio se debe realizar cuando se pone en producción el nuevo ERP generado un nuevo atributo convertido sin perder la información histórica del atributo con su definición anterior en cada uno de los ambientes que existan. 
+ 

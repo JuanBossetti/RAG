@@ -1,0 +1,5 @@
+SHA256(Blob) 
+ Calcula un hash usando SHA-256. Se conoce como SHA-256 al Algoritmo de Hash Seguro (Secure Hash Algorithm) de 256 bits, que se utiliza para la seguridad criptográfica. Estos algoritmos generan hashes (cadenas de caracteres de longitud fija) irreversibles y únicos. 
+ Ejemplos: 
+ En la entidad binario se tiene un atributo Blob, se agrega una columna calculada con la función: Sha256(blob) y muestra el contenido de la imagen encriptada. 
+ 

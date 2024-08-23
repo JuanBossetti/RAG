@@ -1,0 +1,46 @@
+3.10 Solapa “Seguridad” 
+ Estándares de interfaz de usuario
+ Dentro de una actividad se podrá agregar un permiso particular para un usuario o grupo de usuarios, de acuerdo a lo definido en el documento . 
+ Lós ítems de “Seguridad” que podrán configurarse en una actividad serán los mismos que los definidos para el PN en la sección “Actividades”, salvó la ópción de “Crear”. Además, algunos de los permisos se podrán definir explícitamente para cada uno de los diferentes ambientes del modelo. Esto es: 
+ ✓ 
+ Administrar actividad: 
+ o 
+ Consultar (disponible en los 3 ambientes). 
+ o 
+ Actualizar. 
+ o 
+ Eliminar. 
+ o 
+ Restaurar. 
+ o 
+ Ejecutar (disponible en los 3 ambientes). 
+ ✓ 
+ Traducir. 
+ ✓ 
+ Administrar permisos (disponible en los 3 ambientes). 
+ o 
+ Consultar. 
+ o 
+ Modificar. 
+ Los permisos efectivos de un usuario o grupo en una Actividad se calculan teniendo en cuenta todos los PN y Actores donde se encuentra dicha Actividad (independientemente del lugar desde donde se desea acceder a dicha Actividad). Esta regla es válida para todos los permisos, salvo para el permiso “Ejecutar” que para calcularlo sólo se tendrá en cuenta la actividad, los actores donde se encuentran (si existieran) y el PN desde donde se desea ejecutar. Si un usuario tuviera permiso para modificar una actividad, pero no para ejecutarla, podrá acceder al formulario de la actividad pero no podrá realizar ninguna operación sobre las instancias. 
+ Para que un usuario pueda ejecutar una actividad, deberá tener tanto el permiso de ejecución de la misma -en base a la intersección de los permisos definidos en PN, actor y actividad-, así como los permisos correspondientes sobre las instancias de la(s) entidad(es) asociada(s). 
+ En el caso que la actividad sea de categoría vista de información, la intersección será con los permisos definidos en el GDI para la vista, en lugar de los permisos definidos en el DD. 
+ Si la Actividad se define como Tarea Programada, el grupó de usuariós definidó en la TP cómó “permisós de ejecución” deberá córrespónderse cón alguno de los grupos que poseen permisos de “Ejecutar” la Actividad. 
+ Si la Actividad es de WS, los usuarios/grupos que podrán ejecutarla serán los usuarios/grupos de WS. 
+ Autorización 
+ En el caso que la actividad sea de categoría Autorización, la intersección será con los permisos definidos en la RN correspondiente. Además, tal como se detalla en la sección de este documento, los permisos que se puedan configurar serán: 
+ ✓ 
+ Administrar actividad: 
+ o 
+ Consultar. 
+ o 
+ Modificar. 
+ o 
+ Ejecutar (de sólo lectura, restringido a los usuarios autorizadores). 
+ ✓ 
+ Traducir. 
+ ✓ 
+ Administrar permisos. o Consultar. 
+ o 
+ Modificar. 
+ 

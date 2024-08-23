@@ -1,0 +1,31 @@
+3.4.2 Solapa “Atributos” 
+ En la sólapa “Atributos” se visualizarán el nombre, descripción y tipo de todos los atributos de cada entidad asociada a la Actividad editada y a su vez, se podrán definir el formato, el valor inicial, la obligatoriedad y las validaciones de los mismos. 
+ Se permitirá, además, redefinir las siguientes propiedades para los atributos de tipo colección: 
+ ✓ 
+ Tipo navegación. 
+ ✓ 
+ Tamaño mínimo de un fragmento. 
+ ✓ 
+ Tamaño máximo de un fragmento. 
+ ✓ 
+ Ancho deseado de fragmento. 
+ Cada actividad heredará los valores iniciales y formatos definidos en el Diccionario de Datos para los atributos de las entidades asociadas, pudiendo modificarse los mismós desde la sólapa “Atributos”. A su vez, las configuraciones visuales (formularios) y no visuales (tareas programadas, web services) heredarán estas propiedades de la actividad, pudiendo las mismas ser modificadas con el mismo criterio que el que se detalla a continuación. De modificarse alguna de estas propiedades, se aplicarán de acuerdo al siguiente criterio: 
+ ✓ 
+ Estándares de interfaz de usuario
+ El formato y el valor inicial sobrescribirán a aquellos definidos en el Diccionario de Datos. Según lo detallado en , las propiedades modificadas en el hijo con respecto al padre, dejarán de mantener la herencia, y por ende cualquier actualización sobre el padre no afectará a los hijos heredados. En cambio, aquellas propiedades no modificadas en el hijo heredarán las actualizaciones de su correspondiente padre. Además, existirá la opción de volver al formato heredado. En el contexto de PN, las propiedades definidas de una entidad en el Dicciónarió de Datós actuarán cómó “padre”, y las redefinidas en la actividad cómó “hijó”. 
+ ✓ 
+ Los valores iniciales para una colección presentarán un comportamiento similar a las validaciones. Es decir, que el usuario podrá incorporar nuevos valores iniciales a la colección o podrá modificar o quitar los valores iniciales definidos en el Diccionario de datos rompiendo la herencia. 
+ o 
+ En caso de que el valor inicial en el diccionario de datos se haya definido mediante una expresión, el usuario podrá escribir una nueva fórmula o bien, sobrescribir la definida en diccionario de datos. En este último caso, se rompería la herencia, es decir, que si se redefine la expresión de valor inicial del DD, no se alterará la expresión definida en la actividad. 
+ o 
+ En caso de que el valor inicial de la colección se haya definido mediante el ingreso explícito de las instancias, el usuario podrá definir nuevas instancias o modificar/eliminar algunas de las recibidas desde el DD. En el caso de modificar el valor de una instancia heredada desde el DD, se romperá la herencia sobre dicha instancia, pero no sobre el resto de las instancias creadas en la colección. 
+ ✓ 
+ La propiedad de obligatoriedad podrá redefinirse sólo si no ha sido definida previamente en la entidad. En caso contrario, la redefinición de la obligatoriedad no será válida y el campo se presentará como de sólo lectura. 
+ ✓ 
+ Las validaciones de los atributos se complementarán con aquellas definidas en el Diccionario de Datos mediante una operación de intersección, es decir que todas las validaciones deberán cumplirse de manera simultánea. 
+ A continuación se presenta un ejemplo de modificación de propiedades heredadas en una actividad. 
+ Estándares de interfaz de usuario. 
+ Se podrán distinguir visualmente los atributos que modifiquen la definición del Diccionario de Datos, de la misma forma en que se distinguen los hijos que cambian la definición de los padres, de acuerdo a lo establecido en el documento de 
+ En la sólapa “Validación” se visualizarán las validaciones de los atributos definidas en el Diccionario de Datos para cada atributo, en modalidad de sólo lectura y además, se podrán agregar validaciones complementarias. 
+ Lós atributós selecciónadós cómó “nó dispónibles” en la Actividad nó pódrán ser agregadós en esta solapa. 
+ 

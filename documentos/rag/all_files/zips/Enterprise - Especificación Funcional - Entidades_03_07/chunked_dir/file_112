@@ -1,0 +1,7 @@
+1.17 Instancias de una entidad en edición 
+ Formularios
+ Tal como se menciona en el documento de , cuando un usuario se encuentre trabajando sobre una instancia y cierre el formulario tendrá entre otras opciones, la posibilidad de guardar la instancia en edición. Esto le permitirá retomar el desarrollo de la misma en un momento posterior. 
+ Todo usuario podrá visualizar las instancias en edición creadas por él mismo. Sin embargo, alguno de ellos tendrá permisos para poder ver, modificar o descartar instancias en edición creadas por otros usuarios. Para ello, deberán tener activada la política específica dentro del dominio/OU/usuario. 
+ Cuando un usuario guarde una instancia en edición, la misma podrá ser accedida desde el Inbox del usuario. Dentro de este, existirá una cola creada por NeuralSoft, la cual contendrá todas las instancias en edición creadas por el usuario y por los usuarios sobre los cuales tiene permiso de visualizar instancias en edición. Las instancias “en edición” que no cumplan validaciones (ya sea por Diccionario de Datos, por Actividad, por RN, etc.) seguirán estando en edición, pero no tendrán habilitada la confirmación. 
+ Las instancias “en edición confirmada” que no cumplan validaciones (ya sea por Diccionario de Datos, por Actividad, por RN, etc.) se confirmarán igual (al llegar el tiempo programado en la confirmación diferida o luego de establecer la correcta comunicación con el dispositivo correspondiente), logueando las validaciones incumplidas. 
+ 

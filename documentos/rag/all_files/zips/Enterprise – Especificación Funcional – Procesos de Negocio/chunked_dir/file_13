@@ -1,0 +1,16 @@
+3.3.6 Única instancia con imputación 
+ Una Actividad de categoría única instancia con imputaciones se utilizará para ingresar una instancia de una entidad y a su vez, indicar con qué instancias de otra entidad se imputará. Dicha Actividad podrá tener asociada una entidad para la instancia única y una entidad para la imputación que se encuentre definida en el DD como desencadenantes de la entidad asociada y a su vez, posea imputaciones definidas. Es decir, la Entidad asociada a la Actividad deberá tener definido, al menos, un desencadenante sobre una Entidad con imputaciones, y será la que se visualizará en el diagrama. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: se deberá definir la entidad sobre la que accionará la actividad. Dato obligatorio. 
+ ✓ 
+ Entidad desencadenada: entidad en donde desencadena la entidad asociada a la Actividad. Dato obligatorio. 
+ ✓ 
+ Imputación: imputación a aplicar. Dato obligatorio. 
+ ✓ 
+ Filtro de instancias: Opcionalmente, se podrá definir un filtro de instancias a imputar en las imputaciones seleccionadas. 
+ ✓ 
+ Duración prevista: igual que ló descriptó para “Única instancia”. En este caso, heredará del tiempo esperado que haya sido definido en el DD para la entidad. 
+ ✓
+ En esta categóría, al cóntrarió que en la categóría “Imputaciónes”, no se visualizará la Definición de las Imputaciones. Sin embargo, sobre el menú contextual de cada imputación, se podrá acceder a la definición de la misma en el DD. Este comportamiento será el mismo en cualquier lado donde se visualice una imputación. 
+ 

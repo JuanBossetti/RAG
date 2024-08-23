@@ -1,0 +1,4 @@
+2.7 Integración con servicios de directorio4 
+ Un servicio de directorio es una aplicación o un conjunto de aplicaciones que almacena y organiza la información sobre los usuarios de una red de ordenadores, sobre recursos de red, y permite a los administradores gestionar el acceso de usuarios a los recursos sobre dicha red. Por ejemplo, en entornos Microsoft, Active Directory. 
+ El sistema deberá estar preparado para interactuar con un servicio de directorio. La administración de usuarios y recursos podrá realizarse desde el servicio de directorio replicándose en el sistema, y viceversa. 
+ 

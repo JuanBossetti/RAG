@@ -1,0 +1,12 @@
+7.6 Proceso de autenticación 
+ El usuario debe aportar las credenciales que lo identifican y permiten verificar la autenticidad de la identificación, y el sistema debe validar si las credenciales aportadas son suficientes para dar acceso al usuario o no. Este proceso comúnmente se denomina login o logon. 
+ En el caso de no realizar una correcta autenticación debido a que se ingresa mal el nombre de usuario o la clave, se le notificará al usuario mediante un mensaje, y el mismo deberá ingresar de nuevo el usuario y clave para poder autenticarse: 
+ En el caso de realizar una correcta autenticación pero que el usuario no cumpla una o varias políticas de seguridad para autenticarse, se le mostrará un mensaje con el motivo o los motivos por los cuales no puede ingresar al sistema, por ejemplo: 
+ • 
+ Si no cumple con el rango horario permitido: 
+ • 
+ Si su usuario está bloqueado y además la IP del dispositivo donde intenta ingresar el usuario no corresponde a las direcciones IP permitidas: 
+ En el caso de que un usuario ingrese la clave incorrectamente la cantidad de veces que indique la política “Reintentos de acceso fallidos consecutivos antes de bloquear cuenta”, la cuenta de dicho usuario quedará bloqueada por el tiempo que indique la política “Tiempo de bloqueo de cuenta ante accesos fallidos consecutivos”. 
+ En el caso de que ocurra una situación inesperada en el login (ejemplos: conexión muy lenta, servidor muy cargado, etc.), se presentará al usuario el siguiente mensaje “El ingreso está demorando más de lo habitual”. 
+ En el cierre de sesión de un usuario, se mostrará la página de login y si el cierre de sesión ocurrió de manera inesperada, se mostrará el mensaje correspondiente, por ejemplo “No está permitido su acceso en este horario“. 
+ 

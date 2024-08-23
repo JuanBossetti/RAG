@@ -1,0 +1,30 @@
+1.5 Referencias Inversas 
+ Cuando el usuario define una referencia en el listado de atributos de una entidad, la misma será bidireccional. Es decir, cuando en una entidad se cree un Atributo basado en un Tipo de Categoría referencia, se estará creando implícitamente una referencia en la otra entidad. Existen 3 formas diferentes de utilizar un atributo de tipo referencia. A continuación, se detalla cada una de ellas: 
+ 1. 
+ Referencia directa: son aquellos atributos cuyo tipo es directamente una referencia a una entidad del modelo o bien, que la referencia se encuentra dentro de un atributo compuesto. Por ejemplo, en la entidad “Factura”, el atributo “Cliente” de tipo “Cliente”. 
+ 2. 
+ Colección de referencias: son aquellas referencias que se encuentran contenidas en un atributo de tipo colección. Por ejemplo, en la entidad “Curso” se define un atributo de categoría colección denominado “Alumnos”, el cual contiene referencias a la entidad “Alumno”. 
+ 3. 
+ Colección de compuesto con referencia: son aquellos atributos de categoría compuesto que contienen una referencia y además, están dentro de una colección. Por ejemplo, una referencia a la entidad “Producto” dentro del atributo compuesto “Ítem de factura” en la colección “Ítems de factura” en la Entidad “Factura”. 
+ Dentro del Editor de Entidades, existirá una solapa denominada “Referencias inversas” en la cual, el usuario modelador podrá visualizar y definir determinadas propiedades a las referencias inversas de la entidad que está visualizando. Es decir, que desde esta solapa el usuario podrá visualizar todas las entidades que contienen atributos referencias a ella, indicando el nombre de la entidad y el atributo que referencia a la entidad que está editando. Desde esta solapa, el usuario modelador podrá definir 
+ valores iniciales para las referencias inversas de la entidad en edición. Es importante destacar, que el hecho de definir un valor inicial en la referencia inversa implica que cada vez que se genere una nueva instancia de la entidad en edición, se generarán nuevas instancias de la entidad que genera la referencia inversa, con los valores definidos en este valor inicial. Además, dichos valores iniciales sólo se evaluarán una vez, al crear la instancia de la entidad referenciada, no se volverán a evaluar por cada unidad de cambio como en el resto de los valores iniciales. 
+ La solapa “Referencias inversas” presentará la siguiente interfaz: 
+ Como puede verse, la misma contendrá en su parte superior una grilla de tres columnas. A continuación, se describe cada una de estas columnas: 
+ ✓ 
+ Entidad referenciada: en esta columna se presenta el nombre (atributo descriptivo) de la entidad que contiene la referencia explícita a la entidad en edición y que consecuentemente, genera la referencia inversa. Por ejemplo, Factura. 
+ ✓ 
+ Atributo referencia: esta columna contendrá el nombre (atributo descriptivo) del atributo de la entidad referenciada que es de tipo “referencia” a la entidad en edición. Por ejemplo, Cliente. Esta columna permitirá identificar qué referencia de la entidad se está utilizando cuando, dentro de una misma entidad, existan más de una referencia a la misma entidad. Por ejemplo, en la entidad “Vuelos” existen dos atributos referencia a la entidad “Ciudad”, siendo “Ciudad origen” y “Ciudad Destino”. 
+ ✓ 
+ Nombre del atributo local: en esta columna, se presentará el nombre mediante el cual el usuario podrá acceder a la referencia inversa desde una expresión. El nombre en español será ”<Atributo referencia> en <Entidad Referenciada>”, por ejemplo: “Cliente Comprador en Factura”. 
+ Además, siempre que se necesita utilizar una referencia inversa desde una expresión, se utilizará la siguiente sintaxis: 
+ <Entidad referenciada>.<Atributo referencia inversa>.<atributo de la entidad referenciada inversamente> 
+ Por ejemplo, posicionados en una instancia de la entidad Cliente, “Factura.Número de factura”, obtendríamos todos los números de facturas en las cuales la instancia actual de Cliente es quien realizó la compra. 
+ A modo de ejemplo, se presenta el siguiente caso: 
+ Aquí podemos ver que la Entidad “Factura” no contiene ninguna referencia inversa. En cambio, la entidad “Cliente” presenta como referencia inversa a Factura. Además, la Entidad “Producto” presenta una referencia inversa al ítem de Ítems de Factura de una Factura. 
+ En otros casos una misma entidad puede contener más de una referencia a otra entidad, como por ejemplo la Entidad Vuelo con los atributos referencia “Origen” y “Destino” a la entidad “Ciudad”, la referencia inversa constará de un atributo compuesto, en el cuál se presentarán tantos componentes como referencias a la misma entidad existan. Para el ejemplo, sería Vuelo.Origen y Vuelo.Destino. A continuación se presenta el diagrama para el ejemplo de Vuelo y ciudad de origen y de destino: 
+ En la parte inferior, se puede observar un checkbox, el cual permitirá definir si la referencia inversa presenta o no un valor inicial al crear una nueva instancia de la entidad. De manera predeterminada, dicha propiedad estará deshabilitada. Cuando la misma se active, se presentará una condición de creación y una grilla de 3 columnas. Dicha grilla presentará el mismo comportamiento que el explicado en la sección (<>)Desencadenantes, para la definición de un desencadenante de una entidad. 
+ Ambas expresiones permiten atributos de la entidad origen (es decir, de la entidad en edición) y no de la entidad destino (es decir, de la entidad referenciada). 
+ A continuación, se presenta la parte inferior de la solapa en el caso de que se haya seleccionado la opción de definir valor inicial mediante valores explícitos: 
+ En caso que en un atributo no se complete el valor, se completarán con los valores iniciales definidos en la entidad destino. 
+ Las instancias inicializadas por referencias inversas se podrán editar e incluso eliminar (no confirmar la creación) desde la vista previa al crear una instancia. 
+ 

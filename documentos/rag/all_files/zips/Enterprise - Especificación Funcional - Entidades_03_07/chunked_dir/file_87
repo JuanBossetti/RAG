@@ -1,0 +1,33 @@
+Log auxiliar de Imputaciones 
+ Para cada imputación definida en una entidad, existirá en el sistema un log auxiliar de imputaciones, en el cual se llevará un registro histórico sobre la relación de imputación entre diferentes instancias de la entidad. Esta tabla contendrá información sobre las operaciones que se han realizado, las instancias de la entidad que fueron vinculadas y el valor de los atributos imputable 
+ Cada uno de los registros de la tabla guardará los siguientes datos: 
+ • 
+ IdOperación. 
+ • 
+ Referencia a Instancia Imputada/Referencia a Item Imputado. 
+ • 
+ IdColecciónPadreItemImputado (sólo si el atributo imputable está dentro de una colección). 
+ • 
+ Valor del atributo imputable 
+ • 
+ Atributo de conversión (solo si la imputación tiene definido este atributo) 
+ • 
+ Resultado de la expresión de conversión al crear a unidad de medida base. 
+ • 
+ Resultado de la expresión de conversión al imputar 
+ • 
+ idInstanciaAImputar/IdItemAImputar. 
+ • 
+ IdColecciónPadreItemAImputar (sólo si el atributo imputable está dentro de una colección). 
+ • 
+ VersiónInstanciaAImputar/VersiónItemAImputar. 
+ • 
+ Acción: indica si el registro proviene de un insert (+1) o de una reversión (-1). 
+ Persistencia
+ Los campos de las instancias de la entidad, junto con el TimeStamp, identifican la instancia y versión de la entidad de la misma que intervinieron en la imputación. Para más información ver el documento de . 
+ Cuando se cree una instancia de la entidad, se agregará un nuevo registro en el log auxiliar de imputaciones correspondiente. Dicho registro contendrá valores para todos los campos enumerados anteriormente a excepción de los relacionados con la instancia contra la cual se imputa (idInstanciaAImputar y TimeStampInstanciaAImputar). 
+ Cuando se realice una imputación se crearán dos nuevos registros en el log correspondiente. El primero de ellos contendrá a la primera instancia como instancia imputada y a la segunda instancia como instancia a imputar; por otro lado, el segundo registro contendrá a la segunda instancia como instancia imputada y a la primera instancia como instancia a imputar. 
+ Los criterios mencionados se presentan en la tabla siguiente: 
+ Para generar los registros del log auxiliar de imputaciones al momento de imputar, el campo con el valor del atributo imputable, el atributo descriptivo asociado al mismo, el resultado de la conversión al crear en unidad de medida base, y el resultado de la fórmula de conversión al imputar se generarán siguiendo una serie de pasos que se detallarán en la sección “Generación del log auxiliar de imputaciones”. Primeramente se debe calcular si existe diferencia en la conversión a unidad base 
+ o si el valor del atributo imputable ingreso en los niveles de tolerancia y ejecutar las acciones que se hayan especificado en las reglas de cancelación, luego el sistema deberá determinar que instancia imputar primero, realizar el cálculo del atributo imputable y de la fórmula de conversión al crear y al imputar para dicho registro y luego, calcular los valores mencionados para el segundo registro e insertarlo en el log, y así sucesivamente si existieran más de dos instancias. 
+ 

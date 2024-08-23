@@ -1,0 +1,95 @@
+3.3 Usuarios y grupos de usuarios 
+ Los usuarios y grupos de usuarios podrán darse de alta en el dominio. En el alta de usuarios, no se validará que la cantidad de usuarios no supere el límite de la licencia. Los usuarios externos habilitados para ingresar al dominio se tendrán en cuenta para el licenciamiento. 
+ Un usuario es un individuo -dentro de la organización- que accederá al sistema a través de autenticación. Cada usuario será único. 
+ Un usuario sólo podrá tener activa una sesión a la vez. Si un usuario se encuentra activo, al acceder desde otra ubicación o navegador se cerrará automáticamente la sesión anterior (Tal como funciona Windows Terminal server). 
+ En caso de producirse un cierre de sesión, ya sea automático o manual, cuando un usuario vuelva a iniciar sesión, el sistema presentará el contenido de pantalla existente al momento previo al cierre de sesión. 
+ Cada usuario tendrá las siguientes propiedades: 
+ ✓ 
+ tabla 
+ General: ubicación, nombre de usuario, tipo de usuario, nombre, apellido, foto, descripción, contraseña, correo electrónico, cuenta predeterminada para envío de correo electrónico, cuentas de MI, cuenta telegram, teléfono, teléfono celular, domicilio, provincia/estado/región, código postal, ciudad, país, puestos, departamentos, jefes, subordinados, grupos de usuarios a los que pertenece, sitios y grupos de sitios a los que puede acceder, calendario, los dispositivos predeterminados (para imprimir, para numerar, para escanear, etc.), idiomas preferidos de UI y de datos para autenticación de usuarios (hereda de la OU donde se encuentre el usuario) y políticas de seguridad (ver de políticas de seguridad). El calendario y las políticas de seguridad se heredarán de la OU que contenga al usuario. Para el caso de Telegram se podrá tener una única cuenta asociada. 
+ ✓ 
+ Limitar sitios y Limitar empresas: permite definir que el usuario solo tiene acceso a los sitios/empresas seleccionadas y en consecuencia las instancias visualizadas dentro del sistema sobre las cuales tenga permisos de consultar, son sólo las correspondientes a dichos sitios o empresas según sea el caso. 
+ ✓ 
+ Limitar empresas: permite definir que el usuario solo tiene acceso a las empresas seleccionadas y en consecuencia las instancias visualizadas dentro del sistema sobre las cuales tenga permisos de consultar, son sólo 
+ ✓ 
+ Licencias: contiene las licencias asignadas al usuario. Desde aquí, se pueden asignar licencias disponibles y también desasignarlas. Si no hay licencias disponibles, la opción para asignar licencia se mostrará en sólo lectura. Además, se visualizará un botón para acceder a comprar licencias en el Market Place. 
+ ✓ 
+ Estándares de interfaz de usuario
+ Historial de Versiones: se podrá mantener un historial de versiones de cada usuario, de acuerdo a lo definido en el documento . 
+ ✓ 
+ tabla 
+ Seguridad: contiene la ACL (Lista de Control de Accesos) sobre el usuario (ver de solapa “Seguridad”). 
+ ✓ 
+ Documentación: contendrá la documentación específica del usuario. 
+ Las propiedades que deberán definirse obligatoriamente al momento de la creación de un usuario serán: nombre de usuario, ubicación, nombre, apellido, tipo de usuario, idioma de datos y de ui. Además, contraseña, e-mail y celular, en caso en que la política efectiva lo requiera. Distintos usuarios activos no podrán tener el mismo nombre de usuario, dirección de e-mail, ni número de teléfono celular. 
+ Siempre se validará que el idioma preferido sea uno de los que se encuentran seleccionados en la lista de idiomas disponibles en el dominio. 
+ Los tipos de usuario disponibles serán: 
+ ✓ 
+ Usuario de Aplicación: podrá acceder a la Aplicación, es decir, al Sistema en tiempo de ejecución. 
+ ✓ 
+ Usuario Editor: podrá acceder a la Aplicación, y a los Editores. 
+ ✓ 
+ Usuario de Web Service: solamente podrá ejecutar las Actividades de WS. Podrá acceder a la Aplicación pero solamente podrá acceder a sus preferencias de usuario y consultar los logs de las actividades realizadas. 
+ Un Usuario de Web Service es un individuo que podrá acceder a ciertas actividades por medio de un Web Service. Para realizar las actividades, deberá ingresar a un determinado link previamente configurado. Además, podrá ingresar a la aplicación, autenticándose al igual que el resto de los usuarios, y realizar ciertas operaciones de manera limitada; como por ejemplo, cambiar su contraseña, sus datos personales, idioma preferido de datos y de UI y las demás preferencias de usuario, visualizar los logs de las actividades realizadas, etc. 
+ Las propiedades del usuario: puestos, departamentos, jefes y subordinados servirán para automatizar y mantener la definición del organigrama con seguridad, además de definir la jerarquía en la seguridad de delegación de actividades y supervisión (toma de sesión, iniciar toma de sesión, coaching y monitorización). Estas propiedades no estarán disponibles para los Usuarios de WS. 
+ Un usuario podrá tener un puesto por departamento. Las propiedades jefes y subordinados serán del tipo colección de usuarios. Para seleccionar la jerarquía del usuario dentro de la organización se utilizará una grilla. En la misma se deberá elegir primero el departamento y luego el puesto dentro de ese departamento, ambos en listas descolgables. Automáticamente se visualizarán los jefes y subordinados del usuario para el departamento y puesto seleccionados, en la fila correspondiente de la grilla. Esto quedará reflejado en el organigrama predeterminado para la seguridad. 
+ Al inhabilitar o eliminar un usuario, se eliminarán sus referencias jerárquicas asociadas. Esto se reflejará instantáneamente en el organigrama de seguridad. 
+ Además, al eliminar un usuario, se eliminarán todos los permisos que el mismo posee en los distintos elementos, pero no se eliminarán los logs que se generaron asociados al usuario. Ahora bien, cuando se restaura un usuario, los permisos NO se restaurarán, es decir, cuando se restaura un usuario, se debe volver a configurar sus permisos. 
+ Las propiedades país, puestos y departamentos deberán pertenecer a entidades paramétricas que puedan accederse desde los editores o desde el sistema generado. Además, deberán permitir la internacionalización. Estas entidades internas serán listas predefinidas modificables. Desde la interfaz se realizará una búsqueda incremental cada vez que se invoque dichas propiedades. 
+ Los grupos permitidos para ejecución de reglas de negocio y tareas programadas serán los grupos de usuarios con cuyos permisos se podrán ejecutar las RN y tareas programadas en los PN. Cuando un usuario configure una RN o una TP, podrá elegir con los permisos de qué grupo se va a ejecutar dicha RN o TP. Estos grupos de ejecución se acotarán en las políticas de seguridad del usuario. 
+ Cada vez que se visualice un usuario en el sistema, se presentará el nombre y apellido de dicho usuario precedido de su foto o de una imagen genérica ( ) en caso de no haber cargado una foto. Además se indicará con un marco o un icono visible en distintos colores, los diferentes estados de un usuario. 
+ Inicialmente, se visualizarán de una manera diferente tanto la foto o imagen genérica, como el nombre de aquellos usuarios que todavía no se hayan autenticado al sistema. 
+ Luego de la primera autenticación, un usuario tendrá uno de los siguientes estados: 
+ ✓ 
+ Disponible: el usuario se encuentra autenticado en el sistema y puede ser contactado para iniciar un chat o una supervisión. Este estado se indicará de la siguiente manera: . 
+ ✓ 
+ Ausente: el usuario se encuentra autenticado en el sistema, pero ha permanecido inactivo durante un cierto tiempo. Este estado se indicará de la siguiente manera: . 
+ ✓ 
+ No disponible: el usuario se encuentra autenticado en el sistema y ha indicado que no desea ser molestado. Este estado se indicará de la siguiente manera: . 
+ ✓ 
+ No conectado: el usuario no se encuentra autenticado en el sistema. Este estado se indicará de la siguiente manera: . 
+ La lista de estados posibles irá incrementándose a medida que se agregue funcionalidad. 
+ En cualquier lugar donde se visualice un usuario, se tienen las mismas opciones (por ejemplo, chatear, monitorizar, etc.). En cualquier lugar donde se visualice el usuario autenticado se tienen las mismas opciones que son distintas a las primeras (por ejemplo, cerrar sesión, cambiar datos personales, etc.) 
+ Un usuario administrador que tenga permiso para cambiar la contraseña de un usuario, podrá además restablecerla haciendo clic en el ícono . En este caso, la contraseña generada se informará al e-mail del usuario, o en su defecto a su teléfono. En caso de no poseer e-mail ni celular, no se podrá restablecer la misma, notificándose al administrador, debiendo este cambiarla manualmente. 
+ Una vez que haya accedido, un usuario podrá cambiar algunas de sus propiedades desde Preferencias de Usuario. Dichas propiedades serán: contraseña, foto, domicilio, localidad/provincia/estado, código postal, país, e-mail y teléfono, entre otras, siempre que tenga los derechos necesarios. Si un usuario puede realizar cambios en sus preferencias, deberá validarse nuevamente por el sistema de autenticación que tenga definido para poder concretarlo. 
+ Se define como grupo de usuarios a un objeto que contiene usuarios y/o otros grupos de usuarios, de acuerdo a las siguientes reglas: 
+ ✓ 
+ Un grupo de usuarios podrá contener n5 usuarios. 
+ ✓ 
+ Un grupo de usuarios podrá contener n grupos de usuarios. 
+ ✓ 
+ Un usuario podrá pertenecer a n grupos de usuarios. 
+ ✓ 
+ Un grupo de usuarios podrá pertenecer a n grupos de usuarios. 
+ Cada grupo tendrá las siguientes propiedades: 
+ ✓ 
+ General: ubicación, nombre, descripción, imagen, grupos de usuarios en los que está incluído, objetos contenidos y sitios y grupos de sitios a los que puede acceder y establecer como rol en modelo hijo. 
+ ✓ 
+ Estándares de interfaz de usuario
+ Historial de Versiones: se podrá mantener un historial de versiones de cada grupo de usuarios, de acuerdo a lo definido en el documento . 
+ ✓ 
+ tabla 
+ Seguridad: contiene la ACL con los permisos y denegaciones sobre el grupo (ver de solapa “Seguridad”). 
+ ✓ 
+ Documentación: contendrá la documentación específica del grupo. 
+ Al momento de la creación de un grupo, será obligatorio definir el nombre del mismo. No podrá existir más de un usuario o grupo de usuarios con el mismo nombre. Adicionalmente, un usuario no podrá tener el mismo nombre que un grupo de usuarios y viceversa. Se podrá agregar una imagen identificativa a cada grupo, de manera similar a la descripta para la foto de los usuarios. 
+ A continuación se detalla un ejemplo de la creación de un usuario dentro de la OU Administración. 
+ 5 El valor de n va de 0 a ∞, a menos que se indique lo contrario. 
+ .a. Nuevo usuario X >-------------------------------------------------1 General Historial de Versiones Seguridad Documentaci6n Ubicaci6n: dominio.com >Personal> Administraci6n Usuano (*) lusl 101 T1po de usuano (*) V Nombre (*) 101 Apelhdo (') 101 Foto Ł Descnpc1on 0 Contraseria 1tl Email 101 Telefono celular Dorrncll10 Localldadit:stadoJProv1nc1a V Cod1go Postal Pais V Departamentos Departamento Puesto Jefes Subordinados 
+ .&. Nuevo usuario X I >-------------------------------------------------1 General I Historial de Versiones I Seguridad I Documentaci6n I Calendano I Calendario Predeterminado IV [ Cuenta predeterrmnada para env10 de email l�--------------�lv�I D1sposrtwos predeterrrnnados I impresora HP Adm, Fiscal Hassar pc4 lvl ld1oma preferrdo I Espariol ♦Ah:ll+@R@fli119::t Tiempo de expiraci6n de la cuenta Range de fechas de validez de la cuenta Delegaci6n de permisos Grupos permitidos para ejecuci6n Bloquear cuenta lnhabilrtar cuenta W·li9·@tD@i+ilHH4+6 Rango horario permrtido Direcciones IPs permitidas Permitir recordar Ultimo usuario identificado en equipo I Metodos de autenbcac1on permit1dos I Requerir usuario y contraseria lvl rndfas desde I � hasta j Todos los usuarios IV I □ □ lvl � De tunes a domingo, de O a 24 hs ] Sin restricciones □ Ill l.:J I 
+ ,& Nuevousuario X -----------------------------------------------1 General I Historial de Versiones I Seguridad I Documentaci6n I Ł Metodos de autent1cac1on permrt1dos --------------------------------Ł Reouerir usuario v contraseria Reouerir dispositivo de autenticaci6n Validar con SMS Validar con OTP Reouerir verificaci6n biometrica Reouerir certificado dioital W1IIJ·@@@MifHJ:f Forzar cambio de contraseria en el pr6ximo acceso Permitir carnbio de contraseria Wlll+@@ffi@tffiih::i\F Toma de sesi6n lnvitaci6n a sesi6n Monitorizaci6n Coachinci Ill □ □ □ □ □ Todos los usuarios IV I Todos los usuarios IV I SOio a subordinados Iv I Todos los usuarios Iv I 
+ Rango de fechas de validez de la cuenta Delegaci6n de permisos Cuenta bloqueada Horario de Acceso desde 17 JUL2012 ffl hasta ( XJ12 V 7 V) Todo l\'";11;'�1;''!1' □ 8 9 10 11 12 13 ,. 1s1el!!J1a19xi21 22 Z3 21 25 2!I 27 21 :29 3:l 31 Definir el horario de acceso al sist.ema para el usuario: Haga clic en elnos dials de la sernana y en el horario para perm�ir/denegar el acceso. a 1 12 3 I 4 s 6 1 s 9 11a11112 13 14 1 s 161111s 19 20121 22p3 Lunes Martes Miercoles Jueves Viernes Sabado + +-+ +-+ Domingo D Acceso Perm�ido D Acceso No Perrn�ido De lunes a c!omingo, de O a 24 hs 
+ Horario de Acceso Definir el horario de acceso al sist.ema para el usuario: Haga clic en elnos dials de la sernana yen el horario para perrnnir/denegar el acceso. a I 1 12 3 I 4 Is s I 7 s 9 11a11112113 14 1s1s171 s 19 20 21 22123 Lunes Martes r + + + r + Miercoles + r + + + r + Jueves + r + r + r Viernes Sabado r + r + r + r + Domingo D Acceso Permnido D Acceso No Perrnnido De lwies a domingo, de O a 15 hs 
+ Historial de Versiones Seguridad Documentaci6n Asignar las licencias al usuario para acceder a las aplicaciones: A continuaci6n, se pueden ver los modelos a los que el usuario podria acceder. Para que pueda ingresar, debe asginarle la licencia correspondiente. Plataforma de Desarrollo □ Plataforma de ejecuci6n □ Llcencia de Web Service □ CR Fimmzas Licencia de aplicaci6n □ Licencia de edici6n □ Llcencia de Web Service □ Busihitelligence Licencia de aplicaci6n □ Licencia de edici6n □ Comprar mils licencias 
+ Los usuarios y grupos de usuarios externos (de otros dominios) tendrán las mismas propiedades y posibilidades de acceso que los del dominio original, salvo que los datos de las políticas de acceso de un usuario serán locales al dominio. Se podrá definir como usuarios externos cualquier tipo de usuarios (de Aplicación, Editores y de Web Service). Además, no se visualizarán los datos personales de los usuarios externos (teléfono, dirección, etc.) y no podrán modificarse las propiedades generales ni las propiedades de la contraseña. Los datos que se podrán modificar harán referencia al dominio local y serán: puestos, departamentos, jefes, subordinados, grupos a los que pertenece, tiempo de expiración de acceso al dominio local, rango de validez del mismo, delegación de Actividades, bloquear cuenta (se habilitará si el usuario intenta acceder al dominio local luego de una cantidad de accesos fallidos consecutivos, y se podrá inhabilitar), inhabilitar cuenta (si se activa esta directiva, la cuenta no podrá acceder al dominio local pero sí al de origen), rango horario, direcciones IP permitidas, permitir mantener sesión iniciada, métodos de autenticación adicionales, toma de sesión, invitación a sesión, monitorización y coaching, e idioma preferido. 
+ Se presenta a continuación un ejemplo en el cual se muestra cómo se “arrastra” un usuario externo del dominio EmpresaA a la OU Zona Norte: 
+ L d3J lmpAdrn1 -Ł Personal i½J E9 Adrninistraci6n I I -lt@I Dorninios de ConfiaŁza r lt@I EmpresaA .com, t ,.Q GrupoExt Ł UsuarioExt Iii!::, --
+ Ł UsuarroExt X >---------------------------------------------------< General Historial de Versiones Seguridad Documentaci6n Ubicaci6n: dominio.com >Personal> Administraci6n > Zona Norte Usuario (Ł) Nornbre ('l Apellido ('l Foto Descripci6n Departamentos Departamento Puesto Jefes Subordinados ,_ -,_ -Calendarro I Calendario Predeterminado lvl Cuenta predeterrmnada para env10 de email V D1sposrt1vos predeterm1nados I impresora HP Adm, Fiscal Hassar pc4 lvl ld1oma preferrdo I Espariol lvl G4·ii+@@t5fii119:ifi9:19GUi::!l:1Ui@b Tiempo de expiraci6n de la cuenta rndfas 
+ Ahora se muestra un ejemplo de la creación de un grupo de usuarios desde el acordeón de Seguridad, también en la OU Administración: 
+ -lllil' Łersonal IIClcin Eliminar sf GrupoA i],usuario1 1 Usuario2 ŁRRHH Unidad Organizacional Grupo Usuario DisposŁivo 
+ [9, Nuevo Grupo X >-----------------------------------------------� General Historial de Versiones Seguridad Documentaci6n Ubicaci6n: dominio.com >Personal> Administraci6n Nombre (') IMarkel 101 Descnpc1on Imagen Grupos a los que peI1enece V Ob1etos contemdos TJ Srt1os a los que puede acceder L B Como son calculados, se Grupos de srtIos a los que puede acceder L � muestran en solo lectura Modelos a los que puede acceder L B Establecer come rel en modelos h1Jos □ 
+ Los permisos y denegaciones se podrán otorgar por grupos de usuarios6 o individualmente por usuario. 
+ Los usuarios obtendrán los permisos de los grupos de usuarios a los que pertenezcan (y a su vez de los grupos de usuarios a los que pertenezca cada grupo, recursivamente), además de los permisos asignados individualmente al usuario. De la misma manera se asignarán las denegaciones. 
+ Las denegaciones siempre tendrán prioridad sobre los permisos y las propiedades no definidas, aún si estos son heredados de un grupo. Por ejemplo, si un grupo tiene denegado el acceso a un elemento, aunque se especifique el permiso a un usuario de ese grupo, dicho usuario no podrá acceder al elemento. 
+ En cualquier momento, a un usuario se le podrán asignar los permisos y denegaciones predeterminados de los grupos de usuarios a los que pertenece. 
+ 

@@ -1,0 +1,3 @@
+Instancia Principal() 
+ Devuelve el id de la instancia principal seleccionada en una actividad. Se usa para filtrar las grillas de vista previa. 
+ 

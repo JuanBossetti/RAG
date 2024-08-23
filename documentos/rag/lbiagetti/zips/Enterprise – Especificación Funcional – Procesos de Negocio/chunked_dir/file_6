@@ -1,0 +1,47 @@
+3.1 Creación de una actividad 
+ Cada actividad contará con las siguientes propiedades: 
+ ✓ 
+ Nombre: obligatorio y único para todo el sistema. 
+ ✓ 
+ Descripción: texto que proveerá mayor detalle sobre la actividad. Dato opcional. El tooltip sobre una Actividad, mostrará la descripción de la misma. 
+ ✓ 
+ Autorización 
+ Categoría: se deberá definir la categoría de la Actividad. Una categoría se utilizará para clasificar las acciones que podrán realizar las Actividades y, en base a dicha clasificación, configurar cómo se relacionará cada Actividad con el DD. Los valores posibles respetarán el siguiente orden: única instancia, única instancia con imputaciones, múltiples instancias, transformación, autorización, imputación, imputación con comprobantes múltiples, transformación con imputaciones y vista de información. Luego de definir la categoría, se deberá configurar la misma, es decir, después de selecciónar la categóría se habilitarán las secciónes “Configuración de la categoría” y “Tipo de actividad”. Dato obligatorio. En el caso en que se cambie la categoría de una actividad ya configurada, se perderán algunas configuraciones, previa confirmación del usuario. Para el caso de las transformaciones múltiples que posean autorizaciones definidas en una RN, se presentará automáticamente en el diagrama una actividad de categoría Autorización. Esta categoría tendrá algunas características especiales, que se detallan en la sección de este documento. Este atributo es sólo editable al crear. 
+ ✓ 
+ Actividad padre: se podrá definir una actividad desde la cual heredará la actividad editada. Dato opcional. Aunque el usuario haya elegido manualmente la categoría, cuando se ingrese una actividad padre (o se cambie la misma), la categoría pasará a heredarse del padre. En este caso, si en la actividad padre se cambia la categoría, los hijos generalmente la van a heredarla. De todas formas, se podría editar un hijo y cambiar la categoría. La selección de actividad padre se filtra de acuerdo a la categoría seleccionada. Este atributo es sólo editable al crear. 
+ ✓ 
+ Configuración de la categoría: dependiendo de la categoría seleccionada, se presentarán diferentes configuraciones para la actividad. 
+ o 
+ Entidad: entidades sobre la que accionará la actividad. Todas las actividades deberán tener asociada al menos una entidad. Las entidades que se pueden asociar a una actividad pueden ser transaccionales, maestras o paramétricas. Las entidades que se pueden asociar a una actividad, como así también la cantidad de entidades asociadas, serán determinadas por la categoría de la actividad que se encuentre en edición. Dependiendo de la categoría, se presentará un combo de selección única o múltiple para seleccionar una o varias entidades, respectivamente. Por ejemplo, no podrá asociarse más de una entidad a una actividad cón categóría “Imputación” y las entidades disponibles en el combo serán las que tengan definidas una o varias imputaciones en el DD. 
+ Además, las entidades disponibles en este componente, serán las que tengan definidas los siguientes orígenes de operaciones permitidas en el DD, de acuerdo al tipo y la categoría: 
+ ▪ 
+ Si la actividad es de tipo interactiva, las entidades disponibles serán las que tengan la óperación permitida “Fórmulariós”. 
+ ▪ 
+ Si la actividad es de tipo automática mediante TP, las entidades disponibles serán las que tengan la óperación permitida “Tareas Prógramadas”. 
+ ▪ 
+ Si la actividad es de tipo automática mediante WS, las entidades disponibles serán las que tengan la óperación permitida “Web Services”. 
+ ▪ 
+ Si la actividad es de categoría Transformación, las entidades disponibles serán las que tengan la óperación permitida “Transfórmación”. 
+ ▪ 
+ Si la actividad es de categoría Vista de Información, las entidades disponibles serán las que tengan la óperación permitida “Vistas de Infórmación”. 
+ Sólo en las actividades con categoría vista de información, en lugar de una Entidad, se deberá asociar una vista de GDI a la Actividad y las entidades asociadas a dicha Vista se visualizarán comó “sóló lectura”. Este atributo es sólo editable al crear. 
+ o 
+ Duración estimada: se podrá definir el tiempo esperado de realización de la actividad. Este dato se heredará del tiempo esperado que haya sido definido en el DD para la entidad, siempre y cuando en la actividad se utilice la misma categoría que aquella definida como predeterminada para dicha entidad. Caso contrario, el tiempo esperado se presentará vacío y el modelador, opcionalmente, lo podrá completar. Se podrá definir tanto un valor como una expresión o función. En este último caso, en tiempo de ejecución, el tiempo estimado deberá recalcularse ante cada unidad de cambio en la actividad. Los formularios heredarán el valor establecido en la actividad, para dicha propiedad. El tiempo de realización efectivo indicará el intervalo de tiempo durante el 
+ cual un usuario mantiene el foco en el formulario correspondiente a la Actividad, desde que inicia la ejecución de la misma hasta su finalización. El tiempo comenzará a contar desde la primera unidad de cambio hasta la confirmación de la actividad para la mayoría de las actividades. En las actividades que involucren varias instancias de entidades, el tiempo que se guardará será el de edición de cada instancia en forma individual, desde la primera unidad de cambio hasta el momento en el cual se finaliza. Al cambiar de instancia o cambiar el foco fuera de la instancia en edición, implícitamente se confirmará la misma. 
+ A diferencia de las demás categorías, las actividades de categoría vista de información no contarán con la posibilidad de configurar un tiempo esperado de realización. 
+ ✓ 
+ Tipo de Actividad: una actividad podrá ser interactiva y/o automática. El tipo de actividad se indicará mediante una tilde en esta sección. Al habilitar cada una de estas opciones, se visualizará una solapa con la configuración correspondiente. En el tooltip de cada tipo de actividad aparecerán las siguientes definiciones: 
+ o 
+ Actividad interactiva mediante formularios/vista de GDI: se utilizará para generar los formularios o vista que permitirán la interacción de la actividad con el usuario. La generación de los formularios se hará en base a la categoría de la actividad y deberá ser compatible con las configuraciones de las entidades asociadas a la Actividad en el Diccionario de Datos. Una Actividad interactiva mediante vista de GDI deberá tener asociada una vista (previamente configurada en el GDI). Las distintas opciones estarán disponibles de acuerdo a la categoría seleccionada. Inicialmente, la opción seleccionada será “Interactiva mediante formularios”. En el caso de que la categoría sea vista de infórmación, la ópción será: “Interactiva mediante vista de GDI” de forma predeterminada. 
+ o 
+ Actividad automática mediante tarea programada: posibilitará la ejecución de actividades que no requieran interacción con el usuario, permitiendo configurar los instantes de tiempo en los cuales se ejecutará y los parámetros necesarios para la realización de dichas actividades. Al seleccionar esta opción, quedará disponible la sólapa “Tarea prógramada” y un botón para acceder al Programador de Tareas. Esto se explica en detalle en la (<>)sección 5.2.7 de este documento. 
+ o 
+ Actividad automática mediante la provisión de Web Service: posibilitará la ejecución de actividades que no requieran interacción con el usuario, permitiendo configurar los parámetros necesarios para la realización de dichas actividades. Al seleccionar esta ópción, quedará dispónible la sólapa “Servicio web”. 
+ ✓ 
+ Mantener formulario abierto al confirmar instancia: Booleano. Esta propiedad aplica solo en casos en que se esté creando un formulario dentro de una actividad de única instancia y se heredará a cada uno de ellos. En caso de activarla, al confirmar una instancia, no se cerrará la actividad, sino que se reiniciará la actividad con una nueva instancia en blanco. 
+ El sistema la propondrá como activa solo en aquellos casos en los que además de ser de una actividad de única instancia, la misma aplique sobre una entidad de tipo transaccional. 
+ Si luego de definir una actividad, el usuario cambia la entidad asociada, el editor presentará una advertencia indicando que algunas configuraciones se perderán, y dará la opción de continuar con el cambio o no realizarlo. 
+ ✓ 
+ Adjuntos: Se podrán cargar archivos como fotos o videos para guiar al usuario en el uso y comportamiento de la actividad definida. 
+ En el ambiente de producción únicamente se podrán descargar los archivos ya que esta sección aparecerá en solo lectura. 
+ 

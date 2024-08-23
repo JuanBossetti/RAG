@@ -1,0 +1,32 @@
+3 Administración de objetos 
+ Los objetos podrán ser: 
+ ✓ 
+ Unidades organizacionales de sitios 
+ ✓ 
+ Grupos de sitios 
+ ✓ 
+ Sitios 
+ ✓ 
+ Unidades organizacionales 
+ ✓ 
+ Grupos de usuarios 
+ ✓ 
+ Usuarios 
+ ✓ 
+ Dispositivos 
+ El dominio contendrá los objetos. Cada objeto pertenece a un sólo dominio (que será su dominio local). 
+ Las OU sirven para organizar los objetos. Una OU puede contener usuarios, grupos de usuarios, dispositivos y otras OU. Cada uno de estos objetos podrá pertenecer a una sola OU. 
+ Lo mismo ocurre para la OU de sitios con los sitios y grupos de sitios. 
+ En lo que respecta a los grupos, un grupo de usuarios (o de sitios) puede contener varios usuarios (o sitios) y grupos de usuarios (o de sitios), y a su vez, un usuario (o sitio) puede estar en varios grupos. 
+ Un usuario o grupo de usuarios podrá tener los siguientes privilegios sobre una acción: 
+ ✓ 
+ Permiso: indica que una acción podrá realizarse. 
+ ✓ 
+ Permiso no definido: indica aquellas acciones de las cuales no se especifica si se podrán realizar o no. 
+ ✓ 
+ Denegación: indica que una acción no podrá realizarse. 
+ Las denegaciones siempre tendrán prioridad frente a los permisos y a los permisos no definidos. Si un permiso no está definido, la acción no podrá realizarse, a menos que el objeto herede dicho permiso de algún grupo que lo contiene. 
+ Si un usuario no tiene permiso sobre un componente, el mismo no podrá ser visualizado por dicho usuario. Adicionalmente, si un usuario no tiene permiso o tiene denegada una acción (ya sea heredada de un grupo o definida en forma particular), no podrá visualizarla en ningún lugar donde esté definida. 
+ La creación de un nuevo objeto podrá hacerse directamente en el dominio, desde el panel de navegación, dentro de la sección ‘Dominio’, haciendo clic alternativo e indicando el nuevo objeto. 
+ 4 Esta funcionalidad se describirá en detalle para incorporar en el Release 2 de la aplicación. 
+ 

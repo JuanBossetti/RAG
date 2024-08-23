@@ -1,0 +1,20 @@
+Ejemplo: 
+ {"Origen": "", "Nombre": "", "Acción condicional": "", "Condición": "", "Acción": "", "Valor":, "Expresión": "", "Detalle": [] } 
+ La estructura JSON dentro del detalle es igual siempre sin importar de donde proviene el dato, sin embargo, existen 2 estructuras distintas: 
+ • 
+ La primera es la estructura por defecto, en la que se visualizan los ítems de la expresión y sus valores. 
+ Ejemplo: 
+ "Detalle": [ 
+ {"Ítem": "", "Valor": }, {"Ítem": "", "Valor": }, {"Ítem":, "Valor": } ] 
+ • 
+ La segunda estructura se da en los casos que, dentro del detalle, existe un ítem que proviene de otra expresión, en ese caso, además del ítem y del valor, también se visualizara la expresión de donde proviene ese ítem y el detalle desglosando la nueva expresión: 
+ Ejemplo: 
+ {"Ítem": "", 
+ "Valor": , 
+ "Expresión": "", 
+ "Detalle": [{ 
+ "Ítem": "", 
+ "Valor": }, 
+ {"Ítem": "", 
+ "Valor": } ] 
+ 

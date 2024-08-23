@@ -1,0 +1,13 @@
+Inicialización de acumuladores 
+ Esta característica permite inicializar de manera forzada los acumuladores a través del menú contextual en cualquier ambiente. Podemos acceder al menú contextual haciendo clic derecho sobre el acumulador y después dirigirnos hacia la opción “Inicializar acumulador”. Al utilizar esta funcionalidad el acumulador seleccionado comenzara a realizar los cálculos que se hayan configurado sobre él de manera automática. 
+ parte del 
+ documento 
+ Es importante aclarar que los usuarios o grupos de usuarios que tengan los permisos necesarios para modificar los acumuladores tendrán la posibilidad de ejecutar esta característica. De lo contrario en el menú contextual esta funcionalidad no estará disponible. Dichos permisos se tendrán que realizar a nivel Entidad, en la solapa seguridad de Modelado que se detalla en la siguiente dentro de la agrupación Administración de Acumulador el grupo de usuario o usuario deberá tener permiso de Actualizar. 
+ (1) 
+ Inicialización ante la creación de un nuevo acumulador o un nuevo atributo de tipo expresión a un acumulador prexistente. 
+ En este caso, como no existe información histórica almacenada del aporte que hizo cada instancia al atributo agregado, se debe ejecutar la expresión para cada una de las instancias prexistentes, completando a su vez, el valor histórico de aporte al acumulador con el objetivo de que, si se modifica o revierte una instancia, se tiene el aporte previo que se realizó al acumulador. 
+ (2) 
+ Inicialización de un acumulador mediante comando existente. En este caso como se tiene información histórica del aporte realizado por cada instancia al acumulador, en este caso no se deben recalcular las expresiones por cada instancia, sino que se debe recalcular utilizando la información histórica del aporte realizado por cada instancia. 
+ (3) 
+ Inicialización de atributos de tipo expresión. En cualquier momento un usuario puede indicar que se reinicialicen los atributos de tipo expresión, en este caso se debe evaluar la expresión nuevamente sobre cada una de las instancias para poder actualizar el valor para cada una de ellas, comportamiento análogo al mencionado en punto (1) 
+ 

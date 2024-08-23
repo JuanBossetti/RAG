@@ -1,0 +1,13 @@
+Simple 
+ A continuación, se presenta el caso de que el atributo seleccionado sea de categoría simple basado en un tipo numérico: 
+ Otro ejemplo basado en tipo fecha: 
+ A continuación, un ejemplo de un atributo de tipo texto: 
+ Idioma de los datos 
+ Si el atributo está asociado a un tipo de atributo texto, texto enriquecido o texto multimedia, que tiene activa la propiedad “Permite valores internacionalizables”, entonces en el atributo se podrá configurar el idioma en el cual se muestran sus valores. Esto se indicará mediante la propiedad “idioma de los datos” en el atributo. 
+ La propiedad es un combo de selección única en donde se podrá seleccionar el idioma del “usuario autenticado”, “otro idioma” o “expresión”. 
+ De manera predeterminada, será el idioma del usuario autenticado. 
+ En el caso de que se seleccione “otro idioma” se activará un combo de selección única para elegir cualquiera de los idiomas disponibles de los datos definidos en el Modelo. 
+ En caso de que se seleccione “expresión”, se activará un campo para ingresar una expresión que sólo puede devolver un idioma como máximo. En el caso de que no devuelva ningún idioma, la acción dará error y no se podrá confirmar la operación en la instancia que disparó dicha acción. 
+ Estándares UI
+ Tal como se detalla en , si en la aplicación, un usuario ve un atributo en otro idioma distinto del idioma en el cual está autenticado, entonces se presentará un icono distintivo para poder diferenciarlo: 
+ 

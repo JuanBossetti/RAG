@@ -1,0 +1,15 @@
+Ejemplo: 
+ Se desea completar con una colección que proviene de un WS con la siguiente estructura: 
+ Listas de precios 
+ Código 
+ Versión 
+ Nombre 
+ Código moneda 
+ La entidad Fast que tiene la siguiente estructura (y del lado derecho se indica como deberá completarse la definición de valores 
+ Nombre (Texto) 
+ Lista de precios.Nombre 
+ Moneda (Referencia a entidad Moneda) 
+ CONSULTAR(Moneda,código,Lista de precios.Código moneda) 
+ Donde moneda es otra entidad Fast que posee un atributo código. 
+ Al realizar la función/ operador consultar, el sistema deberá conservar el id de la instancia que se está intentando completar y de esta manera el algoritmo no debería realizar el producto cartesiano, sino que solo debería completar el atributo referencia a moneda. 
+ 

@@ -1,0 +1,3 @@
+Entidad Principal() 
+ Devuelve una referencia a la entidad principal de una actividad. Se usa poder filtrar en los logs para la vista previa por la referencia a la entidad y el id de la instancia. 
+ 

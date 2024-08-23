@@ -1,0 +1,13 @@
+3) DESDE UN ATRIBUTO DE UNA COLECCIÓN DE SEGUNDO NIVEL 
+ por ejemplo: Descripción, Porcentaje, Importe de la colección Descuentos del ítem (aplica el mismo criterio para otras colecciones de otros niveles) 
+ Puedo hacer referencia a la instancia completa con "Esta instancia". 
+ Puedo hacer referencia al valor de cualquier atributo de cabecera con "Esta instancia.NombreDelAtributo". Por ejemplo “Esta instancia.Cliente”. 
+ Puedo hacer referencia al ítem completo que la contiene con “ítem padre”. 
+ Puedo hacer referencia al valor de cualquier atributo del ítem que la contiene con “ítem padre.NombreDelAtributo”. Por ejemplo “ítem padre.Producto”. 
+ Puedo hacer referencia al valor de cualquier otro atributo de la misma colección, simplemente por su nombre. Por ejemplo “Porcentaje”. 
+ NO puedo hacer referencia directa al valor de ningún atributo de otra colección (en este ejemplo, “Descuentos del comprobante”). 
+ Puedo hacer búsquedas (en... primer, en...sumar, etc) sobre cualquier colección: 
+ en .Esta instancia.Items de la factura CONTAR ... 
+ en .Esta instancia.Items de la factura.Descuentos del ítem SUMAR ... (recorre todos los descuentos de todos los ítems) 
+ en .ítem padre.Descuentos del ítem SUMAR ... (recorre todos los descuentos del ítem actual) en .Esta instancia.Descuentos del comprobante PRIMER ... 
+ 

@@ -1,0 +1,57 @@
+Datos generales: 
+ • 
+ Nombre: nombre de la transformación. El mismo deberá ser único para esa entidad y para el idioma en el que se está modelando. Además, deberá ser pasible de internacionalización. En caso de que al realizar la traducción automática, en algún idioma el nombre de la transformación se repita, el sistema deberá buscar un sinónimo de dicho nombre para el idioma en conflicto. Este atributo será obligatorio. 
+ • 
+ Descripción: texto breve donde se detalla la acción. El mismo deberá ser pasible de internacionalización. 
+ • 
+ Tipo de contexto: Esta propiedad permite indicar si se transforman instancias completas o los ítems de colección de una instancia. 
+ Las propiedades de la transformación y las expresiones que se definan en ellas dependerán de este contexto. 
+ Si se desea que la transformación sea para una instancia completa se debe elegir la opción de contexto “Entidad”. 
+ Si se desea que la transformación sea sobre ítems de colección de una instancia se debe elegir la opción “Colección”, en este caso se visualizara el siguiente campo: 
+ ▪ 
+ Colección de contexto: contendrá la colección de la entidad donde se define la transformación. 
+ • 
+ Tipo de transformación: indica si la instancia se transformará en su totalidad o en forma parcial. 
+ Valores posibles: 
+ o 
+ “Total”: la instancia se transformará en su totalidad. 
+ o 
+ “Parcial”: valor por defecto, se permitirá realizar en una transformación parcial. Datos asociados a la transformación parcial: 
+ • 
+ Atributo principal: dato obligatorio que representa el atributo de la entidad origen sobre el cual se harán los controles que determinarán cuáles instancias se transformaron y cuáles no. 
+ • 
+ Tolerancia positiva: Indica si en la ejecución de la transformación se definirá un valor de tolerancia para transformar más unidades de las pendientes de transformar. En caso de seleccionar esta opción se visualizarán los siguientes campos: 
+ • 
+ Tipo de tolerancia positiva: se debe especificar si la tolerancia será “Porcentual”, y “Absoluta”. 
+ • 
+ Valor de tolerancia positiva: es el valor absoluto o porcentual máximo que se permite exceder al valor total a transformar (sin tener en cuenta las transformaciones ya realizadas). Por ejemplo, si de un total de 10 botellas, ya se transformaron 6 y quedan 4 botellas pendientes de transformar pero las botellas vienen en packs de 6 unidades, se define una tolerancia porcentual del 20%, se permitirá al usuario transformar las 4 botellas pendientes y agregarle 2 más (20% de 10 = 2). Si para el mismo ejemplo, la tolerancia fuera 10%, sólo se podrá transformar 1 botella más porque la tolerancia debe cumplirse completamente. Por lo tanto, en este ejemplo convendría que la tolerancia fuese de 2 unidades. En este atributo se podrá ingresar un valor numérico o una expresión que retorne un valor numérico. 
+ • 
+ Tolerancia negativa: indica si el valor del pendiente de transformar podrá ser menor a 0. Por ejemplo, en una transformación de Pago a Orden de Pago donde se transforma por el atributo importe, un Pago con importe -1000 pesos podrá quedar como pendiente de transformar por -1000. 
+ Es importante aclarar que, al activar esta propiedad, no se podrán definir tolerancias en la transformación y además dejarán de realizarse las validaciones correspondientes para que el pendiente de transformar no pueda quedar negativo, es decir, que en este caso cualquier validación que se requiera contemplar deberá hacerse por modelado. 
+ En caso de seleccionar esta opción se visualizarán los siguientes campos: 
+ • 
+ Tipo de tolerancia negativa: se debe especificar si la tolerancia será “Porcentual”, y “Absoluta”. 
+ • 
+ Valor de tolerancia negativa: es el valor absoluto o porcentual que, cuando lo pendiente de transformar sea menor de dicho valor (sin tener en cuenta las transformaciones ya realizadas), se podrá cancelar el resto. Por ejemplo, si hay pendiente de transformar 6,5 kilos de queso y hay una tolerancia absoluta de 1 kilo, se permitirá al usuario transformar 6 kilos y el resto (0,5 kilos) entrará en tolerancia por lo tanto se deberá cancelar de manera manual o automática. En este atributo se podrá ingresar un valor numérico o una expresión que retorne un valor numérico. 
+ • 
+ Tipo de cancelación de tolerancia negativa: indica si la cancelación de valores pendientes de cancelar, se realizará de forma manual o automática. Es decir, si se requerirá interacción del usuario para 
+ confirmar el cierre de las instancias pendientes de transformación o si sólo se deberá informar acerca de tal situación. Cuando lo pendiente entra en tolerancia, y la cancelación es manual, le advierte al usuario de la situación y el usuario tendrá la opción de cancelarlo en ese momento. 
+ Si la actividad de la entidad destino donde se cancela la transformación no se encuentra en la actividad actual, se transforma 
+ por detrás sin mostrar al usuario el destino donde se transformó, pero puede a través del log de transformaciones ver lo que se transformó. 
+ Si la actividad de la entidad donde se cancela la transformación sí se encuentra en la actividad actual, se muestra la cantidad a transformar en el formulario principal de la transformación y en el correspondiente de la entidad destino. 
+ En el destino por tolerancia, el usuario no puede editar los valores de la instancia. 
+ La tolerancia comienza a evaluarse en el momento en que se quiere transformar por primera vez (luego de que se da de alta la instancia origen de la transformación). Es decir, si se ingresa una cantidad en una instancia que se encuentra en el rango de tolerancia, está no se evalúa para cancelar, sino que queda pendiente de transformar por ser la primera instancia. Por ejemplo, si la tolerancia absoluta es 1 kg, y la cancelación es automática, la instancia quedará pendiente de transformar, no se cancelará automáticamente hasta después de que se haya transformado por primera vez. 
+ Al seleccionar la opción “Automático” se visualizará el siguiente campo: 
+ ▪ 
+ Entidad destino de cancelación automática 
+ Es importante aclarar, que una vez confirmada la transformación y creada la entidad de Log correspondiente, el valor de este campo no podrá editarse. 
+ • 
+ Transformar instancias previas: Indica si las instancias que cumplen con la condición y fueron generadas anteriormente a la creación de esta transformación, se consideran pendientes para transformar 
+ • 
+ Permite pendiente de transformar negativo: Al activar esta propiedad, se podrán transformar valores negativos, es decir, el valor de la cantidad pendiente de transformar puede ser menor a 0. En caso de estar activa esta propiedad, no se podrán configurar tolerancias ni cancelaciones en la transformación. 
+ Además, es importante aclarar que si la transformación permite valores negativos, dejan de contemplarse las validaciones con respecto a que no pueda transformarse más o menos de lo pendiente de transformar. 
+ • 
+ Condición: Condición que deben cumplir las instancias origen para ser incluidas en la transformación 
+ • 
+ Documentación: Información detallada acerca del elemento. Se mostrará como documentación asociada a la ayuda emergente del elemento. 
+ 

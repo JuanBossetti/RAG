@@ -1,0 +1,30 @@
+4.12 Registro de sesión de usuario 
+ El Registro de sesión de usuario se encarga de almacenar todos los datos relacionados al inicio y cierre de sesión de los usuarios. Se registra el cierre de sesión manual, por inactividad o por cambio de autenticación a un nuevo dispositivo o una nueva JVM. 
+ Cada vez que un usuario inicia una sesión se crea una instancia en esta entidad almacenando los datos sobre la duración de la sesión, dispositivo donde se llevó a cabo, JVM donde se mantuvo la sesión y datos relacionados al modelo donde se realizó la sesión, dicha instancia actualizará cuando finalice la sesión del usuario para indicar la fecha y hora del cierre de sesión. 
+ En este log se almacena la información en los siguientes campos: 
+ • 
+ Usuario: Usuario autenticado en la aplicación. 
+ • 
+ Sitio: Sitio del dominio en el que inició sesión el usuario. 
+ • 
+ Dispositivo: Dispositivo donde inicio sesión el usuario. 
+ • 
+ Inicio de sesión: Fecha y hora en la cual inició sesión el usuario. 
+ • 
+ Cierre de sesión: Fecha y hora en la cual finalizó sesión el usuario. 
+ • 
+ Duración: Periodo de tiempo que duró activa la sesión del usuario. 
+ • 
+ Modelo: Modelo del dominio donde se llevó a cabo la sesión. 
+ • 
+ Ambiente: Ambiente en el cual se inició la sesión. 
+ • 
+ Versión: Versión del modelo de aplicación iniciada. 
+ • 
+ Build: Build de modelo de aplicación iniciado. 
+ • 
+ JVM: Identificador de la JVM donde se autenticó el usuario. 
+ • 
+ Número de build: Identificador del número de compilación con el cual se realizó la sesión. 
+ Por ejemplo, cuando un usuario inicia sesión normalmente el evento solo se almacenará en el dominio particular. Pero en el caso que se detecten múltiples intentos de inicio de sesión fallidos, que estén bloqueando las cuentas, se almacena adicionalmente en el log centralizado. 
+ 

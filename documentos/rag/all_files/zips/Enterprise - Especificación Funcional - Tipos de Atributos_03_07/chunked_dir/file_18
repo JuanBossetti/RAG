@@ -1,0 +1,28 @@
+4.1 Editor de Tipos de Atributo 
+ Solo podrán editarse o crearse atributos de la capa de usuario. Podrá crearse un nuevo tipo de atributo ya sea seleccionando la opción correspondiente desde la barra de herramientas, así como desde un menú contextual en el panel de navegación de elementos, de acuerdo a lo definido en el documento de estándares de interfaz de usuario. Además de lo descripto, el menú contextual también permitirá efectuar las operaciones de eliminación, modificación y reemplazo de tipos de atributo, las cuales utilizarán las mismas interfaces de usuario que se presentan a continuación. 
+ Una vez que se seleccione la creación de un nuevo tipo de atributo, se presentará la siguiente pantalla (<>)(Pantalla 1) en el editor: 
+ Pantalla 1 
+ En la misma se deberán ingresar: 
+ • 
+ El nombre del tipo de atributo a crear 
+ • 
+ Categoría del tipo de atributo 
+ Ambos elementos, como se puede observar en la imagen, son de carácter obligatorio. 
+ Se validará que el nombre del tipo de atributo no exista. En caso de existir, no se permitirá la creación. 
+ Al seleccionar una categoría de tipo de atributo, se presentarán los campos y solapas correspondientes para la categoría seleccionada, como se verá a lo largo del documento. 
+ Es importante aclarar que sea cual fuere la categoría del tipo de atributo, dentro de las expresiones del tipo se permitirá usar nombres de Tipos de Atributos y nombres de Atributos. 
+ Cuando un Tipo de Atributo esté asociado a un Atributo de una entidad determinada, los nombres de Tipos de Atributo utilizados en las expresiones dentro del Tipo, en la evaluación de la expresión serán reemplazados por el nombre del Atributo en cuestión. Además es importante aclarar que, si el atributo agregado en la entidad se encuentra por ejemplo dentro de un compuesto, “este” debe ser sustituido por el nombre del compuesto. nombre de atributo, es decir, siempre deberá sustituirse por una ruta válida que deje consistente la expresión. 
+ Para referirse al Nombre del Tipo de Atributo que se está editando dentro de las expresiones, se deberá usar la palabra reservada “Este” (en español). Esta palabra reservada será internacionalizable, por ejemplo, en inglés se usará “This”. 
+ Ejemplos: 
+ • 
+ si se desea que el tipo de atributo “Importe” contenga en una fórmula de validación una restricción que impida que sea menor que 1000, deberá escribirse como “Este < 1000”; al crear un atributo “Precio Total” del tipo de atributo “Importe” la fórmula de validación se configurará como “Precio Total < 1000” en el atributo que se está creando. Esto se debe a que no puede evaluarse la expresión utilizando el nombre del tipo, para poder evaluarse en el sistema generado debe utilizarse el nombre del atributo que contendrá luego el dato. 
+ • 
+ Dentro de un tipo de atributo compuesto llamado Item, se podría ingresar la siguiente validación: Este.Precio * Este.Cantidad > 0 
+ • 
+ Dentro de un tipo de atributo colección llamado Items, que es una colección del compuesto Item del punto anterior, se podría ingresar la siguiente validación: (En Este Sumar Precio * Cantidad Donde Siempre) > 0. 
+ • 
+ En un Tipo de Atributo Referencia a Colección, se podría ingresar una expresión que contenga el nombre del Tipo de Atributo que contiene (ejemplo: Este.Telefono) o el nombre de algún miembro del compuesto que contiene, si es una colección de compuesto (ejemplo: Este.Calle, Este.Numero, Este.Piso). 
+ Además, todas las expresiones, se guardarán en el idioma en el que fueron creadas. Por lo tanto, si un usuario visualiza una expresión ingresada en un idioma distinto al idioma en el que está autenticado, se visualizará con el idioma y dialecto arriba del campo: 
+ Los usuarios que tengan los permisos para modificar la expresión, podrán modificarla en el idioma original o tendrán la opción “reescribir expresión en idioma actual” disponible en el menú contextual, que borrará la definición de la expresión y posibilitará al usuario reescribirla en su idioma, quedando la expresión guardada en dicho idioma. 
+ - 
+ 

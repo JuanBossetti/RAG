@@ -1,0 +1,81 @@
+4.2.2 Solapa “Definición” 
+ Al seleccionar un Secuenciador, en el panel inferior se presentará un conjunto de componentes de RN(<>) (Imagen 13), uno por cada uno de los Criterios de Secuencia correspondientes. 
+ 4.2.2.1 Origen interno 
+ Cuando el Criterio de Secuencia (previamente definido en el Tipo de Atributo) tiene “Origen de Generación” interno, se presentarán las siguientes propiedades: 
+ • 
+ Nombre del Criterio de Secuencia: elemento de sólo lectura. 
+ • 
+ Propiedades: presentará, sólo a título informativo, las propiedades del Criterio de Secuencia excluyendo a la condición de criterio; por lo tanto, todos los elementos contenidos en este separador serán de sólo lectura. Es decir, si el origen es interno, se muestran el origen de generación y el tipo de generación de valores. 
+ • 
+ Configuración avanzada: sólo se presentará si se activó alguna de las opciones en la definición del Criterio de Secuencia que permiten configurar algo en el editor de secuenciadores. De estar presente, este separador contendrá las siguientes propiedades: 
+ o 
+ Incremento (sólo si en el tipo de atributo secuencia se permite): permitirá especificar una expresión para determinar el próximo valor de la secuencia, para la partición que se está definiendo. De forma predeterminada será 1. Será válido definir números enteros positivos (mayores o iguales a 1). Si el secuenciador se genera de manera descendente, la expresión de incremento se aplica de manera descendente. 
+ o 
+ Modalidad (sólo si en el tipo de atributo secuencia se permite): permitirá especificar la modalidad de operación. Los valores posibles serán “Online” y “Offline”. 
+ ▪ 
+ Si se selecciona la opción de modalidad “Offline”, la propiedad “Ubicación de secuenciador” permitirá especificar la ubicación del secuenciador. Las opciones posibles serán “Terminal de conexión”, “Servidor de conexión”, y “Host central”. 
+ o 
+ Condición de secuenciador (sólo si en el tipo de atributo secuencia se permite): permitirá especificar una condición adicional, la cual se sumará a la definida para el Criterio de Secuencia. Dato requerido. Si al ejecutar la secuencia, no se cumplen ninguna condición, dará un error. Si al ejecutar la secuencia, se cumple más de una condición, se tomará como válida sólo la primera condición que se cumpla. 
+ ▪ 
+ Criterio de generación: permitirá especificar el criterio de generación a aplicar. Los valores posibles serán “Simple”, “Agrupado por expresiones”, “Agrupado por condiciones” y “Reserva de bloques”. Cada criterio de generación tendrá un conjunto de propiedades particulares y estarán disponibles sólo si en el tipo de atributo secuencia se permite. 
+ ▪ 
+ Si se selecciona como criterio de generación a la opción “Simple”, se presentará una pantalla tal como la que se muestra en la (<>)Imagen 13: 
+ • 
+ • 
+ ▪ 
+ 14I
+ Si se selecciona como criterio de generación a la opción “Agrupado por expresiones”, se presentará una pantalla tal como la que se muestra en la (<>)Imagen (<>)magen 13, la cual contiene una grilla con las siguientes propiedades: 
+ • 
+ Expresión: expresión de agrupamiento. El resultado de esta expresión debe ser un texto no internacionalizable. Si al ejecutar la secuencia, se cumplen ninguna o más de una expresión, dará un error. 
+ • 
+ una grilla con los valores de la secuencia para cada uno de los resultados de la expresión, si esta pudiera evaluarse. 
+ • 
+ valor actual de la secuencia, si existiera, por cada uno de los resultados de la expresión. 
+ Imagen 14 
+ ▪ 
+ 14I
+ Si se selecciona como criterio de generación a la opción “Agrupado por condiciones”, se presentará una pantalla tal como la que se muestra en la (<>)Imagen (<>)magen 13, la cual contiene una grilla con las siguientes propiedades: 
+ • 
+ Condición: permitirá especificar cada una de las condiciones de agrupamiento. Dato requerido. Si al ejecutar la secuencia, no se cumple ninguna condición, dará un error. Si al ejecutar la secuencia, se cumple más de una condición, se tomará como válida sólo la primera condición que se cumpla. 
+ • 
+ Valor actual: presentará el valor actual de la secuencia, si existiera, para cada una de las condiciones. 
+ Imagen 15 
+ ▪ 
+ Imagen 16I
+ Si se selecciona como criterio de generación a la opción “Reserva de bloques” se presentará una pantalla tal como la que se muestra en la (<>)magen 13, la cual tendrá las siguientes columnas: 
+ • 
+ Condición: permitirá especificar cada una de las condiciones de reserva. Dato requerido. Si al ejecutar la secuencia, no se cumple ninguna condición, dará un error. Si al ejecutar la secuencia, se cumple más de una condición, se tomará como válida sólo la primera condición que se cumpla. 
+ • 
+ Límite inferior: permitirá especificar el límite inferior del o los bloques que se estén definiendo. Aplica a todas las particiones. 
+ • 
+ Límite superior: permitirá especificar el límite superior del o los bloques que se estén definiendo. Aplica a todas las particiones. 
+ • 
+ Valor actual: presentará el valor actual de la secuencia, si existiera, para cada una de las condiciones. 
+ Imagen 16 
+ Imagen 13 
+ La imagen anterior y las imágenes siguientes corresponden a un secuenciador asociado a un tipo de atributo con todas las definiciones habilitadas (incremento, disponibilidad y criterios de generación) 
+ Los bloques no podrán superponerse. 
+ Es importante aclarar que el orden de consumo de bloques es el mismo orden en que se llenó la grilla, sin importar si al ordenarlos de manera ascendente o descendente, el orden cambia. Por ejemplo: para un secuenciador con una partición ordenada de manera descendente que posee los bloques: 
+ Se numerará primero por el bloque 1: desde el 200 hasta el 001 y luego el bloque 2: desde el 800 hasta el 401. 
+ Otra aclaración importante es que si dentro de todos los valores de un bloque, por algún motivo se saltea algún valor, no se volverá a evaluar la utilización del mismo. Para el mismo ejemplo anterior, si la expresión de incremento es +2, luego de consumir el bloque 1: 200-198-196..002, empezará a consumir el bloque 2, quedando los números 199-197-etc.. del bloque 1 sin utilizarse. 
+ 4.2.2.2 Origen externo 
+ Cuando el Criterio de Secuencia (previamente definido en el Tipo de Atributo) tiene “Origen de Generación” externo, se presentarán las siguientes propiedades: 
+ • 
+ Nombre del Criterio de Secuencia: igual que en el origen interno. 
+ • 
+ Propiedades: presentará, sólo a título informativo, las propiedades del Criterio de Secuencia excluyendo a la condición de criterio; por lo tanto, todos los elementos contenidos en este 
+ separador serán de sólo lectura. Es decir, si el origen es externo, se muestran el origen de generación y el dispositivo utilizado. 
+ • 
+ Configuración avanzada (sólo si en el tipo de atributo secuencia se permite): 
+ o 
+ Condición de secuenciador: permitirá especificar una condición adicional, la cual se sumará a la definida para el Criterio de Secuencia. Dato requerido. Inicialmente será “siempre”. Si al ejecutar la secuencia, no se cumple ninguna condición, se tomarán como referencia las expresiones definidas en cada parámetro dentro del Modelo de Dispositivo. Si al ejecutar la secuencia, se cumple más de una condición, se tomará como válida sólo la primera condición que se cumpla. 
+ ▪ 
+ Modelos de dispositivos: en cada condición se podrá elegir uno o varios modelos de dispositivos que serán los drivers de los dispositivos que se utilizarán en el secuenciador. Por cada uno de estos modelos se debe definir: 
+ • 
+ Acción: el usuario seleccionará qué acción será la que se ejecute cuando se necesite obtener el próximo valor de la secuencia. 
+ o 
+ Comandos: luego de elegir la acción, se presentarán en pantalla todos los comandos que contiene la acción en el orden en el cual se ejecutan, y por cada comando los parámetros de entrada y de salida. 
+ ▪ 
+ Grilla de parámetros (entrada y salida): es una lista de los parámetros necesarios para establecer la comunicación con el dispositivo; por cada parámetro de entrada, una expresión cuyo resultado se manda al dispositivo y por cada parámetro de salida, un texto que contiene un atributo de la entidad donde se guarda el valor que retorna el dispositivo. Los comandos, su orden de ejecución y los parámetros serán de sólo lectura para los usuarios. Las expresiones se heredan del Modelo de Dispositivo, pudiendo redefinirse, los atributos a los que se asigna el valor obtenido también se heredan de los textos definidos en el Modelo de Dispositivo y son opcionales. 
+ Las expresiones de los parámetros para comunicarse con el dispositivo pueden incluir: la categoría de IVA, si los comprobantes que imprime son anulables o no, si el dispositivo es concomitante o no, si es concomitante: cada cuanto se imprime, etc. 
+ 

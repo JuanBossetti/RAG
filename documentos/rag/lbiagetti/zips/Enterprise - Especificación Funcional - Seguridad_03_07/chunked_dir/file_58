@@ -1,0 +1,88 @@
+Instancias de elemento 
+ o 
+ Instancia 1 
+ ▪ 
+ Ambiente: Desarrollo 
+ • 
+ Todas las instancias 
+ o 
+ Crear 
+ o 
+ Consultar 
+ o 
+ Modificar 
+ o 
+ Eliminar 
+ o 
+ Restaurar 
+ o 
+ Traducir 
+ o 
+ Administrar permisos 
+ • 
+ Condición 1 
+ o 
+ Crear 
+ o 
+ Consultar 
+ o 
+ Modificar 
+ o 
+ Eliminar 
+ o 
+ Restaurar 
+ o 
+ Traducir 
+ o 
+ Administrar permisos 
+ • 
+ Condición n 
+ o 
+ Crear 
+ o 
+ Consultar 
+ o 
+ Modificar 
+ o 
+ Eliminar 
+ o 
+ Restaurar 
+ o 
+ Traducir 
+ o 
+ Administrar permisos 
+ ▪ 
+ Ambiente: Testing (ídem a “Desarrollo”) 
+ ▪ 
+ Ambiente: Producción (ídem a “Desarrollo”) 
+ o 
+ Instancia 2 (ídem a “Instancia 1”) 
+ o 
+ Instancia n (ídem a “Instancia 1”) 
+ Los apartados que no incluyan elementos del modelo, no tendrán instancias; por lo tanto, la ACL se mostrará de la siguiente manera: 
+ ✓ 
+ Sección: 
+ o 
+ Acción 1 
+ o 
+ Acción 2 
+ o 
+ Acción n 
+ Por ejemplo: 
+ ✓ 
+ Supervisión: 
+ o 
+ Permisos para tomar sesión 
+ o 
+ Invitar a toma de sesión 
+ o 
+ Monitorizar 
+ o 
+ Iniciar coaching 
+ o 
+ Permisos para que le tomen sesión 
+ o 
+ Permisos para que lo monitoricen 
+ o 
+ Administrar permisos. 
+ 

@@ -1,0 +1,61 @@
+4.5 Registro de tareas programadas 
+ Incluye el detalle de todas las tareas programadas que se ejecutaron en el sistema. Se guardan todas las ejecuciones de las Tareas programadas con todas las propiedades necesarias para registrar la información completa acerca de ellas. Todas las acciones ejecutadas. Valores de los parámetros interactivos (En caso de que la expresión de filtro de la tarea programada tenga funciones con parámetros interactivos o bien que lo ejecutado tenga expresiones de filtro que involucren funciones interactivas, como ser un GDI o una tarea de integración) 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de éste son: 
+ • 
+ Tarea programada: Indica la tarea programada que generó el registro. 
+ • 
+ Acción: Acción de la tarea programada que generó el registro. Dentro de las acciones tenemos: 
+ o 
+ Tipo: Tipo de acción a realizar. Algunos valores son: 
+ ▪ 
+ Regla de negocio 
+ ▪ 
+ Publicar versión 
+ ▪ 
+ Copiado de instancias 
+ ▪ 
+ Tarea de integración 
+ ▪ 
+ Plan de integración 
+ ▪ 
+ Envío de correo electrónico 
+ ▪ 
+ Reemplazo global 
+ ▪ 
+ Plan de pruebas 
+ ▪ 
+ Inicializar acumulador 
+ o 
+ Información completa de la acción 
+ • 
+ Inicio: Fecha y hora del inicio de la tarea programada. 
+ • 
+ Fin: Fecha y hora de fin de ejecución de la tarea programada 
+ • 
+ Duración: Duración total en la ejecución de una acción de tarea programada. 
+ • 
+ Número de ejecución: Indica el número de ejecución de la tarea programada. 
+ • 
+ Nivel de detalle: Indica si es informativo, advertencia, error o evento crítico. 
+ • 
+ Evento: Evento de la tarea programada que generó el registro. 
+ • 
+ Origen de ejecución: Indica si la tarea se ejecutó de manera programada o manualmente por un usuario. 
+ • 
+ Permiso de ejecución: Indica el grupo de usuarios con cuyos permisos se ejecutaron las acciones realizadas por la tarea. 
+ • 
+ Usuario ejecutor: Si la ejecución fue manual, indica el usuario que ejecutó la tarea. 
+ • 
+ Instancias procesadas: Número de instancias total, procesadas al ejecutar la tarea programada, es decir, el total de instancias evaluadas al ejecutar la tarea programada independientemente de si se confirmó la ejecución de la regla de negocios sobre ellas o no. 
+ • 
+ Instancias correctas: Número de instancias procesadas correctamente al ejecutar la regla de negocio mediante tarea programada. 
+ • 
+ Instancias con error: Número de instancias procesadas sobre las cuales se ejecutó la tarea programada, pero al evaluar la regla de negocio no se logró confirmar la ejecución debido a algún error subyacente, por ejemplo, falló una validación, faltó completar un atributo requerido, etc. 
+ • 
+ Instancias sin cambios: Número de instancias procesadas sobre las cuales se ejecutó la tarea programada, pero al evaluar la regla de negocio fueron ignoradas, por ejemplo, debido a que para dicha instancia no se cumple la condición de ejecución de la regla de negocio, no había ningún valor a asignar, etc. 
+ Ejemplo: 
+ Al programar la ejecución automática de una tarea que diariamente envíe un archivo con la información del avance de tareas (Daily), cada vez que se ejecutan las reglas de negocio se guarda un registro al iniciar y al finalizar la ejecución. 
+ Otro ejemplo puede ser una tarea programada que importe los clientes de otro sistema (podría ser una página web). En este caso se guarda también al iniciar y finalizar el proceso de importación, ya sea con una finalización exitosa o con fallo permanente. 
+ 

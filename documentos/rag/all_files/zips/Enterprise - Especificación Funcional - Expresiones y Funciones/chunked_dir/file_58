@@ -1,0 +1,13 @@
+3.10 Funciones interactivas. 
+ Denominamos Función interactiva a aquella Función de usuario que tiene configurado al menos un parámetro interactivo. 
+ A continuación, indicaremos cómo utilizar los parámetros interactivos. Recreemos el siguiente ejemplo: tenemos un GDI con las facturas de los clientes y queremos ver, en forma dinámica, las facturas hechas en un rango particular y para un cliente particular. 
+ Si nos dirigimos al filtro del GDI, observamos que esto se logra con una función, la cual recibe tres parámetros interactivos. Estos son el cliente, la fecha desde y la fecha hasta del rango. 
+ Puesto que los filtros esperan un valor lógico, esa es la respuesta de la función. Como notamos, a los parámetros interactivos podemos definirles un valor inicial para cuando el usuario no desee cambiarlo, es decir, se utilizará ese mismo cuando se haga uso de la función sin intervención del usuario. Por ejemplo, al ejecutarse una tarea programada con una de integración. 
+ Dejando de lado a qué nos referimos con parámetros interactivos, el resto de la función es la misma. Debemos determinar las condiciones y escribir las expresiones que retornan. En este caso, verifica que el cliente de la factura sea el pasado por parámetro y que la fecha esté en el rango. 
+ Desde el GDI ya creado, vemos cómo FastPrg nos pide directamente que le asignemos valores a los tres parámetros, aunque nos indica, por defecto, que el rango de las fechas es de dos meses, siendo hoy la fecha límite. En caso de desearlo, podemos cambiarlo. 
+ Ahora sí, vale hacer una aclaración: se llaman parámetros interactivos, ya que a medida que los cambiamos, se modifica el filtro. 
+ Si en el mismo GDI tuviésemos otra grilla con el mismo filtro, el valor que seleccionamos será utilizado en ambas grillas. Nos pedirá solo una vez cada parámetro interactivo. 
+ En el caso contrario, es decir, si tenemos distintas funciones interactivas, se solicitará una vez por cada una de ellas, incluso aunque pidan el mismo dato y con el mismo nombre. 
+ Es importante señalar que a los parámetros interactivos podemos utilizarlos en las grillas, en las planificaciones o en las tareas de integración. Si quisiésemos, por ejemplo, hacer una exportación del libro de IVA, solo basta con usar un parámetro que indique el período, sin necesidad de modificar la tarea de integración asociada, constantemente. 
+ En el editor de funciones está la solapa para configurar parámetros interactivos. Estos parámetros cumplen la función de variables dentro de una función al igual que los parámetros de entrada. No se pasan por valor al momento de invocar la función, sino que el sistema los pregunta mediante un panel de ingreso de valores antes de evaluar la misma. 
+ 

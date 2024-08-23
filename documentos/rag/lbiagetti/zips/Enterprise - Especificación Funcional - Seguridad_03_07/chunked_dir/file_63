@@ -1,0 +1,7 @@
+13.1 Buenas prácticas de seguridad 
+ En esta sección se detallan recomendaciones a la hora de configurar la seguridad de un dominio: 
+ ✓ 
+ Dar permisos y denegaciones por grupo. 
+ ✓ 
+ Si se desea usar un grupo de servicios web en una RN y luego copiar la RN en modelos hijos (o vinculados), pero que no se copie información privada del usuario, se debe crear una entidad paramétrica para los parámetros necesarios y poner que no se copie en los hijos esos valores. El caso de uso más común es los ISV con WS que tengan password, donde la instancia contiene cuenta de usuario y password para el WS. Entonces, en el parámetro de WS pueden ponerse expresiones como, “En Paramétrica buscar Contraseña AFIP” o “En Paramétrica buscar CUIT”, teniendo en cuenta que estos valores de la instancia deben ser completados en el modelo nuevo. 
+ 

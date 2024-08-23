@@ -1,0 +1,3 @@
+Versión del modelo de editores() 
+ Devuelve una referencia a la instancia de Versión del Editor que está siendo ejecutada. Utilizando esta referencia se puede llegar a cualquier atributo de la versión del modelo de editores. 
+ 

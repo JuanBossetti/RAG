@@ -1,0 +1,28 @@
+Datos adicionales de imputación: 
+ Adicionalmente a las configuraciones definidas en la imputación, se podrá definir en caso de ser necesario una colección de valores adicionales, para agregar información complementaria a los comprobantes imputados al momento de ejecutar la imputación. Además, por cada valor definido en esta colección se generará en la grilla de instancias a imputar una nueva columna con el retorno del valor dando la posibilidad al usuario de modificarlo. 
+ Para definir estos valores se presentan tres campos: 
+ • 
+ Nombre: Identifica el atributo y será el nombre con el que se generará la columna en la actividad. 
+ • 
+ Tipo de atributo: Tipo de dato de retorno del atributo. 
+ • 
+ Valor inicial: expresión que permite indicar como se completará inicialmente el atributo, el contexto de esta expresión es análogo al contexto origen de la imputación. 
+ Por ejemplo, en una imputación sobre a entidad Movimiento de proveedores se quiere definir un descuento adicional por cada comprobante. 
+ Si se definen Datos adicionales en la imputación se creará automáticamente una entidad transaccional de Información adicional del Registro de imputación, dejando una referencia a la misma en la definición de la imputación en el campo “Información adicional”, dicha entidad tendrá la siguiente estructura: 
+ • 
+ Nombre de la entidad: Información adicional de <Nombre de imputación>, por ejemplo, en una imputación definida con el nombre “Imputación de movimiento de clientes” la entidad complementaria se denominará “Información adicional de Imputación de movimiento de clientes”. 
+ • 
+ Atributos: 
+ o 
+ Referencia al Registro de imputación: siguiendo con el ejemplo anterior, referencia al Registro de Imputación de movimiento de clientes. 
+ o 
+ Un atributo por cada valor definido en la colección de datos adicionales. 
+ • 
+ Estos valores no afectan al algoritmo de imputaciones, es decir, no cambia el cálculo realizado para determinar como se imputa un comprobante. 
+ • 
+ La información almacenada en esta entidad adicional es complementaria al registro de imputaciones como auditoría, por lo cual, es totalmente independiente a la operatoria sobre el log y no se revierte ni se actualiza al desimputar un comprobante. 
+ La finalidad de esta entidad es poder obtener a través de una expresión los valores adicionales ingresados para cada comprobante al momento de imputar, por lo cual, cada vez que se completen valores adicionales cuando se está imputando, se creará una instancia asociada en esta entidad almacenando los datos ingresados por el usuario. Luego, se podrán obtener estos valores, por ejemplo, a través de una Regla de negocios utilizando una expresión del tipo: 
+ “En información adicional de Imputación de movimiento de clientes buscar <nombre del dato adicional>… “. 
+ Adicionalmente, cuando se evalúe una expresión desde la actividad de imputación, que busque datos sobre esta entidad, se obtendrán solo los datos que tiene en edición el usuario en la actividad, para obtener directamente el valor ingresado en el momento por el usuario. 
+ Consideraciones respecto al algoritmo de imputaciones: 
+ 

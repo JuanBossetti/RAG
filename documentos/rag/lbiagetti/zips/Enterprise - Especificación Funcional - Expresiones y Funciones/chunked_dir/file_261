@@ -1,0 +1,4 @@
+Duración a milisegundos (Duración) 
+ Convierte una duración a un número (sin la unidad). El tipo de dato duración, indica un lapso de tiempo en una medida determinada. 
+ La medida puede ser: semanas, días, horas, minutos, segundos o milisegundos. Esta función retorna la cantidad de milisegundos que hay en esa duración. 
+ 

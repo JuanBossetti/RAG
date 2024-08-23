@@ -1,0 +1,3 @@
+Minúscula(Texto) 
+ Pone el texto en minúsculas. Equivalente a LOWER(str) = LCASE(str). 
+ 

@@ -1,0 +1,3 @@
+Sitio() 
+ Devuelve una referencia a la instancia de Sitio en donde el usuario está autenticado. Utilizando esta referencia se puede llegar a cualquier atributo del sitio. 
+ 

@@ -1,0 +1,19 @@
+4.2.1 Solapa “General” 
+ La solapa “General” presentará una grilla en la que se listarán todos los Secuenciadores disponibles (<>)(Imagen 10). Dicha grilla presentará las siguientes columnas: 
+ o 
+ Nombre: nombre del secuenciador. Dato obligatorio. A los Secuenciadores que se crean automáticamente AI les asignará el siguiente nombre: <Entidad> + ' ' + <Atributo>. 
+ o 
+ Tipo de Atributo: Tipo Secuencia en el cual está basado el secuenciador.  Esta columna sólo estará disponible si se accede al Editor de Secuenciadores desde los Editores y no desde la aplicación final. Dato obligatorio. 
+ o 
+ Atributo: nombre del o los atributos (con sus correspondientes entidades) a los que se asignan los valores del secuenciador. Será obligatorio que tenga al menos un atributo. 
+ Valor actual: si la secuencia ya cuenta con valores generados, esta columna mostrará el valor actualmente en uso. Si el secuenciador tiene origen interno y el usuario cuenta con los permisos 
+ correspondientes, podrá modificar el valor actual del secuenciador, siempre y cuando se esté utilizando el editor de Secuenciadores desde el sistema final. 
+ Imagen 10 
+ Estos secuenciadores son generados automáticamente y ningún usuario final podrá crear nuevos ni eliminar los existentes; si podrá juntar 2 o más secuenciadores para compartir valores y luego separarlos. 
+ Para asociar más de un atributo a un Secuenciador, es decir compartir valores de una misma secuencia entre distintos atributos (sección (<>)3.1.8.5), podrá hacerse desde el menú contextual o mediante la funcionalidad de drag and drop (<>)(Imagen 11 e (<>)Imagen 12). Esto sólo será posible si ambos secuenciadores tienen el mismo tipo de atributo. 
+ Cuando el secuenciador interno o externo es compartido por más de una entidad, se deben usar atributos comunes de ambas entidades para las expresiones. 
+ Para separar secuenciadores, deberá acceder al menú contextual del secuenciador que tiene más de un atributo o arrastrarlo a una fila vacía de la grilla. En este caso, se “eliminará” el secuenciador seleccionado y se crearán 2 (o más) secuenciadores nuevos, uno para cada atributo, manteniendo el último valor actual del secuenciador anterior. 
+ Esta funcionalidad sólo estará disponible desde el ambiente de desarrollo (editores). 
+ Imagen 11 
+ Imagen 12 
+ 

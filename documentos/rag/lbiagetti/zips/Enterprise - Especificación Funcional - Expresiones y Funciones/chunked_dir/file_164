@@ -1,0 +1,5 @@
+Ejemplos: 
+ Sumar(Factura.Items de comprobante;Total; Total > 500) 
+ Se traduce automáticamente en: 
+ en Factura.Items de comprobante sumar Total cuando Total > 500 
+ 

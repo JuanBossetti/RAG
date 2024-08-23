@@ -1,0 +1,4 @@
+Ejemplos: 
+ Texto a Base64 (“Bienvenidos”) retorna “QmllbnZlbmlkb3M=” 
+ Texto a Base64 (“Neuralsoft”) retorna “TmV1cmFsc29mdA==” 
+ 

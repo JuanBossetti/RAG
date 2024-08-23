@@ -1,0 +1,6 @@
+Ejemplos: 
+ Duración a minutos ({1 minuto}) devuelve 1. 
+ Duración a minutos ({6 horas}) devuelve 360. 
+ Duración a minutos ({5 días}) devuelve 7200. 
+ Duración a minutos ({1 semanas}) devuelve 10080. 
+ 

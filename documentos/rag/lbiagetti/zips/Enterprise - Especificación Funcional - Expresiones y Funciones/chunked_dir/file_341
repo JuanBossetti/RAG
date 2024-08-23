@@ -1,0 +1,15 @@
+Firmar con certificado(Texto a firmar, Certificado, Clave privada, Algoritmo) 
+ Función utilizada para generar el CMS al momento de intentar autenticarse en un servicio web. Cómo se invoca: Firmar con certificado(Texto;Certificado;Clave;Algoritmo) 
+ Parámetros que recibe: 
+ Parámetro 1 : Texto a firmar 
+ Parámetro 2 : Certificado 
+ Parámetro 3 : Clave privada 
+ Parámetro 4 : Algoritmo de encriptación. Los algoritmos soportados son: 
+ • 
+ Sha1withRsa 
+ • 
+ Sha256With Rsa 
+ • 
+ Sha512WithRsa 
+ Valor de retorno: Texto. Genera el CMS al momento de intentar autenticarse en un web service. 
+ 

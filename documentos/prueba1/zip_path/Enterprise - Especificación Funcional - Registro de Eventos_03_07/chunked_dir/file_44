@@ -1,0 +1,23 @@
+5.2 Cola de impresión 
+ La cola de impresión incluye el detalle todas las impresiones realizadas desde el sistema. En este caso se maneja el mismo mecanismo que para el envío de emails, es decir que se registra tanto el evento de cuando se envía el documento a la cola de impresiones, como cuando se imprime definitivamente o se produce algún error durante la impresión y no se puede ejecutar la misma. El almacenamiento en la cola de impresiones se realiza dentro de la misma transacción del comprobante que generó el documento a imprimir. 
+ El registro de la impresión se persiste cuando se persiste la instancia principal del comprobante. Si se descarta la instancia principal, también se descarta el registro, por lo cual no queda pendiente la impresión del comprobante. 
+ Dentro de los campos que almacena esta cola está el contenido de la información que se envió a imprimir, desde allí es posible descargarlo y reimprimirlo. Además, se puede reimprimir una copia igual a la original desde esta cola. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Dispositivo: Inidica en que impresora se realizó la impresión 
+ • 
+ Contenido: Contiene la información de lo que se envió a imprimir. Guarda el contenido de una impresión, por ejemplo el archivo en formato pdf que arrojó el sistema al momento de imprimir. Se puede descargar y utilizar para hacer una reimpresión, obteniendo una copia igual a la impresión original. 
+ • 
+ Parámetro: Conjunto de parámetros configurados en la impresión, por ejemplo: cantidad de páginas, tamaño del papel, cantidad de copias, entre otros 
+ Ejemplos: 
+ • 
+ El usuario envía a imprimir un GDI: 
+ • 
+ El usuario imprime una Factura. 
+ • 
+ El usuario reimprime una Factura. 
+ • 
+ El usuario imprime una solicitud de nota de venta, pero no se realiza la impresión por falta de papel. 
+ 

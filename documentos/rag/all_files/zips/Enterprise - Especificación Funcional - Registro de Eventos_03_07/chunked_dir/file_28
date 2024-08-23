@@ -1,0 +1,7 @@
+4.10.1 Registro de consumos por web service 
+ Por cada operación de cada servicio de consumo de web service, tarea programada o tarea de integración, el sistema genera automáticamente un log donde quedan registrados todos los datos obtenidos a partir de esa operación. 
+ Se crea una entidad de registro por cada Operación dentro de cada servicio. Este log contiene un atributo por cada ítem de Paramétros de respuesta de la Operación, por lo tanto los atributos de la entidad no son fijos, sino que varían según lo definido en Parámetros de respuesta. 
+ Ejemplo: 
+ Web service: 
+ Registro asociado a la operación Pago: 
+ 

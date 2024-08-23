@@ -1,0 +1,6 @@
+Ejemplos: 
+ Estación de trabajo().Nombre retorna 
+ A transformar(Atributo) 
+ Solamente se usa en la grilla de definición de transformaciones, indica que se tiene en cuenta no el valor del atributo en la instancia origen, si no el valor del atributo que se está transformando. 
+ Además, cuando hay una colección de otra colección (2do nivel o superior): devuelve lo que se quiere transformar de un atributo en el contexto de un ítem (no todo lo pendiente a transformar sino sólo lo de un ítem). 
+ 

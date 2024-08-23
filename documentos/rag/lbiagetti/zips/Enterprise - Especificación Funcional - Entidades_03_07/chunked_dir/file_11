@@ -1,0 +1,13 @@
+1.3 Definición de Atributos de Entidades 
+ Al seleccionar la solapa “Atributos”, se presentará una grilla con la lista de atributos de la entidad y un conjunto de solapas en la mitad inferior de la pantalla, con el detalle de la definición del atributo actualmente seleccionado. Dichas solapas serán: 
+ • 
+ General 
+ • 
+ Validación 
+ • 
+ Historial de versiones 
+ • 
+ Seguridad 
+ • 
+ Documentación 
+ 

@@ -1,0 +1,8 @@
+Actividades predeterminadas 
+ Cuando se crea una entidad, una transformación o una imputación, se crearán automáticamente actividades predeterminadas para poder realizar el alta de instancias, transformaciones o imputaciones mediante formularios. 
+ En el caso de la creación de entidades, las mismas tendrán obligatoriamente una actividad de única instancia asociada. 
+ Al eliminar la entidad/transformación/imputación, se eliminará la actividad correspondiente. Y al restaurar la entidad/transformación/imputación, se restaura dicha actividad. 
+ Si se elimina alguna transformación/imputación y existen instancias pendientes, las actividades se visualizarán en el panel de navegación y se podrán ejecutar con el objetivo de transformar/imputar las instancias pendientes. 
+ Procesos de Negocio
+ Para más detalles, consultar con el documento . 
+ 

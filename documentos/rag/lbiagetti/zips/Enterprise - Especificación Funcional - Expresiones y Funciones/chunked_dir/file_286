@@ -1,0 +1,3 @@
+Ejemplos: 
+ Convertir de base64 a blob(“QmllbnZlbmlkb3M=”) genera un archivo de tipo Texto con la metadata: Bienvenidos 
+ 

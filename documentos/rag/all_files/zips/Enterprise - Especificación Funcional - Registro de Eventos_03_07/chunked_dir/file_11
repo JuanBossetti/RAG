@@ -1,0 +1,13 @@
+4.4.3 Imputaciones 
+ En las imputaciones el comportamiento es análogo al de actividades de única instancia. A continuación veamos como cambia la información a almacenar en el Registro de consumo según el tipo de imputación: 
+ • 
+ Imputaciones automáticas. Como vimos en el ejemplo de actividad de única instancia, en la instancia de Registro la imputación queda registrada como instancias de sistema. 
+ • 
+ Imputaciones manuales. Quedan almacenadas dos instancias en una de ellas quedan almacenadas las lecturas de la actividad principal y en la otra los escritos a partir de la imputación realizada. En esta última no tenemos una instancia origen, por lo tanto, el link que se almacena es el generado en el registro de imputaciones. 
+ • 
+ Crear e imputar. En la instancia de registro se almacena el total de Megabytes leídos de la actividad principal e instancias a imputar y los escritos a partir de la instancia confirmada, en este caso el link es a la instancia origen que se crea. Por ejemplo, en Recibo con imputación el recibo es la instancia origen, la imputación realizada queda registrada como instancia de sistema. 
+ Ejemplo al imputar manualmente 
+ En caso de ejecutar una imputación de un proveedor entre una Factura y un Recibo. Finalizado el proceso de imputación, en la entidad de Registro queda persistido: 
+ • 
+ Un registro por la lectura y escritura realizada de la actividad, en estos casos no se tiene instancia origen por lo tanto en el link queda la primera instancia del log de imputaciones. 
+ 

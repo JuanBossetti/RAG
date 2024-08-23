@@ -1,0 +1,16 @@
+3.2.1 Herencia de tipos de atributo 
+ Los tipos de atributo podrán heredar propiedades de otros tipos de atributo. Para esto se utilizará el concepto de “padre” de un tipo de atributo. Un tipo de atributo heredará la estructura y el comportamiento de su tipo padre. Estas propiedades podrán sobrescribirse en el tipo de atributo hijo, pero sólo a los efectos de acotarlas. Por ejemplo, si el tipo padre es Texto de 10 caracteres de largo, el tipo hijo podrá ser Texto de 9 caracteres de largo, pero no de 11. 
+ Las propiedades modificadas en el hijo con respecto al padre, dejaran de mantener la herencia y por ende cualquier modificación futura sobre el padre no afectara a los hijos heredados. En cambio aquellas propiedades no modificadas en el hijo si heredaran los valores futuros de sus correspondiente padre. 
+ Las restricciones que aplican a la herencia de tipos de atributo son: 
+ 1. 
+ Los tipos de la capa Base heredarán las propiedades de los tipos de la capa de Bajo Nivel. 
+ 2. 
+ Los tipos de la capa de Sistema heredarán las propiedades de los tipos de la capa Base o de otros tipos de la capa de Sistema. 
+ 3. 
+ Los tipos de la capa de Usuario heredarán propiedades de tipos de la capa de Sistema o de otros tipos de la capa de Usuario. 
+ minuta del 08/11/2011
+ 1 Ver (<http://nodosp2016:26607/EnterpriseSoporte/Minutas/Minuta%20de%20Reunión%202011-11-08.docx>). 
+ Además de lo anteriormente descripto, aplicarán las siguientes restricciones a nivel de categoría de tipos de atributo: 
+ • 
+ Los tipos de atributo de una categoría podrán heredar de otros tipos de atributo pero siempre de la misma categoría. 
+ 

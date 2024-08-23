@@ -1,0 +1,5 @@
+Ejemplos: 
+ Duración a milisegundos ({6 minutos}) devuelve 360000. 
+ Duración a milisegundos ({5 horas}) devuelve 18000000. 
+ Duración a milisegundos ({1 día}) devuelve 86400000. 
+ 

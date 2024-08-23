@@ -1,0 +1,3 @@
+Semana(Fecha) 
+ Devuelve la semana del año aplicando el standard ISO 8601, en el rango de 1 a 53, contando al Lunes como primer día de la semana. Se le puede enviar un dato tipo fecha, fecha/hora o instante. 
+ 

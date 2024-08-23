@@ -1,0 +1,3 @@
+Solapa Atributos 
+ Una nueva sección delimitada por un agrupador con el texto “Atributos” en el cual se definirán los atributos que se necesitarán acumular, la fórmula para el cálculo del mismo y la validación correspondiente. Esta funcionalidad se presentará a través de la siguiente interfaz: 
+ 

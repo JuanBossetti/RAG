@@ -1,0 +1,12 @@
+3.2 Herencia entre actividades 
+ Estándares de interfaz de 
+ usuario
+ El editor permitirá aplicar herencia entre actividades (ya sean del mismo PN como de otros), tanto a nivel visual como no visual, de acuerdo a lo definido para herencia en el documento . 
+ Es decir que las actividades podrán heredar de otras actividades la categoría, las entidades asociadas, el tiempo esperado de realización (en caso de existir), las configuraciones de la categoría, las configuraciones visuales (plantillas, formularios, vista de GDI) y no visuales, y el comportamiento específico de los atributos (en caso de existir). 
+ Si lo primero que se define en una actividad es el padre, dicha actividad heredará las propiedades anteriormente detalladas. 
+ Si la categoría de la actividad ya se encuentra definida, se podrá elegir como actividad padre, a cualquiera de las actividades que tenga la misma categoría. 
+ La herencia de actividades incluirá las propiedades definidas en todas las solapas, exceptuando “Reglas de Negóció”, “Histórial de Versiónes”, “Seguridad” y “Dócumentación”. 
+ A cóntinuación, un ejempló dónde se cónfigura la herencia de “Actividad2” a “Actividad1”: 
+ Si luego de definir una Actividad, el usuario cambia la Actividad Padre de la misma, el editor presentará una advertencia indicando que algunas configuraciones se perderán, y dará la opción de continuar con el cambio o no realizarlo. 
+ También se podrá crear una nueva actividad a partir del menú contextual de una Actividad, mediante la ópción: “Crear Actividad a partir de la actual”. En este casó, se tómará a la Actividad selecciónada cómó “Actividad Padre” de la nueva Actividad. 
+ 

@@ -1,0 +1,265 @@
+3.7.9 Métodos provistos por WS 
+ El usuario podrá visualizar la URL en donde se publicará el WS al momento de configurar la actividad. Los posibles métodos serán: 
+ • 
+ Autenticación: método específico para la autenticación de un usuario ws en un dominio. Se deben indicar las credenciales (usuario, contraseña, modelo, ambiente, idioma, sitio, version). El dominio está en la url. Retorna ok/error, token y expiración de token. https://<dominio>/webservices/login/ 
+ Login
+ Para más detalles, ver . 
+ • 
+ Ejecución de actividad: método para invocar una acción de una actividad WS. https://<dominio>/webservices/runactivity/ 
+ Los parámetros de entrada son: 
+ o 
+ Token. Mediante el token se puede obtener el dominio, modelo y ambiente de la aplicación. 
+ o 
+ JSON de entrada
+ JSON de entrada (depende de la acción). Para más detalles ver . Los parámetros de salida (retorno) son: 
+ o 
+ retorno
+ JSON de salida (depende de la acción). Para más detalles ver . 
+ 3.7.9.1 Autenticación o Login 
+ 3.7.9.1.1 JSON de entrada 
+ Los parámetros de entrada en el JSON para realizar un login son: 
+ • 
+ Dominio de origen del usuario (el dominio es opcional, solo se debe ingresar si el usuario pertenece a un dominio de confianza). 
+ • 
+ Usuario 
+ • 
+ Credenciales (generalmente sólo contraseña, pero puede requerir también código otp) 
+ • 
+ Idioma (del nombre del modelo, ambiente y sitio) 
+ • 
+ Modelo 
+ • 
+ Ambiente 
+ • 
+ Sitio 
+ • 
+ Versión (opcional) 
+ Todos los parámetros son obligatorios. 
+ .json{ “user”: ”jcarreras”, “password”: ”123123”, “otp”: ”123123123123”, “language” : “ES”, “model” : “modelo en español”, “environment” : “ambiente de producción”, “site” : “sitio en español”, “version”:1 } 
+ 3.7.9.1.2 JSON de retorno 
+ El JSON de retorno está compuesto por varias secciones. 
+ • 
+ Si la autenticación se realiza sin errores: 
+ o 
+ Token: es válido por un tiempo definido en la política en el usuario ws (heredado de la OU y del dominio). Luego, para cada ejecución de actividad ws se utiliza este token. La ventaja es que no requiere estar enviando constantemente las credenciales y hacer login por cada invocación. Los tokens, al igual que las sesiones de usuarios de aplicación, caducan luego de sobrepasar el tiempo máximo permitido de inactividad antes de cerrar sesión, definido como política. Cada token es único por usuario, modelo y ambiente. Es decir, para el mismo usuario puede existir más de un token válido (pero en distintos modelos y/ambientes). Si se vuelve a pedir token para el mismo usuario en el mismo dominio, modelo y ambiente, el token anterior se invalida. 
+ o 
+ Expira en: duración en segundos de la validez del token. Por ejemplo, el valor 3600 indica que el token de acceso caducará en una hora desde el momento en que se generó la autenticación. Es un entero. Como máximo, expira en 24 horas (86400 segundos). Este valor se obtiene de la política definida en el dominio. 
+ • 
+ Si hubo error/es en la autenticación: 
+ o 
+ Mensajes de error en el idioma del json de entrada del login. Si no se pudo ejecutar el JSON el mensaje retornado es “Invalid request. Look at the log for more details”. Si se pudo ejecutar el JSON pero ocurrió un error en el login, algunos ejemplos de mensajes de error son: “Invalid user ór passwórd”, “Time range nót allówed”, “Denied permissión tó access the site”, “Denied permissión tó access the módel”, “Yóu must change the passwórd”, etc. También se pueden retornar advertencias o mensajes informativos cuando el login es correcto, pór ejempló, “You must change the password in 2 days”. 
+ Los códigos HTTP (por ejemplo, 401, 200, etc.) NO se retornan en el JSON, si no en el estado de la respuesta http. 
+ A continuación, algunos ejemplos. 
+ 3.7.9.1.2.1 Autenticación sin errores: 
+ .json{ “result” : “ok”, “access_token”: “2YotnFZFEjr1zCsicMWpAA”, “expires_in”: 3600 } 
+ 3.7.9.1.2.2 Autenticación con errores de login 
+ .json{ “errors”: [ {“message”: “Time range not allowed”}, {“message”: “You must change the password”} ] } 
+ 3.7.9.1.2.3 Autenticación con error por JSON inválido 
+ .json{ “errors”: [ {“message”: “Invalid request. View logs for more details”} ] } 
+ 3.7.9.1.3 Consideraciones al realizar una autenticación 
+ Al realizar un login, se validarán las políticas y permisos correspondientes al usuario de WS. 
+ Algunos errores que se pueden dar son: 
+ • 
+ Usuario y/o contraseña inválidos. 
+ • 
+ Solicitud incorrecta (json inválido, etc). 
+ • 
+ Rango horario no permitido. 
+ • 
+ Direccion ip no permitida. 
+ • 
+ No tiene permisos de acceso al modelo/sitio/ambiente. 
+ • 
+ Token expiró. 
+ • 
+ Etc. 
+ 3.7.9.2 Ejecución de actividad (RPC) 
+ 3.7.9.2.1 JSON de entrada 
+ La entrada del WS contiene los datos que quiera ingresar el usuario de WS en la Actividad, y se definirán utilizando los atributos de las entidades asociadas a la Actividad. 
+ A continuación, algunos ejemplos. 
+ 3.7.9.2.1.1 Única instancia (alta) 
+ .json{ “process”: ”Sales process”, “activity”: ”New invoice”, “web service”: “NewInvoiceWS”, “api version” : 1, “action” : “add”, 
+ “data”: { “date”: “29/09/2019”, “invoice type”: “RET”, “customer”: [ {“cuit” : “20-12345678-9”} , {“name”: “Pepsi”} ], “address”: “Downing Street 255”, “invoice items”: [ { “product”: {“name”: {“EN” : “table”} }, “quantity”: 1, “unit price”: 10000,00, “serial numbers”: [ {“number”: “200056”} ] }, { “product”: {“name”: {“EN” : “chair”} }, “quantity”: 6, “unit price”: 2000,00, “serial numbers”: [ {“number”: “400006”}, {“number”: “400007”}, {“number”: “400008”}, {“number”: “400009”}, {“number”: “400010”}, {“number”: “400011”} ] } ] } } 
+ 3.7.9.2.1.2 Única instancia (modificación) 
+ .json{ “process”: ”Sales process”, “activity”: ”New invoice”, “web service”: “EditInvoiceWS”, “api version” : 1, “action” : “update”, “where”: “Customer = ‘Pepsi’”, “data”: { “date”: “29/09/2019”, “invoice items”: [ { “action” : “addItem”, “data” : { “product”: {“name”: {“EN” : “table”} }, “quantity”: 1, “unit price”: 10000,00, “serial numbers”: [ {“number”: “200056”} ] }, { “action” : “updateItem”, “where”: “product” = {“name”: {“EN” : “chair”} }, “data” : { “quantity”: 4, “serial numbers”: [ { “action” : “deleteItem”, “where”: “number = ‘400006’” }, { “action” : “deleteItem”, “where”: “number = ‘400009’” } ] } ] } } 
+ 3.7.9.2.1.3 Única instancia (sincronizar - upsert) 
+ Éste método tiene como finalidad sincronizar datos de lo que se informa en el json de entrada con la información actual que contiene Fastprg respecto a dicha instancia. 
+ Para lograr esto, se debe intentar localizar la instancia a actualizar realizando una búsqueda de la misma mediante el filtro enviado en el json (where) en la entidad asociada: 
+ • 
+ Si la instancia no es encontrada, se realiza un alta de la misma con los datos del json. 
+ • 
+ Si la instancia es encontrada, se realiza una actualización. No es un update como el definido anteriormente, sino que aquellos campos no informados en el json, son blanqueados. 
+ Sin embargo, al momento de realizar el blanqueo de estos campos, el sistema debe evaluar que el usuario tenga los permisos necesarios para actualizarlos, en caso de no poseerlos, el sistema no permitirá la actualización de la instancia, informando el error al usuario. 
+ Por ejemplo: se tiene la siguiente instancia 
+ Y se ejecuta el siguiente web service 
+ .json{ “activity”: ”Factura”, “web service”: “Factura”, “api version” : 1, “action” : “upsert”, “where”: “Número = 54”, “data”: { “Cliente”: {“Nombre”: “Betsabé”}, “Moneda”: {“Código”: “ARS”}, “Ítems de comprobante”: [ { “action” : “upsertItem”, “where”: “Producto.Nombre” = “Auriculares”, “data” : { “Producto”: {“Nombre”: “Auriculares” }, “Cantidad”: 1, “Precio”: 20 } } ] } } 
+ 3.7.9.2.1.4 Única o múltiples instancias (consulta) 
+ .json{ “process”: ”Sales process”, “activity”: ”Invoice”, “web service”: “EditInvoiceWS”, “api version” : 1, “action” : “read”, “where”: “Customer = ‘Pepsi’” “order by”: [ {“date”: “ascendant”} ] “distinct”: [ “Customer” ] } 
+ 3.7.9.2.1.5 Única o múltiples instancias (eliminación y restauración, el JSON es el mismo) 
+ .json{ “process”: ”Sales process”, “activity”: ”Invoice”, “web service”: “DeleteInvoiceWS”, “api version” : 1, “action” : “delete”, “where”: “Customer = ‘Pepsi’” } 
+ 3.7.9.2.1.6 Múltiples instancias (alta) 
+ .json{ “action”:”add”, “process”:”libi”, “activity”:”ABM Factura”, “web service”:”ABM Factura”, “api version”:1, “data”:[ { "Cliente":{ "Nombre":"Volkswagen SA" }, "Condición de venta":{ "Nombre":"Contado" }, "Punto de venta":{ "Punto de ventas":"1", "Descripción":"Sucursal 50" }, "Items de comprobante":[{ "action":"addItem", 
+ "data":{ "Precio":"2500", "Producto":{ "Código":"1", "Nombre":"Servicio de abono" }, "Cantidad":"2" } }] }, { "Cliente":{ "Nombre":"Coca cola" }, "Condición de venta":{ "Nombre":"Contado" }, "Punto de venta":{ "Punto de ventas":"1", "Descripción":"Sucursal 1" }, "Items de comprobante":[{ "action":"addItem", "data":{ "Precio":"5000", "Producto":{ "Código":"1", "Nombre":"Servicio de abono" }, "Cantidad":"2" } }] }, { "Cliente":{ "Nombre":"Pepsi" }, "Condición de venta":{ "Nombre":"Contado" }, "Punto de venta":{ "Punto de ventas":"1", "Descripción":"1" }, "Items de comprobante":[{ "action":"addItem", "data":{ "Precio":"1000", "Producto":{ "Código":"1", "Nombre":"Servicio de abono " }, "Cantidad":"2" } }] } ] } 3.7.9.2.1.7 Transformación, o autorización (consulta de instancias pendientes, el JSON es el mismo) 
+ En el caso de las Actividades de categoría Autorización, los parámetros de entrada dependerán de la autórización. Si el criterió de autórización es “Autórización tótal de las unidades a transfórmar”, el parámetró de entrada pódrá tómar sóló lós valóres “si” y “nó”. En cambió, si el criterió es “Autórización parcial de las unidades a transfórmar” lós parámetrós de entrada serán las unidades y su estadó (autorizado/rechazado). Por ejemplo, en una factura pendiente de aprobar un usuario puede aprobar una parte de los ítems y rechazar el resto. Además, se podrá ingresar un motivo de rechazo de los configurados en la autorización, por lo tanto, será otro parámetro de entrada 
+ 3.7.9.2.1.8 Imputaciones pendientes (Consulta de imputaciones pendientes a realizar) 
+ .json{ “process”: ”libi”, “activity”: ”Imputación comprobantes de clientes”, “web service”: “Imputación comprobantes de clientes”, “api version” : 1, “action” : “readPendingToAllocate” } 
+ 3.7.9.2.1.8.1 Retorno 
+ Si la cantidad de instancias no supera el máximo permitido a retornar. 
+ .Json { "web service": "Imputación comprobantes de clientes", "instancesToAllocate": [ { "Movimiento de clientes": "Electro Hogar FACTURA 2 2, Electro Hogar", "Pendiente ": "997", "to allocate": "<quantity>", "_UUID": "ca, 100000000005508, NSEnum(4)" }, { "Movimiento de clientes": "Carlo Pérez NOTA DE CREDITO 1 1, Carlos Pérez", "Pendiente ": "-2400", "to allocate": "<quantity>", "_UUID": "ca, 100000000005512, NSEnum(4)" } ] } 
+ 3.7.9.2.1.9 Transformación (transformar) 
+ .json{ “process”: ”Sales process”, “activity”: ”Transform invoice to delivery note”, “web service”: “WSTransform”, “api version” : 1, “action” : “transform”, “instance to transform”: [ { “instance id”: 20459, “invoice items”: [ { “item id”: 4, “target delivery note”: 10, “target credit note”: 5, “target credit note by tolerance”: 1 }, { “item id”: 6, “target credit note”: 2, } ] }, { “instance id”: 20460, “invoice items”: [ { “item id”: 1, 
+ “target delivery note”: 8, } ] } ] } 
+ 3.7.9.2.1.10 Imputación (imputar) 
+ .json{ “process”: ”Sales process”, “activity”: ”Impute checking account”, “web service”: “WSImpute”, “api version” : 1, “action” : “allocate”, “instanceToAllocate”: [ { “_UUID ”: “40001”, “pending”: “100” “to allocate”: “1000” }, { “_UUID ”: “40002”, “pending”:”-500” “to allocate”: “-500” } ] } 
+ En el caso que la imputación contenga Dato adicional de imputación, se debe agregar dentro de la instancia a imputar el atributo adicional en el formato del tipo de atributo correspondiente. Esto caso aplica también a la siguiente subsección. 
+ 3.7.9.2.1.11 Alta de única instancia con imputación (alta de única instancia con imputación): 
+ .json{ “process”: ”Sales process”, “activity”: ”New invoice and impute with delivey note”, “web service”: “NewInvoiceWithDeliveryNoteImputeWS”, “api version” : 1, “action” : “addAndAllocate”, “data”: { “date”: “29/09/2019”, … } “instancesToAllocate”: { [ { “instance id”: 40002, “to impute”: -500 } ] } } 
+ 3.7.9.2.1.12 Única instancia (Documentación) 
+ Aclaración: en todos los ejemplos el idioma del WS es inglés. Si el idioma del WS fuera diferente, el JSON quedaría: 
+ .json{ “process”: ”Proceso de ventas”, “activity”: ”Alta de factura”, “web service”: “Nueva Factura WS”, “api version” : 1, “action” : “add”, “data”: { … } 
+ Como se puede ver en el ejemplo, las claves de la cabecera del JSON (process, activity, etc.) y la acción siempre están en el idioma inglés. 
+ 3.7.9.2.2 JSON de retorno 
+ Los parámetros de salida serán el retorno o respuesta del WS consumido por la Actividad al usuario de WS. Los mismos serán, por un lado, las notificaciones definidas en la entidad si no se cumple una validación, si hay un error, etc. (excepciones) y, por otro lado, la ejecución del método se podría devolver la instancia en el estado actualizado o sólo la confirmación de que se ejecutó correctamente (dependiendo de lo definido para el WS). 
+ Cuando se retornan instancias, en general se retornan los valores de los atributos definidos por el modelador (no se retorna el id de la instancia ni id de lote). 
+ Al momento de retornar las instancias afectadas, si el tipo de retorno es “Tóda la óperación”, los atributos incluidos en el payload mantendrán el mismo ordenamiento que posean en la entidad al momento de generado el retorno; esto aplica también tanto para las colecciones con sus elementos y los compuestos con sus elementos. 
+ El JSON de retorno tiene varias partes: 
+ • 
+ Si la operación (u operaciones) se confirmó sin errores: 
+ o 
+ Si el método es creación, depende del tipó de retórnó. Si el tipó de retórnó es “sóló resultadó”, solo se retorna que se ejecutó correctamente. Si el tipo de retorno es “retórna tódas las óperaciónes”, se incluye en el retórnó la instancia que indicó crear el usuario ws y todas las instancias relacionadas en dicha operación. 
+ o 
+ Si el método es consulta, consulta de instancias a transformar, consulta de instancias a imputar, o consulta de instancias a autorizar, se retornan todas las instancias consultadas. 
+ o 
+ Si el método es modificación, eliminación, restauración, habilitación o inhabilitación, retorna mensaje de confirmación, pór ejempló: “Se módificarón exitosamente 1.000.000 de instancias”. 
+ o 
+ Si el método es transformación, imputación, o autorización, depende del tipo de retórnó. Si el tipó de retórnó es “sóló resultadó”, sóló se retórna que se ejecutó córrectamente. Si el tipó de retórnó es “retórna tódas las óperaciónes”, se retórnan todas las operaciones siempre que no exceda la cantidad límite; sino, retorna un mensaje de confirmación, pór ejempló: “Se transfórmarón exitósamente 123456 instancias”. 
+ o 
+ Si el método es crear instancias e imputar es una combinación del método creación y del método imputación (depende del tipo de retorno y la cantidad límite). 
+ • 
+ Si hay errores/advertencias (la operación se pudo haber confirmado correctamente o no): 
+ o 
+ Mensajes de error (en pantalla serían los errores del panel de mensajes y ventanas modales). 
+ o 
+ Mensajes de advertencia (en pantalla serían los errores del panel de mensajes y ventanas modales). 
+ o 
+ Mensajes informativos (en pantalla serían los errores del panel de mensajes y ventanas modales). 
+ o 
+ Mensajes de del panel de AI. 
+ A continuación, algunos ejemplos. 
+ 3.7.9.2.2.1 Error de ejecución (cualquier categoría) 
+ .json{ “errors”: [ {“error”: “Invalid request. View logs for more details”} ] } 
+ 3.7.9.2.2.2 Única instancia (alta, error) 
+ Si el tipo de retorno es: “retórna sóló el resultadó”: 
+ Si el tipó de retórnó es: “retórna tódas las óperaciónes”: 
+ .json{ “errors”: [ {…}, {…} ], “warnings”: [ {…}, {…} ], “information”: [ {…}, {…} ] } 
+ 3.7.9.2.2.3 Única instancia (cualquier método, ejecución correcta) 
+ Si el tipó de retórnó es: “retórna sóló el resultadó”: 
+ .json{ “result”: “ok”, “warnings”: [ {“message” : “You confirmed a high amount invoice”} ] 
+ } 
+ Si el tipó de retórnó es: “retórna tódas las óperaciónes”: 
+ .json{ “operations”: [ { “Entity”: “Invoice”, “action”: “add”, “data”: [ { “date”: “29/09/2019”, “customer”: {“name”:“Pepsi”}, “customer.cuit”: “27-12345678-9”, “customer.email”: “admin@pepsi.com”, “address”: “Downing Street 255”, “invoice items”: [ { “product”: {“name”: [ {“EN” : “table”} , {“ES”: “mesa”} ]}, “quantity”: “1”, “unit price”: “10000,00”, “serial numbers”: [ {“number”: “200056”} ] }, { “product”: {“name”: [ {“EN” : “chair”} , {“ES”: “silla”} ] }, “quantity”: “6”, “unit price”: “2000,00”, “serial numbers”: [ {“number”: “400006”}, {“number”: “400007”}, {“number”: “400008”}, {“number”: “400009”}, {“number”: “400010”}, {“number”: “400011”} ] } ], “pay type”: “efectivo”, “subtotal”: “1525.48”, “iva”: “21%”, “total”: “1845.83” } ] }, { “Entity”: “Imputation log liquidate customer account”, “action”: “add”, “data”: [ { Instance 1… }, { Instance 2… } ] }, { Entity 2… “action”: “…”, “data”: […] } ] } 
+ 3.7.9.2.2.4 Única instancia de entidad de sistema (alta, error) 
+ Si el tipó de retórnó es: “retórna sóló el resultadó”: 
+ {…} ], “warnings”: [ {…}, {…} ], “information”: [ {…}, {…} ] “impact analyzer messages”: [ { “Current version”: [ { “Changes with solution”: [ {“message”: “Se debe completar la expresión de conversión…”}, {“message”: “…”} ] }, { “Changes without solution”: [ {“message”: “…”} ], { “Informative changes”: [ {“message”: “…”} ] } ] }, { “Another version”: […] }, { “Another environment”: […] }, { “Another model”: […] } ] } 
+ 3.7.9.2.2.5 Múltiples instancias (modificación, baja, restaurar, habilitar, inhabilitar, ejecución correcta) 
+ .json{ “information”: [ { “message”: “Se modificaron exitosamente 1.000.00 instancias” } ] } 
+ 3.7.9.2.2.6 Múltiples instancias (modificación, baja, restaurar, habilitar, inhabilitar, ejecución con error) 
+ Si la actividad se pudo ejecutar pero hubo algún error, se muestran los errores en las secciones correspondientes, tal como en única instancia. 
+ .json{ “errors”: [ {…}, {…} ], “warnings”: [ {…}, {…} ], “information”: [ {…}, 
+ {…} ] } 
+ 3.7.9.2.2.7 Múltiples instancias (consulta, ejecución correcta) 
+ Si la cantidad de instancias no supera el máximo permitido a retornar. 
+ json{ “data”: [ { “invoice number”: 123, “customer”: “Pepsi”, “invoice items”: [ { “product”: { “name”: [ {“EN” : “table”} , {“ES”: “mesa”} ] }, … }, { Item 2 } ] }, { Instance 2 … } ] } 
+ 3.7.9.2.2.8 Múltiples instancias (consulta, ejecución con error) 
+ Si la cantidad de instancias supera el máximo permitido a retornar. 
+ .json{ “errors”: [ {“message”: “Maximum allowed number of instances to return exceeded. Can change the filter” o algún mensaje así.. } ] } 
+ 3.7.9.2.2.9 Transformación (consulta de instancias pendientes de transformar) 
+ Si la cantidad de instancias no supera el máximo permitido a retornar. 
+ .json{ “instance to transform”: [ { “instance id”: 20459, “invoice number”: 123, “customer”: “Pepsi”, “invoice items”: [ { “item id”: 4, _uuid = “23423542345” “product”: {“name”: [{“EN” : “table”} , {“ES”: “mesa”} ]}, “line”: [ {“EN” : “carpentry”} , {“ES”: “carpinteria”} ], “quantity”: 40, “subtotal”: 1500, “pending”: 16, “target delivery note”: <quantity>, “target credit note”: <quantity>, “target credit note by tolerance”: <quantity> “pending”: 16, “target”: [ “delivery note”:5, “credit note”: null ] }, { “item id”: 6, 
+ “product”: {“name”: [ {“EN” : “chair”} , {“ES”: “silla”} ] }, “line”: [ {“EN” : “carpentry”} , {“ES”: “carpinteria”} ], “quantity”: 12, “subtotal”: 500, “pending”: 12, “target delivery note”: <quantity>, “target credit note”: <quantity>, “target credit note by tolerance”: <quantity> } ] }, { Instance 2 … } ] } 
+ 3.7.9.2.2.10 Transformación (transformar, ejecución correcta) 
+ Si el tipó de retórnó es: “retórna sóló el resultadó”: 
+ .json{ “result”: “ok” } 
+ Si el tipó de retórnó es: “retórna tódas las óperaciónes” y cantidad de instancia supera la cantidad límite de visualización: 
+ json{ “information”: [ {“message”: “Transformed 4500 instances successfully” } ] } 
+ Si el tipó de retórnó es: “retórna tódas las óperaciónes” y cantidad de instancia nó supera la cantidad límite de visualización, el retorno es similar al de alta de única instancia, pero contiene las operaciones de las instancias que se crearon por transformación: 
+ .json{ “operations”: [ { “Entity”: “Delivery note”, “action”: “add”, “data”: [ { Instance 1… }, { Instance 2… } ] }, { Entity 2… “action”: “Credit note”, “data”: […] } ] } 
+ 3.7.9.2.2.11 Imputación (imputar, ejecución correcta) 
+ Similar a transformación. 
+ Si el tipó de retórnó es: “retórna tódas las óperaciónes” y cantidad de instancia nó supera la cantidad límite de visualización, el retorno es similar al de alta de única instancia, pero contiene las operaciones de las instancias que se crearon por imputación en el log de imputaciones: 
+ .json{ 
+ “operations”: [ 
+ { “Entity”: “Imputation log liquidate customer account”, “action”: “add”, “data”: [ { Instance 1… }, { Instance 2… } ] }, { Entity 2… “action”: “…”, “data”: […] } ] } 
+ 3.7.9.2.2.12 Autorización (autorizar, ejecución correcta) 
+ Similar a transformación e imputación. 
+ 3.7.9.2.2.13 Alta de única instancia con imputación (alta de única instancia con imputación): Similar a transformación e imputación. 
+ Si el tipó de retórnó es: “retórna sóló el resultadó”: 
+ .json{ “result”: “ok” } 
+ Si el tipó de retórnó es: “retórna tódas las óperaciónes”, el retórnó es similar al de alta de única instancia, pero contiene además todas las operaciones de las instancias que se crearon por imputación en el log de imputaciones: 
+ .json{ “operations”: [ { “Entity”: “Invoice”, “action”: “add”, “data”: [ { “date”: “29/09/2019”, “customer”: {“name”:“Pepsi”}, “customer.cuit”: “27-12345678-9”, “customer.email”: “admin@pepsi.com”, “address”: “Downing Street 255”, “invoice items”: [ { “product”: {“name”: [ {“EN” : “table”} , {“ES”: “mesa”} ]}, “quantity”: “1”, “unit price”: “10000,00”, “serial numbers”: [ {“number”: “200056”} ] }, { “product”: {“name”: [ {“EN” : “chair”} , {“ES”: “silla”} ] }, “quantity”: “6”, “unit price”: “2000,00”, “serial numbers”: [ {“number”: “400006”}, {“number”: “400007”}, {“number”: “400008”}, 
+ {“number”: “400009”}, {“number”: “400010”}, {“number”: “400011”} ] } ], “pay type”: “efectivo”, “subtotal”: “1525.48”, “iva”: “21%”, “total”: “1845.83” } ] }, { “Entity”: “Imputation log liquidate customer account”, “action”: “add”, “data”: [ { Instance 1… }, { Instance 2… } ] }, { Entity 2… “action”: “…”, “data”: […] } ] } 
+ 3.7.9.3 Retorno de claves unívocas en actividad por Web service 
+ Valores únicos
+ Cuando se realiza el consumo de una actividad por Web service, el cual contiene los datos de instancias o ítems, se presenta en cada nivel del JSON de retorno, un elemento que representa el Valor único y que permite identificar el elemento consultado. (para mayor información sobre Valores únicos, consultar el funcional de ). Dicho valor único se puede clasificar según el contexto: 
+ • 
+ A nivel instancia, retorna el primer valor único configurado por un usuario a nivel entidad. 
+ • 
+ A nivel de cada uno de los ítems, retorna el ítemId. 
+ El valor único se encuentra representadó pór una cónstante internaciónalizable cón nómbre ‘Valór únicó’. 
+ 3.7.9.3.1 Valor único a nivel Entidad 
+ Habiendo definido un valor único a nivel entidad, la respuesta del JSON en cada nivel debe retornar la misma estructura configurada, concatenando cada valór únicó elegidó mediante ‘_’. 
+ Por ejemplo: si en la entidad Factura, se elige como valor único: Número y Cliente, el JSON de respuesta debe devólver el valór para el elementó Valór únicó: ‘157777_Integral Pack’ 
+ A continuación, se presenta una tabla con algunos ejemplos de respuesta para el valor único: 
+ 3.7.9.3.2 Valor único a nivel ítem 
+ Para los ítems de colección, se tiene en cuenta el elemento itemId. Dicho dato identifica unívocamente al ítem dentro de la colección. Dicho valor ya se encuentra asignado al momento de dar de alta el ítem, y puede ser consultado mediante la respuesta del JSON. Por ejemplo: 
+ NOTA 
+ • 
+ Para categoría única instancia: 
+ o 
+ En método alta: aplica el tipo de retorno (solo resultado o todas las operaciones). 
+ o 
+ En consulta: aplica la cantidad máxima de instancias a retornar. 
+ o 
+ En métodos modificación, baja, restaurar, habilitar, inhabilitar: se retorna siempre un mensaje “Se módificarón exitósamente 1.000.000 de instancias” ó lós erróres. 
+ • 
+ Para categoría múltiples instancias: 
+ o 
+ En consulta: aplica la cantidad máxima de instancias a retornar. 
+ o 
+ En métodos crear, modificación, baja, restaurar, habilitar, inhabilitar: se retorna siempre un mensaje cón la cantidad de instancias módificadas, pór ejempló: “Se módificarón exitósamente 1.000.000 de instancias” ó lós erróres. Nó hay una cantidad máxima de instancias. 
+ • 
+ Para categorías transformación, (autorización) e imputación: 
+ o 
+ En método consulta de pendientes a transformar/imputar: aplica la cantidad máxima de instancias a retornar. 
+ o 
+ Formularios 
+ En método transformar/imputar: Aplica el tipo de retorno (solo resultado o todas las operaciones). No hay límite de instancias a transformar/imputar. Cuando el tipo de retórnó es tódas las óperaciónes, el retórnó depende de la “cantidad límite de visualización” definida para lós fórmulariós. Para más infórmación ver (sección 8.7.2.Solapas para consulta y edición de instancias generadas). Si supera esta cantidad sóló retórna un mensaje “Se transfórmarón/imputarón exitósamente <n> instancias”. Si nó, se retórnan tódas las instancias. 
+ 3.7.9.3.3 Consideraciones al ejecutar operaciones 
+ Para realizar una operación (alta, modificación, restauración, habilitación, etc.) en una o varias instancias el cliente deberá especificar un filtro. El filtro podrá estar vacío, en cuyo caso aplicará a todas las instancias. 
+ Para realizar una óperación en una actividad “única instancia”, el filtró de instancias debe dar cómó resultado una sola instancia, sino dará error. Una buena práctica es incluir un atributo de valor único en el filtro para que solo aplique a una instancia. 
+ En las óperaciónes (alta, módificación, restauración, habilitación, etc.) en una actividad “múltiples instancias”, si una instancia tiene algún un errór (unicidad de nómbres, mandatórió vacíó, nó cumple validación, etc.), esa instancia no se confirma, pero el resto de las instancias sí. 
+ Para maestras, se retornarán registros de la tabla consolidada y para transaccionales, tabla histórica. 
+ En las consultas de múltiples instancias se puede incluir el orden de las instancias indicando atributo y tipo de orden (ascendente o descendente). Se pueden ordenar por varios atributos. 
+ Para el caso de la acción transformación e imputación, al leer lo pendiente de transformar/imputar, en la respuesta entregada al cliente se debe poder identificar dos instancias distintas, para esto se retornan los atributos descriptivos y además los id de la referencia a la instancia/ítem que está pendiente de transformar/imputar. 
+ En cualquier categoría, si se desea ingresar un texto internacionalizable, se deberá especificar como una colección de clave valor en la cual los nombres son los idiomas y los valores son los textos en dicho idioma. El texto se puede ingresar en 1 o varios idiomas y en cualquier orden. Si hay idiomas no especificados en el JSON, se completarán con las traducciones automáticas tomando como idioma de origen el primer idioma especificado en el JSON. 
+ Ejemplo: si los idiomas del dominio son: español, inglés e italiano y el usuario ingresa: 
+ [ {“ES” : “tomar”} , {“IT”: “prendere”} ] 
+ El texto en inglés se completará con la traducción automática de la palabra tomar en español a inglés: “drink” (pudiendo ser distinta a la traducción de prenderé en italiano a inglés: “take”). 
+ Algunos errores que se pueden dar son: 
+ • 
+ El token ha expirado. 
+ • 
+ Token o JSON inválido. 
+ • 
+ Todos los errores relacionados con las actividades: 
+ o 
+ Atributo obligatorio vacío 
+ o 
+ No se cumple validación 
+ o 
+ Atributo de valor único repetido 
+ o 
+ Atributo referenciado de valor único repetido (solo aplica a actividades ws, en formularios no se puede dar, por ejemplo se quiere crear una factura y para hacer referencia al cliente se usa el nombre de cliente que en un principio no era de valor único y en un momento pasó a serlo pero quedaron valores duplicados, entonces se le retorna que hay n clientes con ese nombre, no se va a poder referenciar!) 
+ o 
+ Etc. 
+ 

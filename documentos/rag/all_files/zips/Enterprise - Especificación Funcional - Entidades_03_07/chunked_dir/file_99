@@ -1,0 +1,10 @@
+Mensajes de error 
+ Mensajes genéricos: 
+ • 
+ You require permissions to <%operationType> instances using <%origin> in <%entity> entity. Aclaración: en transformaciones la entidad es la destino. 
+ • 
+ You require permissions to <%operationType> items using <%origin> in <%collection> collection in <%entity> entity. 
+ • 
+ You require permissions to <%operationType> in <%entity>. Aclaración: este mensaje se usa cuando no hay origen, por ejemplo en los editores. 
+ Cuando falla permiso condicional se presenta el mismo mensaje. 
+ 

@@ -1,0 +1,24 @@
+4 Herramientas dinámicas 
+ Al crear una herramienta dinámica en algún ambiente que no sea el de desarrollo, el usuario "creador" de esta herramienta tendrá todos los permisos sobre la misma en ese ambiente. Esto aplicará a todas las herramientas dinámicas, como por ejemplo: 
+ • 
+ Reglas de negocio 
+ • 
+ GDI 
+ • 
+ Tareas programada 
+ • 
+ Tareas de integración 
+ • 
+ Planes de integración 
+ • 
+ Web services 
+ • 
+ Conexiones 
+ • 
+ Reportes por banda 
+ • 
+ Funciones 
+ El comportamiento esperado es: 
+ Si un usuario crea uno de los elementos mencionados anteriormente en un ambiente que no sea desarrollo, el sistema automáticamente le brindará al usuario todos los accesos al elemento. 
+ Si un usuario se está agregando a sí mismo a la grilla de seguridad de alguno de los elementos de arriba, se le marcarán todos los permisos como permitido en el ambiente actual. Esto aplica a los ambientes de producción y prueba. 
+ 

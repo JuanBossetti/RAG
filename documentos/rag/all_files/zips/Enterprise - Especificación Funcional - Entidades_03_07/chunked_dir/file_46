@@ -1,0 +1,25 @@
+Valor inicial automático en grilla de definición de valores 
+ En las grillas de definición de valores de atributos que se utilicen para la creación de instancias, independientemente del origen: 
+ ✓ 
+ Desencadenantes. 
+ ✓ 
+ Transformaciones. 
+ ✓ 
+ Reglas de cancelación de imputaciones. 
+ ✓ 
+ Reglas de negocio de Modificación de instancia actual. 
+ ✓ 
+ Reglas de negocio de Modificación de instancia actual al confirmar. 
+ ✓ 
+ Reglas de negocio de CRUD única instancia. 
+ ✓ 
+ Reglas de negocio de CRUD múltiples instancias. 
+ Al momento de agregar los atributos que corresponden en la grilla, en la columna de definición de valor, el sistema deberá inferir y asignar automáticamente aquellos atributos que tengan el mismo nombre, tipo de atributo y jerarquía dentro de ambas entidades (es decir, dentro de la entidad origen y de la entidad destino) según corresponda. Además, deberá inferir y asignar automáticamente aquellos atributos de la entidad destino que sean referencias a la entidad origen. Estos valores podrán ser modificados por el usuario. 
+ Por ejemplo: 
+ • 
+ Se define un desencadenante, que tiene como entidad origen “Cliente potencial” la cual presenta la siguiente estructura: 
+ • 
+ Y se selecciona como destino la entidad Cliente que contiene los siguientes atributos: 
+ • 
+ La grilla de definición de valores deberá automáticamente presentarse de la siguiente manera: 
+ 

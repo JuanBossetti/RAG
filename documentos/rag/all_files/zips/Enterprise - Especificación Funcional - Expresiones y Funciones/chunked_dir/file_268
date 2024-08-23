@@ -1,0 +1,5 @@
+Ejemplos: 
+ Duración a horas({15 minutos}) devuelve 0.25 
+ Duración a horas({2 días}) devuelve 48. 
+ Duración a horas({3 semanas}) devuelve 504. 
+ 

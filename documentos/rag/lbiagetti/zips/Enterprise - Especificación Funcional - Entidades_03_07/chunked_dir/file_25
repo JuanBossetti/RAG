@@ -1,0 +1,13 @@
+1.3.1 Acceso a definición de atributos para usuarios finales. 
+ Se debe tener en cuenta que no solo accederá a estas solapas un usuario modelador, sino que, en caso de tener los permisos requeridos, también podrá acceder a esta solapa un usuario final, tanto ingresando desde la entidad como seleccionando un atributo en el panel de navegación. 
+ Dependiendo de los permisos asignados a cada usuario, el comportamiento de esta solapa deberá ser el siguiente: 
+ • 
+ Solapa General. En caso de que un usuario tenga permiso de consultar atributos, podrá acceder a la información en modo de solo lectura. De lo contrario no podrá acceder a esta solapa. 
+ • 
+ Solapa Validación. En caso de que un usuario tenga permiso de consultar atributos, podrá acceder a la información en modo de solo lectura. De lo contrario no podrá acceder a esta solapa. 
+ • 
+ Solapa Historia de versiones. No será accesible por el usuario final. 
+ • 
+ Solapa Seguridad. En caso de tener solo acceso a consulta de atributos, un usuario final no podrá ver esta solapa, solo podrá acceder a la misma en caso de tener permisos para administrar seguridad de instancias. 
+ Cabe destacar que, en este caso, podrá administrar no solo la seguridad de producción sino también de desarrollo y testing. 
+ 

@@ -1,0 +1,5 @@
+Ejemplo: 
+ {"Origen": "", "Valor": "", "Expresión": "", "Detalle": [] } 
+ • 
+ Si el origen del dato proviene de una Regla de negocio, la estructura JSON es la siguiente: 
+ 

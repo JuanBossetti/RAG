@@ -1,0 +1,42 @@
+Algoritmo para imputaciones 
+ Dado un conjunto de registros pendientes del log auxiliar de imputaciones, un conjunto de criterios de ordenamiento (por ejemplo, “Primero lo más antiguo”), y un conjunto de criterios de selección (por ejemplo “Igual importe”): 
+ 1. 
+ Separar en dos listas lo que selecciono el usuario para imputar en una lo que es positivo y la otra lo negativo. En el caso de que se tenga dos atributos imputables, en una lista en una lista va el debe positivo + el haber negativo, y en la otra el debe negativo + el haber positivo. 
+ 2. 
+ Iterar los criterios de imputación. Y por cada criterio: 
+ a. 
+ Obtener del acumulador de log de imputaciones lo seleccionado por el usuario, agrupando por los atributos que tienen que tener igual valor (incluyendo la correspondencia de atributos), y pedir la suma de lo pendiente de imputar. 
+ b. 
+ Por cada grupo de la consulta anterior: 
+ i. 
+ Evaluar si la imputación solo admite total, si para el grupo da el saldo cero, o un valor que entra en tolerancia. En caso de que no se cumpla, se presenta error al usuario indicando que no se puede imputar ese grupo debido a que no queda en cero el saldo, e indicando el valor que quedo. 
+ ii. 
+ Se obtiene desde el acumulador del log de imputaciones lo seleccionado por el usuario para el grupo que se está iterando, por separado lo que es entrada de lo que es salida (a partir de las listas del paso 1). Esta consulta se hacer ordenando por los criterios de ordenamiento indicado en la imputación. Se obtienen la lista A y la B. 
+ iii. 
+ Evaluar el tipo de imputación 
+ 1. 
+ Si admite Parcial: Seleccionar el primer elemento de A. Seleccionar el primer elemento de B que cumpla con los criterios de selección (de distinto valor y/o igual expresión, si existen). 
+ 2. 
+ Si solo admite total: Se toman directamente todos los elementos de A y B. Y verificar que cumplan con los criterios de selección (de distinto valor y/o igual expresión, si existen). Si no cumplen presenta error. 
+ iv. 
+ Para lo seleccionado en el paso anterior (elementosA, elementosB), generar una doble entrada en el log auxiliar de imputaciones de acuerdo a lo explicado en el ítem “Log auxiliar de Imputaciones”. 
+ v. 
+ Si el elemento de B quedó totalmente imputado, eliminarlo de la lista. Sino almacenar el saldo que quedo en la lista. 
+ vi. 
+ Si el elemento de A quedó totalmente imputado, eliminarlo de la lista, seleccionar el siguiente elemento de A, y volver al punto iii. 
+ vii. 
+ Si el elemento de A no quedó totalmente imputado, seleccionar el siguiente elemento de B que cumpla con los criterios de selección. 
+ viii. 
+ Repetir desde el punto iii, hasta que no queden elementos pendientes de imputar en la lista A o hasta que no existan elementos que cumplan con los criterios de selección. 
+ Para el caso de imputación automática, Cuando se da de alta una instancia en el log de imputaciones, se deberá evaluar si en el mismo log hay otras instancias pendientes de imputar que se puedan imputar contra la que se está dando de alta. Para ello seguir los siguientes pasos. 
+ 1- Determinar si la entrada que se está dando de alta es input o output (si hay un solo atributo imputable si es positivo es input y si es negativo es output, si hay dos debe positivo y el haber negativo es input, y debe negativo y haber positivo es output. 
+ 2- Iterar los criterios. 
+ a. 
+ Por cada criterio obtener los valores de los atributos de correspondencia de atributo imputable y de igual valor para la instancia del paso 1. Con esto se obtiene cada grupo. 
+ b. 
+ Armar las dos listas, una con la instancia del paso 1, y la otra con lo pendiente de imputar que se pueda imputar contra la instancia del paso anterior (que tengan igual valor para los atributos del grupo). 
+ c. 
+ Luego invocar al algoritmo de imputaciones con el criterio actual y pasando las listas del paso anterior. Y el tracker deberá retornar todo lo pendiente como imputable. 
+ d. 
+ Las operaciones retornadas en el paso anterior se deberán agregar a la misma transacción que se esta ejecuntando. 
+ 

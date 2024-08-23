@@ -1,0 +1,10 @@
+2.3 Editar procesos de negocios 
+ Cada proceso de negocio o subproceso puede ser editado a través de desplegar el menú contextual sobre la instancia del acordeón del proceso de negocios, sus subprocesos o sus actividades y seleccionar la ópción “Editar”. Al hacer estó, se accede a las ópciónes de edición del PN desde las cuales, además de 
+ poder editarse sus propios atributos, se pueden ejecutar o editar sus actividades ya existentes, así como crear nuevas, además de acceder a las opciones de edición de los subprocesos. 
+ Para editar lós subprócesós, se accede a sus ópciónes de edición a través de la sólapa de “Sub prócesós”. En dicha solapa se observa una grilla con los diferentes subprocesos que pertenecen al PN. Al seleccionar alguno de ellos, se abre un nuevo fragmento con sus opciones de edición entre las que se encuentran sus actividades, desde las cuales se pueden ejecutar y editar las ya existentes, así como crear nuevas actividades. 
+ Para ejecutar, editar o crear las actividades, ya sea del proceso de negocio como de los subprocesos, se debe abrir su correspondiente menú contextual desde la grilla de la solapa actividades, y seleccionar la opción deseada 
+ Editar los iconos de las fichas 
+ Cada ficha, por defecto, contiene el icono del tipo de actividad a la que pertenece. Sin embargo, el mismo puede ser cambiado por el usuario. 
+ Para ello se debe acceder a las opciones de edición de la actividad a través del bótón de “Edición” del menú cóntextual de la misma, ya sea desde la sección de “Actividades” del acórdeón, ó desde la grilla “Actividades” de las ópciónes de edición del prócesó de negóció ó de lós subprócesós a lós que pertenece. 
+ Dentró de las ópciónes de edición de la actividad, se óbserva el atributó “Icónó de ficha” a partir del cual se puede seleccionar un nuevo icono para la ficha de la actividad al abrir la instancia del proceso de negocio que la incluya. 
+ 

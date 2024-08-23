@@ -1,0 +1,4 @@
+Ejemplos: 
+ Sustituir("cdefghi";"def";"yyy") retorna “cyyyghi”. 
+ Sustituir('AIRBUS 150';'AIRBUS';'AB') retorna “AB 150” 
+ 

@@ -1,0 +1,14 @@
+Ejemplo: 
+ • 
+ Se crear una Nota de venta con un ítem de producto con cantidad 10: 
+ • 
+ Luego, al ejecutar la transformación se ingresa para transformar en cantidad 14 (la transformación tiene configurada tolerancia de más de lo pendiente de 5). 
+ • 
+ Entonces, al transformar en el Log de transformación, se deben insertar 2 registros. 
+ o 
+ Uno por la cancelación del pendiente. 
+ o 
+ Otro por el valor que entró en tolerancia. 
+ En consecuencia, el Valor acumulado del pendiente de transformar debe quedar en 0. 
+ En el caso de que existan atributos obligatorios que no presenten un valor determinado en la entidad que se generará para cancelar los valores pendientes de transformación, se presentará al usuario el formulario que se va a generar para realizar la cancelación de los pendientes, con el fin de que se ingresen los valores obligatorios faltantes. 
+ 

@@ -1,0 +1,5 @@
+1.10 Definición de Transformaciones. 
+ Una transformación representa el flujo y secuencia de información entre una entidad origen y una o varias entidades de destino. Por ejemplo, permite representar como será facturado un remito. Cada entidad podrá tener asociadas “n” transformaciones. En la definición de cada transformación se 
+ especificará cada uno de los atributos que deberá ser transformado, asignando a atributos de la entidad destino algún valor o el resultado de fórmulas que involucren a atributos de la entidad origen, o bien asignando datos del sistema. 
+ Esta solapa se visualiza una grilla con la lista de transformaciones originadas desde la entidad en edición. El usuario podrá crear una nueva transformación seleccionando una fila vacía dentro de la grilla. 
+ 

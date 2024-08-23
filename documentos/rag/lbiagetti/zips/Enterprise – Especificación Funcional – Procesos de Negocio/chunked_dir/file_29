@@ -1,0 +1,12 @@
+3.7.7 Consulta centralizada de Versiones de APIs de WS 
+ Existirá una actividad desde la cual se podrán consultar y editar todas las versiones de apis de WS. 
+ Hacer prototipo con grilla: 
+ |    | Activi dad          | No mb re                      | Idi om a          | Acci one s                | Tipo de reto rno          | Oc ult a det all e de err or          | Versi ones del       API          | Ac tiv a          | Fecha de caduc idad          | Docume ntación          |
+|---:|:---------------------|:-------------------------------|:-------------------|:---------------------------|:---------------------------|:---------------------------------------|:------------------------------------|:-------------------|:------------------------------|:-------------------------|
+|  0 | Factu ración        | Ws Fact ura por men or        | Esp año l         | (Alta , cons ulta)        | Resu ltado                | Sí                                    | nan                                 | nan                | nan                           | nan                      |
+|  1 | nan                  | nan                            | nan                | nan                        | nan                        | nan                                    | nan                                 | nan                | nan                           | nan                      |
+|  2 | nan                  | nan                            | nan                | nan                        | nan                        | nan                                    | 1                                  | no                | -                            | Botón                   |
+|  3 | nan                  | nan                            | nan                | nan                        | nan                        | nan                                    | 2                                  | no                | 15/10 /2017                  | Botón                   |
+|  4 | nan                  | nan                            | nan                | nan                        | nan                        | nan                                    | 3                                  | si                | nan                           | Botón                   |
+ … 
+ 

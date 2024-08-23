@@ -1,0 +1,3 @@
+2.3.8 Autenticación de un usuario externo 
+ Los usuarios externos podrán acceder al dominio vinculado, realizando la autenticación en su dominio original, a través del vínculo en cuestión. Es decir, el usuario debe ingresar a la url del dominio de acceso y en el campo usuario debe especificar el dominio de autenticación de la siguiente manera: dominio\usuario. En este caso, no se visualizará la opción para restablecer la contraseña y en su lugar, se visualizará el dominio de autenticación. 
+ 

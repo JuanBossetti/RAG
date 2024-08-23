@@ -1,0 +1,23 @@
+3.3.7 Transformación con imputaciones 
+ Una Actividad de categoría transformación con imputaciones se utilizará para realizar las transformaciones definidas en el Diccionario de Datos y a su vez, las imputaciones de las entidades en las cuales desencadenan las entidades destino de la transformación asociada a la Actividad. Dicha Actividad podrá tener asociadas múltiples entidades. Es decir, la Actividad tendrá como entidades asociadas a aquellas que sean destino de la transformación seleccionada y a las entidades de las imputaciones seleccionadas. 
+ Las entidades asociadas a la Actividad deberán ser destino de una transformación y se visualizarán en el diagrama de igual forma que la descripta para la categóría “Transfórmación”. A su vez, al menos uno de dichos destinos deberá tener definidos desencadenantes hacia alguna entidad que tenga imputaciones. Si existen varias entidades con desencadenantes a otras entidades con imputaciones, se podrán asociar algunas de estas imputaciones a la Actividad. 
+ Dentro de la configuración de la categoría, se presentarán las siguientes propiedades: 
+ ✓ 
+ Entidad: igual que ló descriptó para “Transfórmación”. 
+ ✓ 
+ Transformación: igual que ló descriptó para “Transfórmación”. 
+ ✓ 
+ Definición de la Transformación: igual que ló descriptó para “Transfórmación”. 
+ ✓ 
+ Entidad/es a generar: igual que ló descriptó para “Transfórmación”. 
+ o 
+ Entidad desencadenada: igual que ló descriptó para “Única instancia cón imputación”. 
+ o 
+ Imputación: igual que ló descriptó para “Única instancia cón imputación”. 
+ ✓ 
+ Filtro de instancias: igual que ló descriptó para “Transfórmación”. 
+ ✓ 
+ Duración prevista: igual que ló descriptó para “Transfórmación”. En este caso, heredará del tiempo esperado que haya sido definido en el DD para la entidad. 
+ Las imputaciones asociadas a esta actividad se configuran en la solapa “Entidades a generar”. 
+ A continuación, se muestra un ejemplo de una Actividad asociada a una transformación múltiple con 2 destinos: “Remitó” y “Nota de Crédito”, y a una imputación en “Cuenta Córriente”, que es una entidad en la cual desencadena “Nota de Crédito”. 
+ 

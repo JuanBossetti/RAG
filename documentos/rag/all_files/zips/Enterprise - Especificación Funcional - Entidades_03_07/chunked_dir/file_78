@@ -1,0 +1,3 @@
+Desencadenantes 
+ Dentro de la definición de los logs de transformaciones adicionalmente pueden agregarse desencadenantes que creen instancias en otras entidades a partir de la creación de registros en el log, al igual que lo definido para cualquier entidad. 
+ 

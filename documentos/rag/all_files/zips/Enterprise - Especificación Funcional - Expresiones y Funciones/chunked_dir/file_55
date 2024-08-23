@@ -1,0 +1,17 @@
+3.7 Condiciones y orden de ejecución 
+ Es donde se define qué retorna la función. Se tienen un conjunto de condiciones y el valor de retorno para cada una de ellas. Cada condición se evalúa en el orden en que están ingresadas, hasta que de verdadero. 
+ ✓ 
+ Condición: Permite introducir una Expresión que en caso de evaluarse como verdadera se ejecutará la Expresión indicada en el siguiente campo. 
+ ✓ 
+ Expresión: Indica la Expresión que deberá ser ejecutada. 
+ ✓ 
+ Documentación: Indica en forma coloquial, cuál es la condición que se debe cumplir para devolver el resultado de la expresión, y cuál es el valor que devuelve esa expresión. La idea es que el usuario lo entienda rápidamente sin tener que interpretar las expresiones. 
+ En el caso de que se indique que retorno es multivalor la función deberá devolver una colección con el resultado de todas las expresiones que fueron ejecutadas. En caso contrario, solo se ejecutará la primera expresión cuya condición sea evaluada como verdadera. Si no se cumple ninguna condición, la función devuelve nulo. 
+ Como se mencionó, el orden de ejecución es secuencial según el orden establecido en las condiciones. Es por esto que se debe prestar suma importancia al orden en que se escriban las mismas. 
+ Por ejemplo, supongamos la siguiente situación: 
+ Se aplica un descuento al cliente según el monto del total de la factura, que se recibe como parámetro. El descuento es de 10% hasta $ 50.000; 15% hasta $200.000 y 20% en adelante 
+ Entonces, si escribimos las condiciones de la siguiente manera: 
+ Al cumplirse la primera condición, no se evaluarán las siguientes, por lo tanto, esta función siempre devuelve un descuento del 10%. 
+ En cambio, si las escribimos de la siguiente manera: 
+ En este caso, va a devolver el descuento correspondiente según el monto. Porque al no cumplirse una condición, seguirá evaluando las condiciones restantes, hasta que se cumpla alguna. 
+ 

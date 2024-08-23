@@ -1,0 +1,19 @@
+3.12 Políticas para Solicitar pantalla y Compartir Pantalla 
+ Políticas de seguridad relacionadas con la funcionalidad de Solicitar pantalla y Compartir pantalla. 
+ - 
+ Solicitar pantalla al dominio propio: permite al usuario solicitante tener el permiso para pedir acceso a la sesión de los usuarios del dominio actual. 
+ - 
+ Solicitar pantalla a otros dominios externos: (permite al usuario solicitante tener el permiso para pedir acceso a la sesión de los usuarios de los dominios externos que tenga confianza otorgada. 
+ - 
+ Compartir pantalla al dominio propio: permite al usuario solicitante tener el permiso para compartir la sesión propia a los usuarios del dominio actual 
+ - 
+ Compartir pantalla para otros dominios externos: permite al usuario solicitante tener el 
+ permiso para compartir la sesión propia a los usuarios de los dominios externos que tenga confianza otorgada. 
+ - 
+ Solicitar control: permite al usuario solicitante, toma el control de la sesión a la cual se encuentra participando para poder manejar el cursor y realizar cambios. 
+ - 
+ Ceder el control: permite al usuario asistido, otorgarle al otro usuario el control de la sesión a la cual se encuentra participando para poder manejar el cursor y realizar cambios. 
+ Las políticas de seguridad se deben definir a nivel Marketplace, para que se pueda decidir qué dominios pueden solicitar control. Esta configuración se realiza en la instancia de Dominio de implementación teniendo en cuenta los dominios a los que se tiene confianza. 
+ Cuando se desee otorgar la política de solicitud y compartición de pantalla para dominios externos, sólo se debe permitir para aquellos dominio de implementación que tengan otorgados dominios. Por ejemplo: 
+ ISV ‘Irontech’ sólo posee permisos para solicitar pantalla a los usuario del dominio propio. Fastprg posee permisos para solicitar pantalla a los usuarios del dominio propio y adicionalmente a ISV ‘Irontech’. 
+ 

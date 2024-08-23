@@ -1,0 +1,20 @@
+5.7 Cola de base de datos de robot de testeo 
+ Es la cola encargada de procesar la creación de las imágenes de bases de datos necesarias para la ejecución de los planes de pruebas utilizados para robot de testeo. 
+ atributos comunes 
+ atributos comunes en las colas
+ Además de los en todos los registros y de los , los específicos de esta cola son: 
+ • 
+ Dominio. Indica el dominio sobre el cual se deben crear los clones de la base de datos. Esta cola serializa las peticiones de creación de bases de datos por cada dominio, es decir, puede enviar pedidos de creación en paralelo de diferentes dominios sobre los cuales se la solicite, pero si se envían múltiples solicitudes de creación de base de datos para el mismo dominio, la cola serializará las peticiones del mismo. 
+ • 
+ Datos base robot. En caso de que la creación de la base de datos sea completada correctamente, almacena la información de la base de datos creada para los datos base de robot. 
+ o 
+ IP. Contiene la dirección ip de la imagen de base de datos de robot de testeo. 
+ o 
+ Puerto. Puerto utilizado para conectarse a la base de datos de datos base robot. 
+ • 
+ Datos editores. En caso de que la creación de la base de datos sea completada correctamente, almacena la información de la base de datos creada para la base de datos de editores. 
+ o 
+ IP. Contiene la dirección ip de la imagen de base de datos de robot de testeo. 
+ o 
+ Puerto. Puerto utilizado para conectarse a la base de datos de editores. 
+ 

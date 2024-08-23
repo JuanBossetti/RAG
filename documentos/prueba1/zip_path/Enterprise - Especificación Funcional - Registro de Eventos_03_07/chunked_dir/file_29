@@ -1,0 +1,8 @@
+4.10.2 Registro de tareas de integración 
+ Se genera una entidad de registro individual para cada tarea de integración (importación/exportación) definida. Cuando se crea una tarea de integración, el Analizador de impacto crea una entidad para registrar lo que se va importando/exportando. Así que por cada tarea de integración va a existir un log distinto asociado a la tarea. En cada uno, además de registrar todos los atributos de la importación/exportación, también se registran los valores de atributos como: acción que se realizó, código de error (si lo hubo); referencia a la instancia de la entidad destino asociada, etc. 
+ Ejemplo: 
+ Importar desde una aplicación externa de un proveedor el listado de productos disponibles mediante un archivo de Excel, para hacer un pedido de compra. 
+ Exportación de los precios que poseo en el sistema hacia un archivo Excel. 
+ Tarea de integración: 
+ Registro asociado a la tarea: 
+ 

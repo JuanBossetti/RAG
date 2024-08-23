@@ -1,0 +1,33 @@
+3.11.1 Consumo de operación de Servicio web. 
+ Se obtienen los parámetros de entrada de la operación seleccionada y el sistema, además, debe crearlos con los valores predeterminados que fueron definidos en la misma. Se permite seleccionar si desea que la función retorne un único valor (en cuyo caso se permitirá seleccionar el atributo correspondiente) o si se desea que la función realice el retorno de la instancia completa. 
+ • 
+ Mediante agente: Permite que el consumo del servicio web se realice a través del agente para que pueda comunicarse con el dispositivo físico final. Al activar esta opción, el sistema adicionalmente presenta las siguientes opciones, las cuales se detalla su funcionamiento en el siguiente ítem Consumo de dispositivo: 
+ o 
+ Tipo de dispositivo. Tener en cuenta que solo se presentarán los tipos de dispositivos los cuales tengan activa la propiedad Consumo por web service. 
+ ✓ 
+ Origen de dispositivo. 
+ • 
+ Dispositivo fijo. 
+ o 
+ Dispositivo 
+ • 
+ Dispositivo Predeterminado 
+ o 
+ Predeterminado del usuario autenticado 
+ o 
+ Predeterminado del Sitio 
+ o 
+ Predeterminado del dominio 
+ • 
+ Dispositivo mediante Expresión 
+ o 
+ Expresión 
+ especificación funcional de dispositivos
+ Para más información acerca del consumo de web service mediante dispositivos, ver . 
+ Supongamos, ahora, que debemos cargar una factura a un cliente y para ello necesitamos el código que nos provee AFIP. Existen distintas formas de conseguir este valor, pero nosotros lo haremos mediante una función que consuma un web service. Es importante mencionar que este debe estar previamente creado. 
+ Si activamos la propiedad Consumo de servicio web, se nos oculta la solapa de condiciones pero se habilitan dos más para poder definir el webservice a consumir, junto con sus valores. En la primera, podemos establecer el grupo de web service, el web service en sí y la operación que, efectivamente, consumirá la función. 
+ En la segunda, visualizamos los parámetros de invocación del servicio web, los cuales tienen como valores iniciales aquellos definidos en la operación del servicio, que pueden redefinirse, sin problemas. 
+ Cada valor es una expresión y su contexto, el de los parámetros de la función; dicho de otro modo, desde la solapa de parámetros o parámetros interactivos podemos pasarle uno de estos a la función, y luego, utilizarlo como parámetro de invocación del web service. En este caso, le indicamos la factura en edición. 
+ Con este atributo podemos determinar si esperamos la respuesta de una instancia completa del web service, o si solo nos interesa un atributo, en cuyo caso deberíamos especificar cuál. La respuesta de la función será la respuesta del web service. 
+ Por último, solo veremos estos dos atributos cuando el servicio esté configurado para obtener token y nos permitan definir la manera de obtenerlo y su tiempo de expiración. 
+ 

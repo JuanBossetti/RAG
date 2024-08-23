@@ -1,0 +1,22 @@
+11 Solicitar pantalla 
+ La funcionalidad Solicitar pantalla se encarga de permitir a un usuario pedir control sobre la sesión de otro. Esta funcionalidad es iniciada por el usuario que desea tomar la sesión y siempre deberá ser confirmada por el usuario que está otorgando su sesión. Cualquiera de los 
+ esta 
+ sección 
+ dos usuarios participantes, puede finalizar la acción. Para que un usuario pueda realizar esta operación, necesita los permisos de seguridad correspondientes que se mencionan en del presente documento. 
+ A continuación, se dejan todos los links a los documentos en los que se describe cada entidad que interviene en el proceso. 
+ • 
+ Marketplace
+ (<http://innovacion:26607/EnterpriseFuncional/MarketPlace/Enterprise%20-%20Especificación%20Funcional%20-%20AAS.docx>): 
+ o 
+ Vinculo de asistencia técnica. 
+ o 
+ Supervisión. 
+ o 
+ Usuarios logueados. 
+ • 
+ Registro de sesiones compartidas
+ (<http://innovacion:26607/EnterpriseFuncional/Registro%20de%20Eventos>). 
+ • 
+ Ventana emergente de solicitar pantalla
+ (<http://innovacion:26607/EnterpriseFuncional/Estándares%20de%20Interfaz%20de%20Usuario>). 
+ 

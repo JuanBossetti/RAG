@@ -1,0 +1,7 @@
+Con respecto a las reversiones de imputaciones: 
+ Se pueden generar comprobantes por tolerancia o por conversión, en base a esto el comportamiento de sistema será el siguiente: 
+ • 
+ Si el comprobante se genera por tolerancia, la imputación y el comprobante se genera en la misma operación por lo que al desimputar se revierte también el comprobante generado. 
+ • 
+ Si el comprobante se genera por saldo de conversión, este comprobante y la imputación se generan en operaciones diferentes por lo que en este caso al desimputar (es decir al revertir la imputación) se desimputa el comprobante generado por saldo de conversión pero no se revierte. 
+ 
