@@ -1,0 +1,51 @@
+# Entornos virtuales
+env/
+venv/
+.venv/
+venv*/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de configuración del entorno de desarrollo
+.idea/
+.vscode/
+*.code-workspace
+
+# Archivos de paquetes y distribuciones
+*.egg-info/
+.eggs/
+dist/
+build/
+wheels/
+
+# Archivos y carpetas temporales
+*.tmp
+*.log
+*.swp
+*.swo
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de prueba y cobertura
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.tox/
+nosetests.xml
+test-reports/
+
+# Archivos de documentación generados
+docs/_build/
+site/
+
+# Archivos de configuración de servicios externos
+.env
+.env.*
