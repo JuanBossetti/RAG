@@ -25,6 +25,12 @@
             </li>
         {% endfor %}
     </ul>
+    <h1>Sube tu archivo ZIP</h1>
+        <form action="/upload_zip" method="post" enctype="multipart/form-data">
+            <input type="file" name="zip_file" accept=".zip" required>
+            <button type="submit">Subir ZIP</button>
+        </form>
+
 
     <h2>Archivos ZIP cargados:</h2>
     <ul>

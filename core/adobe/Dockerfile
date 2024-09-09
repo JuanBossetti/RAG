@@ -6,6 +6,7 @@ RUN pip install --upgrade pip==20.0.2
 
 RUN mkdir -p /app/models
 RUN mkdir -p /app/docs/all_files/pdfs
+RUN mkdir -p /app/docs/all_files/zips
 
 VOLUME /app/docs
 

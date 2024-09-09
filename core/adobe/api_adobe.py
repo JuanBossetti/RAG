@@ -83,6 +83,26 @@ def upload_pdf():
     else:
         return 'Invalid file type. Please upload a PDF.'
 
+
+@app.route('/upload_zip', methods=['POST'])
+def upload_zip():
+    if 'zip_file' not in request.files:
+        return 'No file part'
+    
+    file = request.files['zip_file']
+    
+    if file.filename == '':
+        return 'No selected file'
+    
+    if file and file.filename.endswith('.zip'):
+        # Guarda el archivo en el directorio configurado
+        file_path = os.path.join(app.config['ZIP_FOLDER'], file.filename)
+        file.save(file_path)
+        return redirect(url_for('index'))
+    else:
+        return 'Invalid file type. Please upload a ZIP file.'
+
+
 @app.route('/delete_pdf', methods=['POST'])
 def delete_pdf():
     pdf_to_delete = request.form['pdf_to_delete']

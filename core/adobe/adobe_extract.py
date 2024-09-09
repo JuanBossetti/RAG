@@ -38,6 +38,8 @@ class AdobeExtract:
     def _get_processed_pdf_path(self, input_pdf):
         zip_path = self._get_zip_path(input_pdf)
         if os.path.isfile(zip_path):
+            print("archivo ya conocido")
+            print(zip_path)
             return zip_path
         else:
             self._process_pdf(input_pdf, zip_path)
