@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="178.65 42.85 183.8 223.5" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css">
+	.st0{fill:#0056A6;}
+	.st1{fill:#0D2D67;}
+	.st2{fill:#007FBD;}
+	.st3{fill:#006EB0;}
+	.st4{fill:#0093CD;}
+	.st5{fill:#00AAE3;}
+	.st6{fill:#004E77;}
+</style>
+  </defs>
+  <g transform="matrix(0.9999999999999999, 0, 0, 1, -15.349989567373939, 37.049998455803916)">
+    <polygon class="st0" points="292.7,185.3 277.2,134.8 337.9,124.1 "/>
+    <polygon class="st1" points="194,61.1 277.2,134.8 277.1,89.6 246.6,78.6 "/>
+    <polygon class="st2" points="267.7,226.3 277.2,134.8 292.7,185.3 "/>
+    <polygon class="st3" points="363,100 310.9,99.8 337.9,124.1 "/>
+    <polygon class="st4" points="377.8,128.5 363,100 346.3,116.1 "/>
+    <polygon class="st5" points="205,5.8 277.2,134.8 337.9,124.1 "/>
+    <polygon class="st6" points="252.2 229.3 268.6 217.4 267.7 226.3"/>
+  </g>
+</svg>
