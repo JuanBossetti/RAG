@@ -1,1 +1,0 @@
-## Alcance de api
